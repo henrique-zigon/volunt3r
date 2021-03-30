@@ -40,11 +40,11 @@ public class UsuarioController {
                             u.getSenha().equals(usuario.getSenha());
                 }).collect( Collectors.toList());
 
-        usuarioLogado.add(usuario);
 
         if(usuarioFiltrado.isEmpty()) {
             return "Opps... Usuário e/ou senha incorretos!";
         } else {
+            usuarioLogado.add(usuario);
             return "Usuário logado com sucesso!";
         }
     }
