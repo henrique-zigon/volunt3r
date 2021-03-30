@@ -1,26 +1,15 @@
 package Models;
 
-import Models.Postagem;
-import Models.Usuario;
+import java.util.List;
 
 public class Evento extends Postagem {
 
-
-    private String dataEvento;
     private String categoria;
 
-    public Evento(String titulo, String descricao, String dataPostagem, String pathImagem, int cliques, String dataEvento, String categoria) {
-        super(titulo, descricao, dataPostagem, pathImagem, cliques);
-        this.dataEvento = dataEvento;
+    public Evento(String titulo, String descricao, String dataPostagem, String pathImagem, int cliques, Usuario usuario,
+                  List<String> tagsPostagem, String categoria) {
+        super(titulo, descricao, dataPostagem, pathImagem, cliques, usuario, tagsPostagem);
         this.categoria = categoria;
-    }
-
-    public String getDataEvento() {
-        return dataEvento;
-    }
-
-    public void setDataEvento(String dataEvento) {
-        this.dataEvento = dataEvento;
     }
 
     public String getCategoria() {

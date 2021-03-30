@@ -9,17 +9,18 @@ public class Usuario {
     private String nome;
     private String dataNascimento;
     private char genero;
-    private int quantidade_milhas;
+    private int quantidadeMilhas;
     private String tipoUsuario;
 
-    public Usuario(int id, String email, String senha, String nome, String dataNascimento, char genero, int quantidade_milhas, String tipoUsuario) {
+    public Usuario(int id, String email, String senha, String nome, String dataNascimento, char genero,
+                   int quantidadeMilhas, String tipoUsuario) {
         this.id = id;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.genero = genero;
-        this.quantidade_milhas = quantidade_milhas;
+        this.quantidadeMilhas = quantidadeMilhas;
         this.tipoUsuario = tipoUsuario;
     }
 
@@ -71,12 +72,12 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public int getQuantidade_milhas() {
-        return quantidade_milhas;
+    public int getQuantidadeMilhas() {
+        return quantidadeMilhas;
     }
 
-    public void setQuantidade_milhas(int quantidade_milhas) {
-        this.quantidade_milhas = quantidade_milhas;
+    public void setQuantidadeMilhas(int quantidadeMilhas) {
+        this.quantidadeMilhas = quantidadeMilhas;
     }
 
     public String getTipoUsuario() {

@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.List;
+
 public abstract class Postagem {
 
     private String titulo;
@@ -7,14 +9,19 @@ public abstract class Postagem {
     private String dataPostagem;
     private String pathImagem;
     private int cliques;
+    private Usuario usuario;
+    private List<String> tagsPostagem;
 
 
-    public Postagem(String titulo, String descricao, String dataPostagem, String pathImagem, int cliques) {
+    public Postagem(String titulo, String descricao, String dataPostagem, String pathImagem, int cliques,
+                    Usuario usuario, List<String> tagsPostagem) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataPostagem = dataPostagem;
         this.pathImagem = pathImagem;
         this.cliques = cliques;
+        this.usuario = usuario;
+        this.tagsPostagem = tagsPostagem;
     }
 
     public abstract void postar();
