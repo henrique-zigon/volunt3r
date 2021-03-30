@@ -17,11 +17,11 @@ public class UsuarioController {
 
     // Iniciando o construtor com usuários "cadastrados"
     public UsuarioController() {
-        usuariosSistema.add(new Usuario(1, "ygor.lima@b3.com.br", "123456",
+        usuariosSistema.add(new Usuario(1, "ygor.lima@bandtec.com.br", "123456",
                 "Ygor dos Santos", "25/05/2002", 'M', 125,
                 "B3 Social"));
 
-        usuariosSistema.add(new Usuario(2, "eduardo.santos@b3.com.br", "@123",
+        usuariosSistema.add(new Usuario(2, "eduardo.santos@bandtec.com.br", "@123",
                 "Eduardo Cavalcanti", "10/01/2002", 'M', 25,
                 "Comum"));
 
