@@ -1,4 +1,4 @@
-package br.com.voluntier.apivoluntier;
+package Models;
 
 public class Usuario {
 

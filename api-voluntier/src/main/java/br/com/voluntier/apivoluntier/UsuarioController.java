@@ -1,10 +1,9 @@
 package br.com.voluntier.apivoluntier;
+import Models.Usuario;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -27,8 +26,7 @@ public class UsuarioController {
                 "Comum"));
 
     }
-
-
+    
     /*
     EndPoint para realizar login do usuário
     Nesse EndPoint passamos: email e senha no json
@@ -83,5 +81,6 @@ public class UsuarioController {
         map.put("message", "Usuário criado com sucesso!");*/
         return "Usuário criado com sucesso!";
     }
+    
 
 }
