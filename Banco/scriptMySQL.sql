@@ -8,7 +8,7 @@ create table Categoria(
     check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4)
 );
 
-create table Usuario(
+create table usuario(
 	id_usuario int primary key auto_increment,
     nome_usuario varchar(200),
     genero varchar(10),
@@ -21,7 +21,7 @@ create table Usuario(
     area varchar(100)
 );
 
-create table Ranque(
+create table ranque(
 	id_ranque int primary key auto_increment,
     nome_ranque varchar(10),
     fk_usuario int,
@@ -30,7 +30,7 @@ create table Ranque(
     foreign key(fk_categoria) references Categoria(id_categoria)
 );
 
-create table Publicacao(
+create table publicacao(
 	id_publicacao int primary key auto_increment,
     titulo_publicacao varchar(100),
     descricao varchar(400),
@@ -40,7 +40,7 @@ create table Publicacao(
     foreign key (fk_usuario) references Usuario(id_usuario)
 );
 
-create table Evento(
+create table evento(
 	id_evento int primary key auto_increment,
     data_evento datetime,
     maximo_participantes int,
@@ -51,7 +51,7 @@ create table Evento(
     foreign key(fk_publicacao) references Publicacao(id_publicacao)
 );
 
-create table Usuario_Evento(
+create table usuario_evento(
 	fk_evento int,
     foreign key(fk_evento) references Evento(id_evento),
     fk_usuario int,
@@ -60,7 +60,7 @@ create table Usuario_Evento(
     check(status_UE = 'pendente'or status_UE = 'confirmado')
 );
 
-create table Comentario(
+create table comentario(
 	#id_comentario int primary key auto_increment,
     data_comentario datetime,
     comentario varchar(400),
@@ -70,7 +70,7 @@ create table Comentario(
     foreign key(fk_usuario) references Usuario(id_usuario)
 );
 
-create table Gostei(
+create table gostei(
 	#id_gostei int primary key auto_increment,
     fk_publicacao int,
     foreign key(fk_publicacao) references Publicacao(id_publicacao),
@@ -78,7 +78,7 @@ create table Gostei(
     foreign key(fk_usuario) references Usuario(id_usuario)
 );
 
-create table Clique(
+create table clique(
 	#id_clique int primary key auto_increment,
     fk_publicacao int,
     foreign key(fk_publicacao) references Publicacao(id_publicacao),
