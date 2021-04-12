@@ -1,30 +1,33 @@
-package Models;
+package br.com.voluntier.apivoluntier.Models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 public abstract class Postagem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String titulo;
     private String descricao;
-    private String dataPostagem;
+    private LocalDate dataPostagem;
     private String pathImagem;
     private int cliques;
-    private Usuario usuario;
-    private List<String> tagsPostagem;
+    private int idUsuario;
 
-
-    public Postagem(String titulo, String descricao, String dataPostagem, String pathImagem, int cliques,
-                    Usuario usuario, List<String> tagsPostagem) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataPostagem = dataPostagem;
-        this.pathImagem = pathImagem;
-        this.cliques = cliques;
-        this.usuario = usuario;
-        this.tagsPostagem = tagsPostagem;
+    public Integer getId() {
+        return id;
     }
 
-    public abstract void postar();
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -42,11 +45,11 @@ public abstract class Postagem {
         this.descricao = descricao;
     }
 
-    public String getDataPostagem() {
+    public LocalDate getDataPostagem() {
         return dataPostagem;
     }
 
-    public void setDataPostagem(String dataPostagem) {
+    public void setDataPostagem(LocalDate dataPostagem) {
         this.dataPostagem = dataPostagem;
     }
 
@@ -65,4 +68,13 @@ public abstract class Postagem {
     public void setCliques(int cliques) {
         this.cliques = cliques;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
 }
