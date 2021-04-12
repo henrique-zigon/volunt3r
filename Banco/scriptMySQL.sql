@@ -12,8 +12,9 @@ create table usuario(
 	id_usuario int primary key auto_increment,
     nome_usuario varchar(200),
     genero varchar(10),
-    milhas int,
+   quantidade_milhas int,
     tipo_usuario varchar(10),
+    data_nascimento varchar(11),
     check (tipo_usuario = 'comum' or 'b3_social'),
     email varchar(50),
     senha varchar(50),
@@ -34,7 +35,7 @@ create table publicacao(
 	id_publicacao int primary key auto_increment,
     titulo_publicacao varchar(100),
     descricao varchar(400),
-    data_postagem datetime,
+    data_postagem varchar(15),
     imagem varchar(200), 
     fk_usuario int,
     foreign key (fk_usuario) references usuario(id_usuario)
@@ -42,7 +43,7 @@ create table publicacao(
 
 create table evento(
 	id_evento int primary key auto_increment,
-    data_evento datetime,
+    data_evento varchar(15),
     maximo_participantes int,
     horas float,
     fk_categoria int,
@@ -62,7 +63,7 @@ create table usuario_evento(
 
 create table comentario(
 	#id_comentario int primary key auto_increment,
-    data_comentario datetime,
+    data_comentario varchar(15),
     comentario varchar(400),
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
