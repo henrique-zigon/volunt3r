@@ -1,3 +1,4 @@
+drop database volunt3r;
 create database volunt3r;
 use volunt3r;
 
@@ -36,7 +37,7 @@ create table evento(
     maximo_participantes int,
     horas float,
     fk_categoria int,
-    foreign key (fk_categoria) references categoria(id_categoria),
+    foreign key (fk_categoria) references categoria(id_categoria)
 );
 
 create table publicacao(
@@ -65,7 +66,7 @@ create table usuario_evento(
 
 
 create table gostei(
-	//id_gostei int auto_increment primary key,
+	#id_gostei int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
@@ -73,7 +74,7 @@ create table gostei(
 );
 
 create table clique(
-	//id_clique int auto_increment primary key,
+	#id_clique int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
