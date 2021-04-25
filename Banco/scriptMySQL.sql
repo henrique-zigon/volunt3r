@@ -2,20 +2,19 @@ create database volunt3r;
 use volunt3r;
 
 create table categoria(
-	id_categoria int primary key auto_increment,
+	id_categoria int auto_increment primary key,
     nome_categoria varchar(100),
     nivel int,
     check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4)
 );
 
 create table usuario(
-	id_usuario int primary key auto_increment,
+	id_usuario int auto_increment primary key,
     nome_usuario varchar(200),
     genero varchar(10),
-   quantidade_milhas int,
+    quantidade_milhas int,
     tipo_usuario varchar(10),
-    data_nascimento varchar(11),
-    check (tipo_usuario = 'comum' or 'b3_social'),
+    check (tipo_usuario = 'comum' or tipo_usuario='b3_social'),
     email varchar(50),
     senha varchar(50),
     cargo varchar(42),
@@ -23,7 +22,7 @@ create table usuario(
 );
 
 create table ranque(
-	id_ranque int primary key auto_increment,
+	id_ranque int auto_increment primary key,
     nome_ranque varchar(10),
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario),
@@ -31,25 +30,27 @@ create table ranque(
     foreign key(fk_categoria) references categoria(id_categoria)
 );
 
-create table publicacao(
-	id_publicacao int primary key auto_increment,
-    titulo_publicacao varchar(100),
-    descricao varchar(400),
-    data_postagem varchar(15),
-    imagem varchar(200), 
-    fk_usuario int,
-    foreign key (fk_usuario) references usuario(id_usuario)
-);
-
 create table evento(
-	id_evento int primary key auto_increment,
+	id_evento int auto_increment primary key,
     data_evento varchar(15),
     maximo_participantes int,
     horas float,
     fk_categoria int,
     foreign key (fk_categoria) references categoria(id_categoria),
-    fk_publicacao int,
-    foreign key(fk_publicacao) references publicacao(id_publicacao)
+);
+
+create table publicacao(
+	id_publicacao int auto_increment primary key,
+    titulo_publicacao varchar(100),
+    descricao varchar(400),
+    data_postagem varchar(15),
+    imagem varchar(200), 
+    fk_usuario int,
+    foreign key (fk_usuario) references usuario(id_usuario),
+	fk_evento int,
+	foreign key (fk_evento) references evento(id_evento),
+	publicacao_pai int,
+	foreign key (publicacao_pai) references publicacao(id_publicacao)
 );
 
 create table usuario_evento(
@@ -61,18 +62,10 @@ create table usuario_evento(
     check(status_UE = 'pendente'or status_UE = 'confirmado')
 );
 
-create table comentario(
-	#id_comentario int primary key auto_increment,
-    data_comentario varchar(15),
-    comentario varchar(400),
-    fk_publicacao int,
-    foreign key(fk_publicacao) references publicacao(id_publicacao),
-    fk_usuario int,
-    foreign key(fk_usuario) references usuario(id_usuario)
-);
+
 
 create table gostei(
-	#id_gostei int primary key auto_increment,
+	//id_gostei int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
@@ -80,7 +73,7 @@ create table gostei(
 );
 
 create table clique(
-	#id_clique int primary key auto_increment,
+	//id_clique int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
