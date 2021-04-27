@@ -12,7 +12,6 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
     private String nomeUsuario;
-    private String dataNascimento;
     private String genero;
     private int quantidadeMilhas;
     private String tipoUsuario;
@@ -50,14 +49,6 @@ public class Usuario {
 
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public String getGenero() {

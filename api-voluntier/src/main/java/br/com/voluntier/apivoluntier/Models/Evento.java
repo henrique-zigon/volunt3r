@@ -1,29 +1,61 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.time.LocalDate;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Evento extends Postagem {
+public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idEvento")
     private Integer id;
-    private LocalDate dataEvento;
+    private String dataEvento;
     private int maximoParticipantes;
-    private double horasEvento;
+    private double horas;
+    @Column(name = "fkCategoria")
+    private int idCategoria;
 
-
-    public void ingresar(Usuario usuario) {
-
+    public Integer getId() {
+        return id;
     }
 
-    public List<Usuario> update(Usuario usuario) {
-        return null;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
+    public String getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(String dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public int getMaximoParticipantes() {
+        return maximoParticipantes;
+    }
+
+    public void setMaximoParticipantes(int maximoParticipantes) {
+        this.maximoParticipantes = maximoParticipantes;
+    }
+
+    public double getHoras() {
+        return horas;
+    }
+
+    public void setHoras(double horas) {
+        this.horas = horas;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
 }
+
+
+
