@@ -13,6 +13,7 @@ create table usuario(
 	id_usuario int auto_increment primary key,
     nome_usuario varchar(200),
     genero varchar(10),
+    bio varchar(255),
     quantidade_milhas int,
     tipo_usuario varchar(10),
     check (tipo_usuario = 'comum' or tipo_usuario='b3_social'),
@@ -54,7 +55,7 @@ create table publicacao(
 	foreign key (publicacao_pai) references publicacao(id_publicacao)
 );
 
-create table usuario_evento(
+create table inscricao_evento(
 	fk_evento int,
     foreign key(fk_evento) references evento(id_evento),
     fk_usuario int,
@@ -63,7 +64,12 @@ create table usuario_evento(
     check(status_UE = 'pendente'or status_UE = 'confirmado')
 );
 
-
+create table inscricao_categoria(
+	fk_categoria int,
+    foreign key(fk_categoria) references categoria(id_categoria),
+    fk_usuario int,
+    foreign key(fk_usuario) references usuario(id_usuario)
+);
 
 create table gostei(
 	#id_gostei int auto_increment primary key,
