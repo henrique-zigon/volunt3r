@@ -30,8 +30,8 @@ public class GravaArquivoEvento {
 
     public static void main(String[] args) {
 
-        Scanner leitor = new Scanner(System.in);   // leitor para uso geral, menos nextLine()
-        Scanner leitorNL = new Scanner(System.in); // leitor para usar para ler com nextLine()
+//        Scanner leitor = new Scanner(System.in);   // leitor para uso geral, menos nextLine()
+//        Scanner leitorNL = new Scanner(System.in); // leitor para usar para ler com nextLine()
 
         String nomeArq = "Arquivo_Eventos.txt";
         String header = "";
@@ -55,78 +55,78 @@ public class GravaArquivoEvento {
         // Grava o registro header
         gravaRegistro(nomeArq, header);
 
-        while (!fim) {
-            System.out.println("\n" +
-                    "1.\tAdicionar um evento\n" +
-                    "2.\tSair\n"
-            );
-
-            int opcao = leitor.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.println("Digite o id:");
-                    idEvento = leitor.next();
-
-                    System.out.println("Digite o nome:");
-                    nomeEvento = leitorNL.nextLine();
-
-                    System.out.println("Digite a categoria:");
-                    categoria = leitorNL.nextLine();
-
-                    System.out.println("Digite o número de participantes:");
-                    numeroParticipantes = leitor.nextInt();
-
-                    System.out.println("Digite as horas do evento:");
-                    horas = leitor.nextInt();
-
-                    System.out.println("Digite a aderência que o evento teve:");
-                    aderencia = leitor.nextDouble();
-
-                    System.out.println("Digite a data de abertura (dia-mes-ano):");
-                    dataAbertura = leitor.next();
-
-                    System.out.println("Digite a data de fechamento (dia-mes-ano):");
-                    dataFechamento = leitor.next();
-
-                    System.out.println("Digite quantos cliques o evento teve:");
-                    cliques = leitor.nextInt();
-
-                    System.out.println("Digite quantos likes o evento teve:");
-                    likes = leitor.nextInt();
+//        while (!fim) {
+//            System.out.println("\n" +
+//                    "1.\tAdicionar um evento\n" +
+//                    "2.\tSair\n"
+//            );
+//
+//            int opcao = leitor.nextInt();
+//
+//            switch (opcao) {
+//                case 1:
+//                    System.out.println("Digite o id:");
+//                    idEvento = leitor.next();
+//
+//                    System.out.println("Digite o nome:");
+//                    nomeEvento = leitorNL.nextLine();
+//
+//                    System.out.println("Digite a categoria:");
+//                    categoria = leitorNL.nextLine();
+//
+//                    System.out.println("Digite o número de participantes:");
+//                    numeroParticipantes = leitor.nextInt();
+//
+//                    System.out.println("Digite as horas do evento:");
+//                    horas = leitor.nextInt();
+//
+//                    System.out.println("Digite a aderência que o evento teve:");
+//                    aderencia = leitor.nextDouble();
+//
+//                    System.out.println("Digite a data de abertura (dia-mes-ano):");
+//                    dataAbertura = leitor.next();
+//
+//                    System.out.println("Digite a data de fechamento (dia-mes-ano):");
+//                    dataFechamento = leitor.next();
+//
+//                    System.out.println("Digite quantos cliques o evento teve:");
+//                    cliques = leitor.nextInt();
+//
+//                    System.out.println("Digite quantos likes o evento teve:");
+//                    likes = leitor.nextInt();
 
                     corpo = "02";
 
-                    corpo += String.format("%-4s", idEvento);
-                    corpo += String.format("%-50s", nomeEvento);
-                    corpo += String.format("%-2s", categoria);
-                    corpo += String.format("%4s", numeroParticipantes);
-                    corpo += String.format("%4s", horas);
-                    corpo += String.format("%5s", aderencia);
-                    corpo += String.format("%-10s", dataAbertura);
-                    corpo += String.format("%-10s", dataFechamento);
-                    corpo += String.format("%4s", cliques);
-                    corpo += String.format("%4s", likes);
+                    corpo += String.format("%-4s", 01);
+                    corpo += String.format("%-50s", "Doação de sangue");
+                    corpo += String.format("%-2s", "N2");
+                    corpo += String.format("%4s", 20);
+                    corpo += String.format("%4s", 8);
+                    corpo += String.format("%5s", 65.0);
+                    corpo += String.format("%-10s", "20-04-2021");
+                    corpo += String.format("%-10s", "20-04-2021");
+                    corpo += String.format("%4s", 40);
+                    corpo += String.format("%4s", 15);
 
                     contRegDados++;
 
                     gravaRegistro(nomeArq, corpo);
-                    break;
-
-                case 2:
-                    fim = true;
+//                    break;
+//
+//                case 2:
+//                    fim = true;
                     // monta o trailer
                     trailer += "01";
                     trailer += String.format("%010d", contRegDados);
                     gravaRegistro(nomeArq, trailer);
-                    System.out.println("Programa encerrado");
-                    break;
+//                    System.out.println("Programa encerrado");
+//                    break;
 
-                default:
-                    System.out.println("Opção inválida!");
-                    break;
-            }
+//                default:
+//                    System.out.println("Opção inválida!");
+//                    break;
+//            }
         }
     }
 
-}
+
