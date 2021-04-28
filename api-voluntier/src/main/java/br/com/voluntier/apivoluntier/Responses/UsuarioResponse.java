@@ -6,6 +6,7 @@ public class UsuarioResponse {
 
     private Integer idUsuario;
     private String nomeUsuario;
+    private String bio;
     private String email;
     private String genero;
     private int quantidadeMilhas;
@@ -22,6 +23,11 @@ public class UsuarioResponse {
         this.tipoUsuario = usuario.getTipoUsuario();
         this.cargo = usuario.getCargo();
         this.area = usuario.getArea();
+        this.bio = usuario.getBio();
+    }
+
+    public String getBio() {
+        return bio;
     }
 
     public Integer getIdUsuario() {

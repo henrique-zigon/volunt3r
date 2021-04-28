@@ -12,6 +12,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
     private String nomeUsuario;
+    private String bio;
     private String genero;
     private int quantidadeMilhas;
     private String tipoUsuario;
@@ -19,6 +20,14 @@ public class Usuario {
     private String senha;
     private String cargo;
     private String area;
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     public String getCargo() {
         return cargo;
