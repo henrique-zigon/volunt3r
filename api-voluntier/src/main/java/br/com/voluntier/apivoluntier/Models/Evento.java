@@ -13,8 +13,10 @@ public class Evento {
     private String dataEvento;
     private int maximoParticipantes;
     private double horas;
-    @Column(name = "fkCategoria")
-    private int idCategoria;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_categoria")
+    private Categoria categoria;
 
     public Integer getId() {
         return id;
@@ -48,12 +50,12 @@ public class Evento {
         this.horas = horas;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
 

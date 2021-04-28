@@ -17,7 +17,7 @@ public class CliqueController {
 
 
     @Autowired
-    CliqueRepository repository;
+    private CliqueRepository repository;
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
     @PostMapping("/novo")
@@ -28,6 +28,7 @@ public class CliqueController {
             retornoHasmap.put("message", "Clique registrado com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
+            System.out.println(e);
             return ResponseEntity.status(500).build();
         }
     }

@@ -1,34 +1,32 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idCategoria;
 
-    private String descricao;
+    private String nomeCategoria;
     private int nivel;
 
-    public Integer getId() {
-        return id;
+
+    public Integer getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNomeCategoria() {
+        return nomeCategoria;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNomeCategoria(String nomeCategoria) {
+        this.nomeCategoria = nomeCategoria;
     }
 
     public int getNivel() {

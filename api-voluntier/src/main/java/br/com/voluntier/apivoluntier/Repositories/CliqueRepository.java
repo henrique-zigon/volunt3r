@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CliqueRepository extends JpaRepository<Clique, Integer> {
 
-    int countByPublicacaoId(int id);
+    //int countByPublicacaoId(int id);
 
 
 }

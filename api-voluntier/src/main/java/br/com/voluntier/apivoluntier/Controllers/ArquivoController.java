@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/downloads")
 public class ArquivoController {
-
+/*
     @Autowired
     EventoRepository repositoryEvento;
     CategoriaRepository repositoryCategoria;
@@ -270,5 +270,5 @@ public class ArquivoController {
         headers.add("Content-Disposition", "attachment; filename=Funcionarios.csv");
 
         return ResponseEntity.status(200).headers(headers).build();
-    }
+    }*/
 }

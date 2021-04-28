@@ -2,8 +2,10 @@ package br.com.voluntier.apivoluntier.Controllers;
 
 
 import br.com.voluntier.apivoluntier.Models.Evento;
+import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.UsuarioEvento;
 import br.com.voluntier.apivoluntier.Repositories.EventoRepository;
+import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.UsuarioEventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,23 +24,40 @@ public class EventoController {
     @Autowired
     UsuarioEventoRepository repositoryUsuarioEvento;
 
+    @Autowired
+    PublicacaoRepository repositoryPublicacao;
+
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
     @GetMapping
     public ResponseEntity getEventos() {
-        return ResponseEntity.status(200).body(repository.findAll());
+        return ResponseEntity.status(200).body(repositoryPublicacao.findAllIdEventoNotNull());
     }
 
+
+//    @PostMapping("/novo")
+//    public ResponseEntity postEvento(@RequestBody Evento novoEvento) {
+//        retornoHasmap.clear();
+//        try {
+//            //repository.save(novoEvento);
+//            retornoHasmap.put("message", "Evento criado com sucesso!");
+//
+//            return ResponseEntity.status(201).body(repository.findEventoMaxId().get(0).getId());
+//        } catch (Exception e) {
+//            return ResponseEntity.status(500).build();
+//        }
+//    }
+
     @PostMapping("/novo")
-    public ResponseEntity postEvento(@RequestBody Evento novoEvento) {
-        retornoHasmap.clear();
+    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
         try {
-            repository.save(novoEvento);
+            repositoryPublicacao.save(novaPublicacaoEvento);
             retornoHasmap.put("message", "Evento criado com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
-            return ResponseEntity.status(500).build();
+            return ResponseEntity.status(401).build();
         }
+
     }
 
     @PostMapping("/inscrever")

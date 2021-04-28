@@ -6,6 +6,7 @@ public class UsuarioResponse {
 
     private Integer idUsuario;
     private String nomeUsuario;
+    private String email;
     private String genero;
     private int quantidadeMilhas;
     private String tipoUsuario;
@@ -15,6 +16,7 @@ public class UsuarioResponse {
     public UsuarioResponse(Usuario usuario) {
         this.idUsuario = usuario.getIdUsuario();
         this.nomeUsuario = usuario.getNomeUsuario();
+        this.email = usuario.getEmail();
         this.genero = usuario.getGenero();
         this.quantidadeMilhas = usuario.getQuantidadeMilhas();
         this.tipoUsuario = usuario.getTipoUsuario();
@@ -30,6 +32,9 @@ public class UsuarioResponse {
         return nomeUsuario;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
     public String getGenero() {
         return genero;

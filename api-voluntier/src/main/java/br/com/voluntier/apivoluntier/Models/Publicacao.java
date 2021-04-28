@@ -1,5 +1,7 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,17 +10,29 @@ public class Publicacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPublicacao")
     private Integer id;
 
+    @Column(name = "tituloPublicacao")
     private String titulo;
     private String descricao;
-    private String dataPostada;
-    private String pathImagem;
-    private int idUsuario;
-    private int idEvento;
 
-    @OneToOne
-    private Publicacao fkPublicacao;
+    private String dataPostagem;
+
+    @Column(name = "imagem")
+    private String pathImagem;
+
+    @ManyToOne()
+    @JoinColumn(name = "fk_usuario")
+    private Usuario usuario;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_evento")
+    private Evento evento;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "publicacao_pai")
+    private Publicacao publicacaoPai;
 
     public Integer getId() {
         return id;
@@ -44,12 +58,12 @@ public class Publicacao {
         this.descricao = descricao;
     }
 
-    public String getDataPostada() {
-        return dataPostada;
+    public String getDataPostagem() {
+        return dataPostagem;
     }
 
-    public void setDataPostada(String dataPostada) {
-        this.dataPostada = dataPostada;
+    public void setDataPostagem(String dataPostagem) {
+        this.dataPostagem = dataPostagem;
     }
 
     public String getPathImagem() {
@@ -60,27 +74,27 @@ public class Publicacao {
         this.pathImagem = pathImagem;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public int getIdEvento() {
-        return idEvento;
+    public Evento getEvento() {
+        return evento;
     }
 
-    public void setIdEvento(int idEvento) {
-        this.idEvento = idEvento;
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
-    public Publicacao getFkPublicacao() {
-        return fkPublicacao;
+    public Publicacao getPublicacaoPai() {
+        return publicacaoPai;
     }
 
-    public void setFkPublicacao(Publicacao fkPublicacao) {
-        this.fkPublicacao = fkPublicacao;
+    public void setPublicacaoPai(Publicacao publicacaoPai) {
+        this.publicacaoPai = publicacaoPai;
     }
 }

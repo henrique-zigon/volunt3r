@@ -18,6 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
+    private List<Usuario> usuariosLogados = new ArrayList<>();
 
     // Endpoint responsável pelo login do usuário
     @PostMapping("/logar")
@@ -27,23 +28,29 @@ public class UsuarioController {
 
         if(retornoRepository.isEmpty()) {
             retornoHasmap.put("message:", "Usuário e/ou senha incorretos!");
-
             return ResponseEntity.status(404).body(retornoHasmap);
         } else {
+            usuariosLogados.add(usuario);
             retornoHasmap.put("message", "Usuário logado com sucesso!");
             retornoHasmap.put("Usuario", retornoRepository);
-
 
             return ResponseEntity.status(200).body(retornoHasmap);
         }
 
     }
 
-//    @GetMapping("/sair/{id}")
-//    public String getSair(@PathVariable int id) {
-//
-//
-//    }
+    @GetMapping("/sair/{id}")
+    public ResponseEntity getSair(@PathVariable Integer id) {
+
+        retornoHasmap.clear();
+
+        if(id < usuariosLogados.size()) {
+            usuariosLogados.remove(id);
+            return ResponseEntity.status(200).build();
+        } else {
+            return ResponseEntity.status(401).build();
+        }
+    }
 
     @PostMapping("/novo")
     public ResponseEntity postCriarUsuario(@RequestBody Usuario usuario) {

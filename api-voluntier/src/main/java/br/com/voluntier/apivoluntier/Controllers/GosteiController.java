@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class GosteiController {
 
     @Autowired
-    GosteiRepository repository;
+    private GosteiRepository repository;
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
     @PostMapping("/novo")

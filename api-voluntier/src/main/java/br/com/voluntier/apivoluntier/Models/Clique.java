@@ -1,37 +1,43 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Clique {
 
-    private Integer id = null;
-    private int fkPublicacao;
-    private int fkUsuario;
+    @Id
+    @Column(name = "id_categoria")
+    private Integer id;
 
-    public int getFkPublicacao() {
-        return fkPublicacao;
-    }
+    @ManyToOne
+    @JoinColumn(name = "fk_publicacao")
+    private Publicacao publicacao;
 
-    public void setFkPublicacao(int fkPublicacao) {
-        this.fkPublicacao = fkPublicacao;
-    }
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario")
+    private Usuario usuario;
 
-    public int getFkUsuario() {
-        return fkUsuario;
-    }
-
-    public void setFkUsuario(int fkUsuario) {
-        this.fkUsuario = fkUsuario;
+    public Integer getId() {
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @Id
-    public Integer getId() {
-        return id;
+    public Publicacao getPublicacao() {
+        return publicacao;
+    }
+
+    public void setPublicacao(Publicacao publicacao) {
+        this.publicacao = publicacao;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -33,6 +33,30 @@ public class PublicacaoController {
         }
     }
 
+    @PostMapping("/eventos/novo")
+    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
+        try {
+            repository.save(novaPublicacaoEvento);
+            retornoHasmap.put("message", "Evento criado com sucesso!");
+            return ResponseEntity.status(201).body(retornoHasmap);
+        } catch (Exception e) {
+            return ResponseEntity.status(401).build();
+        }
+
+    }
+
+
+    @PostMapping("/comentar")
+    public ResponseEntity postComentario(@RequestBody Publicacao novaPublicacaoEvento) {
+        try {
+            repository.save(novaPublicacaoEvento);
+            retornoHasmap.put("message", "Comentário criado com sucesso!");
+            return ResponseEntity.status(201).body(retornoHasmap);
+        } catch (Exception e) {
+            return ResponseEntity.status(401).build();
+        }
+
+    }
 
 
 
