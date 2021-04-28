@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Clique {
 
     @Id
-    @Column(name = "id_categoria")
+    @Column(name = "id_clique")
     private Integer id;
 
     @ManyToOne
