@@ -20,7 +20,9 @@ create table usuario(
     email varchar(50),
     senha varchar(50),
     cargo varchar(42),
-    area varchar(100)
+    area varchar(100),
+    status_usuario int(1),
+    check(status_usuario = 0 or status_usuario = 1)
 );
 
 create table ranque(
