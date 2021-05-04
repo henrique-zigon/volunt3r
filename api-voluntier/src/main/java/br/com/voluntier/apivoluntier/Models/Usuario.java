@@ -21,6 +21,9 @@ public class Usuario {
     private String cargo;
     private String area;
 
+    // 0 = desativado 1 = ativado
+    private int statusUsuario;
+
     public String getBio() {
         return bio;
     }
@@ -98,5 +101,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getStatusUsuario() {
+        return statusUsuario;
+    }
+
+    public void setStatusUsuario(int statusUsuario) {
+        this.statusUsuario = statusUsuario;
     }
 }
