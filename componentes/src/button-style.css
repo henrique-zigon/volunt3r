@@ -1,14 +1,16 @@
 .button{
-    color: white;
+    color: #fff;
     background-color: #366DBF;
-    border-color: #366DBF;
+    border: 3px solid #366DBF;
     font-size: 25px;
     height: 70px;
     width: 200px;
+    transition:0.2s ease;
     border-radius: 3px;
 }
 
 .button:hover{
-    border-color: rgb(11, 30, 82);
-    background-color:  rgb(11, 30, 82);
+    color: #366DBF;
+    border-color:#366DBF;
+    background-color:  #fff;
 }

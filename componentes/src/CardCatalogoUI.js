@@ -15,14 +15,17 @@ const Card = props => {
                         <h1 className="card-title">{props.title}</h1>
                         <div className="card-subtitle-time">
                             <h3 className="card-subtitle">{props.subtitle}</h3>
-                            <h3 className="card-subtitle">{props.time}</h3>
+                            <div className="card-time">
+                                <h3 className="card-subtitle">{props.date}</h3>
+                                <h3 className="card-subtitle">-</h3>
+                                <h3 className="card-subtitle">{props.time}</h3>
+                            </div>
                         </div>
                     </div>
                     <div className="card-button">
-                        <Botao action = {props.action}></Botao>
+                        <Botao action={props.action} onClick={props.onClick}></Botao>
                     </div>
                 </div>
-
                 <p className="card-text text-secondary">{props.texto}</p>
             </div>
         </div>

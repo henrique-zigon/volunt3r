@@ -1,3 +1,5 @@
+*{padding:0;}
+
 body{
     background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
 }
@@ -8,18 +10,17 @@ body{
     width: 45%;  
 }
 
-
 .card:hover{
     box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253)!important;
 }
 
 .card-body{
+    
     padding: 2rem 0!important;
 }
 
 .card-text{
     font-size: 1.4rem;
-    padding: 0.4rem 1.9rem;
 }
 
 .container-card{
@@ -45,42 +46,57 @@ body{
     transform: scale(1.2);
 }
 
-.btn{
-    color: white;
-    font-size: 100px;
-    background-color: #366DBF;
-    border-color: #366DBF;
-}
-
-
-
-
-.text-left{
-    padding-left: 3rem;
-}
-
 .card-text{
+    width: 90%;
+    overflow: hidden;
+    margin: auto;
     position: relative;
     text-align: left;
-    padding-left: 4%;
 }
 
 .card-subtitle{
-    float: left;
     width: fit-content;
-    padding-left: 4%;
-    padding-right: 5%;
     font-weight: 200;
+    padding-right: 15px;
+    text-align: initial;
 }
 
-
 .card-title{
-    padding-left: 4%;
     width: fit-content;
     font-weight: 450;
 }
 
+.card-head{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-.card-header{
-    
+.card-title-subtitle{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.card-button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40%;
+}
+
+.card-subtitle-time{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-time{
+    display: flex;
+    width: 50%;
+    flex-direction: row;
 }
