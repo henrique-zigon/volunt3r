@@ -8,17 +8,16 @@ const Card = props => {
             <div className="overflow">
                 <img src={props.imgsrc} className="card-img-top"></img>
             </div>
-
             <div className="card-body text-dark">
                 <div className="card-head">
                     <div className="card-title-subtitle">
-                        <h1 className="card-title">{props.title}</h1>
+                        <h4 className="card-title">{props.title}</h4>
                         <div className="card-subtitle-time">
-                            <h3 className="card-subtitle">{props.subtitle}</h3>
+                            <h7 className="card-subtitle">{props.subtitle}</h7>
                             <div className="card-time">
-                                <h3 className="card-subtitle">{props.date}</h3>
-                                <h3 className="card-subtitle">-</h3>
-                                <h3 className="card-subtitle">{props.time}</h3>
+                                <h7 className="card-subtitle">{props.date}</h7>
+                                <h7 className="card-subtitle">-</h7>
+                                <h7 className="card-subtitle">{props.time}</h7>
                             </div>
                         </div>
                     </div>
