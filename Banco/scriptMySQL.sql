@@ -51,14 +51,16 @@ create table publicacao(
     imagem varchar(200), 
     fk_usuario int,
     foreign key (fk_usuario) references usuario(id_usuario),
-	fk_evento int,
-	foreign key (fk_evento) references evento(id_evento),
-	publicacao_pai int,
-	foreign key (publicacao_pai) references publicacao(id_publicacao)
+    fk_evento int,
+    foreign key (fk_evento) references evento(id_evento),
+    publicacao_pai int,
+    foreign key (publicacao_pai) references publicacao(id_publicacao)
 );
 
 create table inscricao_evento(
-	fk_evento int,
+
+    id_inscricao_evento int primary key auto_increment,	
+    fk_evento int,
     foreign key(fk_evento) references evento(id_evento),
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario),
@@ -67,14 +69,15 @@ create table inscricao_evento(
 );
 
 create table inscricao_categoria(
-	fk_categoria int,
+    id_inscricao_categoria int primary key auto_increment,
+    fk_categoria int,
     foreign key(fk_categoria) references categoria(id_categoria),
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario)
 );
 
 create table gostei(
-	#id_gostei int auto_increment primary key,
+    id_gostei int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
