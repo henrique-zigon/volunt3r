@@ -7,6 +7,7 @@ import br.com.voluntier.apivoluntier.Models.InscricaoEvento;
 import br.com.voluntier.apivoluntier.Repositories.EventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.InscricaoEventoRepository;
+import br.com.voluntier.apivoluntier.Utils.EmailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -18,7 +19,8 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {
-
+    @Autowired
+    private static JavaMailSender mailSender;
 
     @Autowired
     EventoRepository repository;
@@ -28,9 +30,6 @@ public class EventoController {
 
     @Autowired
     PublicacaoRepository repositoryPublicacao;
-
-    @Autowired
-    private JavaMailSender mailSender;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -54,7 +53,7 @@ public class EventoController {
 //    }
 
 
-    @GetMapping("/enviar")
+    @GetMapping("/enviar-email")
     public String sendMail() {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setText("Olá, você tem um evento para participar dia 25.");
@@ -69,6 +68,17 @@ public class EventoController {
             e.printStackTrace();
             return "Erro ao enviar email.";
         }
+        /*
+        if(new EmailSender().sendMessage(
+                "Titulo badass",
+                "MEnsagem sobre evento braba",
+                "yguinhoahuaa@gmail.com"
+        )) {
+            return "Email enviado com sucesso!";
+        }else {
+            return "Erro ao enviar email.";
+        }
+         */
     }
 
     @PostMapping("/novo")
