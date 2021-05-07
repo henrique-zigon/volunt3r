@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.HashMap;
 
 @RestController
@@ -33,17 +34,17 @@ public class PublicacaoController {
         }
     }
 
-    @PostMapping("/eventos/novo")
-    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
-        try {
-            repository.save(novaPublicacaoEvento);
-            retornoHasmap.put("message", "Evento criado com sucesso!");
-            return ResponseEntity.status(201).body(retornoHasmap);
-        } catch (Exception e) {
-            return ResponseEntity.status(401).build();
-        }
-
-    }
+//    @PostMapping("/eventos/novo")
+//    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
+//        try {
+//            repository.save(novaPublicacaoEvento);
+//            retornoHasmap.put("message", "Evento criado com sucesso!");
+//            return ResponseEntity.status(201).body(retornoHasmap);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(401).build();
+//        }
+//
+//    }
 
 
     @PostMapping("/comentar")
@@ -53,9 +54,23 @@ public class PublicacaoController {
             retornoHasmap.put("message", "Comentário criado com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(500).build();
         }
 
+    }
+
+    @DeleteMapping("/remover/{id}")
+    public ResponseEntity deletePublicacao(@PathVariable int id) {
+
+        retornoHasmap.clear();
+        try {
+            retornoHasmap.put("message", "Publicacação removida com sucesso!");
+            repository.deleteById(id);
+            return ResponseEntity.status(200).body(retornoHasmap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(500).build();
+        }
     }
 
 
