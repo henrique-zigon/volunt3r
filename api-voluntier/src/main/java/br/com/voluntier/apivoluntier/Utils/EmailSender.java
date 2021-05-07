@@ -3,13 +3,15 @@ package br.com.voluntier.apivoluntier.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmailSender {
     @Autowired
-    private static JavaMailSender mailSender;
-    private static final String email = "211-3cco-grupo4@bandtec.com.br";
+    private JavaMailSender mailSender;
+    private String email = "211-3cco-grupo4@bandtec.com.br";
 
-    public static boolean sendMessage(String title, String message, String sendTo) {
+    public boolean sendMessage(String title, String message, String sendTo) {
         SimpleMailMessage messageSent = new SimpleMailMessage();
         messageSent.setSubject(title);
         messageSent.setText(message);

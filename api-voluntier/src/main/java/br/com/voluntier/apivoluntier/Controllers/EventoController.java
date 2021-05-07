@@ -20,9 +20,6 @@ import java.util.HashMap;
 @RequestMapping("/eventos")
 public class EventoController {
     @Autowired
-    private static JavaMailSender mailSender;
-
-    @Autowired
     EventoRepository repository;
 
     @Autowired
@@ -30,6 +27,9 @@ public class EventoController {
 
     @Autowired
     PublicacaoRepository repositoryPublicacao;
+
+    @Autowired
+    EmailSender emailSender;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -55,30 +55,15 @@ public class EventoController {
 
     @GetMapping("/enviar-email")
     public String sendMail() {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setText("Olá, você tem um evento para participar dia 25.");
-        message.setSubject("Evento de Doação de Sangue!!!");
-        message.setTo("yguinhoahuaa@gmail.com");
-        message.setFrom("211-3cco-grupo4@bandtec.com.br");
-
-        try {
-            mailSender.send(message);
-            return "Email enviado com sucesso!";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Erro ao enviar email.";
-        }
-        /*
-        if(new EmailSender().sendMessage(
+        if(emailSender.sendMessage(
                 "Titulo badass",
                 "MEnsagem sobre evento braba",
-                "yguinhoahuaa@gmail.com"
+                "ygor.lima@bandtec.com.br"
         )) {
             return "Email enviado com sucesso!";
         }else {
             return "Erro ao enviar email.";
         }
-         */
     }
 
     @PostMapping("/novo")
