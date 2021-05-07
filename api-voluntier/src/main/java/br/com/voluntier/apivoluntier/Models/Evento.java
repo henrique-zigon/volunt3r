@@ -8,10 +8,12 @@ public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idEvento")
+    @Column(name = "id_evento")
     private Integer id;
+
     private String dataEvento;
-    private int maximoParticipantes;
+    private String dataFechamentoEvento;
+    private Integer maximoParticipantes;
     private double horas;
 
     @ManyToOne
@@ -34,11 +36,19 @@ public class Evento {
         this.dataEvento = dataEvento;
     }
 
-    public int getMaximoParticipantes() {
+    public String getDataFechamentoEvento() {
+        return dataFechamentoEvento;
+    }
+
+    public void setDataFechamentoEvento(String dataFechamentoEvento) {
+        this.dataFechamentoEvento = dataFechamentoEvento;
+    }
+
+    public Integer getMaximoParticipantes() {
         return maximoParticipantes;
     }
 
-    public void setMaximoParticipantes(int maximoParticipantes) {
+    public void setMaximoParticipantes(Integer maximoParticipantes) {
         this.maximoParticipantes = maximoParticipantes;
     }
 

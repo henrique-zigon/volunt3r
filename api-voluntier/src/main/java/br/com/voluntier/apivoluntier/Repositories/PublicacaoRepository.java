@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
 
-    @Query("select p from Publicacao p where p.evento is not null")
+    @Query("select p from Publicacao p where p.evento is not null and p.publicacaoPai is null")
     List<Publicacao> findAllIdEventoNotNull();
 
     // List<Publicacao> findByEvento(int id);

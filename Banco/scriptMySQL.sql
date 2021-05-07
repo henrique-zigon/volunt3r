@@ -37,6 +37,7 @@ create table ranque(
 create table evento(
 	id_evento int auto_increment primary key,
     data_evento varchar(15),
+    data_fechamento_evento varchar(15),
     maximo_participantes int,
     horas float,
     fk_categoria int,
@@ -58,6 +59,7 @@ create table publicacao(
 );
 
 create table inscricao_evento(
+    id_inscricao_evento int auto_increment primary key,
 	fk_evento int,
     foreign key(fk_evento) references evento(id_evento),
     fk_usuario int,
@@ -67,6 +69,7 @@ create table inscricao_evento(
 );
 
 create table inscricao_categoria(
+    id_inscricao_categoria int auto_increment primary key,
 	fk_categoria int,
     foreign key(fk_categoria) references categoria(id_categoria),
     fk_usuario int,
@@ -74,7 +77,7 @@ create table inscricao_categoria(
 );
 
 create table gostei(
-	#id_gostei int auto_increment primary key,
+	id_gostei int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,
@@ -82,7 +85,7 @@ create table gostei(
 );
 
 create table clique(
-	#id_clique int auto_increment primary key,
+	id_clique int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,

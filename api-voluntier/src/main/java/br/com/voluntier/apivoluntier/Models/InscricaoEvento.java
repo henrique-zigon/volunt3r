@@ -1,12 +1,14 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class UsuarioEvento {
+public class InscricaoEvento {
 
     @Id
+    @Column(name = "id_inscricao_evento")
     private Integer id;
     private Integer fkEvento;
     private Integer fkUsuario;

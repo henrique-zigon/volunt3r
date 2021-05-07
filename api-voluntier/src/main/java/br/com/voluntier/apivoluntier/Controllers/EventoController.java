@@ -1,14 +1,15 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
 
-import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
-import br.com.voluntier.apivoluntier.Models.UsuarioEvento;
+import br.com.voluntier.apivoluntier.Models.InscricaoEvento;
 import br.com.voluntier.apivoluntier.Repositories.EventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
-import br.com.voluntier.apivoluntier.Repositories.UsuarioEventoRepository;
+import br.com.voluntier.apivoluntier.Repositories.InscricaoEventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -22,10 +23,13 @@ public class EventoController {
     EventoRepository repository;
 
     @Autowired
-    UsuarioEventoRepository repositoryUsuarioEvento;
+    InscricaoEventoRepository repositoryUsuarioEvento;
 
     @Autowired
     PublicacaoRepository repositoryPublicacao;
+
+    @Autowired
+    private JavaMailSender mailSender;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -33,6 +37,24 @@ public class EventoController {
     public ResponseEntity getEventos() {
         return ResponseEntity.status(200).body(repositoryPublicacao.findAllIdEventoNotNull());
     }
+
+    @GetMapping("/enviarEMAIL")
+    public String sendMail() {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setText("VAI SE FUDER EMAILZADA ARROMBADO");
+        message.setSubject("Teste ÉOKRL");
+        message.setTo("murilo@casmala.com.br");
+        message.setFrom("211-3cco-grupo4@bandtec.com.br");
+
+        try {
+            mailSender.send(message);
+            return "Email enviado com sucesso!";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Erro ao enviar email.";
+        }
+    }
+
 
 
 //    @PostMapping("/novo")
@@ -61,7 +83,7 @@ public class EventoController {
     }
 
     @PostMapping("/inscrever")
-    public ResponseEntity postUsuarioEvento(@RequestBody UsuarioEvento novaInscricao) {
+    public ResponseEntity postUsuarioEvento(@RequestBody InscricaoEvento novaInscricao) {
         retornoHasmap.clear();
         try {
             repositoryUsuarioEvento.save(novaInscricao);

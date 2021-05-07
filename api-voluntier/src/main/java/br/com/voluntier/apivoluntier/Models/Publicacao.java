@@ -10,10 +10,10 @@ public class Publicacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPublicacao")
+    @Column(name = "id_publicacao")
     private Integer id;
 
-    @Column(name = "tituloPublicacao")
+    @Column(name = "titulo_publicacao")
     private String titulo;
     private String descricao;
 

@@ -126,6 +126,8 @@ public class GravaArquivoEvento {
 //                    System.out.println("Opção inválida!");
 //                    break;
 //            }
+
+            new Scanner(System.in).next();
         }
     }
 
