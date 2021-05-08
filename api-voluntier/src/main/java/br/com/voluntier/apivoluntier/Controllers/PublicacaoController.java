@@ -5,9 +5,8 @@ import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/publicacoes")
@@ -63,17 +62,19 @@ public class PublicacaoController {
     public ResponseEntity deletePublicacao(@PathVariable int id) {
 
         retornoHasmap.clear();
-        try {
-            retornoHasmap.put("message", "Publicacação removida com sucesso!");
-            repository.deleteById(id);
-            return ResponseEntity.status(200).body(retornoHasmap);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(500).build();
+        if(!repository.findById(id).isPresent()) {
+            retornoHasmap.put("message", "publicação não existe!");
+            return ResponseEntity.status(404).body(retornoHasmap);
+        } else {
+            try {
+                retornoHasmap.put("message", "Publicacação removida com sucesso!");
+                repository.deleteById(id);
+                return ResponseEntity.status(200).body(retornoHasmap);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return ResponseEntity.status(500).build();
+            }
         }
+
     }
-
-
-
-
 }
