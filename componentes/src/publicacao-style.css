@@ -1,23 +1,23 @@
+*{margin:0;}
 .publicacao-img{
-    min-height: 10em;
-    max-height: 35em;
+    min-height: 0em;
+    max-height: 30em;
     width: 100%;
     border-radius: 3px;
     object-fit: cover;
-    margin-bottom: 10px;
 }
 
 .user-img{
     width: 70px;
     height: 70px;
-    margin: auto;
+    margin: 5px auto;
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
 }
 
 .container-publicacao{
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -41,15 +41,23 @@
     box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.240)!important;
 }
 
-.publicacao-main{
-    width: 80%;
-    margin: auto;
-    display: flex;
+.publicacao-content{
+    width: 78%;
+    vertical-align: top;
+    margin: 10px auto;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .publicacao-info{
+    width: 18%;
+    margin: 10px auto;
+    display:initial;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.publicacao-main{
     display: flex;
     margin: 20px auto;
     flex-direction: row;
@@ -62,25 +70,27 @@
 }
 
 .publicacao-text{
-    margin: auto;
+    margin: 0px auto;
     text-align: initial;
     justify-content: left;
 }
 
 .publicacao-owner{
     width: fit-content;
+    margin: auto;
     font-weight: 500;
 }
 
 .publicacao-icon{
+    margin:auto;
     width: 26px;
 }
 
 .publicacao-icons{
     display: flex;
-    margin:auto;
+    margin: 5px auto;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
 }
 
@@ -90,7 +100,7 @@
 
 .publicacao-actions{
     display: flex;
-    margin: 25px auto;
+    margin: 10px auto;
     flex-direction: column;
     justify-content: space-evenly;
     height: 15%;
