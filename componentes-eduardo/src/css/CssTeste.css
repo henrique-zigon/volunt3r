@@ -1,0 +1,121 @@
+/* Card Branco */
+
+.fundoBranco {
+    max-height: 30%;
+    background-color: #F3F3F3;
+    border: #868686 2px solid;
+}
+
+.tituloFundoBranco {
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    padding-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    word-break: break-word;
+}
+
+.textoFundoBranco {
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 15px;
+    padding-top: 5%;
+    padding: 5%;
+    word-break: break-word;
+}
+
+/* Fim Card Branco */
+
+/* Conquista */
+
+.tituloConquista {
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 3%;
+    margin-left: 3%;
+    word-break: break-word;
+}
+
+.fundoConquista {
+    max-height: fit-content;
+    width: 30%;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    border: #868686 2px solid;
+    display: flex;
+}
+
+.textoConquista {
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    word-break: break-word;
+}
+
+.corpoConquista {
+    height: 100%;
+}
+
+/* Fim Conquista */
+
+/* Medalha */
+
+.bordaMedalha {
+    border-radius: 50%;
+    border: #000000 2px solid;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    margin-left: 15%;
+}
+
+.medalha {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    margin: 3%;
+}
+
+.textoMedalha {
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    display: flex;
+}
+
+/* Fim Medalha */
+
+/* Borda */
+
+.barra {
+    display: flex;
+    padding-top: 5%;
+}
+
+/* Fim Borda */
+
+.texte{
+    height: 50px;
+    width: 50px;
+}
+
+.texte2{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
