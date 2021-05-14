@@ -1,0 +1,125 @@
+.container-page {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
+
+.references-voluntier {
+    width: 50%;
+    height: 100%;
+    /* background: red; */
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    text-align: justify;
+    background: 
+        #002c63
+        /* linear-gradient(#002d63c5, #002d63c5), */
+        /* url(https://images.unsplash.com/photo-1560252811-2ab1e44ce202?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80) */
+    ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFF;
+}
+
+.references-voluntier .title {
+    margin-bottom: 25px;
+}
+
+.references-voluntier .btn {
+    width: 150px;
+    height: 40px;
+    margin-top: 25px;
+
+    border: 2px solid #FFF;
+    border-radius: 2px;
+    background: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.form-container {
+    width: 50%;
+    height: 100%;
+
+    padding: 50px 100px;
+}
+
+.form-container form {
+    width: 100%;
+    height: auto;
+    padding: 0 30px;
+}
+
+.form-container form fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form fieldset legend {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group:nth-child(n + 2) {
+    margin-top: 15px;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    /* border-bottom: 1px solid rgb(194, 194, 194); */
+    background: none;
+    margin-top: 5px;
+    padding-left: 10px;
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 5px;
+}
+
+.input:focus {
+    border: 2px solid #002c63;
+}
+
+.btn-submit {
+    margin-top: 15px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background: #002c63;
+    color: #FFF;
+    font-size: 1em;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 960px){
+    .form-container {
+        padding: 10px 0px;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .references-voluntier { display: none;}
+    .form-container {
+        width: 100%;
+        padding: 50px 0px;
+    }
+}
+

@@ -1,6 +1,9 @@
+import { Route } from "react-router";
+import Routes from "./routes";
+
 function App() {
   return (
-    <h2>Hello World,  Volunt3r</h2>
+    <Routes />
   );
 }
 
