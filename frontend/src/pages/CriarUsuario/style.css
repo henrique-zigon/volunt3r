@@ -47,6 +47,9 @@
     height: 100%;
 
     padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-container form {
