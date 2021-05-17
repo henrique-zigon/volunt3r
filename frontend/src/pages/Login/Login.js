@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+import api from '../../api'
 
 function Login() {
     const [userData, setUserData] = useState({
@@ -18,14 +19,21 @@ function Login() {
     function submitForm(e) {
         e.preventDefault();
         
+        api.post("/",{
+            email:userData.email,
+            senha:userData.senha 
+        }).then((resposta)=>{
+            console.log("o login foi enviado: ",resposta)
+        })
+
         /* 
         * Aqui estou realizando a destruturação do array newUserData!
         * Isso pode ajudar na hora de enviar o json para a API
         */
-        const {
-            email,
-            senha,  
-        } = userData;
+        // const {
+        //     email,
+        //     senha,  
+        // } = userData;
 
 
     }
