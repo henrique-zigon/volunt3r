@@ -62,7 +62,7 @@ function CriarUsuarioStep2(props) {
                     Aperiam molestias non suscipit quibusdam, pariatur eius aspernatur minus dolore, beatae at veritatis ducimus assumenda.
                 
                 </span>
-                <button className="btn">saiba mais!</button>
+                <button className="btn">Saiba mais!</button>
             </div>
             <div className="form-container">
                 <form onSubmit={(e) => submitForm(e)}>

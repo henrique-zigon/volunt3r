@@ -1,0 +1,31 @@
+/* Medalha */
+
+.bordaMedalha {
+    border-radius: 50%;
+    border: #000000 2px solid;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    margin-left: 15%;
+}
+
+.medalha {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    margin: 3%;
+}
+
+.textoMedalha {
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    display: flex;
+}
+
+/* Fim Medalha */

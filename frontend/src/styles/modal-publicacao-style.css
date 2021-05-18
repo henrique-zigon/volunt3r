@@ -1,0 +1,162 @@
+/* Modal */
+
+body{
+    background-color: grey;
+
+}
+
+.modalCompleto {
+    left:28%;
+    top:20%;
+    max-height: fit-content;
+    width: 45%;
+    max-height: fit-content;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    border: black 3px solid;
+    box-shadow: 3px 3px black;
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+  }
+
+.imagemPerfil{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.headerModal{
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    display: flex;
+    height: 100%;
+    padding-left: 25px;
+}
+
+.headerModal .tituloModal{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 13px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.headerModal .subtituloModal{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 12px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.evento{
+    display: flex;
+    width: 100%;
+    height: 300px;
+}
+
+.evento .fotoEvento{
+    width: 45%;
+    height: 100%;
+}
+
+.evento .fotoEvento img{
+    padding-left: 25px;
+    width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+}
+
+.evento .sobre{
+    width: 55%;
+    height: 100%;
+    padding: 10px 25px;
+}
+
+.evento .sobre .descricaoEvento{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 18px;
+
+}
+
+
+.evento .sobre .tagsEvento{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 13px;
+    color: #366DBF;
+    margin-top: 25px;
+}
+
+.evento .sobre .localizacaoEvento{
+    margin-top: 25px;
+}
+
+.evento .sobre .dataEvento{
+    margin-top: 15px;
+}
+
+.evento .sobre .textoLocalizacao{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 13px;
+    margin-left: 10px;
+}
+
+.evento .sobre .textoData{
+    color: #366DBF;
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 13px;
+    margin-left: 10px;
+}
+
+.botoesEvento{
+    padding: 20px 50px ;
+}
+
+.botoesEvento .comentario{
+    padding-left: 50px;    
+}
+
+.botoesEvento .btnInteresse{
+    padding-left: 50px;
+}
+
+.linha{
+    width: 90%;
+    margin: 0% 5%;
+    height: 3px;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.feedbackEvento{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 85px;
+}
+
+.numerosEvento{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 13px;
+}
+
+/* .interessados img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+} */
+
+/* Fim Modal */

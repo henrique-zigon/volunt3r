@@ -1,0 +1,38 @@
+/* Conquista */
+
+.tituloConquista {
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 3%;
+    margin-left: 3%;
+    word-break: break-word;
+}
+
+.fundoConquista {
+    max-height: fit-content;
+    width: 30%;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    border: #868686 2px solid;
+    display: flex;
+}
+
+.textoConquista {
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    word-break: break-word;
+}
+
+.corpoConquista {
+    height: 100%;
+}
+
+/* Fim Conquista */

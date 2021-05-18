@@ -33,7 +33,7 @@ function CriarUsuarioStep1() {
                     Aperiam molestias non suscipit quibusdam, pariatur eius aspernatur minus dolore, beatae at veritatis ducimus assumenda.
                 
                 </span>
-                <button className="btn">saiba mais!</button>
+                <button className="btn">Saiba mais!</button>
             </div>
             <div className="form-container">
                 <form>
@@ -52,7 +52,7 @@ function CriarUsuarioStep1() {
                                 <select className="input" name="genero" id="genero" onChange={(e) => handle(e)}>
                                     <option value="" disabled>Selecione o seu gênero</option>
                                     <option value="M">Masculino</option>
-                                    <option value="F">Femino</option>
+                                    <option value="F">Feminino</option>
                                 </select>
                             </label>
                         </div>

@@ -49,12 +49,12 @@ function Login() {
                     Aperiam molestias non suscipit quibusdam, pariatur eius aspernatur minus dolore, beatae at veritatis ducimus assumenda.
                 
                 </span>
-                <button className="btn">saiba mais!</button>
+                <button className="btn">Saiba mais!</button>
             </div>
             <div className="form-container">
                 <form onSubmit={(e) => submitForm(e)}>
                     <fieldset>
-                        <legend>Olá, você voltou!</legend>
+                        <legend>Olá, você voltou! <br></br> Sentimos saudades...</legend>
                         <div className="input-group">
                             <label htmlFor="">
                                 Seu email
@@ -68,7 +68,7 @@ function Login() {
                             </label>
                         </div>
                         
-                        <button className="btn-submit">Continuar</button>
+                        <button className="btn-submit">Logar na Volunt3r</button>
                     </fieldset>
                 </form>
             </div>
