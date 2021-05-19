@@ -26,11 +26,13 @@ public class Publicacao {
     @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_evento")
     private Evento evento;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    //Porque a utilização do cascade? Ta bloquenado um treco aqui
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "publicacao_pai")
     private Publicacao publicacaoPai;
 
@@ -96,5 +98,16 @@ public class Publicacao {
 
     public void setPublicacaoPai(Publicacao publicacaoPai) {
         this.publicacaoPai = publicacaoPai;
+    }
+
+    public boolean isPublicacaoEvento() {
+        return this.getPublicacaoPai() == null;
+    }
+
+    public boolean isComentario() {
+        if(publicacaoPai == null) {
+            return false;
+        }
+        return !this.getPublicacaoPai().isPublicacaoEvento();
     }
 }

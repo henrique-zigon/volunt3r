@@ -21,6 +21,8 @@ create table usuario(
     senha varchar(50),
     cargo varchar(42),
     area varchar(100),
+    imagem_perfil varchar(255),
+    imagem_capa varchar(255),
     status_usuario int(1),
     check(status_usuario = 0 or status_usuario = 1)
 );
@@ -38,6 +40,7 @@ create table evento(
 	id_evento int auto_increment primary key,
     data_evento varchar(15),
     data_fechamento_evento varchar(15),
+    endereco varchar(255),
     maximo_participantes int,
     horas float,
     fk_categoria int,
@@ -71,8 +74,6 @@ create table inscricao_evento(
 create table inscricao_categoria(
     id_inscricao_categoria int primary key auto_increment,
     fk_categoria int,
-    id_inscricao_categoria int auto_increment primary key,
-	fk_categoria int,
     foreign key(fk_categoria) references categoria(id_categoria),
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario)

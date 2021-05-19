@@ -1,17 +1,17 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class InscricaoEvento {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inscricao_evento")
     private Integer id;
     private Integer fkEvento;
     private Integer fkUsuario;
+    @Column(name = "status_UE")
     private String status;
 
     public Integer getId() {

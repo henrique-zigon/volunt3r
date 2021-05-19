@@ -20,6 +20,8 @@ public class Usuario {
     private String senha;
     private String cargo;
     private String area;
+    private String imagemPerfil;
+    private String imagemCapa;
 
     // 0 = desativado 1 = ativado
     private int statusUsuario;
@@ -109,5 +111,21 @@ public class Usuario {
 
     public void setStatusUsuario(int statusUsuario) {
         this.statusUsuario = statusUsuario;
+    }
+
+    public String getImagemPerfil() {
+        return imagemPerfil;
+    }
+
+    public void setImagemPerfil(String imagemPerfil) {
+        this.imagemPerfil = imagemPerfil;
+    }
+
+    public String getImagemCapa() {
+        return imagemCapa;
+    }
+
+    public void setImagemCapa(String imagemCapa) {
+        this.imagemCapa = imagemCapa;
     }
 }

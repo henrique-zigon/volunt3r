@@ -1,12 +1,15 @@
 package br.com.voluntier.apivoluntier.Models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Gostei {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idGostei = null;
     private Integer fkPublicacao;
     private Integer fkUsuario;

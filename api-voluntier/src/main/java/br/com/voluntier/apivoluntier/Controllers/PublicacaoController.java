@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/publicacoes")
@@ -18,17 +19,22 @@ public class PublicacaoController {
 
     @GetMapping()
     public ResponseEntity getPublicacoes() {
-        return ResponseEntity.status(200).body(repository.findAll());
+        return ResponseEntity.status(200).body(repository.findAll()
+                .stream()
+                .filter(publicacao -> !publicacao.isComentario())
+                .collect(Collectors.toList()));
     }
 
     @PostMapping("/novo")
     public ResponseEntity postPublicacao(@RequestBody Publicacao novaPublicacao) {
         retornoHasmap.clear();
         try {
+
             repository.save(novaPublicacao);
             retornoHasmap.put("message", "Publicação criada com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
+            System.out.println(e);
             return ResponseEntity.status(500).build();
         }
     }
@@ -44,20 +50,6 @@ public class PublicacaoController {
 //        }
 //
 //    }
-
-
-    @PostMapping("/comentar")
-    public ResponseEntity postComentario(@RequestBody Publicacao novaPublicacaoEvento) {
-        try {
-            repository.save(novaPublicacaoEvento);
-            retornoHasmap.put("message", "Comentário criado com sucesso!");
-            return ResponseEntity.status(201).body(retornoHasmap);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).build();
-        }
-
-    }
-
     @DeleteMapping("/remover/{id}")
     public ResponseEntity deletePublicacao(@PathVariable int id) {
 
