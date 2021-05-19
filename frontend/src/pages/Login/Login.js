@@ -19,7 +19,7 @@ function Login() {
     function submitForm(e) {
         e.preventDefault();
         
-        api.post("/",{
+        api.post("/usuarios/logar",{
             email:userData.email,
             senha:userData.senha 
         }).then((resposta)=>{
