@@ -1,10 +1,10 @@
 import React from 'react';
 import "../styles/modal-publicacao-style.css"
-import Botao from "../components/Botao";
+import Botao from "./Botao";
 import Heart from "../images/heart.png";
 import Comment from "../images/comment.png";
-import Calendar from "../images/calendar.png";
-import Location from "../images/location.png";
+import Calendar from "../images/Calendar.png";
+import Location from "../images/Location.png";
 
 function ModalPublicacao(props){
     return ( 

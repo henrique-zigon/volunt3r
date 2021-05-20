@@ -55,11 +55,11 @@ public class PublicacaoController {
 
         retornoHasmap.clear();
         if(!repository.findById(id).isPresent()) {
-            retornoHasmap.put("message", "publicação não existe!");
+            retornoHasmap.put("message", "Publicação não existe!");
             return ResponseEntity.status(404).body(retornoHasmap);
         } else {
             try {
-                retornoHasmap.put("message", "Publicacação removida com sucesso!");
+                retornoHasmap.put("message", "Publicação removida com sucesso!");
                 repository.deleteById(id);
                 return ResponseEntity.status(200).body(retornoHasmap);
             } catch (Exception e) {

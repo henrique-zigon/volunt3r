@@ -1,17 +1,12 @@
 import React from 'react';
-<<<<<<< HEAD:frontend/src/components/componentes/CardCatalogoUI.js
-import {Botao} from './BotaoUI.js';
-import "../css/card-style.css";
-=======
-import Botao from '../components/Botao.js';
-import "../styles/card-style.css";
->>>>>>> 041c6d79843733efa692291f48b6aaa54f855a57:frontend/src/components/CardCatalogoUI.js
+import Botao from './Botao.js';
+import "./css/card-style.css";
 
 const Card = props => {
     return (
         <div className="card text-center shadow">
             <div className="overflow">
-                <img src={props.imgsrc} className="card-img-top"></img>
+                <img src={props.imgsrc} alt = {props.title} className="card-img-top"></img>
             </div>
             <div className="card-body text-dark">
                 <div className="card-head">

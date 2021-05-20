@@ -1,11 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD:frontend/src/components/componentes/CardCatalogoUI.js
-import {Botao} from './BotaoUI.js';
+import {Botao} from '../Botao.js';
 import "../css/card-style.css";
-=======
-import Botao from '../components/Botao.js';
-import "../styles/card-style.css";
->>>>>>> 041c6d79843733efa692291f48b6aaa54f855a57:frontend/src/components/CardCatalogoUI.js
 
 const Card = props => {
     return (

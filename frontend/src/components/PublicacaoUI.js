@@ -1,11 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD:frontend/src/components/componentes/PublicacaoUI.js
-import Botao from './BotaoUI.js';
 import "../css/publicacao-style.css";
-=======
-import Botao from '..components/Botao.js';
-import "../styles/publicacao-style.css";
->>>>>>> 041c6d79843733efa692291f48b6aaa54f855a57:frontend/src/components/PublicacaoUI.js
 
 const Publicacao = props => {
     return (

@@ -1,11 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD:frontend/src/components/componentes/PublicacaoUI.js
-import Botao from './BotaoUI.js';
+import api from '../../api.js';
+import Botao from '../Botao.js';
 import "../css/publicacao-style.css";
-=======
-import Botao from '..components/Botao.js';
-import "../styles/publicacao-style.css";
->>>>>>> 041c6d79843733efa692291f48b6aaa54f855a57:frontend/src/components/PublicacaoUI.js
 
 const Publicacao = props => {
     return (
@@ -16,6 +12,7 @@ const Publicacao = props => {
                         <img src={props.imgIconUser} className="user-img"></img></div>
                     <div className="publicacao-owner"> {props.userName} </div>
                     <div className="publicacao-time text-secondary"> {props.time} </div>
+                    <Botao action = "DELETAR" onClick = {props.onClick} ></Botao>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">
                             <img src={props.imgIconLike} className="publicacao-icon"></img>
@@ -39,5 +36,7 @@ const Publicacao = props => {
         </div>
     );
 }
+
+
 
 export default Publicacao;
