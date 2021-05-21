@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableWebSecurity
 @Configuration
-@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -20,6 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .configure(http)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/usuarios/novo/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/admin/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/public/**").permitAll();
     }

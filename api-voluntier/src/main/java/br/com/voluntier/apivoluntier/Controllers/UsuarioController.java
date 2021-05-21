@@ -27,6 +27,8 @@ public class UsuarioController {
     @PostMapping("/logar")
     public ResponseEntity<HashMap<String, Object>> postLogar(@RequestBody Usuario usuario) {
 
+        jwtBolado=new Jwt();
+
         retornoHasmap.clear();
         List<UsuarioResponse> retornoRepository = usuarioRepository.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
 
@@ -42,7 +44,7 @@ public class UsuarioController {
                 return ResponseEntity.status(404).body(retornoHasmap);
             } else {
                 usuariosLogados.add(usuario);
-                String token= jwtBolado.createJWT(usuario);
+                String token= jwtBolado.createJWT(retornoRepository.get(0));
                 retornoHasmap.put("message", "Usuário logado com sucesso!");
                 retornoHasmap.put("Usuario", retornoRepository);
 
@@ -83,7 +85,7 @@ public class UsuarioController {
         String resul=jwtBolado.verificarAcesso(token);
         retornoHasmap.clear();
         if (resul.equals("Sem premissão")){
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(401).body("sem permissão");
         }else {
             try {
                 retornoHasmap.put("message", "Usuário desativado com sucesso!");
