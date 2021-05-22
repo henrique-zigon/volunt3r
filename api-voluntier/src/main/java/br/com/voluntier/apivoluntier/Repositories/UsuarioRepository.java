@@ -17,6 +17,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query("select u from Usuario as u where u.email = :email")
     List<UsuarioResponse> findByEmail(String email);
 
+    @Query("select u from Usuario as u where u.email = :email")
+    List<Usuario> findByEmail1(String email);
+
     @Query("select u from Usuario as u where u.email = :email and u.senha = :senha")
     List<UsuarioResponse> findByEmailAndSenha(String email, String senha);
 

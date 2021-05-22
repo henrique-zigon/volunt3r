@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class Jwt {
 
-    public String createJWT(UsuarioResponse user) {
+    public String createJWT(Usuario user) {
         String token="";
         Calendar date=Calendar.getInstance();
 

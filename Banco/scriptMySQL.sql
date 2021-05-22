@@ -18,7 +18,7 @@ create table usuario(
     tipo_usuario varchar(10),
     check (tipo_usuario = 'comum' or tipo_usuario='b3_social'),
     email varchar(50),
-    senha varchar(50),
+    senha varchar(70),
     cargo varchar(42),
     area varchar(100),
     imagem_perfil varchar(255),

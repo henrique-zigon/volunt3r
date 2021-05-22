@@ -1,9 +1,6 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
@@ -17,6 +14,7 @@ public class Usuario {
     private int quantidadeMilhas;
     private String tipoUsuario;
     private String email;
+    @Column(length = 70)
     private String senha;
     private String cargo;
     private String area;
