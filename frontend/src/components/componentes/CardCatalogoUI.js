@@ -1,5 +1,5 @@
 import React from 'react';
-import {Botao} from '../Botao.js';
+import { Botao } from '../Botao.js';
 import "../css/card-style.css";
 
 const Card = props => {
@@ -22,7 +22,7 @@ const Card = props => {
                         </div>
                     </div>
                     <div className="card-button">
-                        <Botao onClick={() => {console.log("You Clicked on Me!");}} type="button" buttonStyle="btn--primary--solid" buttonSize="btn--medium"> {props.action}</Botao>            
+                        <Botao onClick={() => { console.log("You Clicked on Me!"); }} type="button" buttonStyle="btn--primary--solid" buttonSize="btn--medium"> {props.action}</Botao>
                     </div>
                 </div>
                 <p className="card-text text-secondary">{props.texto}</p>
