@@ -12,6 +12,8 @@ const STYLES = [
   "btn--success--outline"
 ];
 
+const textButton = "btn";
+
 const SIZES = ["btn--medium", "btn--large"];
 
 export const Botao = ({
@@ -28,7 +30,7 @@ export const Botao = ({
 
   return (
     <button
-      className={checkButtonStyle, checkButtonSize}
+      className={textButton ,checkButtonStyle, checkButtonSize}
       onClick={onClick}
       type={type}
     >

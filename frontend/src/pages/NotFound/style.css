@@ -16,6 +16,10 @@
   color: #06377B;
 }
 
+.container-notfound img{
+  width: 500px;
+}
+
 .container-notfound .back-page {
   position: relative;
   display: flex;

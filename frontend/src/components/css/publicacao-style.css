@@ -82,6 +82,11 @@
     font-weight: 500;
 }
 
+.publicacao-time{
+    margin: auto;
+    width: fit-content;
+}
+
 .publicacao-icon{
     margin:auto;
     width: 26px;
@@ -95,13 +100,14 @@
     width: 100%;
 }
 
+
 .publicacao-statistic{
     font-size: 15px;
 }
 
 .publicacao-actions{
     display: flex;
-    margin: 10px auto;
+    margin: 15px auto;
     flex-direction: column;
     justify-content: space-evenly;
     height: 15%;
@@ -109,9 +115,24 @@
 
 @media (max-width: 600px) {
     .container-publicacao{
-        width: 95%;
+        width: 90%;
     }
     .publicacao{
       width: 100%;
+    }
+    .user-img{
+        width: 50px;
+        height: 50px;
+    }
+    .publicacao-icon{
+        width: 20px;
+    }
+
+    .publicacao-time{
+        font-size: 13px;
+    }
+
+    .publicacao-statistic{
+        font-size: 13px;
     }
   }

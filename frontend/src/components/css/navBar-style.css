@@ -1,5 +1,5 @@
 .navbar{
-    position:sticky;
+    position: fixed;
     width: 100%;
     background-color: #366DBF;
     height: 60px;
@@ -9,31 +9,52 @@
     display: flex;
     height: 100%;
     align-items: center; 
-    padding: 0 1rem;
+    padding: 1.5rem;
 }
 
 .navbar-title{
-    font-size: 2em;
+    font-size: 1.5em;
     color: #fff;
     font-weight: 500;
+    cursor: pointer;
 }
 
+.navbar-logos{
+    width: 100px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.volunter-info{
+    width: 150px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+
 .navbar-logo{
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin:auto;
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
     background-color: #fff;
+    cursor: pointer;
 }
+
 
 .spacer{
     flex: 1;
+    margin: auto;
+    justify-content: space-around;
 }
 
 .navbar-navigation-items ul{
     list-style: none;
+    flex-wrap: wrap;
     margin: 0;
     display: flex;
     padding: 0;
@@ -45,3 +66,66 @@
     text-decoration: none;
 }
 
+.navbar-navigation-items ul .search-icon{
+    display: flex;
+}
+
+input{
+    color: #fff;
+    font-size: 16px;
+    height: 100%;
+    border: none;
+    background-color: #366DBF;
+    width: 74%;
+} 
+
+::placeholder{
+    color: #e7e0e0;
+}
+
+.icons{
+    width: 25px;
+}
+
+.navbar-menu-icon{
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+    .navbar-navigation{
+        padding: 10px 5px 10px 10px;
+    }
+
+    .navbar-title, .volunter-info .navbar-logo, .navbar-user, .volunter-info, .user{
+        display: none;
+    }
+
+    .navbar-navigation-items .navbar-navigation{
+        width: fit-content;
+    }
+    
+
+    .navbar-menu-icon{
+        display: block;
+    }
+
+    .navbar-logo{
+        width: 27px;
+        height: 27px;
+    }
+
+    .search-icon .icons{
+        width: 15px;
+    }
+
+    .search-icon{
+        margin: auto;
+        width: 90%;
+    }
+    
+    input{
+        font-size: 13px;
+    }
+
+}
