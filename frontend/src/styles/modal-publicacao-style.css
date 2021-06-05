@@ -132,6 +132,14 @@ body{
     padding-left: 50px;
 }
 
+.like{
+    width: 30px;
+}
+
+.comentario{
+    height: 30px;
+}
+
 .linha{
     width: 90%;
     margin: 0% 5%;

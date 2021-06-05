@@ -1,0 +1,74 @@
+.Navbar{
+    background-color: #366DBF;
+    height: 50px;
+}
+
+.filtros{
+    margin-top: 30px;
+}
+
+.filtro2{
+    margin-left: 200px;
+}
+
+.pagina{
+    display: flex;
+}
+
+.paginaCentro{
+    margin-left: 15%;
+    width: 70%;
+}
+
+.paginaCentro .titulo{
+    margin-top: 65px;
+
+    font-family: Exo 2;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.paginaCentro .subtitulo{
+    margin-top: 30px;
+
+    font-family: Exo 2;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.textoAzul{
+    color: #366DBF;
+}
+
+.eventos{
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: #DDE4E8;
+}
+
+.menuDireita{
+    position: fixed;
+
+}
+
+.menuDireita .titulo{
+    margin-top: 20px;
+
+    font-family: Exo 2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 13px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+

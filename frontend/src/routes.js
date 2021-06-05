@@ -8,8 +8,10 @@ import NotFound from './pages/NotFound/NotFound';
 import Publicacoes from './components/Publicacao';
 import ModalPublicacao from './components/ModalPublicacao.js';
 import CardCatalogo from './components/CardCatalogo.js';
-import { ToastProvider, useToasts }  from 'react-toast-notifications'
-
+import { ToastProvider, useToasts }  from 'react-toast-notifications';
+import EventCatalog from './pages/EventCatalog/EventCatalog';
+import Shop from './pages/Shop/Shop';
+import ModalCriacao from './components/ModalCriacao';
 
 function Routes() {
 
@@ -17,7 +19,9 @@ function Routes() {
         <ToastProvider>
         <BrowserRouter>
             <Switch>
-            
+                <Route exact path="/create" component={ModalCriacao} />
+                <Route exact path="/shop" component={Shop} />
+                <Route exact path="/catalog" component={EventCatalog} />
                 <Route exact path="/modal" component={ModalPublicacao} />
                 <Route exact path="/card" component={CardCatalogo} />
                 <Route exact path="/" component={Publicacoes} />
