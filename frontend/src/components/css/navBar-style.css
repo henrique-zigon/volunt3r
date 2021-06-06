@@ -8,8 +8,10 @@
 .navbar-navigation{
     display: flex;
     height: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center; 
-    padding: 1.5rem;
+    padding: 1em;
 }
 
 .navbar-title{
@@ -31,6 +33,7 @@
     justify-content: space-between;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 
@@ -47,9 +50,8 @@
 
 
 .spacer{
-    flex: 1;
+    width: 40%;
     margin: auto;
-    justify-content: space-around;
 }
 
 .navbar-navigation-items ul{
@@ -66,17 +68,24 @@
     text-decoration: none;
 }
 
-.navbar-navigation-items ul .search-icon{
+.navbar-navigation-items .search-icon{
     display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+
 }
 
-input{
+.search-icon input{
+    /* outline: 1px solid #fff; */
     color: #fff;
     font-size: 16px;
     height: 100%;
+    width: 90%;
     border: none;
     background-color: #366DBF;
-    width: 74%;
 } 
 
 ::placeholder{
@@ -85,19 +94,29 @@ input{
 
 .icons{
     width: 25px;
+    cursor: pointer;
 }
 
 .navbar-menu-icon{
     display: none;
 }
 
+.navbar-navigation-menu{
+    display: none;
+}
 
-@media (max-width: 600px) {
+.separation{
+    color: #292929;
+    font-size: 30px;
+}
+
+
+@media (max-width: 720px) {
     .navbar-navigation{
-        padding: 10px 5px 10px 10px;
+        padding: 15px;
     }
 
-    .navbar-title, .volunter-info .navbar-logo, .navbar-user, .volunter-info, .user{
+    .navbar-title, .volunter-info .navbar-logo, .navbar-user, .volunter-info, .user, .separation {
         display: none;
     }
 
@@ -110,22 +129,84 @@ input{
         display: block;
     }
 
+    .cancel{
+        display: none;
+    }
+
     .navbar-logo{
         width: 27px;
         height: 27px;
     }
 
     .search-icon .icons{
-        width: 15px;
+        width: 18px;
     }
 
     .search-icon{
         margin: auto;
         width: 90%;
     }
-    
+    .spacer{
+        flex: 1;
+    }
     input{
         font-size: 13px;
+        width: 95%;
+    }
+
+    .navbar-logos{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item a:hover{
+        color: #9bc3ff;
+    }
+
+    .navbar-navigation-menu {
+        padding: 5px;
+        position: fixed;
+        z-index: 99;
+        top: 60px;
+        width: 100%;
+        left: -100%;
+        height: fit-content;
+        background-color: #2d4f83;
+        display: inline-block;
+        text-align: center;
+        display: flex;
+        transition: left 0.3s ease;
+    }
+
+    .active{
+        left: 0%;
+    }
+
+    .deactive{
+        left: -100%;
+    }
+
+    .navbar-navigation-menu {
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .navbar-navigation-menu  li{
+        line-height: 40px;
+        margin: 30px 0;
+    } 
+    
+    .navbar-navigation-menu  li a{
+        font-size: 20px;
+    } 
+
+    .show{
+        display: block;
+    }
+    
+    .hide{
+        display: none;
     }
 
 }
