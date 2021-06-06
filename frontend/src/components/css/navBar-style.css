@@ -1,8 +1,10 @@
 .navbar{
-    position: fixed;
+    position: sticky;
     width: 100%;
     background-color: #366DBF;
     height: 60px;
+    top:0;
+    overflow: hidden;
 }
 
 .navbar-navigation{
@@ -83,7 +85,8 @@
     color: #fff;
     font-size: 16px;
     height: 100%;
-    width: 90%;
+    width: 80%;
+    margin-left: 13%;
     border: none;
     background-color: #366DBF;
 } 
@@ -145,6 +148,12 @@
     .search-icon{
         margin: auto;
         width: 90%;
+    }
+
+    .search-icon input{
+        width: 95%;
+        margin: auto;
+
     }
     .spacer{
         flex: 1;
