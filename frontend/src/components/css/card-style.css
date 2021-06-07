@@ -1,12 +1,10 @@
 *{padding:0;}
 
-body{
-    background: radial-gradient(#e5e5e5, #fff, #e5e5e5);
-}
 
 .card{
-    max-height: 50%;
+    max-height: 45%;
     margin: 20px 0;
+    background-color: #fff;
     width: 45%;  
 }
 
@@ -19,11 +17,11 @@ body{
 }
 
 .card-text{
-    font-size: 1rem;
+    font-size: 15px;
 }
 
 .container-card{
-    width: 60%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -36,6 +34,7 @@ body{
 }
 .card-img-top{
     height: 15em;
+    width: 100%;
     object-fit: cover;
     transform: scale(1);
     transition: transform 0.5s ease;
@@ -58,12 +57,14 @@ body{
     font-weight: 200;
     padding-right: 15px;
     text-align: initial;
+    
 }
 
 .card-title{
     width: fit-content;
     text-align: initial;
-    font-weight: 450;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .card-head{
@@ -78,6 +79,7 @@ body{
 .card-title-subtitle{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 60%;
 }
 
@@ -85,7 +87,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 40%;
+    width: 30%;
+    right: 0;
 }
 
 .card-subtitle-time{
@@ -93,6 +96,7 @@ body{
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 14px;
 }
 
 .card-time{
@@ -101,7 +105,7 @@ body{
     flex-direction: row;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     .container-card{
         width: 80%;
     }

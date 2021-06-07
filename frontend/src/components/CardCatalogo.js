@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
-import Card from './CardCatalogoUI';
+import Card from './componentes/CardCatalogoUI';
 import img1 from "../images/imagem1.jpg";
 import img2 from "../images/imagem2.jpg";
 import img3 from "../images/imagem3.jpg";

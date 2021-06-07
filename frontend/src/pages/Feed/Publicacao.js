@@ -1,13 +1,13 @@
 import React, { Component, useState, useEffect } from 'react'
-import Publicacao from './componentes/PublicacaoUI';
-import img1 from "../images/imagem1.jpg";
-import img3 from "../images/imagem3.jpg";
-import img2 from "../images/imagem2.jpg";
-import img5 from "../images/imagem5.jpg";
-import imgLonga from "../images/imagemLonga.jpg";
-import imgLike from "../images/heart.png";
-import imgComment from "../images/comment.png";
-import api from "../api.js";
+import Publicacao from '../../components/componentes/PublicacaoUI';
+import img1 from "../../images/imagem1.jpg";
+import img3 from "../../images/imagem3.jpg";
+import img2 from "../../images/imagem2.jpg";
+import img5 from "../../images/imagem5.jpg";
+import imgLonga from "../../images/imagemLonga.jpg";
+import imgLike from "../../images/heart.png";
+import imgComment from "../../images/comment.png";
+import api from "../../api.js";
 import { ToastProvider, useToasts }  from 'react-toast-notifications';
 
 
@@ -54,7 +54,7 @@ export default function Publicacoes() {
                                 
                             }
                             }
-                            imgsrc={img5} imgIconLike={imgLike} imgIconComment={imgComment} likes="10" comments="5" userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} tags="#Gratidão #AmoCães" />
+                            imgsrc={img3} imgIconLike={imgLike} imgIconComment={imgComment} likes="10" comments="5" userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} tags="#Gratidão #AmoCães" />
                         ))
                     }
             </div>

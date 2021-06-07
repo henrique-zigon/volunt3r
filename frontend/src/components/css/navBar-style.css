@@ -1,39 +1,65 @@
 .navbar{
-    position:sticky;
+    position: sticky;
     width: 100%;
     background-color: #366DBF;
     height: 60px;
+    top:0;
+    z-index:1;
+    overflow: hidden;
 }
 
 .navbar-navigation{
     display: flex;
     height: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center; 
-    padding: 0 1rem;
+    padding: 1em;
 }
 
 .navbar-title{
-    font-size: 2em;
+    font-size: 1.5em;
     color: #fff;
     font-weight: 500;
+    cursor: pointer;
 }
 
+.navbar-logos{
+    width: 100px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.volunter-info{
+    width: 150px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 .navbar-logo{
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin:auto;
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
     background-color: #fff;
+    cursor: pointer;
 }
 
+
 .spacer{
-    flex: 1;
+    width: 40%;
+    margin: auto;
 }
 
 .navbar-navigation-items ul{
     list-style: none;
+    flex-wrap: wrap;
     margin: 0;
     display: flex;
     padding: 0;
@@ -45,3 +71,152 @@
     text-decoration: none;
 }
 
+.navbar-navigation-items .search-icon{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.search-icon input{
+    /* outline: 1px solid #fff; */
+    color: #fff;
+    font-size: 16px;
+    height: 100%;
+    width: 80%;
+    margin-left: 13%;
+    border: none;
+    background-color: #366DBF;
+} 
+
+::placeholder{
+    color: #e7e0e0;
+}
+
+.icons{
+    width: 25px;
+    cursor: pointer;
+}
+
+.navbar-menu-icon{
+    display: none;
+}
+
+.navbar-navigation-menu{
+    display: none;
+}
+
+.separation{
+    color: #292929;
+    font-size: 30px;
+}
+
+
+@media (max-width: 720px) {
+    .navbar-navigation{
+        padding: 15px;
+    }
+
+    .navbar-title, .volunter-info .navbar-logo, .navbar-user, .volunter-info, .user, .separation {
+        display: none;
+    }
+
+    .navbar-navigation-items .navbar-navigation{
+        width: fit-content;
+    }
+    
+
+    .navbar-menu-icon{
+        display: block;
+    }
+
+    .cancel{
+        display: none;
+    }
+
+    .navbar-logo{
+        width: 27px;
+        height: 27px;
+    }
+
+    .search-icon .icons{
+        width: 18px;
+    }
+
+    .search-icon{
+        margin: auto;
+        width: 90%;
+    }
+
+    .search-icon input{
+        width: 95%;
+        margin: auto;
+
+    }
+    .spacer{
+        flex: 1;
+    }
+    input{
+        font-size: 13px;
+        width: 95%;
+    }
+
+    .navbar-logos{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item a:hover{
+        color: #9bc3ff;
+    }
+
+    .navbar-navigation-menu {
+        padding: 5px;
+        position: fixed;
+        z-index: 99;
+        top: 60px;
+        width: 100%;
+        left: -100%;
+        height: fit-content;
+        background-color: #2d4f83;
+        display: inline-block;
+        text-align: center;
+        display: flex;
+        transition: left 0.3s ease;
+    }
+
+    .active{
+        left: 0%;
+    }
+
+    .deactive{
+        left: -100%;
+    }
+
+    .navbar-navigation-menu {
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .navbar-navigation-menu  li{
+        line-height: 40px;
+        margin: 30px 0;
+    } 
+    
+    .navbar-navigation-menu  li a{
+        font-size: 20px;
+    } 
+
+    .show{
+        display: block;
+    }
+    
+    .hide{
+        display: none;
+    }
+
+}

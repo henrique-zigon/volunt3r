@@ -1,0 +1,126 @@
+body{
+    background-color: darkgrey;
+
+}
+
+.titulo{
+    margin-top: 15px;
+    margin-left: 40%;
+
+}
+
+.imagemPerfil{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.headerModal{
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    display: flex;
+    height: 100%;
+    padding-left: 25px;
+}
+
+.inputCriacao{
+    margin-top:10px;
+    margin-left: 5%;
+    width: 90%;
+    min-height: 150px;
+    border-radius: 5px;
+}
+
+.inputTags{
+    margin-top:15px;
+    margin-left: 5%;
+    width: 90%;
+    min-height: 35px;
+    color: #366DBF;
+    border-color: #366DBF;
+    border-radius: 5px;
+}
+
+.tags ::placeholder{
+    color: #366DBF;
+}
+
+.botaoAdd{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 10px;
+    margin-left: 5%;
+    background-color: #366DBF;
+    color: white;
+    height: 20px;
+    width: 150px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputAdd{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 2px;
+    margin-left: 5%;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.inputAdd2{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 2px;
+    margin-left: 5%;
+    width: 150px;
+    height: 22px;
+    border-radius: 3px;
+}
+
+.inputAdd3{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 2px;
+    margin-left: 11%;
+    border-radius: 3px;
+}
+
+.botoesDataLugar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.botaoAdd2{
+    font-family: Exo 2;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 10px;
+    margin-left: 11%;
+    background-color: #366DBF;
+    color: white;
+    height: 20px;
+    width: 150px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnModal{
+    margin-top: 20px;
+    margin-left: 18%;
+}
+

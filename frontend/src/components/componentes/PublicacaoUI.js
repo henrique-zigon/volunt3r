@@ -1,6 +1,6 @@
 import React from 'react';
 import api from '../../api.js';
-import Botao from '../Botao.js';
+import Botao from '../componentes/BotaoUI.js';
 import "../css/publicacao-style.css";
 
 const Publicacao = props => {
@@ -12,9 +12,19 @@ const Publicacao = props => {
                         <img src={props.imgIconUser} className="user-img"></img></div>
                     <div className="publicacao-owner"> {props.userName} </div>
                     <div className="publicacao-time text-secondary"> {props.time} </div>
-                    <Botao action = "DELETAR" onClick = {props.onClick} ></Botao>
+                    <div className="publicacao-button">
+                        {
+                            props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="DELETAR" onClick={props.onClick}></Botao> : ""
+                        }
+                    </div>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">
+                            {/* <IconButton
+                                icon="add-a-photo"
+                                color={Colors.red500}
+                                size={20}
+                                onPress={() => console.log('Pressed')}
+                            /> */}
                             <img src={props.imgIconLike} className="publicacao-icon"></img>
                             <img src={props.imgIconComment} className="publicacao-icon"></img>
                         </div>
@@ -25,7 +35,7 @@ const Publicacao = props => {
                     </div>
                 </div>
                 <div className="publicacao-content">
-                        <img src={props.imgsrc} className="publicacao-img"></img>
+                    <img src={props.imgsrc} className="publicacao-img"></img>
                     <div className="publicacao-text text-secondary">
                         <div className="publicacao-desc">{props.desc}</div>
                         <div className="publicacao-tags">{props.tags}</div>
