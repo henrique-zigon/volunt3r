@@ -3,6 +3,7 @@ import api from "../../api";
 import './style.css';
 import CardCatalogo from '../../components/CardCatalogo';
 import Combobox from '../../components/Combobox';
+import NavBar from '../../components/componentes/NavBarUI.js';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
 
@@ -11,7 +12,11 @@ function EventCatalog(){
 return(
 
 <>
+<<<<<<< HEAD
 <NavBar />
+=======
+<NavBar username = "Jon"></NavBar>
+>>>>>>> ab735d21401579ad5a442ea6eaf82bce803e733e
 
 <div className="pagina">
 <div className="paginaCentro">

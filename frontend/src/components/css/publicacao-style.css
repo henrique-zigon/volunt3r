@@ -35,7 +35,7 @@
     border-radius: 3px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    
 }
 
 .publicacao:hover{
@@ -60,9 +60,9 @@
 
 .publicacao-main{
     display: flex;
-    margin: 20px auto;
+    margin: 10px auto;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -85,6 +85,7 @@
 .publicacao-time{
     margin: auto;
     width: fit-content;
+    margin-bottom: 15px;
 }
 
 .publicacao-icon{
@@ -113,7 +114,13 @@
     height: 15%;
 }
 
-@media (max-width: 600px) {
+.publicacao-button{
+    
+    width: 93%;
+    margin: auto;
+}
+
+@media (max-width: 720px) {
     .container-publicacao{
         width: 90%;
     }

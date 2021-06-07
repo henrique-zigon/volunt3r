@@ -1,30 +1,35 @@
 package br.com.voluntier.apivoluntier.Services;
 
+import br.com.voluntier.apivoluntier.Models.Categoria;
+import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Repositories.*;
+import br.com.voluntier.apivoluntier.Utils.PilhaObj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Validator;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.FormatterClosedException;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class ArquivoServices {
-
+    @Autowired
+    EventoRepository repositoryEvento;
     @Autowired
     CliqueRepository repositoryClique;
     @Autowired
@@ -35,6 +40,11 @@ public class ArquivoServices {
     InscricaoEventoRepository repositoryInscricaoEvento;
     @Autowired
     PublicacaoRepository repositoryPublicacao;
+    @Autowired
+    Validator validator;
+
+    PilhaObj<BufferedReader> pilhaSalvar = new PilhaObj(10);
+
 
     public void gravaRegistro(String nomeArq, String registro) {
         BufferedWriter saida = null;
@@ -287,5 +297,137 @@ public class ArquivoServices {
         headers.add("Content-Disposition", "attachment; filename=" + nomeArquivo);
 
         return ResponseEntity.status(200).headers(headers).body(resource);
+    }
+
+    public ResponseEntity verificarUpload(MultipartFile arquivo) throws IOException{
+        BufferedReader entrada = new BufferedReader(
+                new InputStreamReader(arquivo.getInputStream())
+        );
+        String registro;
+        String tipoRegistro;
+        int contRegistro=0;
+        List<String> erros = new ArrayList<>();
+
+        registro = entrada.readLine();
+
+        while (registro != null) {
+            // Obtém o tipo do registro
+            tipoRegistro = registro.substring(0, 2); // obtém os 2 primeiros caracteres do registro
+
+            if (tipoRegistro.equals("00")) {
+                System.out.println("Header");
+                System.out.println("Tipo de arquivo: " + registro.substring(2, 8));
+                System.out.println("Data/hora de geração do arquivo: " + registro.substring(8,26));
+                System.out.println("Versão do layout: " + registro.substring(26,28));
+            }
+            else if (tipoRegistro.equals("01")) {
+                int qtdRegistro = Integer.parseInt(registro.substring(2,7));
+                if(contRegistro != qtdRegistro) {
+                    return ResponseEntity.status(400).body("Quantidade de registros gravados " +
+                            "não confere com quantidade lida no trailer");
+                }
+            }
+            else if (tipoRegistro.equals("02")) {
+                contRegistro++;
+            }
+            else if (tipoRegistro.equals("03")) {
+                contRegistro++;
+            }
+            else if (tipoRegistro.equals("04")) {
+
+                contRegistro++;
+            }
+            else {
+                erros.add("Tipo de registro '"+tipoRegistro+"' inválido na linha "+(contRegistro+2));
+                contRegistro++;
+            }
+
+            // lê o próximo registro
+            registro = entrada.readLine();
+        }
+
+        if(!erros.isEmpty()) {
+            return ResponseEntity.status(400).body(erros);
+        }
+        entrada.close();
+        pilhaSalvar.push(new BufferedReader(
+                new InputStreamReader(arquivo.getInputStream())
+        ));
+
+        LocalDateTime previsao = LocalDateTime.now().plusDays(1);
+
+        return ResponseEntity.status(201)
+                .header("previsao",previsao.toString())
+                .body("Quantidade de registros " +
+                "gravados compatível com quantidade lida");
+    }
+
+    //@Scheduled(cron="0 0 8 * * MON-FRI")
+    @Scheduled(fixedDelay = 1000*60)
+    private void salvarArquivo() throws IOException{
+        if(pilhaSalvar.isEmpty()) {
+            System.out.println("FOI vazio");
+            return;
+        }
+        while(!pilhaSalvar.isEmpty()) {
+            BufferedReader entrada = pilhaSalvar.peek();
+            String registro;
+            String tipoRegistro;
+
+            registro = entrada.readLine();
+
+            while (registro != null) {
+                // Obtém o tipo do registro
+                tipoRegistro = registro.substring(0, 2); // obtém os 2 primeiros caracteres do registro
+
+                switch(tipoRegistro) {
+                    case "02":
+                        //Usuário
+                        Usuario user = new Usuario();
+                        user.setNomeUsuario(registro.substring(2,202).trim());
+                        user.setGenero(registro.substring(202,212).trim());
+                        user.setQuantidadeMilhas(Integer.parseInt(registro.substring(212,217)));
+                        user.setTipoUsuario(registro.substring(217,227).trim());
+                        user.setEmail(registro.substring(227,277).trim());
+                        user.setCargo(registro.substring(277,327).trim());
+                        user.setArea(registro.substring(327,426).trim());
+                        user.setStatusUsuario(1);
+                        user.setBio("");
+                        user.setSenha("");
+                        user.setUsuarioImagemCapa("");
+                        user.setUsuarioImagemPerfil("");
+                        repositoryUsuario.save(user);
+                        System.out.println("Criado");
+                        break;
+                    case "03":
+                        //Evento
+                        Evento evento = new Evento();
+                        Categoria categoria = new Categoria();
+                        Publicacao publicacao = new Publicacao();
+                        Usuario usuario = new Usuario();
+                        categoria.setIdCategoria(Integer.parseInt(registro.substring(52,55)));
+                        evento.setDataEvento(registro.substring(64,79).trim());
+                        evento.setDataFechamentoEvento(registro.substring(79,94).trim());
+                        evento.setEndereco(registro.substring(494,749).trim());
+                        evento.setHoras(Double.parseDouble(registro.substring(59,64)));
+                        evento.setMaximoParticipantes(Integer.parseInt(registro.substring(55,59)));
+                        evento.setCategoria(categoria);
+                        repositoryEvento.save(evento);
+                        publicacao.setEvento(evento);
+                        publicacao.setTitulo(registro.substring(02,52).trim());
+                        publicacao.setDescricao(registro.substring(494,749).trim());
+                        publicacao.setDataPostagem(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+                        usuario.setIdUsuario(Integer.parseInt(registro.substring(749,754)));
+                        publicacao.setUsuario(usuario);
+                        repositoryPublicacao.save(publicacao);
+                        break;
+                }
+
+                // lê o próximo registro
+                registro = entrada.readLine();
+            }
+            entrada.close();
+            pilhaSalvar.pop();
+        }
     }
 }
