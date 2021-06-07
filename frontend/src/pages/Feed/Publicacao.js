@@ -54,7 +54,7 @@ export default function Publicacoes() {
                                 
                             }
                             }
-                            imgsrc={img3} imgIconLike={imgLike} imgIconComment={imgComment} likes="10" comments="5" userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} tags="#Gratidão #AmoCães" />
+                            imgsrc={img3} imgIconLike={imgLike} imgIconComment={imgComment} likes="10" comments="5" userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} tags="#Gratidão #AmoCães" />
                         ))
                     }
             </div>

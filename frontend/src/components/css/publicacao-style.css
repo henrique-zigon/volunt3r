@@ -85,6 +85,7 @@
 .publicacao-time{
     margin: auto;
     width: fit-content;
+    margin-bottom: 15px;
 }
 
 .publicacao-icon{
