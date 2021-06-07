@@ -1,6 +1,6 @@
 import React from 'react';
 import api from '../../api.js';
-import Botao from '../Botao.js';
+import Botao from '../componentes/BotaoUI.js'
 import "../css/publicacao-style.css";
 
 const Publicacao = props => {
@@ -12,7 +12,9 @@ const Publicacao = props => {
                         <img src={props.imgIconUser} className="user-img"></img></div>
                     <div className="publicacao-owner"> {props.userName} </div>
                     <div className="publicacao-time text-secondary"> {props.time} </div>
-                    {/* <Botao action="DELETAR" onClick={props.onClick} ></Botao> */}
+                    <div className="publicacao-button">
+                        <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="DELETAR" onClick={props.onClick}></Botao>
+                    </div>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">
                             <img src={props.imgIconLike} className="publicacao-icon"></img>

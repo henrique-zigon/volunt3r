@@ -4,6 +4,7 @@
     background-color: #366DBF;
     height: 60px;
     top:0;
+    z-index:1;
     overflow: hidden;
 }
 

@@ -54,10 +54,11 @@ const NavBar = props => {
                     
                         <div className="navbar-navigation-menu">
                             <div className="navbar-logos">
-                                <li className="item"><a href="#">Perfil</a></li>
-                                <li className="item"><a href="#">Eventos</a></li>
-                                <li className="item"><a href="#">Conquistas</a></li>
-                                <li className="item"><a href="#">Loja</a></li>
+                                <li className="item"><a href="/perfil">Perfil</a></li>
+                                <li className="item"><a href="/">Feed</a></li>
+                                <li className="item"><a href="/catalog">Eventos</a></li>
+                                <li className="item"><a href="/conquistas">Conquistas</a></li>
+                                <li className="item"><a href="/shop">Loja</a></li>
                             </div>
                         
                     </div>

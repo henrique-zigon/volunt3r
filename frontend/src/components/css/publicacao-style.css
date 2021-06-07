@@ -35,7 +35,7 @@
     border-radius: 3px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    
 }
 
 .publicacao:hover{
@@ -60,9 +60,9 @@
 
 .publicacao-main{
     display: flex;
-    margin: 20px auto;
+    margin: 10px auto;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -111,6 +111,12 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 15%;
+}
+
+.publicacao-button{
+    
+    width: 93%;
+    margin: auto;
 }
 
 @media (max-width: 720px) {

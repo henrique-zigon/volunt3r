@@ -17,7 +17,7 @@
 }
 
 .card-text{
-    font-size: 1rem;
+    font-size: 15px;
 }
 
 .container-card{
@@ -57,12 +57,14 @@
     font-weight: 200;
     padding-right: 15px;
     text-align: initial;
+    
 }
 
 .card-title{
     width: fit-content;
     text-align: initial;
-    font-weight: 450;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .card-head{
@@ -77,6 +79,7 @@
 .card-title-subtitle{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 60%;
 }
 
@@ -84,7 +87,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 40%;
+    width: 30%;
+    right: 0;
 }
 
 .card-subtitle-time{
@@ -92,6 +96,7 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 14px;
 }
 
 .card-time{

@@ -16,25 +16,21 @@ const textButton = "btn";
 
 const SIZES = ["btn--medium", "btn--large"];
 
-export const Botao = ({
-  children,
-  type,
-  onClick,
-  buttonStyle,
-  buttonSize
-}) => {
+const Botao = (props) => {
 
-  const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
+  const checkButtonStyle = STYLES.includes(props.buttonStyle) ? props.buttonStyle : STYLES[0];
 
-  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+  const checkButtonSize = SIZES.includes(props.buttonSize) ? props.buttonSize : SIZES[0];
 
   return (
     <button
-      className={textButton ,checkButtonStyle, checkButtonSize}
-      onClick={onClick}
-      type={type}
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      onClick={props.onClick}
+      type={props.type}
     >
-      {children}
+      {props.children}
     </button>
   );
 };
+
+export default Botao;
