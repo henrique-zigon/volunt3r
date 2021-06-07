@@ -9,6 +9,16 @@ create table categoria(
     check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4)
 );
 
+create table curso(
+    id_curso int auto_increment primary key,
+    titulo varchar(50),
+    preco int,
+    duracao float,
+    descricao varchar(250),
+    categoria varchar(50),
+    path_imagem varchar(255)
+);
+
 create table usuario(
 	id_usuario int auto_increment primary key,
     nome_usuario varchar(200),
@@ -19,12 +29,20 @@ create table usuario(
     check (tipo_usuario = 'comum' or tipo_usuario='b3_social'),
     email varchar(50),
     senha varchar(70),
-    cargo varchar(42),
+    cargo varchar(50),
     area varchar(100),
     imagem_perfil varchar(255),
     imagem_capa varchar(255),
-    status_usuario int(1),
+    status_usuario int,
     check(status_usuario = 0 or status_usuario = 1)
+);
+
+create table transacao_compra(
+    id_transacao_compra int auto_increment primary key,
+    fk_usuario int,
+    foreign key(fk_usuario) references usuario(id_usuario),
+    fk_curso int,
+    foreign key(fk_curso) references curso(id_curso)
 );
 
 create table ranque(
@@ -49,7 +67,7 @@ create table evento(
 
 create table publicacao(
 	id_publicacao int auto_increment primary key,
-    titulo_publicacao varchar(100),
+    titulo_publicacao varchar(50),
     descricao varchar(400),
     data_postagem varchar(15),
     imagem varchar(200), 
@@ -88,7 +106,7 @@ create table gostei(
 );
 
 create table clique(
-	#id_clique int auto_increment primary key,
+	id_clique int auto_increment primary key,
     fk_publicacao int,
     foreign key(fk_publicacao) references publicacao(id_publicacao),
     fk_usuario int,

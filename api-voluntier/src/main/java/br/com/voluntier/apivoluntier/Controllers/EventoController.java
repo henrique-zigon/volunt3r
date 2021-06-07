@@ -5,6 +5,7 @@ import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.InscricaoEvento;
 import br.com.voluntier.apivoluntier.Models.Usuario;
+import br.com.voluntier.apivoluntier.Repositories.CategoriaRepository;
 import br.com.voluntier.apivoluntier.Repositories.EventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.InscricaoEventoRepository;
@@ -26,55 +27,19 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {
-    FilaObj<Usuario> listaEmail = new FilaObj<>(10);
+    @Autowired
+    private EventoRepository repository;
 
     @Autowired
-    EventoRepository repository;
+    private InscricaoEventoRepository repositoryInscricaoEvento;
 
     @Autowired
-    InscricaoEventoRepository repositoryInscricaoEvento;
+    private PublicacaoRepository repositoryPublicacao;
 
     @Autowired
-    PublicacaoRepository repositoryPublicacao;
-
-    @Autowired
-    EmailSender emailSender;
+    private CategoriaRepository categoriaRepository;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
-
-    /*
-    A lógica que eu imagino aqui é a seguinte:
-        Coletar todos os inscritos pro evento, e notificá-los baseado em algo
-        Exemplo: 2 dias antes do evento acontecer de fato
-        Ai no caso, vamos usar fila, então vamos primeiro coletar as infos de inscricaoEvento
-        Resumindo o cron abaixo:
-            De segunda a sexta, toda vez que der o horário 8:30:00 nós iremos rodar essa função
-         ┌───────────── second (0-59)
-         │ ┌───────────── minute (0 - 59)
-         │ │ ┌───────────── hour (0 - 23)
-         │ │ │ ┌───────────── day of the month (1 - 31)
-         │ │ │ │ ┌───────────── month (1 - 12) (or JAN-DEC)
-         │ │ │ │ │ ┌───────────── day of the week (0 - 7)
-         │ │ │ │ │ │          (0 or 7 is Sunday, or MON-SUN)
-         │ │ │ │ │ │
-         * * * * * *
-     */
-    @Scheduled(cron="0 30 8 * * MON-FRI")
-    //@Scheduled(fixedDelay = 1000*60)
-    public void enviarEmails() {
-        while(!listaEmail.isEmpty()) {
-            Usuario user = listaEmail.poll();
-            if(emailSender.sendMessage(
-                    "Titulo badass",
-                    "MEnsagem sobre evento braba",
-                    user.getEmail()
-            )) {
-                System.out.println("Email enviado com sucesso!");
-            }else {
-                System.out.println("Erro ao enviar email.");
-            }
-        }
-    }
 
     @GetMapping
     public ResponseEntity getEventos() {
@@ -120,6 +85,16 @@ public class EventoController {
             System.out.println(e);
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @GetMapping("/categorias")
+    public ResponseEntity getCategorias() {
+        return ResponseEntity.status(200).body(categoriaRepository.findAll());
+    }
+
+    @GetMapping("/niveis")
+    public ResponseEntity getNiveis() {
+        return ResponseEntity.status(200).body(categoriaRepository.findUniqueNiveis());
     }
 
 }

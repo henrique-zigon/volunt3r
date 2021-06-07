@@ -3,13 +3,14 @@ package br.com.voluntier.apivoluntier.Controllers;
 import br.com.voluntier.apivoluntier.Services.ArquivoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.awt.image.MultiPixelPackedSampleModel;
+import java.io.IOException;
 
 @RestController
-@RequestMapping("/downloads")
+@RequestMapping("/arquivos")
 public class ArquivoController {
 
     @Autowired
@@ -37,5 +38,10 @@ public class ArquivoController {
     @ResponseBody
     public ResponseEntity getFuncionarioCSV() {
         return arqServices.exportarFuncionariosCSV();
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity uploadArquivo(@RequestParam MultipartFile arquivo) throws IOException {
+        return arqServices.verificarUpload(arquivo);
     }
 }

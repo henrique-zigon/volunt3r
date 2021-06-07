@@ -3,20 +3,15 @@ package br.com.voluntier.apivoluntier.Models;
 import javax.persistence.*;
 
 @Entity
-public class Clique {
-
+public class TransacaoCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_clique")
+    @Column(name = "id_transacao_compra")
     private Integer id;
-
     @ManyToOne
-    @JoinColumn(name = "fk_publicacao")
-    private Publicacao publicacao;
-
-    @ManyToOne
-    @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
+    @ManyToOne
+    private Curso curso;
 
     public Integer getId() {
         return id;
@@ -26,19 +21,19 @@ public class Clique {
         this.id = id;
     }
 
-    public Publicacao getPublicacao() {
-        return publicacao;
-    }
-
-    public void setPublicacao(Publicacao publicacao) {
-        this.publicacao = publicacao;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

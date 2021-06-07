@@ -1,5 +1,5 @@
 insert into categoria(nome_categoria, nivel)
-values ('Doação',2), ('Mentoria',3);
+values ('Não lembro', 1),('Doação',2), ('Mentoria',3), ('Curso Intensivo', 4);
 
 insert into usuario values
     (null, 'Ygor', 'Masculino','Uma apresentação bem normal', 10, 'b3_social', 'ygor.lima@bandtec.com.br', "12345678","Estagiario","Produtos Analytics","/image.jpg","/capa.jpg", 1),
