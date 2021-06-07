@@ -1,7 +1,7 @@
 library('ggplot2')
 library(tidyr)
 
-VolunAtivo<-subset(Voluntario,Voluntario$Score>0 & Voluntario$Classificacao!='N0')
+VolunAtivo<-subset(Voluntario,Voluntario$Score>0 & Voluntario$Classificacao!='N1')
 
 p<-ggplot(VolunAtivo) + aes(TempoCasa) + geom_line(aes(y=Score/sapply(VolunAtivo['Score'],min),col="Score"))
 
@@ -40,13 +40,15 @@ conjFaix<-c("Faixa1","Faixa2","Faixa3","Faixa4","Faixa5","Faixa6")
 
 conjDemi<-c(80,50,34,10,2,1)
 
+conjPorc<-c(80*100/Faixa1,50*100/Faixa2,34*100/Faixa3,10*100/Faixa4,2*100/Faixa5,1*100/Faixa6)
+
 Faixas<-data.frame("faixa"=conjFaix,"qnt"=conjLegal+conjDemi,"qntD"=conjDemi)
 
 xoxo<-Faixas %>% gather("qnt","qntD",-faixa)
 
 position_stack(vjust =  0)
 
-ggplot(xoxo,aes(x=faixa,y=qntD,fill=qnt))+geom_col(position="dodge")+geom_line(aes(y=))
+ggplot(xoxo,aes(x=faixa,y=qntD,fill=qnt))+geom_col(position="dodge")+ geom_text(aes(label=c(rep(100,6),round((conjPorc),2))),position = position_dodge(width=0.9), vjust=-0.25)
 
 plotFaixa<-ggplot(Faixas,aes(faixa,qnt))  + geom_col()
 

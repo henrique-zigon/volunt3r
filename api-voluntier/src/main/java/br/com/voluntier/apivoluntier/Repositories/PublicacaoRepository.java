@@ -13,4 +13,5 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
 
     // List<Publicacao> findByEvento(int id);
 
+    List<Publicacao> findAllByPublicacaoPai(Publicacao p);
 }
