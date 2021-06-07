@@ -13,7 +13,11 @@
 
 .fundoConquista {
     max-height: fit-content;
-    width: 30%;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: #F3F3F3;
     border-radius: 10px;
     border: #868686 2px solid;
@@ -33,6 +37,7 @@
 
 .corpoConquista {
     height: 100%;
+    margin-left: 5%;
 }
 
 /* Fim Conquista */

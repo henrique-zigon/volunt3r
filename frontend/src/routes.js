@@ -12,6 +12,8 @@ import { ToastProvider, useToasts }  from 'react-toast-notifications';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
 import ModalCriacao from './components/ModalCriacao';
+import Profile from './pages/Profile/Profile';
+import Achievements from './pages/Achievements/Achievements';
 
 function Routes() {
 
@@ -19,6 +21,8 @@ function Routes() {
         <ToastProvider>
         <BrowserRouter>
             <Switch>
+                <Route exact path="/achievements" component={Achievements} />
+                <Route exact path="/profile" component={Profile} />
                 <Route exact path="/create" component={ModalCriacao} />
                 <Route exact path="/shop" component={Shop} />
                 <Route exact path="/catalog" component={EventCatalog} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/medalha-style.css';
 
 function Medalha(props) {
     return (

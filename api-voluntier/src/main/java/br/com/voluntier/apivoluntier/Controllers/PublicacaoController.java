@@ -67,6 +67,17 @@ public class PublicacaoController {
                 return ResponseEntity.status(500).build();
             }
         }
+    }
 
+    @GetMapping("/{id}/{comentarios}")
+    public ResponseEntity getComentarios(@PathVariable Integer id) {
+        Publicacao p = new Publicacao();
+        p.setId(id);
+        List<Publicacao> comentarios = repository.findAllByPublicacaoPai(p);
+        if(!comentarios.isEmpty()) {
+            return ResponseEntity.status(200).body(comentarios);
+        }else {
+            return ResponseEntity.status(204).build();
+        }
     }
 }
