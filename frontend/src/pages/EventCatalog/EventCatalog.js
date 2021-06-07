@@ -12,11 +12,7 @@ function EventCatalog(){
 return(
 
 <>
-<<<<<<< HEAD
-<NavBar />
-=======
 <NavBar username = "Jon"></NavBar>
->>>>>>> ab735d21401579ad5a442ea6eaf82bce803e733e
 
 <div className="pagina">
 <div className="paginaCentro">
