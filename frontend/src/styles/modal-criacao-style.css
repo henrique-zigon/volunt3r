@@ -3,7 +3,7 @@ body{
 
 }
 
-.titulo{
+.tituloModal{
     margin-top: 15px;
     margin-left: 40%;
 
@@ -93,13 +93,14 @@ body{
     font-size: 12px;
     line-height: 13px;
     margin-top: 2px;
-    margin-left: 11%;
+    margin-left: 17%;
     border-radius: 3px;
 }
 
 .botoesDataLugar{
     display: flex;
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 .botaoAdd2{
@@ -108,7 +109,7 @@ body{
     font-size: 12px;
     line-height: 13px;
     margin-top: 10px;
-    margin-left: 11%;
+    margin-left: 17%;
     background-color: #366DBF;
     color: white;
     height: 20px;
@@ -120,7 +121,9 @@ body{
 }
 
 .btnModal{
-    margin-top: 20px;
-    margin-left: 18%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-evenly;
 }
 

@@ -7,7 +7,7 @@ function ModalCriacao(props){
 <>
 <div className="modalCompleto">
 
-<div className="titulo"><h2>Criar </h2><h2>{props.tipo}</h2></div> 
+<div className="tituloModal"><h2>Criar </h2><h2>{props.tipo}</h2></div> 
 
 <div className="headerModal">
         <img className="imagemPerfil" src={props.imagemPerfil} />
@@ -33,7 +33,7 @@ function ModalCriacao(props){
 <input className="inputAdd3" type="file"></input>
 
 <div className="btnModal">
-<button className="texte" action="Cancelar" /> <Botao className="btnModal" action="Publicar"/>
+<Botao className="btnModal" action="Cancelar"/> <Botao className="btnModal" action="Publicar"/>
 </div>
 
 </div>
