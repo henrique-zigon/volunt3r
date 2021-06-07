@@ -12,7 +12,7 @@ const NavBar = props => {
         <header className="navbar">
             <nav className="navbar-navigation">
                 <div className="volunter-info">
-                    <div> <img className="navbar-logo" src={imgLike} /></div>
+                    <div> <img className="navbar-logo icone" src={imgLike} /></div>
                     <div className="navbar-title"> Volunt3r</div>
                 </div>
                 <div className="navbar-navigation-items">
@@ -67,7 +67,7 @@ const NavBar = props => {
                     <ul>
                         <div className="navbar-navigation">
                             <div className="navbar-logos">
-                                <li><a href="/" ><img className="navbar-logo" src={imgNotification} href="/" /></a></li>
+                                <li><a href="/" ><img className="navbar-logo icone" src={imgNotification} href="/" /></a></li>
                                 <li className="user"><a href="/perfil"> <img className="navbar-logo" src={img1} /></a></li>
                             </div>
                             <li className="navbar-user"><a href="/perfil">Bom te ver, {props.username}</a></li>
