@@ -4,13 +4,14 @@ import './style.css';
 import CardCatalogo from '../../components/CardCatalogo';
 import Combobox from '../../components/Combobox';
 import '../../styles/combo-box-style.css';
+import NavBar from '../../components/componentes/NavBarUI';
 
 function Shop(){
 
 return(
 
 <>
-<div className="Navbar">NavBar</div>
+<NavBar />
 
 <div className="pagina">
 <div className="paginaCentro">

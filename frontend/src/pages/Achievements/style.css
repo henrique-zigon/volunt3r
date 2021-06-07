@@ -1,0 +1,80 @@
+.paginaCentroAchievements{
+    width: 70%;
+    height: auto;
+    margin-left: 15%;
+    background-color: #DDE4E8;
+}
+
+.imgCapa{
+    width: 100%;
+    height: 350px;
+    
+}
+
+.perfilUsuario{
+    display: flex;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 250px;
+    color: #F3F3F3;
+}
+
+.imgPerfil{
+    border-radius: 50%;
+    border-color: black;
+    border-width: 2px;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+
+.textoPerfil{
+    margin-left: 10px;
+    margin-top: 30px;
+
+}
+
+.corpoConquistas{
+    display: flex;
+}
+
+.fundoBranco{
+    background-color: #F3F3F3;
+    height: auto;
+   
+}
+
+.corpoCentral{
+    height: auto;
+    width: 55%;
+    margin-left: 5%;
+    margin-top: 8%;
+}
+
+.corpoLateral{
+    width: 30%;
+    margin-top: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.estatisticas{
+    display: flex;
+}
+
+.estatisticas1{
+    width: 90%;
+    height: 250px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.estatisticas2{
+    width: 90%;
+    height: 250px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+   
+}
