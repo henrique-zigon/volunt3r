@@ -1,7 +1,7 @@
 import React from 'react';
 import "../css/menu-style.css";
 import imgUser from '../../images/user.png';
-import imgEvent from '../../images/Calendar.png';
+import imgEvent from '../../images/calendar.png';
 import imgConquista from '../../images/badge.png';
 import imgShop from '../../images/bag.png';
 import imgUserAzul from '../../images/user_azul.png';
