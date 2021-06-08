@@ -3,7 +3,7 @@ import "../styles/modal-publicacao-style.css"
 import Botao from "../components/componentes/BotaoUI";
 import Heart from "../images/heart.png";
 import Comment from "../images/comment.png";
-import Calendar from "../images/calendar.png";
+import Calendar from "../images/Calendar.png";
 import Location from "../images/Location.png";
 import imgCancel from '../images/cancel.png';
 

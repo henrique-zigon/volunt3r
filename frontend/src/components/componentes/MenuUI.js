@@ -1,13 +1,13 @@
 import React from 'react';
 import "../css/menu-style.css";
-import imgUser from '../../images/user.png'
-import imgEvent from '../../images/calendar.png'
-import imgConquista from '../../images/badge.png'
-import imgShop from '../../images/bag.png'
-import imgUserAzul from '../../images/user_azul.png'
-import imgEventAzul from '../../images/calendar_azul.png'
-import imgConquistaAzul from '../../images/badge_azul.png'
-import imgShopAzul from '../../images/bag_azul.png'
+import imgUser from '../../images/user.png';
+import imgEvent from '../../images/Calendar.png';
+import imgConquista from '../../images/badge.png';
+import imgShop from '../../images/bag.png';
+import imgUserAzul from '../../images/user_azul.png';
+import imgEventAzul from '../../images/calendar_azul.png';
+import imgConquistaAzul from '../../images/badge_azul.png';
+import imgShopAzul from '../../images/bag_azul.png';
 import imgSetaAbre from '../../images/right-arrow.png';
 import imgSetaFecha from '../../images/left-arrow.png';
 import { Route, Switch } from 'react-router';
