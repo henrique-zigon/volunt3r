@@ -43,14 +43,22 @@
 .navbar-logo{
     width: 40px;
     height: 40px;
-    margin:auto;
+    padding:auto;
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
     background-color: #fff;
     cursor: pointer;
+    position: relative;
 }
 
+.icone{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 13%;
+    left: 13%;
+}
 
 .spacer{
     width: 40%;
@@ -106,6 +114,7 @@
 }
 
 .navbar-menu-icon{
+    width: 25px;
     display: none;
 }
 
@@ -118,9 +127,6 @@
     font-size: 30px;
 }
 
-.icone{
-    padding: 13%;
-}
 
 @media (max-width: 720px) {
     .navbar-navigation{
@@ -223,6 +229,13 @@
     }
     
     .hide{
+        display: none;
+    }
+
+}
+
+@media (min-width: 721px){
+    #menu, #cancel{
         display: none;
     }
 

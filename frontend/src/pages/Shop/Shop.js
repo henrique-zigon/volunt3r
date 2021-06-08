@@ -5,6 +5,7 @@ import CardCatalogo from '../../components/CardCatalogo';
 import Combobox from '../../components/Combobox';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
+import Menu from '../../components/componentes/MenuUI.js';
 
 function Shop(){
 
@@ -12,7 +13,7 @@ return(
 
 <>
 <NavBar />
-
+<Menu />
 <div className="pagina">
 <div className="paginaCentro">
     <h2 className="titulo">Loja</h2>
