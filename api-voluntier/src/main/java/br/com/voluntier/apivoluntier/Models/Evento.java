@@ -17,6 +17,9 @@ public class Evento {
     private Integer maximoParticipantes;
     private double horas;
 
+    @OneToMany(mappedBy = "fkEvento")
+    private List<InscricaoEvento> inscritos;
+
     @ManyToOne
     @JoinColumn(name = "fk_categoria")
     private Categoria categoria;
@@ -75,6 +78,18 @@ public class Evento {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public List<InscricaoEvento> getInscritos() {
+        return inscritos;
+    }
+
+    public void setInscritos(List<InscricaoEvento> inscritos) {
+        this.inscritos = inscritos;
+    }
+
+    public Integer getNumeroInscritos() {
+        return this.getInscritos().size();
     }
 }
 

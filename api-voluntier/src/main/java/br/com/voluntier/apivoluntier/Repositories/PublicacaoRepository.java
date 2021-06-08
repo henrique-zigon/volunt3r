@@ -1,16 +1,21 @@
 package br.com.voluntier.apivoluntier.Repositories;
 
+import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
 
     @Query("select p from Publicacao p where p.evento is not null and p.publicacaoPai is null")
     List<Publicacao> findAllIdEventoNotNull();
+
+    @Query("select p from Publicacao p where p.evento = ?1 and p.publicacaoPai is null")
+    Optional<Publicacao> findEventoById(Evento evento);
 
     // List<Publicacao> findByEvento(int id);
     @Query("select p from Publicacao p where p.publicacaoPai = ?1")
