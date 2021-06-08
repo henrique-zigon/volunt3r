@@ -3,7 +3,6 @@ import api from "../../api";
 import './style.css';
 import CardCatalogo from '../../components/CardCatalogo';
 import Combobox from '../../components/Combobox';
-import NavBar from '../../components/componentes/NavBarUI.js';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
 
