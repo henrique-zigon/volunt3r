@@ -17,7 +17,7 @@ create table Evento(
 create table Voluntario(
 	id int primary key auto_increment,
     nome varchar(45),
-    cargo varchar(10),
+    cargo varchar(20),
     classificacao varchar(2),
     totalHrN1 int,
     totalHrN2 int,
@@ -44,6 +44,7 @@ create table Publicacao(
 );
 
 select*from Evento;
+select*from Voluntario;
 drop table Evento;
 drop table Publicacao;
 insert into Evento (evento) values ("x");

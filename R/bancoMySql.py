@@ -24,9 +24,9 @@ class Mysql:
             raise
 
     def insert_evento(self, data):
-        print("Data=")
-        print(data)
-        print("------") 
+        # print("Data=")
+        # print(data)
+        # print("------") 
         values = data       
         query = ("INSERT INTO Evento"
          "(evento, categoria, nParticipantes,horas,"
@@ -45,13 +45,21 @@ class Mysql:
             self.mysql.rollback()
             self.close()
 
-    def insert_evento2(self, data):
-        print(data[0])
-        values = data[0]        
-        query = ("insert into Evento (evento) values ('{}')"
-        ).format(values)
-        print(query)
-        
+    def insert_voluntario(self, data):
+        # print("Data=")
+        # print(data)
+        # print("------") 
+        values = data       
+        query = ("INSERT INTO Voluntario"
+         "(nome, cargo, classificacao,totalHrN1,"
+         "totalHrN2,totalHrN3,totalHrN4,totalHr,totalQntN1,"
+         "totalQntN2,totalQntN3,totalQntN4,totalQnt,score,tempoCasa)"
+        "VALUES('{}','{}','{}',{},{},{},{},{},{},{},{},{},{},{},{})"
+        ).format(values[0],values[1],values[2],values[3],
+        values[4],values[5],values[6],values[7],values[8],
+        values[9],values[10],values[11],values[12],values[13],
+        values[14])
+     
         
         try:
             self.cursor.execute(query)
