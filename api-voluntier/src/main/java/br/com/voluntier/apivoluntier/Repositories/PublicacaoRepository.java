@@ -1,6 +1,7 @@
 package br.com.voluntier.apivoluntier.Repositories;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,6 +13,6 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
     List<Publicacao> findAllIdEventoNotNull();
 
     // List<Publicacao> findByEvento(int id);
-
-    List<Publicacao> findAllByPublicacaoPai(Publicacao p);
+    @Query("select p from Publicacao p where p.publicacaoPai = ?1")
+    List<ComentarioResponse> findAllByPublicacaoPai(Publicacao p);
 }

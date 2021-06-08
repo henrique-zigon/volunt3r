@@ -2,6 +2,7 @@ package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
+import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -73,7 +74,7 @@ public class PublicacaoController {
     public ResponseEntity getComentarios(@PathVariable Integer id) {
         Publicacao p = new Publicacao();
         p.setId(id);
-        List<Publicacao> comentarios = repository.findAllByPublicacaoPai(p);
+        List<ComentarioResponse> comentarios = repository.findAllByPublicacaoPai(p);
         if(!comentarios.isEmpty()) {
             return ResponseEntity.status(200).body(comentarios);
         }else {

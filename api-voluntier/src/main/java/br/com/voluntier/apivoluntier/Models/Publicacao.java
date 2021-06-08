@@ -1,5 +1,7 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -35,6 +37,14 @@ public class Publicacao {
     @ManyToOne
     @JoinColumn(name = "publicacao_pai")
     private Publicacao publicacaoPai;
+
+    @OneToMany(mappedBy="fkPublicacao")
+    @JsonIgnore
+    private List<Gostei> likes;
+
+    @OneToMany(mappedBy="publicacaoPai")
+    @JsonIgnore
+    private List<Publicacao> comentarios;
 
     public Integer getId() {
         return id;
@@ -100,6 +110,22 @@ public class Publicacao {
         this.publicacaoPai = publicacaoPai;
     }
 
+    public List<Gostei> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Gostei> likes) {
+        this.likes = likes;
+    }
+
+    public List<Publicacao> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Publicacao> comentarios) {
+        this.comentarios = comentarios;
+    }
+
     public boolean isPublicacaoEvento() {
         return this.getPublicacaoPai() == null;
     }
@@ -109,5 +135,13 @@ public class Publicacao {
             return false;
         }
         return !this.getPublicacaoPai().isPublicacaoEvento();
+    }
+
+    public Integer getNumeroLikes() {
+        return this.getLikes().size();
+    }
+
+    public Integer getNumeroComentarios() {
+        return this.getComentarios().size();
     }
 }
