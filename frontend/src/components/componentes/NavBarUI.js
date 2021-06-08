@@ -45,6 +45,7 @@ const NavBar = props => {
                     <div className="search-icon">
                         <input type="search" placeholder="Pesquise por seu interesse" />
                         <img src={imgSearch} className="icons" />
+                        <div className="underline" />
                     </div>
                 </div>
 

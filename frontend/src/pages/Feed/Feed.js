@@ -12,6 +12,11 @@ function Feed(){
         <div className = "feed">
         <NavBar username = "Jon" />
         <Menu />
+        <div className="createPublicacao">
+            <img className="iconeClipe" src={imagem15} />
+            <textarea className="textAreaCreate" placeholder="Compartilhe uma experiência... =)"/>
+            <img className="iconeEnviar" src={imagem16} />
+        </div>
         <Publicacao />
         </div>
         
