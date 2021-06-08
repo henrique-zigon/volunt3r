@@ -6,31 +6,49 @@ import img3 from "../images/imagem3.jpg";
 import img4 from "../images/imagem4.jpg";
 import api from "../api.js";
 
-export default function Cards () {
+export default function Cards(props) {
 
-    const [cards, setCards] = useState([]);
-
-    useEffect(() => {
-
-        async function getAllCards() {
-            const resposta = await api.get("/eventos");
-            console.log(resposta.data);
-            setCards(resposta.data);
-        }
-
-        getAllCards();
-    }, [])
+    let cards = props.info;
 
     return (
         <div className="container-card">
-          {
-              cards.map((card) => (
-                <Card imgsrc = {img3} title={card.titulo} onClick = "metodoVaiAqui()" subtitle="B3 Social" date={card.evento.dataFechamentoEvento} time="14h" action="Participar" texto={card.descricao} /> 
-              ))
-          }
+            {
+                cards != null ?
+                    props.isEvento ?
+
+                        cards.map((card) => (
+                            <Card
+                                key={card.id}
+                                imgsrc={img3}
+                                title={card.titulo}
+                                onClick="metodoVaiAqui()"
+                                subtitle="B3 Social"
+                                date={card.evento.dataFechamentoEvento}
+                                time="14h"
+                                action="Participar"
+                                texto={card.descricao} 
+                            />
+                        ))
+                    :
+                        cards.map((card) => (
+                            <Card
+                                key={card.id}
+                                imgsrc={img3}
+                                title={card.titulo}
+                                onClick="metodoVaiAqui()"
+                                subtitle={card.categoria}
+                                date={card.duracao+" Horas"}
+                                time={card.preco+" Milhas"}
+                                action="Colocar no carrinho"
+                                texto={card.descricao} 
+                            />
+                        ))
+                :
+                <p>Não há itens</p>
+            }
         </div>
     );
 }
 
-      
+
 

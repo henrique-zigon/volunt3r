@@ -7,40 +7,51 @@ import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
 import Menu from '../../components/componentes/MenuUI.js';
 
-function Shop(){
+function Shop() {
+    const [cards, setCards] = useState([]);
 
-return(
+    useEffect(() => {
 
-<>
-<NavBar />
-<Menu />
-<div className="pagina">
-<div className="paginaCentro">
-    <h2 className="titulo">Loja</h2>
-    <h4 className="subtitulo">Troque suas<span className="textoAzul"> milhas</span> por cursos incríveis!</h4>
+        async function getAllCards() {
+            const resposta = await api.get("/cursos");
+            console.log(resposta.data);
+            setCards(resposta.data);
+        }
 
-<div className="filtros">
-    <b className="filtro1">Categoria</b> <Combobox valor="Todas" nome="Todas"/>
-    <b className="filtro2">Ordenar por</b> <Combobox valor="Preço" nome="Preço"/>
+        getAllCards();
+    }, [])
+    return (
 
-</div>
+        <>
+            <NavBar />
+            <Menu />
+            <div className="pagina">
+                <div className="paginaCentro">
+                    <h2 className="titulo">Loja</h2>
+                    <h4 className="subtitulo">Troque suas<span className="textoAzul"> milhas</span> por cursos incríveis!</h4>
 
-    <div className="eventos">
-    <CardCatalogo />
-    </div>
+                    <div className="filtros">
+                        <b className="filtro1">Categoria</b> <Combobox valor="Todas" nome="Todas" />
+                        <b className="filtro2">Ordenar por</b> <Combobox valor="Preço" nome="Preço" />
 
-</div>
+                    </div>
 
-<div className="menuDireita">
-    <b className="titulo">Próximos eventos</b>
+                    <div className="eventos">
+                        <CardCatalogo info={cards} isEvento={false}/>
+                    </div>
 
-    
-</div> 
-</div>
+                </div>
 
-</>
+                <div className="menuDireita">
+                    <b className="titulo">Próximos eventos</b>
 
-);
+
+                </div>
+            </div>
+
+        </>
+
+    );
 }
 
 export default Shop;

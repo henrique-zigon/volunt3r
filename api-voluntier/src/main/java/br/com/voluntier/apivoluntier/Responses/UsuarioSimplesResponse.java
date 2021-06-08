@@ -3,22 +3,22 @@ package br.com.voluntier.apivoluntier.Responses;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 
 public class UsuarioSimplesResponse {
-    private Integer id;
+    private Integer idUsuario;
     private String nome;
     private String usuarioImagemPerfil;
 
     public UsuarioSimplesResponse(Usuario usuario) {
-        this.id = usuario.getIdUsuario();
+        this.idUsuario = usuario.getIdUsuario();
         this.nome = usuario.getNomeUsuario();
         this.usuarioImagemPerfil = usuario.getUsuarioImagemPerfil();
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {

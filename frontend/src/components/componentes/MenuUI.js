@@ -1,6 +1,5 @@
 import React from 'react';
 import "../css/menu-style.css";
-
 import imgSetaAbre from '../../images/right-arrow.png';
 import imgSetaFecha from '../../images/left-arrow.png';
 import {BiUser, BiCalendarAlt, BiShoppingBag, BiAward} from "react-icons/bi";
