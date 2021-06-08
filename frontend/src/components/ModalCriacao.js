@@ -1,10 +1,17 @@
 import React from 'react';
 import "../styles/modal-criacao-style.css"
-import Botao from "./Botao";
+import Botao from "../components/componentes/BotaoUI";
+import imgCancel from '../images/cancel.png';
 
 function ModalCriacao(props){
+
+
     return ( 
 <>
+<div className="paginaModalCriacao">
+    
+<div className="exit"><img src={imgCancel} onClick={() => {props.funcao(false)}}></img>
+</div>
 <div className="modalCompleto">
 
 <div className="tituloModal"><h2>Criar </h2><h2>{props.tipo}</h2></div> 
@@ -33,10 +40,12 @@ function ModalCriacao(props){
 <input className="inputAdd3" type="file"></input>
 
 <div className="btnModal">
-<Botao className="btnModal" action="Cancelar"/> <Botao className="btnModal" action="Publicar"/>
+<Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Cancelar" onClick={props.onClick}></Botao><Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Publicar" onClick={props.onClick}></Botao>
 </div>
 
 </div>
+</div>
+
 
 </>
     );

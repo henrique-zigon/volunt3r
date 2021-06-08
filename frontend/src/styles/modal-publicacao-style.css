@@ -1,8 +1,10 @@
 /* Modal */
 
-body{
-    background-color: grey;
-
+.paginaModalPublicacao{
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
 }
 
 .modalCompleto {
@@ -17,7 +19,7 @@ body{
     box-shadow: 3px 3px black;
     display: flex;
     flex-direction: column;
-    position:absolute;
+    position: fixed;
   }
 
 .imagemPerfil{
@@ -159,6 +161,14 @@ body{
     font-style: normal;
     font-size: 20px;
     line-height: 13px;
+}
+
+.exit{
+    height: 12px;
+    width: 12px;
+    margin-left: 15px;
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 /* .interessados img{

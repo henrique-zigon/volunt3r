@@ -80,7 +80,7 @@
 }
 
 .search-icon input:focus{
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #292929;
 }
 
 .navbar-navigation-items .search-icon{
