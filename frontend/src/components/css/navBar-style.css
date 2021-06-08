@@ -43,14 +43,22 @@
 .navbar-logo{
     width: 40px;
     height: 40px;
-    margin:auto;
+    padding:auto;
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
     background-color: #fff;
     cursor: pointer;
+    position: relative;
 }
 
+.icone{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 13%;
+    left: 13%;
+}
 
 .spacer{
     width: 40%;
@@ -71,6 +79,10 @@
     text-decoration: none;
 }
 
+.search-icon input:focus{
+    border-bottom: 2px solid #292929;
+}
+
 .navbar-navigation-items .search-icon{
     display: flex;
     justify-content: space-around;
@@ -81,12 +93,8 @@
 
 }
 
-<<<<<<< HEAD
-.navbar input{
-=======
 .search-icon input{
-    /* outline: 1px solid #fff; */
->>>>>>> ab735d21401579ad5a442ea6eaf82bce803e733e
+    border-bottom: 1px solid #f2f2f2;
     color: #fff;
     font-size: 16px;
     height: 100%;
@@ -106,6 +114,7 @@
 }
 
 .navbar-menu-icon{
+    width: 25px;
     display: none;
 }
 
@@ -220,6 +229,13 @@
     }
     
     .hide{
+        display: none;
+    }
+
+}
+
+@media (min-width: 721px){
+    #menu, #cancel{
         display: none;
     }
 

@@ -1,6 +1,7 @@
-body{
-    background-color: darkgrey;
-
+.paginaModalCriacao{
+    background-color: grey;
+    height: 100vh;
+    width: 100vw;
 }
 
 .tituloModal{

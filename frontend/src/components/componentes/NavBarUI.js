@@ -11,10 +11,10 @@ const NavBar = props => {
     return (
         <header className="navbar">
             <nav className="navbar-navigation">
-                <div className="volunter-info">
-                    <div> <img className="navbar-logo" src={imgLike} /></div>
+                <a href="/"><div className="volunter-info">
+                    <div className="navbar-logo"> <img className="icone" src={imgLike} /></div>
                     <div className="navbar-title"> Volunt3r</div>
-                </div>
+                </div></a>
                 <div className="navbar-navigation-items">
                     <ul>
                         <div className="navbar-navigation">
@@ -54,10 +54,10 @@ const NavBar = props => {
                     
                         <div className="navbar-navigation-menu">
                             <div className="navbar-logos">
-                                <li className="item"><a href="/perfil">Perfil</a></li>
+                                <li className="item"><a href="/profile">Perfil</a></li>
                                 <li className="item"><a href="/">Feed</a></li>
                                 <li className="item"><a href="/catalog">Eventos</a></li>
-                                <li className="item"><a href="/conquistas">Conquistas</a></li>
+                                <li className="item"><a href="/achievements">Conquistas</a></li>
                                 <li className="item"><a href="/shop">Loja</a></li>
                             </div>
                         
@@ -67,10 +67,10 @@ const NavBar = props => {
                     <ul>
                         <div className="navbar-navigation">
                             <div className="navbar-logos">
-                                <li><a href="/" ><img className="navbar-logo" src={imgNotification} href="/" /></a></li>
-                                <li className="user"><a href="/perfil"> <img className="navbar-logo" src={img1} /></a></li>
+                                <li className="navbar-logo"><a href="/" ><img className="icone" src={imgNotification} href="/" /></a></li>
+                                <li className="user"><a href="/profile"> <img className="navbar-logo" src={img1} /></a></li>
                             </div>
-                            <li className="navbar-user"><a href="/perfil">Bom te ver, {props.username}</a></li>
+                            <li className="navbar-user"><a href="/profile">Bom te ver, {props.username}</a></li>
                         </div>
                     </ul>
                 </div>
