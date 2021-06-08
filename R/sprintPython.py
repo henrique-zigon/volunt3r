@@ -36,7 +36,7 @@ def function_evento():
     
     tabelEvent=robjects.r('Eventos')
     nRowEven=robjects.r('nrow(Eventos)')
-    nColEven=robjects.r('length(Eventos)')
+    #nColEven=robjects.r('length(Eventos)')
 
     print(tabelEvent)
     #convertido=datetime.date(int(tabelEvent[6][6]))
@@ -59,3 +59,34 @@ def function_evento():
         objEven[8]=tabelEvent[8][ev]
         tabelaEvento[ev]=objEven
     return tabelaEvento
+
+def function_voluntario():
+    
+    tabelVolu=robjects.r('Voluntario')
+    nRowVol=robjects.r('nrow(Voluntario)')
+    print(int(nRowVol[0]))
+    #print(tabelVolu[0][0])
+    #convertido=datetime.date(int(tabelEvent[6][6]))
+    #print(convertido)
+    tabelaVoluntario={}
+    for ev in range(int(nRowVol[0])):
+        objVol={}
+        
+        objVol[0]=tabelVolu[0][ev]
+        objVol[1]=tabelVolu[1][ev]
+        objVol[2]=tabelVolu[2][ev]
+        objVol[3]=tabelVolu[3][ev]
+        objVol[4]=tabelVolu[4][ev]
+        objVol[5]=tabelVolu[5][ev]
+        objVol[6]=tabelVolu[6][ev]
+        objVol[7]=tabelVolu[7][ev]
+        objVol[8]=tabelVolu[8][ev]
+        objVol[9]=tabelVolu[9][ev]
+        objVol[10]=tabelVolu[10][ev]
+        objVol[11]=tabelVolu[11][ev]
+        objVol[12]=tabelVolu[12][ev]
+        objVol[13]=tabelVolu[13][ev]
+        objVol[14]=tabelVolu[14][ev]
+  
+        tabelaVoluntario[ev]=objVol
+    return tabelaVoluntario
