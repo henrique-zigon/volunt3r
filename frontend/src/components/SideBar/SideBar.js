@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BiLineChart, BiExit  } from 'react-icons/bi';
+import { Link, useLocation } from 'react-router-dom';
+import { BiLineChart, BiExit, BiDetail, BiCalendar } from 'react-icons/bi';
 
 import './sidebar.css';
 
 const SideBar = props => {
+
+  let location = useLocation().pathname;
+
   return (
     <div className="sidebar">
 
@@ -22,14 +25,25 @@ const SideBar = props => {
       <span className="useremail">{props.useremail}</span>
 
       <div className="sidebar-itens">
-        <Link to="/dashboard" className="item current">
+        <Link to="/dashboard" className={
+          location === "/dashboard" ? "item current": "item" 
+        }>
           <BiLineChart className="icon" size={20} />
           <span>Dashboard</span>
         </Link>
 
-        <Link className="item">
-          <BiLineChart className="icon" size={20} />
+        <Link to="/dashboard/relatorios" className={
+          location === "/dashboard/relatorios" ? "item current": "item" 
+        }>
+          <BiDetail className="icon" size={20} />
           <span>Relatórios</span>
+        </Link>
+
+        <Link to="/dashboard/criar-eventos" className={
+          location === "/dashboard/criar-eventos" ? "item current": "item" 
+        }>
+          <BiCalendar className="icon" size={20} />
+          <span>Criar Eventos</span>
         </Link>
       </div>
     </div>

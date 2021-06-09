@@ -1,0 +1,12 @@
+button.button {
+  position: relative;
+  width: 200px;
+  height: 40px;
+
+  border: none;
+  background: var(--blue-color);
+  color: white;
+  border-radius: 5px;
+  top: 10px;
+  cursor: pointer;
+}
