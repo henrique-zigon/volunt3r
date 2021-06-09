@@ -22,7 +22,7 @@ const Publicacao = props => {
                         
                             <BiHeart size={30} className="publicacao-icon" />
                             {
-                            props.publicacaoPai==null ? <BiComment size={30} className="publicacao-icon" /> : ""
+                            !props.comentario ? <BiComment size={30} className="publicacao-icon" /> : ""
                             }
 
                             
@@ -30,7 +30,7 @@ const Publicacao = props => {
                         <div className="publicacao-icons">
                             <div className="publicacao-tags publicacao-statistic">{props.likes}</div>
                             {
-                            props.publicacaoPai==null ? <div className="publicacao-tags publicacao-statistic">{props.comments}</div> : ""
+                            !props.comentario ? <div className="publicacao-tags publicacao-statistic">{props.comments}</div> : ""
                             }
                                                     </div>
                     </div>
