@@ -4,6 +4,7 @@ import imgLike from "../../images/heart.png";
 
 import img1 from "../../images/imagem1.jpg";
 import imgSearch from "../../images/search.png";
+import imgLogo from "../../images/logo volunt3r.png";
 
 import { BiMenu, BiX, BiBell } from "react-icons/bi";
 
