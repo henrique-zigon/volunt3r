@@ -1,0 +1,84 @@
+div.sidebar {
+  position: relative;
+  width: 250px;
+  background: white;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3.5rem 2.5rem;
+}
+
+div.sidebar .exit-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--gray-not-selected);
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+div.sidebar .exit-icon:hover {
+  position: absolute;
+  color: black;
+}
+
+div.sidebar div.userpic {
+  width: 120px;
+  height: 120px;
+}
+
+div.sidebar div.userpic img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+div.sidebar span.username {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+div.sidebar span.useremail {
+  font-size: 0.9rem;
+  color: var(--color-subtitle);
+  cursor: pointer;
+}
+
+div.sidebar div.sidebar-itens {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+div.sidebar div.sidebar-itens a.item {
+  display: block;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: var(--gray-not-selected);
+  transition: .3s ease;
+}
+
+div.sidebar div.sidebar-itens a.item.current {
+  background: black;
+  color: white;
+}
+
+div.sidebar div.sidebar-itens a.item:hover {
+  color: var(--blue-color);
+}
+
+div.sidebar div.sidebar-itens a.item:first-child {
+  margin: 0;
+}
+
+div.sidebar div.sidebar-itens .item .icon {
+  width: 20px;
+  margin: 0.5rem;
+  margin-right: 0.5rem;
+}

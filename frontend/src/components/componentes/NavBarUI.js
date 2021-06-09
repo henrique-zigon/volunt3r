@@ -1,12 +1,11 @@
 import React from 'react';
 import "../css/navBar-style.css";
 import imgLike from "../../images/heart.png";
-import imgNotification from "../../images/notification.png";
+
 import img1 from "../../images/imagem1.jpg";
 import imgSearch from "../../images/search.png";
-import imgMenu from '../../images/menu.png';
-import imgCancel from '../../images/cancel.png';
-import imgLogo from '../../images/logo volunt3r.png';
+
+import { BiMenu, BiX, BiBell } from "react-icons/bi";
 
 const NavBar = props => {
     return (
@@ -19,7 +18,7 @@ const NavBar = props => {
                 <div className="navbar-navigation-items">
                     <ul>
                         <div className="navbar-navigation">
-                            <li className="navbar-menu-icon" id="menu"><img src={imgMenu} className="icons" onClick={() => {                           
+                            <li className="navbar-menu-icon" id="menu"><BiMenu size = {35} className="icons" onClick={() => {                            
                                 document.querySelector('.navbar-navigation-menu').classList.add("active");
                                 document.querySelector('.navbar-navigation-menu').classList.remove("deactive");
 
@@ -28,8 +27,8 @@ const NavBar = props => {
 
                                 document.querySelector('#cancel').classList.add("show");
                                 document.querySelector('#cancel').classList.remove("hide");
-                            }} /></li>
-                            <li className="navbar-menu-icon cancel" id="cancel"><img src={imgCancel} className="icons" onClick={() =>{
+                            }}  /></li>
+                            <li className="navbar-menu-icon cancel" id="cancel"><BiX size = {35} className="icons" onClick={() =>{
                                 document.querySelector('.navbar-navigation-menu').classList.add("deactive");
                                 document.querySelector('.navbar-navigation-menu').classList.remove("active");
 
@@ -46,6 +45,7 @@ const NavBar = props => {
                     <div className="search-icon">
                         <input type="search" placeholder="Pesquise por seu interesse" />
                         <img src={imgSearch} className="icons" />
+                        <div className="underline" />
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@ const NavBar = props => {
                     <ul>
                         <div className="navbar-navigation">
                             <div className="navbar-logos">
-                                <li className="navbar-logo"><a href="/" ><img className="icone" src={imgNotification} href="/" /></a></li>
+                                <li className="navbar-logo"><a href="/" ><BiBell  className="icone" href="/" /></a></li>
                                 <li className="user"><a href="/profile"> <img className="navbar-logo" src={img1} /></a></li>
                             </div>
                             <li className="navbar-user"><a href="/profile">Bom te ver, {props.username}</a></li>

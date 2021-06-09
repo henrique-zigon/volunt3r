@@ -1,8 +1,6 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.List;

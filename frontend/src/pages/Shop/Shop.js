@@ -6,13 +6,28 @@ import Combobox from '../../components/Combobox';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
 import Menu from '../../components/componentes/MenuUI.js';
+import { useCookies } from 'react-cookie';
 
 function Shop() {
+    const [cookies] = useCookies(['volunt3r']);
+    const [cards, setCards] = useState([]);
 
+    useEffect(() => {
+
+        async function getAllCards() {
+            const resposta = await api.get("/cursos",{
+                headers: { 'Authorization': cookies.volunt3r }
+            });
+            console.log(resposta.data);
+            setCards(resposta.data);
+        }
+
+        getAllCards();
+    }, [])
     return (
 
         <>
-            <NavBar username="Jon" />
+            <NavBar />
             <Menu />
             <div className="pagina">
                 <div className="paginaCentro">
@@ -26,10 +41,11 @@ function Shop() {
                     </div>
 
                     <div className="eventos">
-                        <CardCatalogo />
+                        <CardCatalogo info={cards} isEvento={false}/>
                     </div>
 
                 </div>
+
             </div>
 
         </>

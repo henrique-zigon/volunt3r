@@ -6,8 +6,23 @@ import Combobox from '../../components/Combobox';
 import Menu from '../../components/componentes/MenuUI.js';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
+import { useCookies } from 'react-cookie';
 
 function EventCatalog() {
+    const [cookies] = useCookies(['volunt3r']);
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+
+        async function getAllCards() {
+            const resposta = await api.get("/eventos",{
+                headers: { 'Authorization': cookies.volunt3r }
+            });
+            setCards(resposta.data);
+        }
+
+        getAllCards();
+    }, [])
 
     return (
 
@@ -28,7 +43,7 @@ function EventCatalog() {
                     </div>
 
                     <div className="eventos">
-                        <CardCatalogo />
+                        <CardCatalogo info={cards} isEvento={true}/>
                     </div>
 
                 </div>

@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './style.css';
 import api from '../../api'
+import { useCookies } from 'react-cookie';
+
+
 
 function Login() {
+    const [cookies, setCookie, removeCookie] = useCookies(['volunt3r']);
     const [userData, setUserData] = useState({
         email: "",
         senha: ""
     });
-
+    let history = useHistory();
+    
 
     function handle(e) {
         const newUserData = {...userData }
@@ -19,11 +24,13 @@ function Login() {
     function submitForm(e) {
         e.preventDefault();
         
-        api.post("/usuarios/logar",{
+        api.post("/usuarios/login",{
             email:userData.email,
             senha:userData.senha 
         }).then((resposta)=>{
-            console.log("o login foi enviado: ",resposta)
+            setCookie('volunt3r', resposta.data.tipo + " " + resposta.data.token, { path: '/' });
+            console.log("o login foi enviado: ",resposta);
+            history.push("/");
         })
 
         /* 

@@ -53,11 +53,11 @@
 }
 
 .icone{
-    width: 30px;
-    height: 30px;
     position: absolute;
-    top: 13%;
-    left: 13%;
+    color: #366DBF;
+    width: 5px;
+    top: 10%;
+    left: 10%;
 }
 
 .spacer{
@@ -79,9 +79,6 @@
     text-decoration: none;
 }
 
-.search-icon input:focus{
-    border-bottom: 2px solid #292929;
-}
 
 .navbar-navigation-items .search-icon{
     display: flex;
@@ -90,7 +87,6 @@
     margin: auto;
     flex-direction: row;
     align-items: center;
-
 }
 
 .search-icon input{
@@ -111,6 +107,7 @@
 .icons{
     width: 25px;
     cursor: pointer;
+    color: #fff;
 }
 
 .navbar-menu-icon{
@@ -125,6 +122,38 @@
 .separation{
     color: #292929;
     font-size: 30px;
+}
+.search-icon .underline{
+    content: '';
+    height: 1.5px;
+    position: relative;
+}
+.search-icon .underline::before{
+    content: '';
+    height: 1.5px;
+    position: absolute;
+    width: 80%;
+    bottom: -5px;
+    margin-left: 13%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.479);
+}
+
+.search-icon .underline::after{
+    content: '';
+    height: 1.5px;
+    position: absolute;
+    width: 80%;
+    bottom: -5px;
+    margin-left: 13%;
+    left: 0;
+    background: linear-gradient(45deg, #f2f2f2, #f6f6f6);
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+}
+
+.search-icon  input:focus ~ .underline::after{
+    transform: scaleX(1);
 }
 
 
@@ -149,10 +178,10 @@
     .cancel{
         display: none;
     }
-
+    
     .navbar-logo{
-        width: 27px;
-        height: 27px;
+        width: 30px;
+        height: 30px;
     }
 
     .search-icon .icons{
@@ -175,6 +204,16 @@
     input{
         font-size: 13px;
         width: 95%;
+    }
+
+    .search-icon .underline::before{
+        width: 90%;
+        margin-left: 0%;
+    }
+
+    .search-icon .underline::after{
+        width: 90%;
+        margin-left: 0%;
     }
 
     .navbar-logos{

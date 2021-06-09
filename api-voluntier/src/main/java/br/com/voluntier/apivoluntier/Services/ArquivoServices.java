@@ -16,13 +16,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Validator;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import java.io.*;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -366,7 +364,6 @@ public class ArquivoServices {
     @Scheduled(fixedDelay = 1000*60)
     private void salvarArquivo() throws IOException{
         if(pilhaSalvar.isEmpty()) {
-            System.out.println("FOI vazio");
             return;
         }
         while(!pilhaSalvar.isEmpty()) {

@@ -1,12 +1,20 @@
 package br.com.voluntier.apivoluntier.Controllers;
+
 import br.com.voluntier.apivoluntier.Models.Jwt;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
 import br.com.voluntier.apivoluntier.Responses.UsuarioResponse;
+import br.com.voluntier.apivoluntier.Security.TokenService;
+import br.com.voluntier.apivoluntier.Utils.LoginForm;
+import br.com.voluntier.apivoluntier.Utils.TokenDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,61 +30,31 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
     private List<Usuario> usuariosLogados = new ArrayList<>();
-
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    //@Autowired
-    //private UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     Jwt jwtBolado=new Jwt();
+    @Autowired
+    private AuthenticationManager authManager;
 
-    // Endpoint responsável pelo login do usuário
-    @PostMapping("/logar")
-    public ResponseEntity<HashMap<String, Object>> postLogar(@RequestBody Usuario usuario) {
+    @Autowired
+    private TokenService tokenService;
 
-        jwtBolado=new Jwt();
+    @PostMapping("/login")
+    public ResponseEntity<TokenDto> autentificar(@RequestBody LoginForm form){
+        UsernamePasswordAuthenticationToken dadosLogin= form.converter();
+        try{
+            Authentication authentication = authManager.authenticate(dadosLogin);
 
-        retornoHasmap.clear();
-        List<UsuarioResponse> retornoRepository = usuarioRepository.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
-
-        List<Usuario> retorno1=(usuarioRepository.findByEmail1(usuario.getEmail()));
-        System.out.println(retorno1.isEmpty());
-        if (retorno1.isEmpty()){
-            retornoHasmap.put("message:", "Usuário e/ou senha incorretos!");
-            return ResponseEntity.status(404).body(retornoHasmap);
-        }else {
-            boolean igual=passwordEncoder.matches(usuario.getSenha(),retorno1.get(0).getSenha());
-            if (igual){
-                usuariosLogados.add(usuario);
-                String token= jwtBolado.createJWT(retorno1.get(0));
-                retornoHasmap.put("message", "Usuário logado com sucesso!");
-                retornoHasmap.put("Usuario", retornoRepository);
-
-                return ResponseEntity.status(200).header("token",token).body(retornoHasmap);
-            }else {
-                retornoHasmap.put("message:", "Usuário e/ou senha incorretos!");
-                return ResponseEntity.status(404).body(retornoHasmap);
-            }
-
+            String token= tokenService.gerarToken(authentication);
+            System.out.println("TOKEN: "+ token);
+            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
+        }
+        catch (AuthenticationException e){
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(400).build();
         }
 
-//        if(usuarioRepository.findByEmailAndStatus(usuario.getEmail()).isEmpty()) {
-//            retornoHasmap.put("message", "Esse usuário está desativado!");
-//            return ResponseEntity.status(400).body(retornoHasmap);
-//        } else {
-//            retornoHasmap.clear();
-//            if (retornoRepository.isEmpty()) {
-//                retornoHasmap.put("message:", "Usuário e/ou senha incorretos!");
-//                return ResponseEntity.status(404).body(retornoHasmap);
-//            } else {
-//                usuariosLogados.add(usuario);
-//                String token= jwtBolado.createJWT(retornoRepository.get(0));
-//                retornoHasmap.put("message", "Usuário logado com sucesso!");
-//                retornoHasmap.put("Usuario", retornoRepository);
-//
-//                return ResponseEntity.status(200).header("token",token).body(retornoHasmap);
-//            }
-//        }
     }
 
     @GetMapping("/sair/{id}")
@@ -107,8 +85,7 @@ public class UsuarioController {
         usuNovo.setEmail(usuario.getEmail());
         usuNovo.setGenero(usuario.getGenero());
         usuNovo.setQuantidadeMilhas(usuario.getQuantidadeMilhas());
-        System.out.println("senha decodificado: "+passwordEncoder.encode(usuario.getSenha()));
-        usuNovo.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        usuNovo.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
 
         // Validando se o usuário existe
         if(retornoRepository.isEmpty()) {
