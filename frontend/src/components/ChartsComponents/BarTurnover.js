@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 const BarTurnover = () => {
   
   const state = {
-    labels: ["FAIXA 1", "FAIXA 2", "FAIXA 3", "FAIXA 4", "FAIXA 5", "FAIXA 6"],
+    labels: ["FAIXA 1(0-500)", "FAIXA 2(500 - 1000)", "FAIXA 3(1000- 1500)", "FAIXA 4(1500 - 2000)", "FAIXA 5(2000 - 2500)", "FAIXA 6(> 2500)"],
     datasets: [
       {
         label: "Atuais",
