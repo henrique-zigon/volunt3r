@@ -14,7 +14,7 @@ function Feed(props){
         setModalCriacao(true);
     }
 
-
+    
 
     return(
         <>

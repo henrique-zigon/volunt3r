@@ -41,7 +41,8 @@ const Publicacao = props => {
                     <img src={props.imgsrc} className="publicacao-img"></img>
                     <div className="publicacao-text text-secondary">
                         <div className="publicacao-desc">{props.desc}</div>
-                        <div className="publicacao-tags">{props.tags}</div>
+                        {//<div className="publicacao-tags">{props.tags}</div>
+                        }
                     </div>
 
                 </div>

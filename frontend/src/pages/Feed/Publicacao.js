@@ -53,7 +53,7 @@ export default function Publicacoes() {
                 headers: { 'Authorization': cookies.volunt3r }
             }).then(resposta => {
                 console.log(resposta.data);
-                setPublicacoes(resposta.data);
+                setPublicacoes(resposta.data.reverse());
             }).catch( err => {
                 console.log("Deu erro")
             });
