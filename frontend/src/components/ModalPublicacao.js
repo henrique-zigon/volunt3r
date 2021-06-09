@@ -1,4 +1,3 @@
-import React from 'react';
 import "../styles/modal-publicacao-style.css"
 import Botao from "../components/componentes/BotaoUI";
 import Heart from "../images/heart.png";
@@ -6,14 +5,39 @@ import Comment from "../images/comment.png";
 import Calendar from "../images/calendar.png";
 import Location from "../images/Location.png";
 import imgCancel from '../images/cancel.png';
+import React, { Component, useState, useEffect } from 'react'
+import { useCookies } from 'react-cookie';
+import api from "../api.js";
 
 function ModalPublicacao(props){
-
+    const [cookies] = useCookies(['volunt3r']);
     let abrirModal = {
         display: props.exibeModal? "block" : "none"
     }
 
     let publicacao = props.publicacaoSelecionada
+
+    const [inscritos, setInscritos] = useState([]);
+
+    useEffect(() => {
+
+        async function getInscritos() {
+            console.log("XOXO",cookies.volunt3r);
+            const resposta = await api.get(`/eventos/${publicacao.evento.id}/inscritos`,{
+                headers: { 'Authorization': cookies.volunt3r }
+            });
+            console.log(resposta.data);
+            setInscritos(resposta.data);
+        }
+
+        getInscritos();
+    }, [
+        publicacao
+    ])
+
+    
+
+
 
     return ( 
 <>
@@ -25,14 +49,14 @@ function ModalPublicacao(props){
 </div>
 <div className="modalCompleto">
     <div className="headerModal">
-        <img className="imagemPerfil" src={props.imagemPerfil} />
-        <b className="tituloModal">{publicacao.titulo}</b>
-        <span className="subtituloModal"> - <span>{publicacao.dataPostagem}</span><span> horas atrás</span></span>
+        <img className="imagemPerfil" src={publicacao.usuario.usuarioImagemPerfil} />
+        <b className="tituloModal">{publicacao.usuario.nomeUsuario}</b>
+        <span className="subtituloModal"> - <span>{publicacao.dataPostagem}</span></span>
     </div>
 
     <div className="evento">
         <div className="fotoEvento">
-            <img src={props.imagemEvento}></img>
+            <img src={publicacao.pathImagem}></img>
         </div>
         
         <div className="sobre">
@@ -69,10 +93,12 @@ function ModalPublicacao(props){
         <b>-</b>
         <b>Interessados:</b>
         <div className="interessados">
-        <img src={props.interessado1}/>
-        <img src={props.interessado2}/>
-        <img src={props.interessado3}/>
-        <img src={props.interessado4}/>
+            {
+                inscritos.map((inscrito) => (
+                    <img className="interessados" src={inscrito.usuarioImagemPerfil}/>
+                ))
+            }
+        
          <b> +{props.interessados}</b>
         </div>
     </div>
