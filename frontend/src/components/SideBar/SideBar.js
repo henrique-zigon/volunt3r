@@ -54,12 +54,12 @@ const SideBar = props => {
           <span>Relatórios</span>
         </Link>
 
-        <Link to="/dashboard/criar-eventos" className={
+        {/* <Link to="/dashboard/criar-eventos" className={
           location === "/dashboard/criar-eventos" ? "item current": "item" 
         }>
           <BiCalendar className="icon" size={20} />
           <span>Criar Eventos</span>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
