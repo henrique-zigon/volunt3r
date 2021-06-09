@@ -8,21 +8,22 @@ import DoughnutDivisaoEngajamento from '../../components/ChartsComponents/Doughn
 import LineAcompanhamentoEventoTempo from '../../components/ChartsComponents/LineAcompanhamentoEventoTempo';
 import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/ScatterVoluntariosTempoDeCasa';
 import BarTurnover from '../../components/ChartsComponents/BarTurnover';
-
+import { useCookies } from 'react-cookie';
 
 
 const Dashboard = () => {
+  const [cookies] = useCookies(['volunt3r_user']);
   return(
     <main className="container">
       <SideBar 
-        userpic="https://media-exp3.licdn.com/dms/image/C4E03AQGgjLP5EZeVdg/profile-displayphoto-shrink_200_200/0/1612388968568?e=1628726400&v=beta&t=qYA1qATjkPSe6rNwIXoewoEMT6q8FvtaMkfQvcP06E8"
-        username="Gabriel Ronny"
-        useremail="gabriel.pereira@b3.com.br"
+        userpic={cookies.volunt3r_user.imagemPerfil}
+        username={cookies.volunt3r_user.nomeUsuario}
+        useremail={cookies.volunt3r_user.email}
       />
 
       <div className="content">
         <HeaderWelcomePageDashboard 
-          username="Gabriel Ronny"
+          username={cookies.volunt3r_user.nomeUsuario}
           subtitle="Seus dados estão por aqui!"
         />
 

@@ -45,9 +45,9 @@ function Routes() {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
-                    <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route exact path="/dashboard/relatorios" component={RelatorioPage}/>
-                    <Route exact path="/dashboard/criar-eventos" component={CriarEventoPage}/>
+                    <LoggedRoute exact path="/dashboard" component={Dashboard}/>
+                    <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
+                    <LoggedRoute exact path="/dashboard/criar-eventos" component={CriarEventoPage}/>
                     <Route path="*" component={NotFound} />
 
                 </Switch>

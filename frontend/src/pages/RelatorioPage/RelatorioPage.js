@@ -9,7 +9,7 @@ import { useCookies } from 'react-cookie';
 const RelatorioPage = () => {
 
 
-  const [cookies] = useCookies(['volunt3r']);
+  const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
 
   const token = cookies.volunt3r;
 
@@ -93,14 +93,14 @@ const RelatorioPage = () => {
 
   return(
     <main className="container">
-      <SideBar
-        userpic="https://media-exp3.licdn.com/dms/image/C4E03AQGgjLP5EZeVdg/profile-displayphoto-shrink_200_200/0/1612388968568?e=1628726400&v=beta&t=qYA1qATjkPSe6rNwIXoewoEMT6q8FvtaMkfQvcP06E8"
-        username="Gabriel Ronny"
-        useremail="gabriel.pereira@b3.com.br"
+      <SideBar 
+        userpic={cookies.volunt3r_user.imagemPerfil}
+        username={cookies.volunt3r_user.nomeUsuario}
+        useremail={cookies.volunt3r_user.email}
       />
       <div className="content">
         <HeaderWelcomePageDashboard
-          username="Gabriel Ronny"
+          username={cookies.volunt3r_user.nomeUsuario}
           subtitle="Vamos exportar ou importar dados?"
         />
 
