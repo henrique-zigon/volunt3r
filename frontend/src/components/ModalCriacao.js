@@ -37,12 +37,9 @@ function ModalCriacao(props){
     abrirModalCriacao
 }> 
 
-    
-<div className="exit"><img src={imgCancel} onClick={() => {props.funcao(false)}}></img>
-</div>
 <div className="modalCompleto">
 
-<div className="tituloModal"><h2>Compartilhar Experiência</h2></div> 
+<div className="tituloModalCriacao"><h2>Compartilhar Experiência</h2></div> 
 
 <div className="headerModal">
         <img className="imagemPerfil" src={props.imagemPerfil} />
@@ -68,7 +65,7 @@ function ModalCriacao(props){
 <input className="inputAdd3" type="file"></input>
 
 <div className="btnModal">
-<Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Cancelar" onClick={props.onClick}></Botao><Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Publicar" onClick={props.onClick}></Botao>
+<Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Cancelar" onClick={() => {props.funcao(false)}}></Botao><Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Publicar" onClick={props.onClick}></Botao>
 </div>
 
 </div>

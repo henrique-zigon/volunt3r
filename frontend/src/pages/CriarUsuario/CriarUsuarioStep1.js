@@ -27,10 +27,8 @@ function CriarUsuarioStep1() {
             <div className="references-voluntier">
                 <h2 className="title">Volunt3r</h2>
                 <span>
-                    Lorem ipsum dolor sit amet consectetur 
-                    adipisicing elit. Natus ut nulla e
-                    xercitationem, incidunt commodi necessitatibus!
-                    Aperiam molestias non suscipit quibusdam, pariatur eius aspernatur minus dolore, beatae at veritatis ducimus assumenda.
+                A plataforma Volunt3r foi feita por alunos da faculdade Bandtec. <br />
+                Essa <b>incrível</b> plataforma foi a solução encontrada para resolver alguns problemas que a B3 Social sofria.
                 
                 </span>
                 <button className="btn">Saiba mais!</button>

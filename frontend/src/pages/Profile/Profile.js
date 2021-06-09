@@ -23,7 +23,7 @@ function Profile() {
                         <h2>Nome</h2>
                         <h3>Titulo</h3>
                     </div>
-
+                    </div>
                     <img className="imgCapa" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rengar_0.jpg" />
 
                     <div className="corpoPublicacoes">
@@ -36,7 +36,7 @@ function Profile() {
                             <CardBranco titulo="Sobre mim" conteudo="aaaaaaaaaaaaaaaaaaaaaaaaaa" />
                         </div>
                     </div>
-                </div>
+                
             </div>
         </>
     );

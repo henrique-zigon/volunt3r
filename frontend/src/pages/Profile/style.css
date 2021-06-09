@@ -15,7 +15,7 @@ body{
     
 }
 
-.perfilUsuario{
+.perfilUsuarioProfile{
     display: flex;
     position: absolute;
     margin-left: 5%;
@@ -23,7 +23,7 @@ body{
     color: #F3F3F3;
 }
 
-.imgPerfil{
+.imgPerfilProfile{
     border-radius: 50%;
     border-color: black;
     border-width: 2px;
@@ -32,7 +32,7 @@ body{
     height: 150px;
 }
 
-.textoPerfil{
+.textoPerfilProfile{
     margin-left: 10px;
     margin-top: 30px;
 

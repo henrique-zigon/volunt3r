@@ -13,7 +13,7 @@ function Conquista(props) {
 
 
                 <div className="medalha" >
-                    <Medalha borda={false} iconeMedalha={medalha3} alt="Medalha de ouro de doação de sangue" elo="Ouro" />
+                    <Medalha borda={false} iconeMedalha={props.icone} alt="Medalha de ouro de doação de sangue" elo={props.elo} />
                 </div>
 
                 <div className="corpoConquista">

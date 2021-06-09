@@ -4,7 +4,7 @@ import Heart from "../images/heart.png";
 import Comment from "../images/comment.png";
 import Calendar from "../images/calendar.png";
 import Location from "../images/Location.png";
-import imgCancel from '../images/cancel.png';
+import imgCancel from '../images/cancel-azul.png';
 import React, { Component, useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 import api from "../api.js";
@@ -45,13 +45,13 @@ function ModalPublicacao(props){
 <div className="paginaModalPublicacao" style={
     abrirModal
 }> 
-<div className="exit"><img src={imgCancel} onClick={() => {props.funcao(false)}}></img>
-</div>
 <div className="modalCompleto">
     <div className="headerModal">
         <img className="imagemPerfil" src={publicacao.usuario.usuarioImagemPerfil} />
         <b className="tituloModal">{publicacao.usuario.nomeUsuario}</b>
         <span className="subtituloModal"> - <span>{publicacao.dataPostagem}</span></span>
+        <div className="exit"><img className="exitIcon" src={imgCancel} onClick={() => {props.funcao(false)}}></img>
+</div>
     </div>
 
     <div className="evento">
@@ -60,6 +60,7 @@ function ModalPublicacao(props){
         </div>
         
         <div className="sobre">
+            <b className="tituloEvento">{publicacao.titulo}</b>
             <div className="descricaoEvento">{publicacao.descricao}</div>
             <div className="tagsEvento">{publicacao.tags}</div>
 
@@ -99,7 +100,7 @@ function ModalPublicacao(props){
                 ))
             }
         
-         <b> +{props.interessados}</b>
+         <b className="maisInteressados"> +{props.interessados}</b>
         </div>
     </div>
 

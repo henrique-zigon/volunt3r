@@ -4,7 +4,7 @@
     background-color: rgba(0,0,0,0.5);
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 60px;
 }
 
@@ -44,7 +44,7 @@
     font-style: normal;
     font-size: 20px;
     line-height: 13px;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-top: 5px;
 }
 
@@ -55,6 +55,13 @@
     line-height: 12px;
     padding-left: 5px;
     padding-top: 5px;
+}
+
+.tituloEvento{
+    font-family: Exo 2;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 12px;
 }
 
 .evento{
@@ -85,6 +92,7 @@
     font-family: Exo 2;
     font-style: normal;
     font-size: 18px;
+    margin-top: 10px;
 
 }
 
@@ -119,9 +127,11 @@
     font-family: Exo 2;
     font-style: normal;
     font-size: 15px;
-    line-height: 13px;
+    line-height: 12px;
     margin-left: 10px;
+    
 }
+
 
 .botoesEvento{
     padding: 20px 50px ;
@@ -132,7 +142,8 @@
 }
 
 .botoesEvento .btnInteresse{
-    padding-left: 50px;
+    margin-left: 50px;
+
 }
 
 .like{
@@ -142,6 +153,7 @@
 .comentario{
     height: 30px;
 }
+
 
 .linha{
     width: 90%;
@@ -164,18 +176,30 @@
     line-height: 13px;
 }
 
-.exit{
-    height: 12px;
-    width: 12px;
-    margin-left: 15px;
-    margin-top: 15px;
-    cursor: pointer;
+.interessados{
+    display: flex;
+    align-items: center;
 }
 
 .interessados img{
     width: 25px;
     height: 25px;
     border-radius: 50%;
+}
+
+.maisInteressados{
+    margin-left: 5px;
+}
+
+.exit{
+    margin-left: 68%;
+    cursor: pointer;
+    
+}
+
+.exitIcon{
+    width: 30px;
+    height: 30px;
 }
 
 /* Fim Modal */

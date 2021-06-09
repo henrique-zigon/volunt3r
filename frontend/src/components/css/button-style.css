@@ -124,6 +124,11 @@
   
   /* Button Size */
   
+  .btn--small {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
   .btn--medium {
     padding: 10px 20px;
     font-size: 18px;
@@ -136,7 +141,7 @@
 
 @media (max-width: 720px){
 
-  .btn--medium, .btn--large{
+  .btn--small, .btn--medium, .btn--large{
     padding: 5% 10%;
     font-size: 15px;
   }

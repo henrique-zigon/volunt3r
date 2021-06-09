@@ -1,8 +1,8 @@
 /* Medalha */
 
 .bordaMedalha {
-    border-radius: 50%;
-    border: #000000 2px solid;
+    /* border-radius: 50%;
+    border: #000000 2px solid; */
     width: fit-content;
     height: fit-content;
     display: flex;

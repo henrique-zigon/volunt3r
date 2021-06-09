@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component, useState, useEffect } from 'react'
 import Botao from '../componentes/BotaoUI.js';
 import "../css/publicacao-style.css";
 import {BiComment, BiHeart} from "react-icons/bi";
 
 const Publicacao = props => {
+
     return (
         <div className="publicacao text-center shadow">
             <div className="publicacao-main">
@@ -16,6 +17,7 @@ const Publicacao = props => {
                         {
                             props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Participar" onClick={props.onClick} /> : ""
                         }
+                            <Botao type="button" buttonSize="btn--small" buttonStyle="btn--primary--outline" children="Ver mais" />
                     </div>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">

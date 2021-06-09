@@ -3,9 +3,11 @@ import './style.css';
 import CardBranco from '../../components/CardBranco';
 import Conquista from '../../components/Conquista';
 import Medalha from '../../components/Medalha';
-import medalha3 from '../../images/Meia Medalha.png';
 import NavBar from '../../components/componentes/NavBarUI.js';
 import Menu from '../../components/componentes/MenuUI.js';
+import medalha1 from '../../images/Group 13.png';
+import medalha2 from '../../images/Group 14.png';
+import medalha3 from '../../images/Meia Medalha.png';
 
 function Achievements() {
     return (
@@ -36,15 +38,15 @@ function Achievements() {
                         <div className="conquistas">
 
                             <div className="conquista">
-                                <Conquista titulo="Doação de sangue" conteudo="Você já doou sangue 30 vezes!" />
+                                <Conquista icone={medalha3} titulo="Doação de sangue" conteudo="UAU! Você já doou sangue 12 vezes!" elo="Ouro" />
                             </div>
 
                             <div className="conquista">
-                                <Conquista titulo="Doação de sangue" conteudo="Você já doou sangue 30 vezes!" />
+                                <Conquista icone={medalha2} titulo="Doação de cestas" conteudo="Você doou 15 cestas, parabéns!" elo="Prata" />
                             </div>
 
                             <div className="conquista">
-                                <Conquista titulo="Doação de sangue" conteudo="Você já doou sangue 30 vezes!" />
+                                <Conquista icone={medalha1} titulo="Mentorias" conteudo="Você só fez 2 mentorias =(" elo="Bronze" />
                             </div>
 
                         </div>
@@ -65,7 +67,7 @@ function Achievements() {
                                 </div>
 
                                 <div className="estatistica">
-                                    <CardBranco titulo="Mentor" conteudo="Ranking" />
+                                    <CardBranco titulo="Doador" conteudo="Ranking" />
                                 </div>
 
                                 <div className="estatistica">

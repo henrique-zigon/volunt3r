@@ -13,7 +13,7 @@
 .container-notfound .title {
   font-size: 4em;
   font-weight: 800;
-  color: #06377B;
+  color: #fff;
 }
 
 .container-notfound img{
@@ -29,7 +29,9 @@
   top: 50px;
   cursor: pointer;
   transition: .3s;
-}
-.container-notfound .back-page:hover {
-  color: #06377B;
+  background-color: #06377B;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  color:#fff
 }
