@@ -104,7 +104,6 @@ div.content-charts {
   padding-top: 20px;
 
   display: flex;
-  justify-content: space-between;
 }
 
 div.content-charts div.container-chart-left {
@@ -151,7 +150,7 @@ div.content-charts div.container-chart-right {
   height: 100%;
   background: white;
   border-radius: 8px;
-  
+  margin-left: 28px;
   overflow-y: scroll;
 }
 
@@ -173,7 +172,6 @@ div.container-chart-right div.box-chart-right .title {
   font-size: 1rem;
 }
 
-
 div.container-chart-right div.box-chart-right .chart-right {
   position: relative;
   display: block;
@@ -184,6 +182,17 @@ div.container-chart-right div.box-chart-right .chart-right {
   justify-content: center;
 }
 
+@media screen and (min-width: 1900px) {
+  div.content-charts div.container-chart-right {
+    width: 350px;
+    margin-left: 30px;
+  
+  }
+
+  div.content-charts div.container-chart-left {
+    width: 720px;
+  }
+}
 
 
 /*
