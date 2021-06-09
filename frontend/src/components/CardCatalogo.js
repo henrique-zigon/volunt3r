@@ -32,13 +32,13 @@ export default function Cards(props) {
                         cards.map((card) => (
                             <Card
                                 key={card.id}
-                                imgsrc={img3}
+                                imgsrc={card.imagem}
                                 title={card.titulo}
                                 onClick="metodoVaiAqui()"
                                 subtitle={card.categoria}
-                                date={card.duracao+" Horas"}
-                                time={card.preco+" Milhas"}
-                                action="Colocar no carrinho"
+                                date={card.duracao+" H"}
+                                time={card.preco+" M"}
+                                action="Comprar"
                                 texto={card.descricao} 
                             />
                         ))

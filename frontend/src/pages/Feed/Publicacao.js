@@ -55,7 +55,7 @@ export default function Publicacoes() {
         <div className="container-publicacao">
             {
                 publicacoes.map((publicacao) => (
-                    <Publicacao imgIconUser={img1} onClick={() => {
+                    <Publicacao  onClick={() => {
                         setPublicacaoSelecionada(publicacao);
                         abrirModal();
                         // api.delete(`/publicacoes/remover/${publicacao.id}`).then(resposta => {
@@ -80,7 +80,7 @@ export default function Publicacoes() {
 
                     }
                     }
-                        imgsrc={publicacao.pathImagem} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} publicacaoPai={publicacao.publicacaoPai} tags="#Gratidão #AmoCães" />
+                    imgIconUser={publicacao.usuario.usuarioImagemPerfil} imgsrc={publicacao.pathImagem} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} comentario={publicacao.comentario} tags="#Gratidão #AmoCães" />
                         
                 ))
             }
