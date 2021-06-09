@@ -8,9 +8,9 @@ import {BiUser, BiCalendarAlt, BiShoppingBag, BiAward} from "react-icons/bi";
 const Menu = props => {
     return (
         <div className="menu-principal">
-            <div className="menu-header ">
-                <span id="title"> Navegação</span>
-                <div className="menu-button" id="fecha" onClick={() => {
+            <div className="menu-header">
+                <span id="title" className="hide"> Navegação</span>
+                <div className="menu-button hide" id="fecha" onClick={() => {
                     document.querySelector('.menu-labels').classList.add("hide");
              
 
@@ -26,7 +26,7 @@ const Menu = props => {
                     <img className="icone-button" src={imgSetaFecha} ></img>
                 </div>
 
-                <div className="menu-button hide" id="abre" onClick={() => {
+                <div className="menu-button" id="abre" onClick={() => {
                     
                     document.querySelector('.menu-labels').classList.remove("hide");
 
@@ -52,7 +52,7 @@ const Menu = props => {
                                     
                 </div>
 
-                <div className="menu-labels">
+                <div className="menu-labels hide">
                     <a href="/profile"><div className="menu-label">Perfil</div></a>
                     <a href="/catalog"><div className="menu-label">Eventos</div></a>
                     <a href="/achievements"><div className="menu-label">Conquistas</div></a>

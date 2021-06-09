@@ -80,7 +80,7 @@ export default function Publicacoes() {
 
                     }
                     }
-                        imgsrc={img3} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} publicacaoPai={publicacao.publicacaoPai} tags="#Gratidão #AmoCães" />
+                        imgsrc={publicacao.pathImagem} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} publicacaoPai={publicacao.publicacaoPai} tags="#Gratidão #AmoCães" />
                         
                 ))
             }

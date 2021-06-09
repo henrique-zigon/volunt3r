@@ -18,7 +18,7 @@ export default function Cards(props) {
                         cards.map((card) => (
                             <Card
                                 key={card.id}
-                                imgsrc={img3}
+                                imgsrc={card.pathImagem}
                                 title={card.titulo}
                                 onClick="metodoVaiAqui()"
                                 subtitle="B3 Social"
