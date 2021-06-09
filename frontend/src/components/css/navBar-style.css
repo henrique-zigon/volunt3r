@@ -53,11 +53,11 @@
 }
 
 .icone{
-    width: 30px;
-    height: 30px;
     position: absolute;
-    top: 13%;
-    left: 13%;
+    color: #366DBF;
+    width: 5px;
+    top: 10%;
+    left: 10%;
 }
 
 .spacer{
@@ -107,6 +107,7 @@
 .icons{
     width: 25px;
     cursor: pointer;
+    color: #fff;
 }
 
 .navbar-menu-icon{
@@ -177,10 +178,10 @@
     .cancel{
         display: none;
     }
-
+    
     .navbar-logo{
-        width: 27px;
-        height: 27px;
+        width: 30px;
+        height: 30px;
     }
 
     .search-icon .icons{
@@ -203,6 +204,16 @@
     input{
         font-size: 13px;
         width: 95%;
+    }
+
+    .search-icon .underline::before{
+        width: 90%;
+        margin-left: 0%;
+    }
+
+    .search-icon .underline::after{
+        width: 90%;
+        margin-left: 0%;
     }
 
     .navbar-logos{

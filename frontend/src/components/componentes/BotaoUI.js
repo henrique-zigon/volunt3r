@@ -12,7 +12,6 @@ const STYLES = [
   "btn--success--outline"
 ];
 
-const textButton = "btn";
 
 const SIZES = ["btn--medium", "btn--large"];
 

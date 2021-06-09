@@ -1,6 +1,7 @@
 import React from 'react';
 import Botao from '../componentes/BotaoUI.js';
 import "../css/publicacao-style.css";
+import {BiComment, BiHeart} from "react-icons/bi";
 
 const Publicacao = props => {
     return (
@@ -13,24 +14,25 @@ const Publicacao = props => {
                     <div className="publicacao-time text-secondary"> {props.time} </div>
                     <div className="publicacao-button">
                         {
-                            props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="DELETAR" onClick={props.onClick}></Botao> : ""
+                            props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Participar" onClick={props.onClick} /> : ""
                         }
                     </div>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">
-                            {/* <IconButton
-                                icon="add-a-photo"
-                                color={Colors.red500}
-                                size={20}
-                                onPress={() => console.log('Pressed')}
-                            /> */}
-                            <img src={props.imgIconLike} className="publicacao-icon"></img>
-                            <img src={props.imgIconComment} className="publicacao-icon"></img>
+                        
+                            <BiHeart size={30} className="publicacao-icon" />
+                            {
+                            props.publicacaoPai==null ? <BiComment size={30} className="publicacao-icon" /> : ""
+                            }
+
+                            
                         </div>
                         <div className="publicacao-icons">
                             <div className="publicacao-tags publicacao-statistic">{props.likes}</div>
-                            <div className="publicacao-tags publicacao-statistic">{props.comments}</div>
-                        </div>
+                            {
+                            props.publicacaoPai==null ? <div className="publicacao-tags publicacao-statistic">{props.comments}</div> : ""
+                            }
+                                                    </div>
                     </div>
                 </div>
                 <div className="publicacao-content">
