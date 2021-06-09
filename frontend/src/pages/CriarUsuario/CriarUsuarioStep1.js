@@ -6,18 +6,18 @@ function CriarUsuarioStep1() {
 
 
     const [userData, setUserData] = useState({
-        nome: "",
-        genero: "",
-        cargo: "",
-        area: "",
-        tipoUsuario: "",
+        nomeUsuario: "",
+        genero: "Masculino",
+        cargo: "Estagiário",
+        area: "Produtos Analytics",
+        tipoUsuario: "B3 Social",
     });
 
 
     function handle(e) {
         const newUserData = {...userData }
         newUserData[e.target.id] = e.target.value;
-        console.log(newUserData)
+        console.log(newUserData);
         setUserData(newUserData);
     }
 
@@ -40,7 +40,7 @@ function CriarUsuarioStep1() {
                         <div className="input-group">
                             <label htmlFor="">
                                 Seu nome
-                                <input className="input" type="text" name="nome" id="nome" onChange={(e) => handle(e)} />
+                                <input className="input" type="text" name="nomeUsuario" id="nomeUsuario" onChange={(e) => handle(e)} />
                             </label>
                         </div>
                         
@@ -49,8 +49,8 @@ function CriarUsuarioStep1() {
                                 Seu gênero
                                 <select className="input" name="genero" id="genero" onChange={(e) => handle(e)}>
                                     <option value="" disabled>Selecione o seu gênero</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
                                 </select>
                             </label>
                         </div>

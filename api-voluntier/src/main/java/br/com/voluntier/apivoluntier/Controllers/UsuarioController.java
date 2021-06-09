@@ -41,14 +41,17 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity<TokenDto> autentificar(@RequestBody LoginForm form){
+    public ResponseEntity autentificar(@RequestBody LoginForm form){
         UsernamePasswordAuthenticationToken dadosLogin= form.converter();
         try{
             Authentication authentication = authManager.authenticate(dadosLogin);
-
+            UsuarioResponse usuarioResponse = usuarioRepository.findByEmail
+                    (dadosLogin.getPrincipal().toString()).get(0);
             String token= tokenService.gerarToken(authentication);
             System.out.println("TOKEN: "+ token);
-            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
+            retornoHasmap.put("token", new TokenDto(token, "Bearer"));
+            retornoHasmap.put("user",usuarioResponse);
+            return ResponseEntity.ok(retornoHasmap);
         }
         catch (AuthenticationException e){
             System.out.println(e.getMessage());

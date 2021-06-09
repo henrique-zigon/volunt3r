@@ -49,11 +49,14 @@ export default function Publicacoes() {
 
         async function getAllPublicacoes() {
             console.log("AAA",cookies.volunt3r);
-            const resposta = await api.get("/publicacoes",{
+            api.get("/publicacoes",{
                 headers: { 'Authorization': cookies.volunt3r }
+            }).then(resposta => {
+                console.log(resposta.data);
+                setPublicacoes(resposta.data);
+            }).catch( err => {
+                console.log("Deu erro")
             });
-            console.log(resposta.data);
-            setPublicacoes(resposta.data);
         }
 
         getAllPublicacoes();

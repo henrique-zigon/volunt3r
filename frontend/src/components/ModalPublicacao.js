@@ -23,11 +23,14 @@ function ModalPublicacao(props){
 
         async function getInscritos() {
             console.log("XOXO",cookies.volunt3r);
-            const resposta = await api.get(`/eventos/${publicacao.evento.id}/inscritos`,{
+            const resposta = api.get(`/eventos/${publicacao.evento.id}/inscritos`,{
                 headers: { 'Authorization': cookies.volunt3r }
+            }).then(resposta => {
+                console.log(resposta.data);
+                setInscritos(resposta.data);
+            }).catch(err => {
+                setInscritos([]);
             });
-            console.log(resposta.data);
-            setInscritos(resposta.data);
         }
 
         getInscritos();

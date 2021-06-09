@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './style.css';
+import api from "../../api.js";
 
 function CriarUsuarioStep2(props) {
-
-
+    const history = useHistory();
     const [userData, setUserData] = useState({
-        nome: "",
+        nomeUsuario: "",
         genero: "",
         cargo: "",
         area: "",
         tipoUsuario: "",
         email: "",
         senha: "",
-    })
+    });
 
     function handle(e) {
         const newUserData = {...userData }
@@ -25,13 +25,13 @@ function CriarUsuarioStep2(props) {
     function submitForm(e) {
         e.preventDefault();
         const newUserData = {...userData, ...props.location.state }
-
+        console.log(newUserData)
         /* 
         * Aqui estou realizando a destruturação do array newUserData!
         * Isso pode ajudar na hora de enviar o json para a API
         */
         const {
-            nome,
+            nomeUsuario,
             genero,
             cargo,
             area,
@@ -48,7 +48,14 @@ function CriarUsuarioStep2(props) {
          */
 
         // Parte para enviar para a API
-        
+        api.post("/usuarios/novo",newUserData)
+            .then(resposta => {
+                if(resposta.status==201) {
+                    history.push("/login");
+                }else {
+                    //mensagem
+                }
+            });
     }
 
     return (

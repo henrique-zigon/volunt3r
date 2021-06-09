@@ -8,8 +8,6 @@ import imagem16 from '../../images/Group 16.png';
 import ModalCriacao from '../../components/ModalCriacao.js';
 
 function Feed(props){
-
-    
     const [abrirModalCriacao, setModalCriacao] = useState(false);
 
     function abrirModalCriacaoF() {

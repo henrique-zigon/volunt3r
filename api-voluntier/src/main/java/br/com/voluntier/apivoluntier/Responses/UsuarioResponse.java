@@ -9,6 +9,8 @@ public class UsuarioResponse {
     private String bio;
     private String email;
     private String genero;
+    private String imagemPerfil;
+    private String imagemCapa;
     private int quantidadeMilhas;
     private String tipoUsuario;
     private String cargo;
@@ -24,6 +26,8 @@ public class UsuarioResponse {
         this.cargo = usuario.getCargo();
         this.area = usuario.getArea();
         this.bio = usuario.getBio();
+        this.imagemPerfil = usuario.getUsuarioImagemPerfil();
+        this.imagemCapa = usuario.getUsuarioImagemCapa();
     }
 
     public String getBio() {
@@ -60,5 +64,13 @@ public class UsuarioResponse {
 
     public String getArea() {
         return area;
+    }
+
+    public String getImagemPerfil() {
+        return imagemPerfil;
+    }
+
+    public String getImagemCapa() {
+        return imagemCapa;
     }
 }

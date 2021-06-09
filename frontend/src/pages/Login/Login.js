@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie';
 
 
 function Login() {
-    const [cookies, setCookie, removeCookie] = useCookies(['volunt3r']);
+    const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
     const [userData, setUserData] = useState({
         email: "",
         senha: ""
@@ -28,8 +28,8 @@ function Login() {
             email:userData.email,
             senha:userData.senha 
         }).then((resposta)=>{
-            setCookie('volunt3r', resposta.data.tipo + " " + resposta.data.token, { path: '/' });
-            console.log("o login foi enviado: ",resposta);
+            setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
+            setCookie('volunt3r_user', resposta.data.user, {path: "/"});
             history.push("/");
         })
 
