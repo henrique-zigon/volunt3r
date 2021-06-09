@@ -1,14 +1,43 @@
-import React from 'react';
+import React, { Component, useState, useEffect } from 'react'
 import "../styles/modal-criacao-style.css"
 import Botao from "../components/componentes/BotaoUI";
 import imgCancel from '../images/cancel.png';
+import api from "../api.js";
+import { useCookies } from 'react-cookie';
 
 function ModalCriacao(props){
+    let abrirModalCriacao = {
+        display: props.exibeModal? "block" : "none"
+    }
+
+    // useEffect(() => {
+
+    //     async function getUsuarioAtual() {
+    //         console.log("AAA",cookies.volunt3r);
+    //         const resposta = await api.get(`/usuarios/${id}`,{
+    //             headers: { 'Authorization': cookies.volunt3r }
+    //         });
+    //         console.log(resposta.data);
+    //         //setUsuarioAtual(resposta.data);
+    //     }
+
+    //     getUsuarioAtual();
+    // }, [
+
+    // ])
+
+
+
+
+
 
 
     return ( 
 <>
-<div className="paginaModalCriacao">
+<div className="paginaModalCriacao" style={
+    abrirModalCriacao
+}> 
+
     
 <div className="exit"><img src={imgCancel} onClick={() => {props.funcao(false)}}></img>
 </div>
