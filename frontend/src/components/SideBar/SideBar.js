@@ -1,20 +1,32 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { BiLineChart, BiExit, BiDetail, BiCalendar } from 'react-icons/bi';
 import avatarPadrao from '../../images/avatar_padrao.jpg';
+import { Cookies } from 'react-cookie';
 
 import './sidebar.css';
+import { useCookies } from 'react-cookie';
 
 const SideBar = props => {
 
   let location = useLocation().pathname;
 
   const imageUser = props.userpic == null ? avatarPadrao : props.userpic;
+  const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
+  const history =  useHistory();
+
+  function sair() {
+    removeCookie('volunt3r')
+    removeCookie('volunt3r_user');
+    setTimeout(() => {
+      history.push("/");
+    }, 1000)
+  }
 
   return (
     <div className="sidebar">
 
-      <Link className="exit-icon">
+      <Link className="exit-icon" onClick={sair}>
         <BiExit size={ 25 } />
       </Link>
 
