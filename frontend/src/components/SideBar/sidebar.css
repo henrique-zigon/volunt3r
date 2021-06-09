@@ -31,6 +31,7 @@ div.sidebar div.userpic {
 div.sidebar div.userpic img {
   width: 100%;
   border-radius: 50%;
+  border: 2px solid rgb(235, 235, 235);
 }
 
 div.sidebar span.username {
