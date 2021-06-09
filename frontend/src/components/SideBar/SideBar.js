@@ -9,8 +9,6 @@ const SideBar = props => {
 
   let location = useLocation().pathname;
 
-
-
   const imageUser = props.userpic == null ? avatarPadrao : props.userpic;
 
   return (

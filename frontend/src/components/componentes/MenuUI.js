@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/menu-style.css";
 import imgSetaAbre from '../../images/right-arrow.png';
 import imgSetaFecha from '../../images/left-arrow.png';
-import {BiUser, BiCalendarAlt, BiShoppingBag, BiAward} from "react-icons/bi";
+import {BiUser, BiCalendarAlt, BiShoppingBag, BiAward, BiLineChart} from "react-icons/bi";
 
 
 const Menu = props => {
@@ -45,18 +45,20 @@ const Menu = props => {
             <div className="menu-content">
                 <div className="menu-icons">
                
-                    <a href="/profile"><div className="menu-icon" id="profile"><BiUser className="icone" id="profileImg" /></div></a>
+                    {/* <a href="/profile"><div className="menu-icon" id="profile"><BiUser className="icone" id="profileImg" /></div></a> */}
                     <a href="/catalog"><div className="menu-icon" id="catalog"><BiCalendarAlt className="icone" id="catalogImg" /></div></a>
                     <a href="/achievements"><div className="menu-icon" id="achievement"><BiAward className="icone" id="achievementImg" /></div></a>
                     <a href="/shop"><div className="menu-icon" id="shop"><BiShoppingBag className="icone" id="shopImg" /></div></a>
+                    <a href="/dashboard"><div className="menu-icon" id="shop"><BiLineChart className="icone" id="shopImg" /></div></a>
                                     
                 </div>
 
                 <div className="menu-labels hide">
-                    <a href="/profile"><div className="menu-label">Perfil</div></a>
+                    {/* <a href="/profile"><div className="menu-label">Perfil</div></a> */}
                     <a href="/catalog"><div className="menu-label">Eventos</div></a>
                     <a href="/achievements"><div className="menu-label">Conquistas</div></a>
                     <a href="/shop"><div className="menu-label">Loja</div></a>
+                    <a href="/dashboard"><div className="menu-label">Dashboard</div></a>
                 </div>
             </div>
         </div>

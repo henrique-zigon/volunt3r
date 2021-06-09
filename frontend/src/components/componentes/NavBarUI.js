@@ -9,9 +9,15 @@ import imgLogo from "../../images/logo volunt3r.png";
 import { BiMenu, BiX, BiBell } from "react-icons/bi";
 import { useCookies } from 'react-cookie';
 
+import avatarPadrao from '../../images/avatar_padrao.jpg';
+
+
 const NavBar = props => {
     const [cookies] = useCookies(['volunt3r_user']);
     console.log(cookies.volunt3r_user);
+
+    const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : cookies.volunt3r_user.imagemPerfil;
+
     return (
         <header className="navbar">
             <nav className="navbar-navigation">
@@ -59,7 +65,7 @@ const NavBar = props => {
                     
                         <div className="navbar-navigation-menu">
                             <div className="navbar-logos">
-                                <li className="item"><a href="/profile">Perfil</a></li>
+                                <li className="item"><a >Perfil</a></li>
                                 <li className="item"><a href="/">Feed</a></li>
                                 <li className="item"><a href="/catalog">Eventos</a></li>
                                 <li className="item"><a href="/achievements">Conquistas</a></li>
@@ -73,9 +79,9 @@ const NavBar = props => {
                         <div className="navbar-navigation">
                             <div className="navbar-logos">
                                 <li className="navbar-logo"><a href="/" ><BiBell  className="icone" href="/" /></a></li>
-                                <li className="user"><a href="/profile"> <img className="navbar-logo" src={cookies.volunt3r_user.imagemPerfil} /></a></li>
+                                <li className="user"><a> <img className="navbar-logo" src={imageUser} /></a></li>
                             </div>
-                            <li className="navbar-user"><a href="/profile">Bom te ver, {cookies.volunt3r_user.nomeUsuario}</a></li>
+                            <li className="navbar-user"><a>Bom te ver, {cookies.volunt3r_user.nomeUsuario}</a></li>
                         </div>
                     </ul>
                 </div>

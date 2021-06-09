@@ -19,7 +19,7 @@ import RelatorioPage from './pages/RelatorioPage/RelatorioPage';
 import CriarEventoPage from './pages/CriarEventoPage/CriarEventoPage';
 
 function Routes() {
-    const [cookies] = useCookies(['volunt3r']);
+    const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
     const LoggedRoute = ({ component: Component, ...rest }) => (
         <Route
           {...rest}
@@ -32,6 +32,19 @@ function Routes() {
           }
         />
       );
+
+    const LoggedRouteDashboard = ({ component: Component, ...rest }) => (
+      <Route
+        {...rest}
+        render={props =>
+          cookies.volunt3r_user.tipoUsuario === 'b3_social' ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+          )
+        }
+      />
+    );
     return (
         <ToastProvider>
             <BrowserRouter>
@@ -45,9 +58,9 @@ function Routes() {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
-                    <LoggedRoute exact path="/dashboard" component={Dashboard}/>
-                    <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
-                    <LoggedRoute exact path="/dashboard/criar-eventos" component={CriarEventoPage}/>
+                    <LoggedRouteDashboard exact path="/dashboard" component={Dashboard}/>
+                    <LoggedRouteDashboard exact path="/dashboard/relatorios" component={RelatorioPage}/>
+                    <LoggedRouteDashboard exact path="/dashboard/criar-eventos" component={CriarEventoPage}/>
                     <Route path="*" component={NotFound} />
 
                 </Switch>
