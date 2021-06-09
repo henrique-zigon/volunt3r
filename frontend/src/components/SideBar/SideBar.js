@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BiLineChart  } from 'react-icons/bi';
+import { BiLineChart, BiExit  } from 'react-icons/bi';
 
 import './sidebar.css';
 
 const SideBar = props => {
   return (
     <div className="sidebar">
+
+      <Link className="exit-icon">
+        <BiExit size={ 25 } />
+      </Link>
+
       <div className="userpic">
         <img
           src={props.userpic}

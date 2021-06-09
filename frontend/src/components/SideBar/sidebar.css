@@ -1,3 +1,28 @@
+div.sidebar {
+  position: relative;
+  width: 250px;
+  background: white;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3.5rem 2.5rem;
+}
+
+div.sidebar .exit-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--gray-not-selected);
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+div.sidebar .exit-icon:hover {
+  position: absolute;
+  color: black;
+}
+
 div.sidebar div.userpic {
   width: 120px;
   height: 120px;
