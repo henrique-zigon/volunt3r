@@ -1,10 +1,14 @@
 import React from 'react';
 
-
 import './dashboard.css';
 import SideBar from '../../components/SideBar/SideBar';
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import { BiUserPlus, BiUserMinus, BiHeart } from 'react-icons/bi';
+import DoughnutDivisaoEngajamento from '../../components/ChartsComponents/DoughnutDivisaoEngajamento';
+import LineAcompanhamentoEventoTempo from '../../components/ChartsComponents/LineAcompanhamentoEventoTempo';
+import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/ScatterVoluntariosTempoDeCasa';
+import BarTurnover from '../../components/ChartsComponents/BarTurnover';
+
 
 
 const Dashboard = () => {
@@ -46,28 +50,37 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+
           <div className="content-charts">
             <div className="container-chart-left">
               <div className="box-chart-left">
-                <span className="title">Turnover</span>
+                <span className="title">Acompanhamento de um evento durante o tempo</span>
+                <div className="chart-left">
+                  <LineAcompanhamentoEventoTempo />
+                </div>
               </div>
               <div className="box-chart-left">
                 <span className="title">Turnover</span>
+                <div className="chart-left">
+                  <BarTurnover />
+                </div>
               </div>
+
               <div className="box-chart-left">
-                <span className="title">Turnover</span>
+                <span className="title">Voluntários tempo de casa</span>
+                <div className="chart-left">
+                  <ScatterVoluntariosTempoDeCasa />
+                </div>
               </div>
-              <div className="box-chart-left">
-                <span className="title">Turnover</span>
-              </div>
-              
             </div>
 
             <div className="container-chart-right">
               <div className="box-chart-right">
-                <span className="title">Categorias</span>
+                <span className="title">Divisão de engajamento</span>
+                <div className="chart-right">
+                  <DoughnutDivisaoEngajamento/> 
+                </div>
               </div>
-              
             </div>
           </div>
         </div>

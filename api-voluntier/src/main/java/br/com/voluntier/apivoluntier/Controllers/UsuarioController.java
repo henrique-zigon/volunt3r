@@ -86,6 +86,8 @@ public class UsuarioController {
         usuNovo.setGenero(usuario.getGenero());
         usuNovo.setQuantidadeMilhas(usuario.getQuantidadeMilhas());
         usuNovo.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+        usuNovo.setUsuarioImagemPerfil(usuario.getUsuarioImagemPerfil());
+        usuNovo.setUsuarioImagemCapa(usuario.getUsuarioImagemCapa());
 
         // Validando se o usuário existe
         if(retornoRepository.isEmpty()) {

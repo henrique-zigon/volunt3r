@@ -1,7 +1,8 @@
 .paginaModalCriacao{
-    background-color: grey;
+    background-color: rgba(0,0,0,0.5);
     height: 100vh;
     width: 100vw;
+    position: fixed;
 }
 
 .tituloModal{
