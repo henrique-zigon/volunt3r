@@ -21,11 +21,19 @@ export default function Publicacoes() {
         descricao: "",
         dataPostagem: "",
         pathImagem: "",
+        usuario:{
+            
+            idUsuario: "",
+            nomeUsuario: "",
+            usuarioImagemPerfil: ""
+            
+        },
         evento: {
             dataEvento: "",
             dataFechamentoEvento: "",
             endereco: "",
-            maximoParticipantes: 0
+            maximoParticipantes: 0,
+            
         },
         numeroLikes: 0,
         numeroComentarios: 1
