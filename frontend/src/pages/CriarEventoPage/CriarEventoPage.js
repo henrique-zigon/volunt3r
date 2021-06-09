@@ -1,13 +1,9 @@
 import React from 'react';
 import SideBar from '../../components/SideBar/SideBar';
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
-import './relatorioPage.css';
 
-const RelatorioPage = () => {
 
-  function getArquivoDados () {
-    // CÒDIGO PARA PEGAR O ARQUIVO
-  }
+const CriarEventoPage = () => {
 
   return(
     <main className="container">
@@ -21,17 +17,10 @@ const RelatorioPage = () => {
           username="Gabriel Ronny"
           subtitle="Vamos exportar ou importar dados?"
         />
-        <button className="button">
-          Exportar Dados
-        </button>
-        {/* <button className="button">
-          Importar Dados
-        </button> */}
+        
       </div>
     </main>
-    
   );
 }
 
-
-export default RelatorioPage;
+export default CriarEventoPage;

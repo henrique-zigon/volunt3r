@@ -16,6 +16,7 @@ import Profile from './pages/Profile/Profile';
 import Achievements from './pages/Achievements/Achievements';
 import { useCookies } from 'react-cookie';
 import RelatorioPage from './pages/RelatorioPage/RelatorioPage';
+import CriarEventoPage from './pages/CriarEventoPage/CriarEventoPage';
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r']);
@@ -48,6 +49,7 @@ function Routes() {
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <Route exact path="/dashboard" component={Dashboard}/>
                     <Route exact path="/dashboard/relatorios" component={RelatorioPage}/>
+                    <Route exact path="/dashboard/criar-eventos" component={CriarEventoPage}/>
                     <Route path="*" component={NotFound} />
 
                 </Switch>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BiLineChart, BiExit, BiDetail  } from 'react-icons/bi';
+import { BiLineChart, BiExit, BiDetail, BiCalendar } from 'react-icons/bi';
 
 import './sidebar.css';
 
@@ -32,11 +32,18 @@ const SideBar = props => {
           <span>Dashboard</span>
         </Link>
 
-        <Link className={
+        <Link to="/dashboard/relatorios" className={
           location === "/dashboard/relatorios" ? "item current": "item" 
         }>
           <BiDetail className="icon" size={20} />
           <span>Relatórios</span>
+        </Link>
+
+        <Link to="/dashboard/criar-eventos" className={
+          location === "/dashboard/criar-eventos" ? "item current": "item" 
+        }>
+          <BiCalendar className="icon" size={20} />
+          <span>Criar Eventos</span>
         </Link>
       </div>
     </div>
