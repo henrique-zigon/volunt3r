@@ -12,8 +12,6 @@ function Login() {
         email: "",
         senha: ""
     });
-    removeCookie('volunt3r');
-    console.log(cookies.volunt3r);
     let history = useHistory();
     
 
