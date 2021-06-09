@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import CriarUsuarioStep1 from './pages/CriarUsuario/CriarUsuarioStep1';
 import CriarUsuarioStep2 from './pages/CriarUsuario/CriarUsuarioStep2';
 // import Dashboard from './pages/Dashboard/Dashboard';
@@ -14,21 +14,34 @@ import Shop from './pages/Shop/Shop';
 import ModalCriacao from './components/ModalCriacao';
 import Profile from './pages/Profile/Profile';
 import Achievements from './pages/Achievements/Achievements';
+import { useCookies } from 'react-cookie';
 
 function Routes() {
-
+    const [cookies] = useCookies(['volunt3r']);
+    const LoggedRoute = ({ component: Component, ...rest }) => (
+        <Route
+          {...rest}
+          render={props =>
+            cookies.volunt3r != null ? (
+              <Component {...props} />
+            ) : (
+              <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+            )
+          }
+        />
+      );
     return (
         <ToastProvider>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/achievements" component={Achievements} />
-                    <Route exact path="/profile" component={Profile} />
-                    <Route exact path="/create" component={ModalCriacao} />
-                    <Route exact path="/shop" component={Shop} />
-                    <Route exact path="/catalog" component={EventCatalog} />
-                    <Route exact path="/modal" component={ModalPublicacao} />
-                    <Route exact path="/card" component={CardCatalogo} />
-                    <Route exact path="/" component={Feed} />
+                    <LoggedRoute exact path="/achievements" component={Achievements} />
+                    <LoggedRoute exact path="/profile" component={Profile} />
+                    <LoggedRoute exact path="/create" component={ModalCriacao} />
+                    <LoggedRoute exact path="/shop" component={Shop} />
+                    <LoggedRoute exact path="/catalog" component={EventCatalog} />
+                    <LoggedRoute exact path="/modal" component={ModalPublicacao} />
+                    <LoggedRoute exact path="/card" component={CardCatalogo} />
+                    <LoggedRoute exact path="/" component={Feed} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />

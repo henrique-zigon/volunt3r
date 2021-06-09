@@ -4,7 +4,6 @@ import img1 from "../images/imagem1.jpg";
 import img2 from "../images/imagem2.jpg";
 import img3 from "../images/imagem3.jpg";
 import img4 from "../images/imagem4.jpg";
-import api from "../api.js";
 
 export default function Cards(props) {
 

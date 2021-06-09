@@ -1,5 +1,4 @@
 import React from 'react';
-import api from '../../api.js';
 import Botao from '../componentes/BotaoUI.js';
 import "../css/publicacao-style.css";
 
