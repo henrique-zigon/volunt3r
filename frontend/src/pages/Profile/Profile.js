@@ -5,6 +5,9 @@ import Menu from '../../components/componentes/MenuUI.js';
 import CardBranco from '../../components/CardBranco';
 import Conquista from '../../components/Conquista';
 
+import imgMed from '../../images/Meia Medalha.png';
+import MedalhaPerfil from '../../components/MedalhaPerfil';
+
 function Profile() {
     return (
         <>
@@ -15,7 +18,7 @@ function Profile() {
                     <div className="imgPerfil">
                         <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rengar_0.jpg" />
                     </div>
-
+                    <div ><MedalhaPerfil className="medalhota" elo="ouro" iconeMedalha={imgMed}/></div>
                     <div className="textoPerfil">
                         <h2>Nome</h2>
                         <h3>Titulo</h3>
