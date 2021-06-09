@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 
 const RelatorioPage = () => {
 
+
   const [cookies] = useCookies(['volunt3r']);
 
   const token = cookies.volunt3r;

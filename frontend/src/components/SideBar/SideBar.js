@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BiLineChart, BiExit, BiDetail, BiCalendar } from 'react-icons/bi';
+import avatarPadrao from '../../images/avatar_padrao.jpg';
 
 import './sidebar.css';
 
 const SideBar = props => {
 
   let location = useLocation().pathname;
+
+
+
+  const imageUser = props.userpic == null ? avatarPadrao : props.userpic;
 
   return (
     <div className="sidebar">
@@ -17,7 +22,7 @@ const SideBar = props => {
 
       <div className="userpic">
         <img
-          src={props.userpic}
+          src={imageUser}
           alt="Foto do usuário X"
         />
       </div>
