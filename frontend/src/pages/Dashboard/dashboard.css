@@ -133,6 +133,18 @@ div.container-chart-left div.box-chart-left .title {
 }
 
 
+div.container-chart-left div.box-chart-left .chart-left {
+  position: relative;
+  display: block;
+  width: 650px;
+  top: 50px;
+ 
+  display: flex;
+  justify-content: center;
+}
+
+
+
 
 div.content-charts div.container-chart-right {
   width: 335px;
@@ -162,6 +174,21 @@ div.container-chart-right div.box-chart-right .title {
 }
 
 
+div.container-chart-right div.box-chart-right .chart-right {
+  position: relative;
+  display: block;
+  width: 250px;
+  top: 65px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/*
+* ScrollBar
+*/
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -173,5 +200,4 @@ div.container-chart-right div.box-chart-right .title {
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background: var(--blue-color);
-
 }
