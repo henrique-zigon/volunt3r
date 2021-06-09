@@ -17,7 +17,7 @@ function Conquista(props) {
                 </div>
 
                 <div className="corpoConquista">
-                    <div className="tituloConquista">{props.titulo}</div> <span></span>
+                    <div className="tituloConquista">{props.titulo}</div>
                     <Barra />
                     <div className="textoConquista">{props.conteudo}</div>
                 </div>

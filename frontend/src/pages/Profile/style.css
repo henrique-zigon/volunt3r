@@ -10,3 +10,62 @@
     height: 350px;
     
 }
+
+.perfilUsuario{
+    display: flex;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 250px;
+    color: #F3F3F3;
+}
+
+.imgPerfil{
+    border-radius: 50%;
+    border-color: black;
+    border-width: 2px;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+
+.textoPerfil{
+    margin-left: 10px;
+    margin-top: 30px;
+
+}
+
+.corpoPublicacoes{
+    display: flex;
+}
+
+.fundoBranco{
+    background-color: #F3F3F3;
+    height: auto;
+   
+}
+
+.corpoCentral{
+    height: auto;
+    width: 55%;
+    margin-left: 5%;
+    margin-top: 8%;
+    background-color: #F3F3F3;
+    border: #868686 2px solid;
+    border-radius: 5px;
+}
+
+.corpoLateral{
+    width: 30%;
+    margin-top: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.publicacoes{
+    margin: 5%;
+}
+
+.publicacao{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}

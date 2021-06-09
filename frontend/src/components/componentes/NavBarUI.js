@@ -6,13 +6,14 @@ import img1 from "../../images/imagem1.jpg";
 import imgSearch from "../../images/search.png";
 import imgMenu from '../../images/menu.png';
 import imgCancel from '../../images/cancel.png';
+import imgLogo from '../../images/logo volunt3r.png';
 
 const NavBar = props => {
     return (
         <header className="navbar">
             <nav className="navbar-navigation">
                 <a href="/"><div className="volunter-info">
-                    <div className="navbar-logo"> <img className="icone" src={imgLike} /></div>
+                    <div className="navbar-logo"> <img className="icone" src={imgLogo} /></div>
                     <div className="navbar-title"> Volunt3r</div>
                 </div></a>
                 <div className="navbar-navigation-items">

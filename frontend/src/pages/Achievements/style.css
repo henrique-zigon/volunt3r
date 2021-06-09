@@ -49,6 +49,9 @@
     width: 55%;
     margin-left: 5%;
     margin-top: 8%;
+    background-color: #F3F3F3;
+    border: #868686 2px solid;
+    border-radius: 5px;
 }
 
 .corpoLateral{
@@ -58,23 +61,41 @@
     margin-right: 5%;
 }
 
+.conquistas{
+    margin: 5%;
+}
+
+.conquista{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.corpoEstatisticas{
+    background-color: #F3F3F3;
+    border: #868686 2px solid;
+    border-radius: 5px;
+}
+
+.tituloConquistas{
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.tituloEstatisticas{
+    margin-top: 8%;
+    margin-left: 10%;
+}
+
 .estatisticas{
-    display: flex;
-}
-
-.estatisticas1{
     width: 90%;
-    height: 250px;
+    height: fit-content;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 2%;
+    margin-top: 8%;
+    margin-bottom: 5%;
 }
 
-.estatisticas2{
-    width: 90%;
-    height: 250px;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-   
+.estatistica{
+    margin:5%
 }
+
