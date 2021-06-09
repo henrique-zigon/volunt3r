@@ -5,13 +5,13 @@ import img3 from "../../images/imagem3.jpg";
 import img2 from "../../images/imagem2.jpg";
 import img5 from "../../images/imagem5.jpg";
 import imgLonga from "../../images/imagemLonga.jpg";
-import imgLike from "../../images/heart.png";
-import imgComment from "../../images/comment.png";
 import api from "../../api.js";
 import { ToastProvider, useToasts } from 'react-toast-notifications';
 import ModalPublicacao from '../../components/ModalPublicacao';
+import { useCookies } from 'react-cookie';
 
 export default function Publicacoes() {
+    const [cookies] = useCookies(['volunt3r']);
     const { addToast } = useToasts();
 
     const [modal, setModal] = useState(false);
@@ -40,7 +40,10 @@ export default function Publicacoes() {
     useEffect(() => {
 
         async function getAllPublicacoes() {
-            const resposta = await api.get("/publicacoes");
+            console.log("AAA",cookies.volunt3r);
+            const resposta = await api.get("/publicacoes",{
+                headers: { 'Authorization': cookies.volunt3r }
+            });
             console.log(resposta.data);
             setPublicacoes(resposta.data);
         }
@@ -77,7 +80,8 @@ export default function Publicacoes() {
 
                     }
                     }
-                        imgsrc={img3} imgIconLike={imgLike} imgIconComment={imgComment} likes="10" comments="5" userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} tags="#Gratidão #AmoCães" />
+                        imgsrc={img3} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} publicacaoPai={publicacao.publicacaoPai} tags="#Gratidão #AmoCães" />
+                        
                 ))
             }
 

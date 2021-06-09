@@ -1,12 +1,6 @@
 package br.com.voluntier.apivoluntier.Responses;
 
-import br.com.voluntier.apivoluntier.Models.Clique;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
-import br.com.voluntier.apivoluntier.Models.Usuario;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.OneToMany;
-import java.util.List;
 
 public class ComentarioResponse {
 

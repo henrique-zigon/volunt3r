@@ -1,7 +1,6 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.Gostei;
-import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

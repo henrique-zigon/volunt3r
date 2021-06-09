@@ -86,6 +86,7 @@
 }
 .hide{
     display: none;
+    transition: all .3s ease-in;
 }
 
 .show{

@@ -6,43 +6,58 @@ import Combobox from '../../components/Combobox';
 import Menu from '../../components/componentes/MenuUI.js';
 import '../../styles/combo-box-style.css';
 import NavBar from '../../components/componentes/NavBarUI';
+import { useCookies } from 'react-cookie';
 
-function EventCatalog(){
+function EventCatalog() {
+    const [cookies] = useCookies(['volunt3r']);
+    const [cards, setCards] = useState([]);
 
-return(
+    useEffect(() => {
 
-<>
-<NavBar username = "Jon"></NavBar>
-<Menu />
+        async function getAllCards() {
+            const resposta = await api.get("/eventos",{
+                headers: { 'Authorization': cookies.volunt3r }
+            });
+            setCards(resposta.data);
+        }
 
-<div className="pagina">
-<div className="paginaCentro">
-    <h2 className="titulo">Catálogo de Eventos</h2>
-    <h4 className="subtitulo">Encontre o evento <span className="textoAzul">perfeito</span> para você!</h4>
+        getAllCards();
+    }, [])
 
-<div className="filtros">
-    <b className="filtro1">Categoria</b> <Combobox valor="Todas" nome="Todas"/>
-    <b className="filtro2">Tipo de doação</b> <Combobox valor="Todas" nome="Todas"/>
-    <b className="filtro2">Data</b> <input className="box" type="date"></input>
+    return (
 
-</div>
+        <>
+            <NavBar username="Jon"></NavBar>
+            <Menu />
 
-    <div className="eventos">
-    <CardCatalogo />
-    </div>
+            <div className="pagina">
+                <div className="paginaCentro">
+                    <h2 className="titulo">Catálogo de Eventos</h2>
+                    <h4 className="subtitulo">Encontre o evento <span className="textoAzul">perfeito</span> para você!</h4>
 
-</div>
+                    <div className="filtros">
+                        <b className="filtro1">Categoria</b> <Combobox valor="Todas" nome="Todas" />
+                        <b className="filtro2">Tipo de doação</b> <Combobox valor="Todas" nome="Todas" />
+                        <b className="filtro2">Data</b> <input className="box" type="date"></input>
 
-<div className="menuDireita">
-    <b className="titulo">Próximos eventos</b>
+                    </div>
 
-    
-</div> 
-</div>
+                    <div className="eventos">
+                        <CardCatalogo info={cards} isEvento={true}/>
+                    </div>
 
-</>
+                </div>
 
-);
+                <div className="menuDireita">
+                    <b className="titulo">Próximos eventos</b>
+
+
+                </div>
+            </div>
+
+        </>
+
+    );
 }
 
 export default EventCatalog;
