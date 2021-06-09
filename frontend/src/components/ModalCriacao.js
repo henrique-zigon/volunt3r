@@ -5,7 +5,6 @@ import imgCancel from '../images/cancel.png';
 
 function ModalCriacao(props){
 
-
     return ( 
 <>
 <div className="paginaModalCriacao">
@@ -14,7 +13,7 @@ function ModalCriacao(props){
 </div>
 <div className="modalCompleto">
 
-<div className="tituloModal"><h2>Criar </h2><h2>{props.tipo}</h2></div> 
+<div className="tituloModal"><h2>Compartilhar Experiência</h2></div> 
 
 <div className="headerModal">
         <img className="imagemPerfil" src={props.imagemPerfil} />

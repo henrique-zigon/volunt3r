@@ -1,8 +1,12 @@
+body{
+    background-color: #f2f2f2;
+}
+
 .paginaCentroProfile{
     width: 70%;
     height: 100%;
     margin-left: 15%;
-    background-color: #DDE4E8;
+    background-color: #fff;
 }
 
 .imgCapa{

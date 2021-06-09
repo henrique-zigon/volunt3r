@@ -39,8 +39,6 @@ function Routes() {
                     <LoggedRoute exact path="/create" component={ModalCriacao} />
                     <LoggedRoute exact path="/shop" component={Shop} />
                     <LoggedRoute exact path="/catalog" component={EventCatalog} />
-                    <LoggedRoute exact path="/modal" component={ModalPublicacao} />
-                    <LoggedRoute exact path="/card" component={CardCatalogo} />
                     <LoggedRoute exact path="/" component={Feed} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
