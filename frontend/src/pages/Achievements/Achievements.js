@@ -6,10 +6,19 @@ import Medalha from '../../components/Medalha';
 import NavBar from '../../components/componentes/NavBarUI.js';
 import Menu from '../../components/componentes/MenuUI.js';
 import medalha1 from '../../images/Group 13.png';
+import { useCookies } from 'react-cookie';
 import medalha2 from '../../images/Group 14.png';
 import medalha3 from '../../images/Meia Medalha.png';
 
 function Achievements() {
+    const [cookies] = useCookies(['volunt3r_user']);
+//   return(
+//     <main className="container">
+//       <SideBar 
+//         userpic={cookies.volunt3r_user.imagemPerfil}
+//         username={cookies.volunt3r_user.nomeUsuario}
+//         useremail={cookies.volunt3r_user.email}
+//       />
     return (
         <>
 
@@ -18,17 +27,17 @@ function Achievements() {
             <div className="paginaCentroAchievements">
 
                 <div className="perfilUsuario">
-                    <div className="imgPerfil">
-                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rengar_0.jpg" />
+                    <div>
+                        <img className="imgPerfil" src={cookies.volunt3r_user.imagemPerfil} />
                     </div>
 
                     <div className="textoPerfil">
-                        <h2>Nome</h2>
-                        <h3>Titulo</h3>
+                        <h2>{cookies.volunt3r_user.nomeUsuario}</h2>
+                        <h3>Doador</h3>
                     </div>
                 </div>
 
-                <img className="imgCapa" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rengar_0.jpg" />
+                <img className="imgCapa" src={cookies.volunt3r_user.imagemCapa} />
 
 
 

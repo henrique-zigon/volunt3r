@@ -29,7 +29,7 @@
     border-radius: 50%;
 }
 
-.headerModal{
+.headerModalPublicacao{
     padding-right: 3%;
     padding-left: 3%;
     padding-bottom: 3%;
@@ -39,7 +39,7 @@
     padding-left: 25px;
 }
 
-.headerModal .tituloModal{
+.headerModalPublicacao .tituloModal{
     font-family: Exo 2;
     font-style: normal;
     font-size: 20px;
@@ -48,7 +48,7 @@
     padding-top: 5px;
 }
 
-.headerModal .subtituloModal{
+.headerModalPublicacao .subtituloModal{
     font-family: Exo 2;
     font-style: normal;
     font-size: 15px;
@@ -79,6 +79,7 @@
     margin-left: 25px;
     width: 90%;
     max-height: 100%;
+    object-fit: cover;
     border-radius: 15px;
 }
 

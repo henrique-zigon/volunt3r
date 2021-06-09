@@ -7,7 +7,7 @@ const Publicacao = props => {
 
     return (
         <div className="publicacao text-center shadow">
-            <div className="publicacao-main">
+            <div className="publicacao-main" onClick={props.onClick}>
                 <div className="publicacao-info">
                     <div className="user-img">
                         <img src={props.imgIconUser} className="user-img"></img></div>
@@ -15,9 +15,9 @@ const Publicacao = props => {
                     <div className="publicacao-time text-secondary"> {props.time} </div>
                     <div className="publicacao-button">
                         {
-                            props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Participar" onClick={props.onClick} /> : ""
+                            props.evento ? <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Participar"  /> : ""
                         }
-                            <Botao type="button" buttonSize="btn--small" buttonStyle="btn--primary--outline" children="Ver mais" />
+                            {/* <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Ver mais" /> */}
                     </div>
                     <div className="publicacao-actions">
                         <div className="publicacao-icons">

@@ -5,9 +5,11 @@ import imgCancel from '../images/cancel.png';
 import api from "../api.js";
 import { useCookies } from 'react-cookie';
 
-function ModalCriacao(props){
+function ModalCriacao(props) {
+
+    const [cookies] = useCookies(['volunt3r_user']);
     let abrirModalCriacao = {
-        display: props.exibeModal? "block" : "none"
+        display: props.exibeModal ? "block" : "none"
     }
 
     // useEffect(() => {
@@ -31,48 +33,51 @@ function ModalCriacao(props){
 
 
 
-    return ( 
-<>
-<div className="paginaModalCriacao" style={
-    abrirModalCriacao
-}> 
+    return (
+        <>
+            <div className="paginaModalCriacao" style={
+                abrirModalCriacao
+            }>
 
-<div className="modalCompleto">
+                <div className="modalCompleto">
 
-<div className="tituloModalCriacao"><h2>Compartilhar Experiência</h2></div> 
+                    <div className="tituloModalCriacao"><h2>Compartilhar Experiência</h2></div>
 
-<div className="headerModal">
-        <img className="imagemPerfil" src={props.imagemPerfil} />
-        <b className="nomePerfil">{props.nomePerfil}</b>
-</div>
+                    <div className="headerModal">
+                        <img className="imagemPerfil" src={cookies.volunt3r_user.imagemPerfil} />
+                        <b className="nomePerfil">{cookies.volunt3r_user.nomeUsuario}</b>
+                    </div>
 
-<textarea placeholder="Compartilhe uma experiência..." className="inputCriacao"></textarea>
-<span className="tags" ><textarea placeholder="Use algumas #tags" className="inputTags"></textarea></span>
+                    <textarea placeholder="Compartilhe uma experiência..." className="inputCriacao"></textarea>
+                    <span className="tags" ><textarea placeholder="Use algumas #tags" className="inputTags"></textarea></span>
 
-<div className="botoesDataLugar">
-<div>
-<span className="botaoAdd">Adicionar data:</span>
-<input className="inputAdd" type="date"></input>
-</div>
+                   
+                        <div className="botoesDataLugar">
+                            <div>
+                                <span className="botaoAdd">Adicionar data:</span>
+                                <input className="inputAdd" type="date"></input>
+                            </div>
 
-<div>
-<span className="botaoAdd">Adicionar localização:</span>
-<input className="inputAdd2" placeholder="Insira uma localização"></input>
-</div>
-</div>
+                            <div>
+                                <span className="botaoAdd">Adicionar localização:</span>
+                                <input className="inputAdd2" placeholder="Insira uma localização"></input>
+                            </div>
+                        </div>
 
-<div className="botaoAdd2">Adicionar imagem:</div>
-<input className="inputAdd3" type="file"></input>
+                        <div className="botoesAdicionaImagem">
+                        <div className="botaoAdd">Adicionar imagem:</div>
+                        <input className="inputAdd2" placeholder="Insira o link de uma imagem"></input>
+                        {/* <input className="inputAdd3" type="file"></input> */}
+                        </div>
+                    <div className="btnModal">
+                        <Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Cancelar" onClick={() => { props.funcao(false) }}></Botao><Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Publicar" onClick={props.onClick}></Botao>
+                    </div>
 
-<div className="btnModal">
-<Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--outline" children="Cancelar" onClick={() => {props.funcao(false)}}></Botao><Botao type="button" buttonSize="btn--medium" buttonStyle="btn--primary--solid" children="Publicar" onClick={props.onClick}></Botao>
-</div>
-
-</div>
-</div>
+                </div>
+            </div>
 
 
-</>
+        </>
     );
 }
 
