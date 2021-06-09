@@ -1,7 +1,7 @@
 import React from 'react';
 import Medalha from '../components/Medalha';
-import Barra from '../components/Barra';
 import '../styles/conquista-style.css';
+import ProgressBar from "@ramonak/react-progress-bar";
 import medalha1 from '../images/Group 13.png';
 import medalha2 from '../images/Group 14.png';
 import medalha3 from '../images/Meia Medalha.png';
@@ -18,7 +18,7 @@ function Conquista(props) {
 
                 <div className="corpoConquista">
                     <div className="tituloConquista">{props.titulo}</div>
-                    <Barra />
+                    <ProgressBar completed={props.completo} bgColor="#FECE21" isLabelVisible={false} height="13px" margin="3%"/>
                     <div className="textoConquista">{props.conteudo}</div>
                 </div>
 

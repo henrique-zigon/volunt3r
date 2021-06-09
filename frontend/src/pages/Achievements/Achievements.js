@@ -38,15 +38,15 @@ function Achievements() {
                         <div className="conquistas">
 
                             <div className="conquista">
-                                <Conquista icone={medalha3} titulo="Doação de sangue" conteudo="UAU! Você já doou sangue 12 vezes!" elo="Ouro" />
+                                <Conquista icone={medalha3} titulo="Doação de sangue" conteudo="UAU! Com mais 3 vc bate o recorde!" completo="80" total="15px" elo="Ouro" />
                             </div>
 
                             <div className="conquista">
-                                <Conquista icone={medalha2} titulo="Doação de cestas" conteudo="Você doou 15 cestas, parabéns!" elo="Prata" />
+                                <Conquista icone={medalha2} titulo="Doação de cestas" conteudo="Você precisa doar mais 15 cestas, está indo muito bem!" completo="50" elo="Prata" />
                             </div>
 
                             <div className="conquista">
-                                <Conquista icone={medalha1} titulo="Mentorias" conteudo="Você só fez 2 mentorias =(" elo="Bronze" />
+                                <Conquista icone={medalha1} titulo="Mentorias" conteudo="Você já fez 2 mentorias, mais 3 e subimos de elo \o/" completo="40" elo="Bronze" />
                             </div>
 
                         </div>
