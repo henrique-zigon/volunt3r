@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import './style.css';
 import api from '../../api'
 import { useCookies } from 'react-cookie';
+import LoginAndRegisterImage from '../../images/login_register_image.png';
+import { BiEnvelope, BiKey } from 'react-icons/bi';
 
 
 
@@ -46,38 +48,43 @@ function Login() {
     }
 
     return (
-        <div className="container-page">
-            <div className="references-voluntier">
-                <h2 className="title">Volunt3r</h2>
-                <span>
-                A plataforma Volunt3r foi feita por alunos da faculdade Bandtec. <br />
-                Essa <b>incrível</b> plataforma foi a solução encontrada para resolver alguns problemas que a B3 Social sofria.
-                
-                </span>
-                <button className="btn">Saiba mais!</button>
-            </div>
-            <div className="form-container">
-                <form onSubmit={(e) => submitForm(e)}>
-                    <fieldset>
-                        <legend>Olá, você voltou! <br></br> Sentimos saudades...</legend>
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Seu email
-                                <input className="input" type="email" name="email" id="email" onChange={(e) => handle(e)} />
-                            </label>
-                        </div>
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Sua senha
-                                <input className="input" type="password" name="senha" id="senha" onChange={(e) => handle(e)} />
-                            </label>
-                        </div>
-                        
-                        <button className="btn-submit">Logar na Volunt3r</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+			<div className="container">
+				<div className="content">
+					<img src={LoginAndRegisterImage} />
+				</div>
+				<div className="contain-form">
+					<div className="information-page">
+						<h2 className="title">Olá, bem vindo(a) de volta</h2>
+						<span className="subtitle">vamos fazer login?</span>
+					</div>
+
+					<form onSubmit={(e) => submitForm(e)}>
+						<div className="input-group">
+							<label htmlFor="email">
+								<span>Seu email</span>
+								<input className="input-field" type="email" name="email" id="email" onChange={(e) => handle(e)}/>
+								<div className="underline"></div>
+								<BiEnvelope className="icon-input-group" />
+							</label>
+						</div>
+						<div className="input-group">
+							<label htmlFor="senha">
+								<span>Sua senha</span>
+								<input className="input-field" type="password" name="senha" id="senha" onChange={(e) => handle(e)} />
+								<div className="underline"></div>
+								<BiKey className="icon-input-group"/>
+							</label>
+						</div>
+
+						<button type="submit" className="btn-new-submit">Entrar</button>
+					</form>
+
+					<div className="footer">
+						Não tenho uma conta, <Link className="bold" to="/register">quero criar uma!</Link>
+					</div>
+
+				</div>
+			</div>
 
     );
 }
