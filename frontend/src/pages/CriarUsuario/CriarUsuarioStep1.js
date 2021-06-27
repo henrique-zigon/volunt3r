@@ -1,107 +1,119 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LoginAndRegisterImage from '../../images/login_register_image.png';
+import { BiUser, BiBuilding, BiDonateHeart } from 'react-icons/bi';
 import './style.css';
+import '../global-pages.css';
 
 function CriarUsuarioStep1() {
 
 
-    const [userData, setUserData] = useState({
-        nomeUsuario: "",
-        genero: "Masculino",
-        cargo: "Estagiário",
-        area: "Produtos Analytics",
-        tipoUsuario: "B3 Social",
-    });
+	const [userData, setUserData] = useState({
+		nomeUsuario: "",
+		genero: "",
+		cargo: "",
+		area: "",
+		tipoUsuario: "",
+	});
 
 
-    function handle(e) {
-        const newUserData = {...userData }
-        newUserData[e.target.id] = e.target.value;
-        console.log(newUserData);
-        setUserData(newUserData);
-    }
+	function handle(e) {
+		const newUserData = { ...userData }
+		newUserData[e.target.id] = e.target.value;
+		setUserData(newUserData);
+		console.log(newUserData)
+	}
 
 
-    return (
-        <div className="container-page">
-            <div className="references-voluntier">
-                <h2 className="title">Volunt3r</h2>
-                <span>
-                A plataforma Volunt3r foi feita por alunos da faculdade Bandtec. <br />
-                Essa <b>incrível</b> plataforma foi a solução encontrada para resolver alguns problemas que a B3 Social sofria.
-                
-                </span>
-                <button className="btn">Saiba mais!</button>
-            </div>
-            <div className="form-container">
-                <form>
-                    <fieldset>
-                        <legend>Olá, precisamos de algumas informações suas!</legend>
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Seu nome
-                                <input className="input" type="text" name="nomeUsuario" id="nomeUsuario" onChange={(e) => handle(e)} />
-                            </label>
-                        </div>
-                        
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Seu gênero
-                                <select className="input" name="genero" id="genero" onChange={(e) => handle(e)}>
-                                    <option value="" disabled>Selecione o seu gênero</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Feminino">Feminino</option>
-                                </select>
-                            </label>
-                        </div>
+	return (
+		<div className="container">
+				<div className="content">
+					<img src={LoginAndRegisterImage} />
+				</div>
+				<div className="contain-form">
+					<div className="information-page">
+						<h2 className="title">Que bom você quer ser um volunt3r</h2>
+						<span className="subtitle">Precisamos saber um pouco sobre você!</span>
+					</div>
 
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Seu cargo
-                                <select className="input" name="cargo" id="cargo" onChange={(e) => handle(e)}>
-                                    <option value="" disabled>Selecione o seu cargo</option>
-                                    <option value="Estagiário">Estagiário</option>
-                                    <option value="Analista I">Analista I</option>
-                                    <option value="Analista II">Analista II</option>
-                                    <option value="Analista III">Analista III</option>
-                                    <option value="Superintendente">Superintendente</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Sua área
-                                <select className="input" name="area" id="area" onChange={(e) => handle(e)}>
-                                    <option value="" disabled>Selecione sua área</option>
-                                    <option value="Produtos Analytics">Produtos Analytics</option>
-                                    <option value="Listados">Listados</option>
-                                    <option value="Balcão">Balcão</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div className="input-group">
-                            <label htmlFor="">
-                                Tipo de usuário
-                                <select className="input" name="tipoUsuario" id="tipoUsuario" onChange={(e) => handle(e)}>
-                                    <option value="" disabled>Selecione o tipo do usuário</option>
-                                    <option value="b3_social">B3 Social</option>
-                                    <option value="comum">Comum</option>
-                                </select>
-                            </label>
-                        </div>
-                       
-                        <Link to={{
-                                pathname: "register/step2",
-                                state: userData
-                            }} 
-                            className="btn-submit">Continuar
-                        </Link>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+					<form>
+						<div className="input-group">
+							<label htmlFor="nomeUsuario">
+								<span>Seu nome</span>
+								<input className="input-field" type="text" name="nomeUsuario" id="nomeUsuario" onChange={(e) => handle(e)}/>
+								<div className="underline"></div>
+								<BiUser className="icon-input-group" />
+							</label>
+						</div>
+						<div className="input-group">
+							<label htmlFor="senha">
+								<span>Qual o seu gênero?</span>
 
-    );
+								<select className="input-field select"  name="genero" id="genero" onChange={(e) => handle(e)}>
+									<option disabled selected>Selecione seu gênero</option>
+									<option value="F">Feminino</option>
+									<option value="M">Masculino</option>
+								</select>
+								<div className="underline"></div>
+							</label>
+						</div>
+
+						<div className="input-group">
+							<label htmlFor="nome">
+								<span>Qual o seu cargo?</span>
+								<input className="input-field" type="text" name="cargo" id="cargo" onChange={(e) => handle(e)}/>
+								<div className="underline"></div>
+								<BiBuilding className="icon-input-group" />
+							</label>
+						</div>
+
+						<div className="input-group">
+							<label htmlFor="senha">
+								<span>Qual a sua área?</span>
+
+								<select className="input-field select"  name="area" id="area" onChange={(e) => handle(e)}>
+									<option disabled selected>Selecione sua área</option>
+									<option value="B3 Social">B3 Social</option>
+									<option value="Produtos Analytcs">Produtos Analytcs</option>
+									<option value="Listados">Listados</option>
+									<option value="Balcão">Balcão</option>
+								</select>
+								<div className="underline"></div>
+							</label>
+						</div>
+
+						<div className="input-group">
+							<label htmlFor="tipoUsuario">
+								<span>Sou B3 Social?</span>
+								
+								<select className="input-field select"  name="tipoUsuario" id="tipoUsuario" onChange={(e) => handle(e)}>
+									<option disabled selected >Selecione</option>
+									<option value="b3_social">Sim</option>
+									<option value="comum">Não</option>
+								</select>
+								<div className="underline"></div>
+
+								<BiDonateHeart className="icon-input-group" />
+							</label>
+						</div>
+
+						<Link to={{
+							pathname: "register/step2",
+							state: userData
+						}}
+						>
+							<button type="button" className="btn-new-submit">Continuar</button> 
+
+						</Link>
+					</form>
+
+					<div className="footer">
+						Já tenho uma conta, <Link className="bold" to="/">quero entrar!</Link>
+					</div>
+
+				</div>
+			</div>
+	);
 }
 
 
