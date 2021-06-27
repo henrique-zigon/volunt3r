@@ -7,15 +7,18 @@ import { useCookies } from 'react-cookie';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
 
-
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 function Login() {
+
 	const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [userData, setUserData] = useState({
 		email: "",
 		senha: ""
 	});
+
 	let history = useHistory();
+	const { addToast } = useToasts();
 
 
 	function handle(e) {
@@ -27,14 +30,26 @@ function Login() {
 	function submitForm(e) {
 		e.preventDefault();
 
-		api.post("/usuarios/login", {
-			email: userData.email,
-			senha: userData.senha
-		}).then((resposta) => {
-			setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
-			setCookie('volunt3r_user', resposta.data.user, { path: "/" });
-			history.push("/");
-		})
+
+
+
+		if( userData.email === '' || userData.senha === '') {
+			console.log("OPA AMIGÃO PREENCHE Aí")
+			addToast('Opps... Preencha os campos!', {appearance: 'error', autoDismiss: true})
+		} else {
+
+
+			api.post("/usuarios/login", {
+				email: userData.email,
+				senha: userData.senha
+			}).then((resposta) => {
+				setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
+				setCookie('volunt3r_user', resposta.data.user, { path: "/" });
+				history.push("/");
+			})
+
+		}
+
 
 		/* 
 		* Aqui estou realizando a destruturação do array newUserData!
