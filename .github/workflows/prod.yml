@@ -28,7 +28,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           port: 22
           source: api-voluntier/target/api.jar.gz
           target: /tmp
@@ -42,6 +42,6 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           port: 22
           script: "sudo systemctl stop api && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api && sudo chown www-data:www-data /var/www/api/api.jar && sudo systemctl start api"
