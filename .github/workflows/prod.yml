@@ -2,7 +2,7 @@ name: Produção
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   setup:
