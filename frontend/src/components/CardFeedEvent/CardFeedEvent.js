@@ -8,7 +8,7 @@ const CardFeedEvent = (props) => {
   return (
     <div className="feed-card">
       <img className="image-post"
-        src={props.imagePost}
+        src={`http://voluntier.eastus.cloudapp.azure.com/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 
