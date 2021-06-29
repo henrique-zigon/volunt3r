@@ -19,11 +19,9 @@ function Feed(props) {
 	const [cookies] = useCookies(['volunt3r']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : props.userpic;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
-
-	console.log(publicacoes)
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
