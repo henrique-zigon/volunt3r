@@ -5,6 +5,13 @@ import { BiHeart } from 'react-icons/bi';
 import './card-feed-style.css';
 
 const CardFeedEvent = (props) => {
+
+
+  let months = ["Jan", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dec"]
+  
+  let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ]
+  let dayEvent = props.dataEvent.split("/")[0]
+
   return (
     <div className="feed-card">
       <img className="image-post"
@@ -31,8 +38,8 @@ const CardFeedEvent = (props) => {
 
         <div className="post-information">
           <div className="date-event-post">
-            <span className="month">Mar</span>
-            <h2 className="day">08</h2>
+            <span className="month">{monthEvent}</span>
+            <h2 className="day">{dayEvent}</h2>
           </div>
 
           <div className="content-post-event">

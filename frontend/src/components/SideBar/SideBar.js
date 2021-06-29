@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { BiLineChart, BiExit, BiDetail, BiCalendar } from 'react-icons/bi';
-import avatarPadrao from '../../images/avatar_padrao.jpg';
+import avatarPadrao from '../../images/avatar_padrao.png';
 import { Cookies } from 'react-cookie';
 
 import './sidebar.css';
