@@ -2,7 +2,7 @@ name: Produção
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   setup:
@@ -44,4 +44,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
-          script: "sudo systemctl stop api && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api && sudo chown www-data:www-data /var/www/api/api.jar && sudo systemctl start api"
+          script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown www-data:www-data /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"
