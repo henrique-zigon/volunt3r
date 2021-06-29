@@ -3,10 +3,15 @@ package br.com.voluntier.apivoluntier.Controllers;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
+import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +19,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/publicacoes")
 public class PublicacaoController {
-
+    @Autowired
+    S3Services s3Services;
     @Autowired
     PublicacaoRepository repository;
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
@@ -27,8 +33,13 @@ public class PublicacaoController {
                 .collect(Collectors.toList()));
     }
 
-    @PostMapping("/novo")
-    public ResponseEntity postPublicacao(@RequestBody Publicacao novaPublicacao) {
+    @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity postPublicacao(@RequestPart MultipartFile arquivo,
+                                         @RequestPart Publicacao novaPublicacao)  throws IOException {
+        String filename = arquivo.getOriginalFilename();
+        String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
+        s3Services.uploadFile(name,arquivo);
+        novaPublicacao.setPathImagem(name);
         retornoHasmap.clear();
         try {
 

@@ -7,17 +7,24 @@ import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.*;
 import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
 import br.com.voluntier.apivoluntier.Services.EmailService;
+import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {
+    @Autowired
+    S3Services s3Services;
     @Autowired
     private EventoRepository repository;
 
@@ -54,8 +61,13 @@ public class EventoController {
 //        }
 //    }
 
-    @PostMapping("/novo")
-    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
+    @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity postPublicacaoEvento(@RequestPart MultipartFile arquivo,
+                                               @RequestPart Publicacao novaPublicacaoEvento)  throws IOException {
+        String filename = arquivo.getOriginalFilename();
+        String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
+        s3Services.uploadFile(name,arquivo);
+        novaPublicacaoEvento.setPathImagem(name);
         repository.save(novaPublicacaoEvento.getEvento());
 
         try {

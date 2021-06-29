@@ -64,4 +64,12 @@ public class Curso {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }

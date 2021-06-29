@@ -100,12 +100,19 @@ function ModalPublicacao(props) {
                         <b>Interessados:</b>
                         <div className="interessados">
                             {
+                                inscritos.length == 0 ?
+                                ""
+                                :
                                 inscritos.map((inscrito) => (
                                     <img className="interessados" src={inscrito.usuarioImagemPerfil} />
                                 ))
                             }
-
-                            <b className="maisInteressados"> +{props.interessados}</b>
+                            {
+                                inscritos.length == 0 ?
+                                "-"
+                                :
+                                <b className="maisInteressados"> +{props.interessados}</b>
+                            }
                         </div>
                     </div>
 

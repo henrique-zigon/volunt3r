@@ -54,6 +54,7 @@ export default function Publicacoes() {
             }).then(resposta => {
                 console.log(resposta.data);
                 setPublicacoes(resposta.data.reverse());
+                console.log(publicacoes[0])
             }).catch( err => {
                 console.log("Deu erro")
             });
@@ -64,6 +65,7 @@ export default function Publicacoes() {
 
     return (
         <div className="container-publicacao">
+            
             {
                 publicacoes.map((publicacao) => (
                     <Publicacao  onClick={() => {
@@ -91,7 +93,7 @@ export default function Publicacoes() {
 
                     }
                     }
-                    imgIconUser={publicacao.usuario.usuarioImagemPerfil} imgsrc={publicacao.pathImagem} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} comentario={publicacao.comentario} tags="#Gratidão #AmoCães" />
+                    imgIconUser={publicacao.usuario.usuarioImagemPerfil} imgsrc={`http://localhost:3001/arquivos/imagem/${publicacao.pathImagem}`} likes={publicacao.numeroLikes} comments={publicacao.numeroComentarios} userName={publicacao.usuario.nomeUsuario} time={publicacao.evento.dataEvento} desc={publicacao.descricao} evento={publicacao.publicacaoEvento} comentario={publicacao.comentario} tags="#Gratidão #AmoCães" />
                         
                 ))
             }
