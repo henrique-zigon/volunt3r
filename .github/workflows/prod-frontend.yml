@@ -3,6 +3,8 @@ name: Build and deploy frontend
 on:
   push:
     branches: [main]
+  paths:
+    - frontend/**
 
 jobs:
 
