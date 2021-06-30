@@ -5,9 +5,8 @@ on:
     branches: [main]
   paths:
     - frontend/**
-
+    
 jobs:
-
   setup:
     runs-on: ubuntu-latest
     steps:
@@ -15,29 +14,23 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.17.1'
-    
   build:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Build project
         run: npm run build
-
       - name: Install NPM packages
         run: npm i
-
       - name: Zip project
         run: gzip frontend/
-
       # - name: Upload production-ready build files
       #   uses: actions/upload-artifact@v2
       #   with:
       #     name: production-files
       #     path: ./build
-      
       - name: Copy project
         uses: appleboy/scp-action@master
         with:
@@ -48,19 +41,17 @@ jobs:
           source: frontend.gz
           target: /tmp
           strip_components: 2
-  
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Update service
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        port: 22
-        script: "sudo systemctl stop frontend-voluntier && gzip -d /tmp/frontend.gz && sudo mv /tmp/frontend/ /var/www/frontend-voluntier && sudo chown www-data:www-data /var/www/frontend-voluntier/frontend && sudo systemctl start frontend-voluntier"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: "sudo systemctl stop frontend-voluntier && gzip -d /tmp/frontend.gz && sudo mv /tmp/frontend/ /var/www/frontend-voluntier && sudo chown www-data:www-data /var/www/frontend-voluntier/frontend && sudo systemctl start frontend-voluntier"
 
