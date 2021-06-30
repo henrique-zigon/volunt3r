@@ -42,6 +42,11 @@ div.new-post input {
 	font-size: .8rem;
 }
 
+div.new-post input::placeholder {
+    color: rgb(172, 172, 172);
+}
+
+
 div.new-post button {
 	background: none;
 	border: none;
