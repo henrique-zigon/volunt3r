@@ -33,7 +33,7 @@ const CardFeedEvent = (props) => {
             </div>
           </div>
 
-          <button className="btn-subscribe-post">Quero Participar</button>
+          <button onClick={props.onClick} className="btn-subscribe-post">Quero Participar</button>
         </header>
 
         <div className="post-information">

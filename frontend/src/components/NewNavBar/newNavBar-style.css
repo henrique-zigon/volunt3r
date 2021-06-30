@@ -16,7 +16,7 @@ nav.new-navbar ul {
   gap: 64px;
 }
 
-nav.new-navbar ul li {
+nav.new-navbar ul li .linkagem {
   width: 60px;
   height: 100%;
   display: flex;
@@ -27,17 +27,17 @@ nav.new-navbar ul li {
   cursor: pointer;
 }
 
-nav.new-navbar ul li.li-current {
+nav.new-navbar ul li.li-current .linkagem {
   color: #FFF;
 }
 
-nav.new-navbar ul li.li-current,
-nav.new-navbar ul li.li-current svg  {
+nav.new-navbar ul li.li-current .linkagem,
+nav.new-navbar ul li.li-current .linkagem svg  {
   color: #FFF;
   opacity: 9;
 }
 
-nav.new-navbar ul li svg {
+nav.new-navbar ul li .linkagem svg {
   font-size: 1.3rem;
 }
 

@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
-
+import ModalPublicacao from '../../components/ModalPublicacao';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import api from "../../api.js";
@@ -20,6 +20,35 @@ function Feed(props) {
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : cookies.volunt3r_user.imagemPerfil;
+
+	const [modal, setModal] = useState(false);
+
+    const [publicacaoSelecionada, setPublicacaoSelecionada] = useState({
+        titulo: "",
+        descricao: "",
+        dataPostagem: "",
+        pathImagem: "",
+        usuario:{
+            
+            idUsuario: "",
+            nomeUsuario: "",
+            usuarioImagemPerfil: ""
+            
+        },
+        evento: {
+            dataEvento: "",
+            dataFechamentoEvento: "",
+            endereco: "",
+            maximoParticipantes: 0,
+            
+        },
+        numeroLikes: 0,
+        numeroComentarios: 1
+    });
+
+    function abrirModal() {
+        setModal(true);
+    }
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
@@ -71,6 +100,10 @@ function Feed(props) {
 								if(publicacao.publicacaoEvento) {
 									return(
 										<CardFeedEvent
+											/*onClick={() => {
+												setPublicacaoSelecionada(publicacao);
+												abrirModal();
+											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={publicacao.usuario.usuarioImagemPerfil}
@@ -86,6 +119,7 @@ function Feed(props) {
 								}
 							})
 						}
+						<ModalPublicacao exibeModal={modal} funcao={setModal} publicacaoSelecionada={publicacaoSelecionada} />
 					</div>
 				</div>
 
