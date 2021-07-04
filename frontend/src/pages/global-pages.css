@@ -16,6 +16,10 @@ body {
 	background:var(--background-page) !important;
 }
 
+/*
+* LOGIN AND REGISTER USER
+*/
+
 div.container {
 	width: 100vw;
 	height: 100vh;
