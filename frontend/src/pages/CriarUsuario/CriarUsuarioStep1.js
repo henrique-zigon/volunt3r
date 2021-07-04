@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiUser, BiBuilding, BiDonateHeart } from 'react-icons/bi';
+import InputForm from '../../components/InputForm/InputForm';
+import SelectForm from '../../components/InputForm/SelectForm';
+
 import './style.css';
 import '../global-pages.css';
 
@@ -21,9 +24,7 @@ function CriarUsuarioStep1() {
 		const newUserData = { ...userData }
 		newUserData[e.target.id] = e.target.value;
 		setUserData(newUserData);
-		console.log(newUserData)
 	}
-
 
 	return (
 		<div className="container">
@@ -37,14 +38,23 @@ function CriarUsuarioStep1() {
 					</div>
 
 					<form>
-						<div className="input-group">
-							<label htmlFor="nomeUsuario">
-								<span>Seu nome</span>
-								<input className="input-field" type="text" name="nomeUsuario" id="nomeUsuario" onChange={(e) => handle(e)}/>
-								<div className="underline"></div>
-								<BiUser className="icon-input-group" />
-							</label>
-						</div>
+						<InputForm 
+							type="text"
+							id="nomeUsuario"
+							name="nomeUsuario"
+							label="Seu Nome"
+							icon={<BiUser className="icon-input-group" />}
+							function={(e) => handle(e)}
+						/>
+{/* 
+						<SelectForm 
+							id="genero"
+							name="genero"
+							label="Qual o seu gênero?"
+							icon={<BiUser className="icon-input-group" />}
+							function={(e) => handle(e)}
+						/> */}
+
 						<div className="input-group">
 							<label htmlFor="senha">
 								<span>Qual o seu gênero?</span>
@@ -58,15 +68,17 @@ function CriarUsuarioStep1() {
 							</label>
 						</div>
 
-						<div className="input-group">
-							<label htmlFor="nome">
-								<span>Qual o seu cargo?</span>
-								<input className="input-field" type="text" name="cargo" id="cargo" onChange={(e) => handle(e)}/>
-								<div className="underline"></div>
-								<BiBuilding className="icon-input-group" />
-							</label>
-						</div>
 
+						<InputForm 
+							type="text"
+							id="cargo"
+							name="cargo"
+							label="Qual o seu cargo?"
+							icon={<BiBuilding className="icon-input-group" />}
+							function={(e) => handle(e)}
+						/>
+
+		
 						<div className="input-group">
 							<label htmlFor="senha">
 								<span>Qual a sua área?</span>

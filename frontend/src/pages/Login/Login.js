@@ -8,6 +8,8 @@ import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
 
 import { ToastProvider, useToasts } from 'react-toast-notifications';
+import InputForm from '../../components/InputForm/InputForm';
+
 
 function Login() {
 
@@ -25,6 +27,7 @@ function Login() {
 		const newUserData = { ...userData }
 		newUserData[e.target.id] = e.target.value;
 		setUserData(newUserData);
+		console.log(newUserData)
 	}
 
 	function submitForm(e) {
@@ -75,22 +78,22 @@ function Login() {
 				</div>
 
 				<form onSubmit={(e) => submitForm(e)}>
-					<div className="input-group">
-						<label htmlFor="email">
-							<span>Seu email</span>
-							<input className="input-field" type="email" name="email" id="email" onChange={(e) => handle(e)} />
-							<div className="underline"></div>
-							<BiEnvelope className="icon-input-group" />
-						</label>
-					</div>
-					<div className="input-group">
-						<label htmlFor="senha">
-							<span>Sua senha</span>
-							<input className="input-field" type="password" name="senha" id="senha" onChange={(e) => handle(e)} />
-							<div className="underline"></div>
-							<BiKey className="icon-input-group" />
-						</label>
-					</div>
+					<InputForm 
+						type="email"
+						id="email"
+						name="email"
+						label="Seu email"
+						icon={<BiEnvelope  className="icon-input-group"/>}
+						function={(e) => handle(e)}
+					/>
+					<InputForm 
+						type="password"
+						id="senha"
+						name="senha"
+						label="Sua senha"
+						icon={<BiKey className="icon-input-group" />}
+						function={(e) => handle(e)}
+					/>
 
 					<button type="submit" className="btn-new-submit">Entrar</button>
 				</form>

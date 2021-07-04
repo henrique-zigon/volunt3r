@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
-
+import InputForm from '../../components/InputForm/InputForm';
 import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 
@@ -62,7 +62,25 @@ function CriarUsuarioStep2(props) {
 				</div>
 
 				<form onSubmit={(e) => submitForm(e)}>
-					<div className="input-group">
+
+					<InputForm
+						type="email"
+						id="email"
+						name="email"
+						label="Seu email"
+						icon={<BiEnvelope className="icon-input-group" />}
+						function={(e) => handle(e)}
+					/>
+					<InputForm
+						type="password"
+						id="senha"
+						name="senha"
+						label="Sua senha"
+						icon={<BiKey className="icon-input-group" />}
+						function={(e) => handle(e)}
+					/>
+
+					{/* <div className="input-group">
 						<label htmlFor="email">
 							<span>Seu email</span>
 							<input className="input-field" type="email" name="email" id="email" onChange={(e) => handle(e)} />
@@ -77,7 +95,7 @@ function CriarUsuarioStep2(props) {
 							<div className="underline"></div>
 							<BiKey className="icon-input-group" />
 						</label>
-					</div>
+					</div> */}
 					<button type="submit" className="btn-new-submit">Me Cadastrar</button>
 
 				</form>
