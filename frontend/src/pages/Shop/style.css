@@ -1,4 +1,38 @@
-.Navbar{
+
+div.description-page {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 25px;
+}
+
+div.description-page span.title {
+    font-size: 1.5rem;
+}
+
+div.description-page span.description {
+    color: #8B8B8B;
+}
+
+div.shop-cards {
+	width: 100%;
+	height: auto;
+	
+	margin-top: 25px;
+	padding-bottom: 25px;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+/* .Navbar{
     background-color: #366DBF;
     height: 50px;
 }
@@ -71,4 +105,4 @@
     text-align: left;
 }
 
-
+ */
