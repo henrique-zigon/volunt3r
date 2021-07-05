@@ -8,6 +8,7 @@ import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
 
 import './style.css';
+import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 
 function Feed(props) {
 	// const [abrirModalCriacao, setModalCriacao] = useState(false);
@@ -95,6 +96,8 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
+
+								console.log(publicacao)
 							
 								if(publicacao.publicacaoEvento) {
 									return(
@@ -115,6 +118,17 @@ function Feed(props) {
 										/>
 									);
 									
+								} else {
+									return(
+										<CardCommentOrPost 
+											imagePost={publicacao.pathImagem}
+											nameUserPosted={publicacao.usuario.nomeUsuario}
+											imageUserPosted={publicacao.usuario.usuarioImagemPerfil}
+											descriptionPost={publicacao.descricao}
+											postedIn={publicacao.publicacaoPai.titulo}
+											countLikes={publicacao.numeroLikes}
+										/>
+									);
 								}
 							})
 						}
