@@ -6,7 +6,7 @@ const CardCommentOrPost = (props) => {
   return (
     <div className="feed-card">
       <img className="image-post"
-        src={`http://voluntier.eastus.cloudapp.azure.com/arquivos/imagem/${props.imagePost}`}
+        src={`http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 
