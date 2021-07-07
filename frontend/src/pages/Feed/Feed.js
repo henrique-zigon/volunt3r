@@ -20,7 +20,7 @@ function Feed(props) {
 	const [cookies] = useCookies(['volunt3r']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil;
 
 	const [modal, setModal] = useState(false);
 
@@ -108,7 +108,7 @@ function Feed(props) {
 											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.titulo}
 											addressPost={publicacao.evento.endereco}
@@ -123,7 +123,7 @@ function Feed(props) {
 										<CardCommentOrPost 
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.publicacaoPai.titulo}
 											countLikes={publicacao.numeroLikes}

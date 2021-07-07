@@ -16,7 +16,7 @@ const Dashboard = () => {
   return(
     <main className="container">
       <SideBar 
-        userpic={cookies.volunt3r_user.imagemPerfil}
+        userpic={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil}
         username={cookies.volunt3r_user.nomeUsuario}
         useremail={cookies.volunt3r_user.email}
       />

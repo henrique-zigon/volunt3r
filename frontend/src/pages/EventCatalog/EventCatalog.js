@@ -88,7 +88,7 @@ function EventCatalog() {
 											}}*/
 											imagePost={evento.pathImagem}
 											nameUserPosted={evento.usuario.nomeUsuario}
-											imageUserPosted={evento.usuario.usuarioImagemPerfil}
+											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
 											titlePost={evento.titulo}
 											addressPost={evento.evento.endereco}
