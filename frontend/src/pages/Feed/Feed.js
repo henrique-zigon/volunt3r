@@ -1,7 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
-import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
+import React, { useState, useEffect } from 'react';
+import { BiSend } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
-import ModalPublicacao from '../../components/ModalPublicacao';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import api from "../../api.js";
@@ -11,55 +10,20 @@ import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 
 function Feed(props) {
-	// const [abrirModalCriacao, setModalCriacao] = useState(false);
 
-	// function abrirModalCriacaoF() {
-	// 	setModalCriacao(true);
-	// }
-	
 	const [cookies] = useCookies(['volunt3r']);
-	const [cookies_user] = useCookies(['volunt3r_user']);
+	//const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil;
-
-	const [modal, setModal] = useState(false);
-
-    const [publicacaoSelecionada, setPublicacaoSelecionada] = useState({
-        titulo: "",
-        descricao: "",
-        dataPostagem: "",
-        pathImagem: "",
-        usuario:{
-            
-            idUsuario: "",
-            nomeUsuario: "",
-            usuarioImagemPerfil: ""
-            
-        },
-        evento: {
-            dataEvento: "",
-            dataFechamentoEvento: "",
-            endereco: "",
-            maximoParticipantes: 0,
-            
-        },
-        numeroLikes: 0,
-        numeroComentarios: 1
-    });
-
-    function abrirModal() {
-        setModal(true);
-    }
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
-			// console.log("AAA", cookies.volunt3r);
 			api.get("/publicacoes", {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
-				
+
 				setPublicacoes(resposta.data.reverse());
 			}).catch(err => {
 				console.log("Deu erro")
@@ -98,9 +62,9 @@ function Feed(props) {
 							publicacoes.map((publicacao) => {
 
 								console.log(publicacao)
-							
-								if(publicacao.publicacaoEvento) {
-									return(
+
+								if (publicacao.publicacaoEvento) {
+									return (
 										<CardFeedEvent
 											/*onClick={() => {
 												setPublicacaoSelecionada(publicacao);
@@ -108,7 +72,7 @@ function Feed(props) {
 											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.titulo}
 											addressPost={publicacao.evento.endereco}
@@ -117,13 +81,13 @@ function Feed(props) {
 											dataEvent={publicacao.evento.dataEvento}
 										/>
 									);
-									
+
 								} else {
-									return(
-										<CardCommentOrPost 
+									return (
+										<CardCommentOrPost
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.publicacaoPai.titulo}
 											countLikes={publicacao.numeroLikes}
@@ -132,25 +96,11 @@ function Feed(props) {
 								}
 							})
 						}
-						<ModalPublicacao exibeModal={modal} funcao={setModal} publicacaoSelecionada={publicacaoSelecionada} />
 					</div>
 				</div>
 
 			</div>
 		</>
-
-		// <div className="feed">
-		// 	<NavBar username="Jon" />
-		// 	<ModalCriacao exibeModal={abrirModalCriacao} funcao={setModalCriacao} />
-		// 	<Menu />
-		// 	<div className="createPublicacao" onClick={() => { abrirModalCriacaoF() }}>
-		// 		<img className="iconeClipe" src={imagem15} />
-		// 		<textarea className="textAreaCreate" placeholder="Compartilhe uma experiência... =)" />
-		// 		<img className="iconeEnviar" src={imagem16} />
-		// 	</div>
-		// 	<Publicacao />
-
-		// </div>
 	);
 }
 

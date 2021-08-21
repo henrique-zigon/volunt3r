@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 
 import InputForm from '../../components/InputForm/InputForm';
@@ -9,21 +9,13 @@ import api from "../../api.js";
 import './style.css';
 import '../global-pages.css';
 
-// import CardCatalogo from '../../components/CardCatalogo';
-// import Combobox from '../../components/Combobox';
-// import Menu from '../../components/componentes/MenuUI.js';
-// import '../../styles/combo-box-style.css';
-// import NavBar from '../../components/componentes/NavBarUI';
-
-
-
-
-
-import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
+//import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
 
 function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [eventos, setEventos] = useState([]);
+
+	const URL_API = "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/";
 
 
 	function handleSearch(e) {
@@ -88,7 +80,7 @@ function EventCatalog() {
 											}}*/
 											imagePost={evento.pathImagem}
 											nameUserPosted={evento.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
+											imageUserPosted={URL_API+evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
 											titlePost={evento.titulo}
 											addressPost={evento.evento.endereco}
@@ -98,6 +90,8 @@ function EventCatalog() {
 										/>
 									);
 
+								} else {
+									return;
 								}
 							})
 						}
@@ -107,32 +101,6 @@ function EventCatalog() {
 
 			</div>
 		</>
-
-		// <>
-		//     <NavBar username="Jon"></NavBar>
-		//     <Menu />
-
-		//     <div className="pagina">
-		//         <div className="paginaCentro">
-		//             <h2 className="titulo">Catálogo de Eventos</h2>
-		//             <h4 className="subtitulo">Encontre o evento <span className="textoAzul">perfeito</span> para você!</h4>
-
-		//             <div className="filtros">
-		//                 <b className="filtro1">Categoria</b> <Combobox valor="Todas" nome="Todas" />
-		//                 <b className="filtro2">Tipo de doação</b> <Combobox valor="Todas" nome="Todas" />
-		//                 <b className="filtro2">Data</b> <input className="box" type="date"></input>
-
-		//             </div>
-
-		//             <div className="eventos">
-		//                 <CardCatalogo info={cards} isEvento={true}/>
-		//             </div>
-
-		//         </div>
-		//     </div>
-
-		// </>
-
 	);
 }
 

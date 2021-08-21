@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiUser, BiBuilding, BiDonateHeart } from 'react-icons/bi';
 import InputForm from '../../components/InputForm/InputForm';
-import SelectForm from '../../components/InputForm/SelectForm';
+//import SelectForm from '../../components/InputForm/SelectForm';
 
 import './style.css';
 import '../global-pages.css';
@@ -19,7 +19,6 @@ function CriarUsuarioStep1() {
 		tipoUsuario: "",
 	});
 
-
 	function handle(e) {
 		const newUserData = { ...userData }
 		newUserData[e.target.id] = e.target.value;
@@ -29,7 +28,7 @@ function CriarUsuarioStep1() {
 	return (
 		<div className="container">
 				<div className="content">
-					<img src={LoginAndRegisterImage} />
+					<img src={LoginAndRegisterImage} aria-hidden alt="Register Image"/>
 				</div>
 				<div className="contain-form">
 					<div className="information-page">

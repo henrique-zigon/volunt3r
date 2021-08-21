@@ -1,13 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
 import './input-style.css';
 
 const SelectForm = (props) => {
 
 
-  const [selectOptions, setSelectOptions] = useState([]);
+  //const [selectOptions, setSelectOptions] = useState([]);
 
-  setSelectOptions(props.selectOptions);
+  //setSelectOptions(props.selectOptions);
 
   return(
     <div className="input-group">

@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
 import InputForm from '../../components/InputForm/InputForm';
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 
 
 import './style.css';
@@ -39,12 +39,12 @@ function CriarUsuarioStep2(props) {
 		//Parte para enviar para a API
 		api.post("/usuarios/novo", newUserData)
 			.then(resposta => {
-				if (resposta.status == 201) {
+				if (resposta.status === 201) {
 					addToast('Usuário Criado com sucesso!', {appearance: 'success', autoDismiss: true})
 					history.push("/")
 				}
 			}).catch((e) => {
-				if(e.response.status == 406) {
+				if(e.response.status === 406) {
 					addToast('Opps... Seu usuário já existe!', {appearance: 'error', autoDismiss: true})
 				}
 			});
@@ -53,7 +53,7 @@ function CriarUsuarioStep2(props) {
 	return (
 		<div className="container">
 			<div className="content">
-				<img src={LoginAndRegisterImage} />
+				<img src={LoginAndRegisterImage} aria-hidden alt="Login Image" />
 			</div>
 			<div className="contain-form">
 				<div className="information-page">

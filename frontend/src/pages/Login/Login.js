@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
 
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 import InputForm from '../../components/InputForm/InputForm';
 
 
@@ -32,9 +32,6 @@ function Login() {
 
 	function submitForm(e) {
 		e.preventDefault();
-
-
-
 
 		if( userData.email === '' || userData.senha === '') {
 			console.log("OPA AMIGÃO PREENCHE Aí")
@@ -69,7 +66,7 @@ function Login() {
 	return (
 		<div className="container">
 			<div className="content">
-				<img src={LoginAndRegisterImage} />
+				<img src={LoginAndRegisterImage} aria-hidden alt="Login Image" />
 			</div>
 			<div className="contain-form">
 				<div className="information-page">

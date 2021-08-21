@@ -1,4 +1,4 @@
-import Reac from 'react';
+import React from 'react';
 import { BiHeart } from 'react-icons/bi';
 import './style-cardCommentOrPost.css';
 
