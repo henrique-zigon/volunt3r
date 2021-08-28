@@ -11,4 +11,8 @@ public interface EventoRepository extends JpaRepository<Evento, Integer> {
     @Query("select e from Evento e order by e.id desc")
     List<Evento> findEventoMaxId();
 
+    @Query(value = "select fk_categoria from Evento where id_evento=?1",nativeQuery = true)
+    String findCategoria(int id_evento);
+
+
 }

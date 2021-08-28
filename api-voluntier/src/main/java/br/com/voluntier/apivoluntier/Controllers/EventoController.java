@@ -4,6 +4,7 @@ package br.com.voluntier.apivoluntier.Controllers;
 import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.InscricaoEvento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.UsuarioEventoCategoria;
 import br.com.voluntier.apivoluntier.Repositories.*;
 import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
 import br.com.voluntier.apivoluntier.Services.EmailService;
@@ -15,10 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/eventos")
@@ -82,7 +80,6 @@ public class EventoController {
     @PostMapping("/inscrever")
     public ResponseEntity postInscricaoEvento(@RequestBody InscricaoEvento novaInscricao) {
         retornoHasmap.clear();
-        //Fazer verificação se já bateu o número máximo de inscritos
         Evento evento = repository.findById(novaInscricao.getFkEvento()).get();
         for(InscricaoEvento inscricao : evento.getInscritos()) {
             if(inscricao.getFkUsuario() == novaInscricao.getFkUsuario())
@@ -95,11 +92,38 @@ public class EventoController {
             repositoryInscricaoEvento.save(novaInscricao);
             EmailService.listaEmail.insert(novaInscricao);
             retornoHasmap.put("message", "usuário inscrito com sucesso!");
+            //incrementando/atualizando---------------------------------------------
+
+
+           // List<UsuarioEventoCategoria> listaEventosCategorizados=repositoryInscricaoEvento.FindAllByFkUsuarioAndfkCategoria(novaInscricao.getFkUsuario(),repository.findById(novaInscricao.getFkEvento()).get().getId());
+
+
+
+            //-------------------------------------------------------------------------
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @GetMapping("/inscricoes")
+    public ResponseEntity getInscritoEvento(){
+        return ResponseEntity.status(200).body(repositoryInscricaoEvento.findAll());
+    }
+
+    @DeleteMapping("/inscricoes")
+    public ResponseEntity deleteInscritoEvento(@RequestBody InscricaoEvento inscricaoDeletada){
+        retornoHasmap.clear();
+        try {
+            repositoryInscricaoEvento.delete(inscricaoDeletada);
+            retornoHasmap.put("message", "inscrição cancelada!");
+            return ResponseEntity.status(200).body(retornoHasmap);
+        }catch (Exception e){
+            System.out.println(e);
+            return ResponseEntity.status(500).build();
+        }
+
     }
 
     @GetMapping("/categorias")

@@ -40,6 +40,11 @@ public class UsuarioController {
     @Autowired
     private TokenService tokenService;
 
+    @GetMapping
+    public ResponseEntity listar(){
+        return ResponseEntity.status(200).body(usuarioRepository.findAll());
+    }
+
     @PostMapping("/login")
     public ResponseEntity autentificar(@RequestBody LoginForm form){
         UsernamePasswordAuthenticationToken dadosLogin= form.converter();

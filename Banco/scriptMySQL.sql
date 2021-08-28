@@ -112,3 +112,19 @@ create table clique(
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario)
 );
+
+
+insert into Evento value (3,"15/10/10","11/11/11","minha vila",10,14.30,2);
+insert into categoria value(1,"doacao sangue", 2);
+insert into categoria value(2,"doacao cesta", 1);
+insert into inscricao_evento value(3,3,2,"confirmado");
+
+select*from Usuario;
+select*from inscricao_evento;
+select*from Evento;
+select*from Usuario;
+
+select * from Usuario,Inscricao_Evento,Evento,Categoria;
+select nome_usuario,id_evento,nome_categoria from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 ;
+select nome_categoria,count(nome_categoria) as qnt from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 group by nome_categoria;
+select fk_categoria from Evento where id_evento=1;

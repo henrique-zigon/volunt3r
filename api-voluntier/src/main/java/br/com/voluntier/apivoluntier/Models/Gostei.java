@@ -1,18 +1,24 @@
 package br.com.voluntier.apivoluntier.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Gostei {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer idGostei = null;
-    private Integer fkPublicacao;
-    private Integer fkUsuario;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_publicacao")
+    private Publicacao fkPublicacao;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario")
+    private Usuario fkUsuario;
 
     public Integer getIdGostei() {
         return idGostei;
@@ -22,19 +28,19 @@ public class Gostei {
         this.idGostei = idGostei;
     }
 
-    public Integer getFkPublicacao() {
+    public Publicacao getFkPublicacao() {
         return fkPublicacao;
     }
 
-    public void setFkPublicacao(Integer fkPublicacao) {
+    public void setFkPublicacao(Publicacao fkPublicacao) {
         this.fkPublicacao = fkPublicacao;
     }
 
-    public Integer getFkUsuario() {
+    public Usuario getFkUsuario() {
         return fkUsuario;
     }
 
-    public void setFkUsuario(Integer fkUsuario) {
+    public void setFkUsuario(Usuario fkUsuario) {
         this.fkUsuario = fkUsuario;
     }
 }
