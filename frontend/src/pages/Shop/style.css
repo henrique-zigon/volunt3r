@@ -25,7 +25,7 @@ div.shop-cards {
 	margin-top: 25px;
 	padding-bottom: 25px;
     display: flex;
-    gap: 1rem;
+    gap: 0.2rem;
     flex-wrap: wrap;
     justify-content: space-between;
 }

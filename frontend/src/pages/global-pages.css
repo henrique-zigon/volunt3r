@@ -139,10 +139,34 @@ div.contain-form div.footer .bold {
 	div.contain-form {
 		width: 100%;
 	}
+
+	div.shop-cards {
+		flex-direction: column;
+	}
+	
+	
+	div.shop-cards div.shop-card {
+		width: 100%;	
+		/* min-height: 480px; */
+		margin-top: 20px;
+	}
+
+	div.shop-cards div.shop-card:first-child {
+		margin: 0;
+	}
+
+
+	div.shop-card img.course-image {
+		height: 250px !important;
+	}
 } 
 
 @media screen and (max-width: 580px) {
 	div.contain-form {
 		padding: 45px 15px;
+	}
+
+	div.shop-card img.course-image {
+		height: 200px !important;
 	}
 } 
