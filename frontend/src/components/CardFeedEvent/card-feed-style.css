@@ -127,7 +127,7 @@ div.post-information div.content-post-event span.descrition-event {
 }
 
 div.information-card div.footer-information {
-	position: absolute;
+	/* position: absolute; */
 	width: 100%;
 	height: 40px;
 	display: flex;
