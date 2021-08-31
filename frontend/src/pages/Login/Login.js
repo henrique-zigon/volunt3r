@@ -33,12 +33,17 @@ function Login() {
 	function submitForm(e) {
 		e.preventDefault();
 
-		if( userData.email === '' || userData.senha === '') {
-			console.log("OPA AMIGÃO PREENCHE Aí")
-			addToast('Opps... Preencha os campos!', {appearance: 'error', autoDismiss: true})
-		} else {
+		if(userData.email === '' || userData.senha === '') {
+			console.log("OPA A MI GÃO PREENCHE Aí")
+			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
+		} 
 
-
+		// else if(userData.email !== '' || userData.senha !== '') {
+		// 	console.log("HMM... TÁ ERRADO HEIN")
+		// 	addToast('Login e/ou senha inválidos...', {appearance: 'error', autoDismiss: true})
+		// }
+		
+		else {
 			api.post("/usuarios/login", {
 				email: userData.email,
 				senha: userData.senha
@@ -70,13 +75,13 @@ function Login() {
 			</div>
 			<div className="contain-form">
 				<div className="information-page">
-					<h2 className="title">Olá, bem vindo(a) de volta</h2>
-					<span className="subtitle">vamos fazer login?</span>
+					<h2 className="title">Olá, bem vindo(a) de volta!</h2>
+					<span className="subtitle">Vamos fazer login?</span>
 				</div>
 
 				<form onSubmit={(e) => submitForm(e)}>
 					<InputForm 
-						type="email"
+						type="text"
 						id="email"
 						name="email"
 						label="Seu email"

@@ -15,7 +15,7 @@ const NewNavBar = () => {
         }>
           <Link to="/" className="linkagem">
             <BiHomeAlt />
-            <span>feed</span>
+            <span>Feed</span>
           </Link>
         </li>
         <li className={
@@ -23,7 +23,7 @@ const NewNavBar = () => {
         }>
           <Link to="/shop" className="linkagem">
             <BiShoppingBag />
-            <span>loja</span>
+            <span>Loja</span>
           </Link>
         </li>
         <li className={
@@ -31,13 +31,13 @@ const NewNavBar = () => {
         }>
           <Link to="/catalog" className="linkagem">
             <BiCalendarAlt />
-            <span>eventos</span>
+            <span>Eventos</span>
           </Link>
         </li>
         <li>
           <Link to="/dashboard" className="linkagem">
             <BiLineChart />
-            <span>dashboard</span>
+            <span>Dashboard</span>
           </Link>
         </li>
       </ul>

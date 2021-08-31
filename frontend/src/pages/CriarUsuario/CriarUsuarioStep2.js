@@ -57,7 +57,7 @@ function CriarUsuarioStep2(props) {
 			</div>
 			<div className="contain-form">
 				<div className="information-page">
-					<h2 className="title">Que bom você quer ser um volunt3r</h2>
+					<h2 className="title">Que bom você quer ser um Volunt3r</h2>
 					<span className="subtitle">Agora, precisamos dessas informações para o seu login!</span>
 				</div>
 

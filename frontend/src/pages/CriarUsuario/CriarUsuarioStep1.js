@@ -7,9 +7,11 @@ import InputForm from '../../components/InputForm/InputForm';
 
 import './style.css';
 import '../global-pages.css';
+import { useToasts } from 'react-toast-notifications';
 
 function CriarUsuarioStep1() {
 
+	const { addToast } = useToasts();
 
 	const [userData, setUserData] = useState({
 		nomeUsuario: "",
@@ -25,6 +27,47 @@ function CriarUsuarioStep1() {
 		setUserData(newUserData);
 	}
 
+	// Validação do preenchimento dos campos
+	function ValidarFormulario(){
+	var ValidaNome = userData.nomeUsuario;
+	var ValidaGenero = userData.genero;
+	var ValidaCargo = userData.cargo;
+	var ValidaArea = userData.area;
+	var ValidaTipoUsuario = userData.tipoUsuario;
+	var CamposValidados = "";
+		
+	console.log(CamposValidados);
+
+	if(
+		ValidaNome === "" || 
+		ValidaGenero !== "M" || ValidaGenero !== "F" ||
+		ValidaCargo === "" ||
+		ValidaArea === "" ||
+		ValidaTipoUsuario !== "b3_social" || ValidaTipoUsuario !== "comum" ||
+
+		ValidaNome.length < 3 ||
+		ValidaCargo.length < 5
+		
+		){
+		console.log("Hoje Não =(");
+		CamposValidados = "Não";
+		addToast('Por favor, preencha todos os campos', {appearance: 'warning', autoDismiss: true})
+		console.log(CamposValidados);
+		
+	}
+
+	else{
+		console.log("Tudo OK!");
+		CamposValidados = "Sim";
+		
+		
+		var theURL = window.location.pathname;
+		theURL.replace("/register", "register/step2");
+
+	}
+
+	}
+
 	return (
 		<div className="container">
 				<div className="content">
@@ -32,7 +75,7 @@ function CriarUsuarioStep1() {
 				</div>
 				<div className="contain-form">
 					<div className="information-page">
-						<h2 className="title">Que bom você quer ser um volunt3r</h2>
+						<h2 className="title">Que bom você quer ser um Volunt3r</h2>
 						<span className="subtitle">Precisamos saber um pouco sobre você!</span>
 					</div>
 
@@ -41,7 +84,7 @@ function CriarUsuarioStep1() {
 							type="text"
 							id="nomeUsuario"
 							name="nomeUsuario"
-							label="Seu Nome"
+							label="Seu nome"
 							icon={<BiUser className="icon-input-group" />}
 							function={(e) => handle(e)}
 						/>
@@ -85,7 +128,7 @@ function CriarUsuarioStep1() {
 								<select className="input-field select"  name="area" id="area" onChange={(e) => handle(e)}>
 									<option disabled selected>Selecione sua área</option>
 									<option value="B3 Social">B3 Social</option>
-									<option value="Produtos Analytcs">Produtos Analytcs</option>
+									<option value="Produtos Analytics">Produtos Analytics</option>
 									<option value="Listados">Listados</option>
 									<option value="Balcão">Balcão</option>
 								</select>
@@ -108,12 +151,12 @@ function CriarUsuarioStep1() {
 							</label>
 						</div>
 
-						<Link to={{
-							pathname: "register/step2",
+						<Link id="linkRegister" to={{
+							pathname: "/register",
 							state: userData
 						}}
 						>
-							<button type="button" className="btn-new-submit">Continuar</button> 
+							<button type="button" className="btn-new-submit" onClick={ValidarFormulario}>Continuar</button> 
 
 						</Link>
 					</form>
