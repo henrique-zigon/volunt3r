@@ -8,6 +8,9 @@ import CriarUsuarioStep2 from './pages/CriarUsuario/CriarUsuarioStep2';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import RecuperarSenha from './pages/RecuperarSenha/RecuperarSenha1';
+import RecuperarSenha1Email from './pages/RecuperarSenha/RecuperarSenha1Email';
+import RecuperarSenha2 from './pages/RecuperarSenha/RecuperarSenha2';
+import RecuperarSenhaSucesso from './pages/RecuperarSenha/RecuperarSenhaSucesso';
 import NotFound from './pages/NotFound/NotFound';
 import Feed from './pages/Feed/Feed.js';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
@@ -40,6 +43,9 @@ function Routes() {
                     <LoggedRoute exact path="/" component={Feed} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/recuperar-senha" component={RecuperarSenha} />
+                    <Route exact path="/recuperar-senha/email" component={RecuperarSenha1Email} />
+                    <Route exact path="/recuperar-senha/sucesso" component={RecuperarSenhaSucesso} />
+                    <Route exact path="/recuperar-senha-redefinir" component={RecuperarSenha2} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>

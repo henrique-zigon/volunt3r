@@ -7,12 +7,8 @@ function NotFound() {
   return(
   
     <div className="container-notfound">
-      <span>😉</span>
-      <span>Nome, enviamos um e-mail para você!</span>
-
-      <Link to="/" className="back-page">
-        Voltar ao feed =)
-      </Link>
+      <span className="emoji">😉</span>
+      <span>Enviamos um e-mail para você!</span>
     </div>
    
   );
