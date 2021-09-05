@@ -15,12 +15,12 @@ const CardFeedEvent = (props) => {
   let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ];
   let dayEvent = props.dataEvent.split("/")[0];
   
-  const [isLiked, setIsLiked] = useState(false); 
+  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(false); 
 
-  const [countLikes, setCountLikes] = useState(props.countLikes);
+  const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
 
   async function likePostFunction() {
-    if(!isLiked) {
+    if(!isLikedCardFeedEvent) {
       await api("/gostei", {
         method: "POST",
         headers: { 
@@ -37,8 +37,8 @@ const CardFeedEvent = (props) => {
         }
       }).then(resposta => {
         if(resposta.status === 201) {
-          setIsLiked(true);
-          setCountLikes(countLikes + 1);
+          setIsLikedCardFeedEvent(true);
+          setCountLikesCardFeedEvent(countLikesCardFeedEvent + 1);
         }      
       }).catch(err => {
         console.error(err);
@@ -61,8 +61,8 @@ const CardFeedEvent = (props) => {
         }
       }).then(resposta => {
         if(resposta.status === 201) {
-          setIsLiked(false);
-          setCountLikes(countLikes - 1);
+          setIsLikedCardFeedEvent(false);
+          setCountLikesCardFeedEvent(countLikesCardFeedEvent - 1);
         }      
       }).catch(err => {
         console.error(err);
@@ -111,10 +111,10 @@ const CardFeedEvent = (props) => {
           <div className="like-post">
             <button className="btn-like-post" onClick={likePostFunction}>
               {
-                isLiked ? <FaHeart /> : <BiHeart />
+                isLikedCardFeedEvent ? <FaHeart /> : <BiHeart />
               }
             </button>
-            <span><b>{countLikes}</b> pessoas curtiram</span>
+            <span><b>{countLikesCardFeedEvent}</b> pessoas curtiram</span>
           </div>
         </div>
       </div>

@@ -12,12 +12,12 @@ const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
 const CardCommentOrPost = (props) => {
 
-  const [isLiked, setIsLiked] = useState(false); 
+  const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(false); 
 
-  const [countLikes, setCountLikes] = useState(props.countLikes);
+  const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
 
   async function likePostFunction() {
-    if(!isLiked) {
+    if(!isLikedCardCommentOrPost) {
       await api("/gostei", {
         method: "POST",
         headers: { 
@@ -34,8 +34,8 @@ const CardCommentOrPost = (props) => {
         }
       }).then(resposta => {
         if(resposta.status === 201) {
-          setIsLiked(true);
-          setCountLikes(countLikes + 1);
+          setIstLikedCardCommentOrPost(true);
+          setCountCardCommentOrPost(countLikesCardCommentOrPost + 1);
         }      
       }).catch(err => {
         console.error(err);
@@ -58,8 +58,8 @@ const CardCommentOrPost = (props) => {
         }
       }).then(resposta => {
         if(resposta.status === 201) {
-          setIsLiked(false);
-          setCountLikes(countLikes - 1);
+          setIstLikedCardCommentOrPost(false);
+          setCountCardCommentOrPost(countLikesCardCommentOrPost - 1);
         }      
       }).catch(err => {
         console.error(err);
@@ -100,10 +100,10 @@ const CardCommentOrPost = (props) => {
           <div className="like-post">
             <button className="btn-like-post" onClick={likePostFunction}>
               {
-                isLiked ? <FaHeart /> : <BiHeart />
+                isLikedCardCommentOrPost ? <FaHeart /> : <BiHeart />
               }
             </button>
-            <span><b>{countLikes}</b> pessoas curtiram</span>
+            <span><b>{countLikesCardCommentOrPost}</b> pessoas curtiram</span>
             {/* <Teste countLikes={props.countLikes}/> */}
           </div>
         </div>
