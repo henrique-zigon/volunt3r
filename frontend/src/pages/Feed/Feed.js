@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { BiSend } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
-import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
 
 import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
+import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 
 function Feed(props) {
 
 	const [cookies] = useCookies(['volunt3r']);
-	//const [cookies_user] = useCookies(['volunt3r_user']);
+	const [cookies_user] = useCookies(['volunt3r_user']);
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 
@@ -23,10 +23,9 @@ function Feed(props) {
 			api.get("/publicacoes", {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
-
 				setPublicacoes(resposta.data.reverse());
 			}).catch(err => {
-				console.log("Deu erro")
+				console.log("Deu erro"+err)
 			});
 		}
 
@@ -60,9 +59,6 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
-
-								console.log(publicacao)
-
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
@@ -79,6 +75,9 @@ function Feed(props) {
 											descriptionPost={publicacao.descricao}
 											countLikes={publicacao.numeroLikes}
 											dataEvent={publicacao.evento.dataEvento}
+											idPost={publicacao.id}
+											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
+											token = {cookies.volunt3r}
 										/>
 									);
 
@@ -91,6 +90,9 @@ function Feed(props) {
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.publicacaoPai.titulo}
 											countLikes={publicacao.numeroLikes}
+											idPost={publicacao.id}
+											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
+											token = {cookies.volunt3r}
 										/>
 									);
 								}
