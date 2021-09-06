@@ -16,6 +16,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/*
+TODO
+ -Acho que a rota de upload não está implementada completamente
+ */
+
 @RestController
 @RequestMapping("/arquivos")
 public class ArquivoController {
@@ -25,25 +30,25 @@ public class ArquivoController {
     @Autowired
     ArquivoServices arqServices;
 
-    @GetMapping(value = "/eventos-txt", produces = "application/txt")
+    @GetMapping(path = "/eventos-txt", produces = "application/txt")
     @ResponseBody
     public ResponseEntity getEventosTXT() {
         return arqServices.exportarEventosTXT();
     }
 
-    @GetMapping(value = "/eventos-csv", produces = "application/csv")
+    @GetMapping(path = "/eventos-csv", produces = "application/csv")
     @ResponseBody
     public ResponseEntity getEventosCSV() {
         return arqServices.exportarEventosCSV();
     }
 
-    @GetMapping(value = "/funcionarios-txt", produces = "application/txt")
+    @GetMapping(path = "/funcionarios-txt", produces = "application/txt")
     @ResponseBody
     public ResponseEntity getDocumentoFuncionario() {
         return arqServices.exportarFuncionariosTXT();
     }
 
-    @GetMapping(value = "/funcionarios-csv", produces = "application/csv")
+    @GetMapping(path = "/funcionarios-csv", produces = "application/csv")
     @ResponseBody
     public ResponseEntity getFuncionarioCSV() {
         return arqServices.exportarFuncionariosCSV();
@@ -52,12 +57,6 @@ public class ArquivoController {
     @PostMapping("/upload")
     public ResponseEntity uploadArquivo(@RequestParam MultipartFile arquivo) throws IOException {
         return arqServices.verificarUpload(arquivo);
-    }
-
-    @PostMapping("/imagem")
-    public ResponseEntity uploadImagem(@RequestParam MultipartFile imagem) throws IOException {
-        s3Services.uploadFile(imagem.getOriginalFilename(), imagem);
-        return ResponseEntity.status(200).build();
     }
 
     @GetMapping("/imagem/{nome}")

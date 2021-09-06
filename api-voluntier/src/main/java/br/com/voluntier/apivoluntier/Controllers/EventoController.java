@@ -18,6 +18,12 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
+/*
+TODO
+ -Fazer filtros de eventos
+ -Fazer paginação (Utilizar limit 10 offset x*10)
+ */
+
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {

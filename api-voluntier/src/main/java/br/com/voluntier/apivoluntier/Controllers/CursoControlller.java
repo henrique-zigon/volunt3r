@@ -2,18 +2,30 @@ package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.Curso;
 import br.com.voluntier.apivoluntier.Repositories.CursoRepository;
+import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+/*
+TODO
+ -Fazer filtros de cursos
+ -Fazer paginação (Utilizar limit 10 offset x*10)
+ */
 
 @RestController
 @RequestMapping("/cursos")
 public class CursoControlller {
     @Autowired
     private CursoRepository repository;
+    @Autowired
+    private S3Services s3Services;
     @GetMapping
     public ResponseEntity getCursos() {
         List<Curso> listaCursos = repository.findAll();
@@ -24,8 +36,13 @@ public class CursoControlller {
         }
     }
 
-    @PostMapping
-    public ResponseEntity postCurso(@RequestBody Curso novoCurso) {
+    @PostMapping()
+    public ResponseEntity postCurso(@RequestPart Curso novoCurso, @RequestPart MultipartFile arquivo) throws IOException {
+        String filename = arquivo.getOriginalFilename();
+        String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
+        s3Services.uploadFile(name,arquivo);
+
+        novoCurso.setImagem(name);
         repository.save(novoCurso);
         return ResponseEntity.status(201).build();
     }

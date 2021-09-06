@@ -62,7 +62,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/usuarios/novo").permitAll()
                 .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/v3/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/arquivos/imagem/**").permitAll()
+                // Filtrando autoridades do ArquivoController
+                .antMatchers(HttpMethod.GET, "/arquivos/imagem/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/arquivos/*").hasAuthority("b3_social")
+                .antMatchers(HttpMethod.POST, "/arquivos/*").hasAuthority("b3_social")
+                // Filtrando autoridades de CursoController
+                .antMatchers(HttpMethod.POST, "/cursos").hasAuthority("b3_social")
+                .antMatchers(HttpMethod.DELETE, "/cursos/*").hasAuthority("b3_social")
+                .antMatchers(HttpMethod.PUT, "/cursos/*").hasAuthority("b3_social")
+                //Filtrando autoridades de EventoController
+                .antMatchers(HttpMethod.PUT, "/eventos/novo").hasAuthority("b3_social")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

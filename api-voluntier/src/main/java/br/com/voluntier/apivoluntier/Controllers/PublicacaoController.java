@@ -15,7 +15,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+/*
+TODO Acho importante freezar que devem estar todas as funcionalidades de um feed
+ -Fazer filtros em publicações
+ -Fazer paginação
+ -Implementar hashtags (Dá para fazer um like %#hashtag% e funciona,
+   e aqui no back a gente tira todos os hashtags e envia uma lista pro front
 
+ */
 @RestController
 @RequestMapping("/publicacoes")
 public class PublicacaoController {
@@ -42,7 +49,6 @@ public class PublicacaoController {
         novaPublicacao.setPathImagem(name);
         retornoHasmap.clear();
         try {
-
             repository.save(novaPublicacao);
             retornoHasmap.put("message", "Publicação criada com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);

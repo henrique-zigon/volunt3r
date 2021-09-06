@@ -16,11 +16,7 @@ public class AutentificacaoViaTokenFilter extends OncePerRequestFilter {
 
     private TokenService tokenService;
     private UsuarioRepository usuarioRepository;
-    private Integer idUsuario;
 
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
 
     public AutentificacaoViaTokenFilter(TokenService tokenService, UsuarioRepository usuarioRepository) {
         this.tokenService = tokenService;
@@ -42,11 +38,7 @@ public class AutentificacaoViaTokenFilter extends OncePerRequestFilter {
 
     private void autenticarCliente(String token) {
         Integer idUsuario = tokenService.getIdUsuario(token);
-        System.out.println("ID PAPAI:" + idUsuario);
-        this.idUsuario = idUsuario;
         Usuario usuario = usuarioRepository.findById(idUsuario).get();
-        System.out.println("AAA:" + usuario);
-        System.out.println("PATO:"+ this.idUsuario);
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }

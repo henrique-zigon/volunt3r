@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface GosteiRepository extends JpaRepository<Gostei, Integer> {
 
+    @Query(value = "select count(*) from  Gostei where fk_publicacao = ?1", nativeQuery = true)
     long countByFkPublicacao(int id);
 
     @Query(value = "select * from Gostei where fk_publicacao =?1 and fk_usuario=?2",nativeQuery = true)
