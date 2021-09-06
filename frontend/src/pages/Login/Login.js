@@ -106,6 +106,14 @@ function Login() {
 					Não tenho uma conta, <Link className="bold" to="/register">quero criar uma!</Link>
 				</div>
 
+				<div className="footer">
+					OU
+				</div>
+
+				<div className="footer">
+					Esqueci a minha senha, <Link className="bold" to="/recuperar-senha">quero recuperar!</Link>
+				</div>
+
 			</div>
 		</div>
 
