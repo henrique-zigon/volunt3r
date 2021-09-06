@@ -32,22 +32,44 @@ function CriarUsuarioStep2(props) {
 		setUserData(newUserData);
 	}
 
+	function ValidarFormulario(e){
+		submitForm(e);
+	}
+	
 	function submitForm(e) {
 		e.preventDefault();
 		const newUserData = { ...userData, ...props.location.state }
 		
+		console.log(props.location.state)
+		//Validação dos campos
+		var ValidaEmail = userData.email;
+		var ValidaSenha = userData.senha;
+		var RegexEmail = /@\w+.com/;
+		var TesteRegexEmail = RegexEmail.test(ValidaEmail);
+
+		if(
+			ValidaEmail === "" ||
+			ValidaSenha === "" ||
+			TesteRegexEmail === false
+		){
+		    addToast('Por favor, preencha todos os campos corretamente. O email deve conter @ e .com', {appearance: 'warning', autoDismiss: true});
+		}
+		else{
+
+		console.log(userData);
 		//Parte para enviar para a API
 		api.post("/usuarios/novo", newUserData)
 			.then(resposta => {
 				if (resposta.status === 201) {
-					addToast('Usuário Criado com sucesso!', {appearance: 'success', autoDismiss: true})
+					addToast('Usuário cadastrado com sucesso!', {appearance: 'success', autoDismiss: true})
 					history.push("/")
 				}
 			}).catch((e) => {
 				if(e.response.status === 406) {
-					addToast('Opps... Seu usuário já existe!', {appearance: 'error', autoDismiss: true})
+					addToast('Ops... Seu usuário já existe', {appearance: 'error', autoDismiss: true})
 				}
 			});
+	}
 	}
 
 	return (
@@ -96,7 +118,15 @@ function CriarUsuarioStep2(props) {
 							<BiKey className="icon-input-group" />
 						</label>
 					</div> */}
-					<button type="submit" className="btn-new-submit">Me Cadastrar</button>
+				<Link id="linkRegister" to={{
+						pathname: "/register/step2",
+						state: userData
+					}}
+					>
+
+						<button type="submit" className="btn-new-submit" onClick={ValidarFormulario}>Me Cadastrar</button>
+					
+				</Link>
 
 				</form>
 
@@ -143,6 +173,5 @@ function CriarUsuarioStep2(props) {
 
 	);
 }
-
 
 export default CriarUsuarioStep2;

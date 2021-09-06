@@ -9,6 +9,7 @@ import { BiEnvelope, BiKey } from 'react-icons/bi';
 
 import { useToasts } from 'react-toast-notifications';
 import InputForm from '../../components/InputForm/InputForm';
+import CriarUsuarioStep1 from '../CriarUsuario/CriarUsuarioStep1';
 
 
 function Login() {
@@ -37,11 +38,6 @@ function Login() {
 			console.log("OPA A MI GÃO PREENCHE Aí")
 			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
 		} 
-
-		// else if(userData.email !== '' || userData.senha !== '') {
-		// 	console.log("HMM... TÁ ERRADO HEIN")
-		// 	addToast('Login e/ou senha inválidos...', {appearance: 'error', autoDismiss: true})
-		// }
 		
 		else {
 			api.post("/usuarios/login", {
@@ -51,8 +47,14 @@ function Login() {
 				setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
 				setCookie('volunt3r_user', resposta.data.user, { path: "/" });
 				history.push("/");
-			})
-
+			}).catch((e) => {
+				if(e.response.status === 400) {
+					addToast('Email e/ou senha inválidos...', {appearance: 'error', autoDismiss: true})
+				}
+				else if(e.response.status === 404) {
+					addToast('Email não cadastrado =(', {appearance: 'error', autoDismiss: true})
+				}
+			});
 		}
 
 

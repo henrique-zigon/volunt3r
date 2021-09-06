@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiUser, BiBuilding, BiDonateHeart } from 'react-icons/bi';
 import InputForm from '../../components/InputForm/InputForm';
@@ -21,12 +21,15 @@ function CriarUsuarioStep1() {
 		tipoUsuario: "",
 	});
 
+	const history =  useHistory();
+
 	function handle(e) {
 		const newUserData = { ...userData }
 		newUserData[e.target.id] = e.target.value;
 		setUserData(newUserData);
 	}
 
+	
 	// Validação do preenchimento dos campos
 	function ValidarFormulario(){
 	var ValidaNome = userData.nomeUsuario;
@@ -40,32 +43,36 @@ function CriarUsuarioStep1() {
 
 	if(
 		ValidaNome === "" || 
-		ValidaGenero !== "M" || ValidaGenero !== "F" ||
+		ValidaGenero === "" ||
 		ValidaCargo === "" ||
 		ValidaArea === "" ||
-		ValidaTipoUsuario !== "b3_social" || ValidaTipoUsuario !== "comum" ||
+		ValidaTipoUsuario === ""  
 
-		ValidaNome.length < 3 ||
-		ValidaCargo.length < 5
-		
 		){
+			
 		console.log("Hoje Não =(");
 		CamposValidados = "Não";
 		addToast('Por favor, preencha todos os campos', {appearance: 'warning', autoDismiss: true})
 		console.log(CamposValidados);
+
+		console.log(ValidaNome);
+		console.log(ValidaGenero);
+		console.log(ValidaCargo);
+		console.log(ValidaArea);
+		console.log(ValidaTipoUsuario);
+
 		
-	}
+		}
 
 	else{
+		console.log(userData);
 		console.log("Tudo OK!");
 		CamposValidados = "Sim";
 		
 		
-		var theURL = window.location.pathname;
-		theURL.replace("/register", "register/step2");
+		history.push("/register/step2", userData);
 
-	}
-
+		}
 	}
 
 	return (
@@ -151,14 +158,14 @@ function CriarUsuarioStep1() {
 							</label>
 						</div>
 
-						<Link id="linkRegister" to={{
-							pathname: "/register",
+						{/* <Link id="linkRegister" to={{
+							pathname: "/register/step2",
 							state: userData
 						}}
-						>
+						> */}
 							<button type="button" className="btn-new-submit" onClick={ValidarFormulario}>Continuar</button> 
 
-						</Link>
+						{/* </Link> */}
 					</form>
 
 					<div className="footer">
