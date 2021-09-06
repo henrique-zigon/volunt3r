@@ -76,6 +76,30 @@ div.feed-cards span.not-content {
 */
 
 
+@media screen and (min-width: 1900px){
+    div.feed-container div.feed-content {
+		width: 40%;
+		height: 100%;
+	}
+}
+
+
+@media screen and (min-width: 1700px){
+    div.feed-container div.feed-content {
+		width: 50%;
+		height: 100%;
+	}
+}
+
+
+@media screen and (min-width: 1400px){
+    div.feed-container div.feed-content {
+		width: 60%;
+		height: 100%;
+	}
+}
+
+
 @media screen and (max-width: 1245px) {
 	div.feed-container div.feed-content {
 		width: 80%;

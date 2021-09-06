@@ -11,8 +11,8 @@ function NotFound() {
       {/* <span className="title">404</span> */}
       <span>Opps.. não encontramos esse recurso</span>
 
-      <Link to="/" className="back-page">
-        Voltar ao feed =)
+      <Link to="/login" className="back-page">
+        Voltar ao login =)
       </Link>
     </div>
    

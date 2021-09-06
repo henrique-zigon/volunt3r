@@ -1,21 +1,80 @@
 import React from 'react';
 import { BiHeart } from 'react-icons/bi';
+import { FaHeart } from 'react-icons/fa';
+import { useState } from 'react';
 
-
+import api from '../../api';
 import './card-feed-style.css';
+
+const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
 const CardFeedEvent = (props) => {
 
-
   let months = ["Jan", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dec"]
   
-  let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ]
-  let dayEvent = props.dataEvent.split("/")[0]
+  let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ];
+  let dayEvent = props.dataEvent.split("/")[0];
+  
+  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(false); 
+
+  const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
+
+  async function likePostFunction() {
+    if(!isLikedCardFeedEvent) {
+      await api("/gostei", {
+        method: "POST",
+        headers: { 
+          'Authorization': props.token,
+          'Content-Type': 'application/json'
+        },
+        data: {
+          fkUsuario: {
+            idUsuario: props.idLoggedUser
+          },
+          fkPublicacao: {
+            id: props.idPost
+          }
+        }
+      }).then(resposta => {
+        if(resposta.status === 201) {
+          setIsLikedCardFeedEvent(true);
+          setCountLikesCardFeedEvent(countLikesCardFeedEvent + 1);
+        }      
+      }).catch(err => {
+        console.error(err);
+      });
+    } else {
+
+      await api("/gostei", {
+        method: "DELETE",
+        headers: { 
+          'Authorization': props.token,
+          'Content-Type': 'application/json'
+        },
+        data: {
+          fkUsuario: {
+            idUsuario: props.idLoggedUser
+          },
+          fkPublicacao: {
+            id: props.idPost
+          }
+        }
+      }).then(resposta => {
+        if(resposta.status === 201) {
+          setIsLikedCardFeedEvent(false);
+          setCountLikesCardFeedEvent(countLikesCardFeedEvent - 1);
+        }      
+      }).catch(err => {
+        console.error(err);
+      });
+    }
+  }
+
 
   return (
     <div className="feed-card">
       <img className="image-post"
-        src={`http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/${props.imagePost}`}
+        src={`${URL}/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 
@@ -50,16 +109,20 @@ const CardFeedEvent = (props) => {
         </div>
         <div className="footer-information">
           <div className="like-post">
-            <button className="btn-like-post">
-              <BiHeart />
+            <button className="btn-like-post" onClick={likePostFunction}>
+              {
+                isLikedCardFeedEvent ? <FaHeart /> : <BiHeart />
+              }
             </button>
-            <span><b>{props.countLikes}</b> pessoas curtiram</span>
+            <span><b>{countLikesCardFeedEvent}</b> pessoas curtiram</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
 
 
 export default CardFeedEvent;

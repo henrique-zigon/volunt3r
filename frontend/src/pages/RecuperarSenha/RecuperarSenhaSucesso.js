@@ -8,7 +8,7 @@ function NotFound() {
   
     <div className="container-notfound">
       <span className="emoji">😀</span>    
-      <span>Sucesso! Sua senha foi resetada!</span>
+      <span>Sucesso! Sua senha foi alterada!</span>
 
       <Link to="/login" className="back-page">
         IR PARA O LOGIN

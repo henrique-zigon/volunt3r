@@ -83,7 +83,7 @@ function RecuperarSenha2() {
 						function={(e) => handle(e)}
 					/>
 				
-					<button type="submit" className="btn-new-submit" onClick={() => push('/recuperar-senha/email')}>Confirmar</button>
+					<button type="submit" className="btn-new-submit" onClick={() => push('/recuperar-senha/sucesso')}>Confirmar</button>
 				</form>
 
 			</div>
