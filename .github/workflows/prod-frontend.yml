@@ -2,8 +2,9 @@ name: Produção Frontend
 
 on: 
   push:
-    branches: [master]
-    
+    branches: [main]
+    paths:
+      - frontend/**
 
 jobs:
   setup:
