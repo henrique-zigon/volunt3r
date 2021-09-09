@@ -1,0 +1,9 @@
+00EVENTO2021106-09-2021 17:12:5401
+022   Multirão de doação de cestas                      Não lembro 1000.25    013/05/202020/05/2020   0   0
+023   Doação de sangue                                  Não lembro  30 8.0    017/05/202020/05/2020   0   0
+026   Mentoria para jovens                              Não lembro   713.0    017/05/202020/05/2020   0   1
+027   Mentoria para meninas                             Não lembro   713.0    017/05/202025/05/2020   0   0
+028   Na melhor idade!                                  Não lembro  15 8.0    010/05/202015/05/2020   0   1
+0210  Doação de sangue!                                 Não lembro  15 8.0    010/05/202015/05/2020   0   0
+0221  Evento de doação de sangue                        Não lembro   5 0.5    013/05/202020/05/2020   0   0
+010000000007

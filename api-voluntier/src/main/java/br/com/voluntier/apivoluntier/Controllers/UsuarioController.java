@@ -123,6 +123,16 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(retornoHasmap);
     }
 
+    @PostMapping("/email-existente")
+    public ResponseEntity getEmailExistente(@RequestBody String email){
+        List<UsuarioResponse> retornoRepository = usuarioRepository.findByEmail(email);
+        if(retornoRepository.isEmpty()) {
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.status(406).build();
+    }
+
+
     @DeleteMapping("/desativar/{id}")
     public ResponseEntity deleteUsuario(@PathVariable int id,@RequestHeader("token") String token) {
         String resul=jwtBolado.verificarAcesso(token);

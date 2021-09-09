@@ -101,7 +101,7 @@ public class EventoController {
             //incrementando/atualizando---------------------------------------------
 
 
-           // List<UsuarioEventoCategoria> listaEventosCategorizados=repositoryInscricaoEvento.FindAllByFkUsuarioAndfkCategoria(novaInscricao.getFkUsuario(),repository.findById(novaInscricao.getFkEvento()).get().getId());
+           //List<UsuarioEventoCategoria> listaEventosCategorizados=repositoryInscricaoEvento.FindAllByFkUsuarioAndfkCategoria(novaInscricao.getFkUsuario(),repository.findById(novaInscricao.getFkEvento()).get().getId());
 
 
 
