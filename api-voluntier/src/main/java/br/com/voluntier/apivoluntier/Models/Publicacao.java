@@ -1,9 +1,12 @@
 package br.com.voluntier.apivoluntier.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Entity
 public class Publicacao {
@@ -43,6 +46,10 @@ public class Publicacao {
     @OneToMany(mappedBy="publicacaoPai")
     @JsonIgnore
     private List<Publicacao> comentarios;
+
+    @JsonInclude
+    @Transient
+    private boolean curtido;
 
     public Integer getId() {
         return id;
@@ -141,5 +148,19 @@ public class Publicacao {
 
     public Integer getNumeroComentarios() {
         return this.getComentarios().size();
+    }
+
+    public void isCurtido(Integer idUsu){
+        this.curtido=false;
+        for (Gostei gostei: likes){
+            if (gostei.getFkUsuario().getIdUsuario()==idUsu){
+                this.curtido=true;
+                return;
+            }
+        }
+    }
+
+    public boolean getCurtido(){
+        return this.curtido;
     }
 }

@@ -1,8 +1,11 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
+import br.com.voluntier.apivoluntier.Models.Gostei;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
+import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,6 +17,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 /*
 TODO Acho importante freezar que devem estar todas as funcionalidades de um feed
@@ -30,15 +34,53 @@ public class PublicacaoController {
     S3Services s3Services;
     @Autowired
     PublicacaoRepository repository;
+
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
-    @GetMapping()
-    public ResponseEntity getPublicacoes() {
-        return ResponseEntity.status(200).body(repository.findAll()
-                .stream()
-                .filter(publicacao -> !publicacao.isComentario())
-                .collect(Collectors.toList()));
+    @Autowired
+    TokenService tokenService;
+
+    @Autowired
+    GosteiRepository repositoryGostei;
+
+//    @GetMapping()
+//    public ResponseEntity getPublicacoes() {
+//        return ResponseEntity.status(200).body(repository.findAll()
+//                .stream()
+//                .filter(publicacao -> !publicacao.isComentario())
+//                .collect(Collectors.toList()));
+//    }
+
+    @GetMapping("/{usuario}")
+    public ResponseEntity getPublicacoes(@RequestHeader String Authorization) {
+        Integer idUsu=null;
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        try{
+            List<Publicacao> listaPubl=repository.findAll();
+            idUsu =tokenService.getIdUsuario(tokenLimpo);
+            for(Publicacao pub : listaPubl){
+                pub.isCurtido(idUsu);
+            }
+            return ResponseEntity.status(200).body(listaPubl
+                    .stream()
+                    .filter(publicacao -> !publicacao.isComentario())
+                    .collect(Collectors.toList()));
+        }catch (Exception e){
+            return ResponseEntity.status(500).body("Erro ao trazer publicações");
+        }
     }
+
+//    @GetMapping("/{usuario}")
+//    public ResponseEntity getPublicacoes(@PathVariable int usuario) {
+//        List<Publicacao> listaPubl=repository.findAll();
+//        for(Publicacao pub : listaPubl){
+//            pub.isCurtido(usuario);
+//        }
+//        return ResponseEntity.status(200).body(listaPubl
+//                .stream()
+//                .filter(publicacao -> !publicacao.isComentario())
+//                .collect(Collectors.toList()));
+//    }
 
     @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity postPublicacao(@RequestPart MultipartFile arquivo,

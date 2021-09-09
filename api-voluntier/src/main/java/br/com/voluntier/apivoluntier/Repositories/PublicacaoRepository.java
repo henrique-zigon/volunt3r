@@ -20,4 +20,5 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
     // List<Publicacao> findByEvento(int id);
     @Query("select p from Publicacao p where p.publicacaoPai = ?1")
     List<ComentarioResponse> findAllByPublicacaoPai(Publicacao p);
+
 }

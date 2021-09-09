@@ -49,7 +49,7 @@ public class GosteiController {
         }
 
         if(!publiExistente.isPresent() || !usuExistente.isPresent()){
-            retornoHasmap.put("message","Gostei sem parâmetros");
+            retornoHasmap.put("message","Parâmetros não encontrados");
             return ResponseEntity.status(400).body(retornoHasmap);
         } else if(gosteiExistente.isPresent()) {
             retornoHasmap.put("message", "Você ja gostou dessa publicação");
