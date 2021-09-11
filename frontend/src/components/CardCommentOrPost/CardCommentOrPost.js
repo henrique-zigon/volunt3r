@@ -12,7 +12,7 @@ const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
 const CardCommentOrPost = (props) => {
 
-  const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(false); 
+  const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(props.isLikedPost ? true : false); 
 
   const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BiHeart } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
@@ -15,8 +15,9 @@ const CardFeedEvent = (props) => {
   let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ];
   let dayEvent = props.dataEvent.split("/")[0];
   
-  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(false); 
 
+  
+  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false); 
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
 
   async function likePostFunction() {

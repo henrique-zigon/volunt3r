@@ -84,6 +84,7 @@ function Feed(props) {
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
+											isLikedPost={publicacao.curtido}
 										/>
 									);
 
@@ -99,6 +100,7 @@ function Feed(props) {
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
+											isLikedPost={publicacao.curtido}
 										/>
 									);
 								}
