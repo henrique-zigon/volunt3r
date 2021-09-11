@@ -31,7 +31,7 @@ function Login() {
 		console.log(newUserData)
 	}
 
-	function submitForm(e) {
+	async function submitForm(e) {
 		e.preventDefault();
 
 		if(userData.email === '' || userData.senha === '') {
@@ -40,7 +40,7 @@ function Login() {
 		} 
 		
 		else {
-			api.post("/usuarios/login", {
+			await api.post("/usuarios/login", {
 				email: userData.email,
 				senha: userData.senha
 			}).then((resposta) => {
@@ -106,11 +106,11 @@ function Login() {
 					Não tenho uma conta, <Link className="bold" to="/register">quero criar uma!</Link>
 				</div>
 
-				<div className="footer">
+				<div className="footer2">
 					OU
 				</div>
 
-				<div className="footer">
+				<div className="footer2">
 					Esqueci a minha senha, <Link className="bold" to="/recuperar-senha">quero recuperar!</Link>
 				</div>
 

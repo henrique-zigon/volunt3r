@@ -9,9 +9,13 @@ import api from "../../api";
 import './style.css';
 import CardShop from '../../components/CardShop/CardShop';
 
+import UserImage from '../../components/UserImage/UserImage';
+import avatarPadrao from '../../images/avatar_padrao.png';
+
 function Shop() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [courses, setCourses] = useState([]);
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 
 	useEffect(() => {
 
@@ -28,6 +32,9 @@ function Shop() {
 	return (
 		<>
 			<div className="feed-container">
+
+				<UserImage imagem={imageUser} nome={cookies.volunt3r_user.nomeUsuario} />
+
 				<div className="feed-content">
 					<NewNavBar />
 

@@ -8,6 +8,7 @@ div.feed-container {
     display: flex;
     justify-content: center;
     overflow-y: auto;
+	position: relative;
 }
 
 div.feed-container div.feed-content {

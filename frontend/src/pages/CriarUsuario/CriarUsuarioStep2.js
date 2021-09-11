@@ -32,11 +32,8 @@ function CriarUsuarioStep2(props) {
 		setUserData(newUserData);
 	}
 
-	function ValidarFormulario(e){
-		submitForm(e);
-	}
 	
-	function submitForm(e) {
+	async function submitForm(e) {
 		e.preventDefault();
 		const newUserData = { ...userData, ...props.location.state }
 		
@@ -58,7 +55,7 @@ function CriarUsuarioStep2(props) {
 
 		console.log(userData);
 		//Parte para enviar para a API
-		api.post("/usuarios/novo", newUserData)
+		await api.post("/usuarios/novo", newUserData)
 			.then(resposta => {
 				if (resposta.status === 201) {
 					addToast('Usuário cadastrado com sucesso!', {appearance: 'success', autoDismiss: true})
@@ -124,7 +121,7 @@ function CriarUsuarioStep2(props) {
 					}}
 					>
 
-						<button type="submit" className="btn-new-submit" onClick={ValidarFormulario}>Me Cadastrar</button>
+						<button type="submit" className="btn-new-submit">Me Cadastrar</button>
 					
 				</Link>
 

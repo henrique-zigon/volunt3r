@@ -15,6 +15,7 @@ function RecuperarSenha() {
 
 	const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [userData, setUserData] = useState({
+		email: "",
 		senha: "",
 		confirmaSenha: ""
 	});
@@ -31,27 +32,33 @@ function RecuperarSenha() {
 		console.log(newUserData)
 	}
 
-	function submitForm(e) {
+
+	async function submitForm(e) {
 		e.preventDefault();
 
-		if(userData.email === '') {
+		//Validação de Email
+		var Email = userData.email;
+		var RegexEmail = /@\w+.com/;
+		var TesteRegexEmail = RegexEmail.test(Email);
+
+		if(userData.email === '' || TesteRegexEmail === false) {
 			console.log("OPA A MI GÃO PREENCHE Aí")
 			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
 		} 
-
-			
-		// else {
-		// 	api.post("/usuarios/login", {
-		// 		email: userData.email,
-		// 		senha: userData.senha
-		// 	}).then((resposta) => {
-		// 		setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
-		// 		setCookie('volunt3r_user', resposta.data.user, { path: "/" });
-		// 		history.push("/");
-		// 	})
-
-		// }
 	
+		else {
+			await api.post(`/usuarios/email-existente/${Email}`)
+			.then(resposta => {
+				if (resposta.status === 200) {
+					history.push("/recuperar-senha/email")
+				}
+			}).catch((e) => {
+				if(e.response.status === 404) {
+					addToast('Email não encontrado 😕', {appearance: 'error', autoDismiss: true})
+				}
+			});
+
+		}
 	}
 
     return (
@@ -67,7 +74,7 @@ function RecuperarSenha() {
 
 				<form onSubmit={(e) => submitForm(e)}>
 					<InputForm 
-						type="email"
+						type="text"
 						id="email"
 						name="email"
 						label="Seu email"
@@ -76,7 +83,7 @@ function RecuperarSenha() {
 					/>
 				
 			
-					<button type="submit" className="btn-new-submit" onClick={() => push('/recuperar-senha/email')}>Continuar</button>
+					<button type="submit" className="btn-new-submit">Continuar</button>
 				
 				</form>
 

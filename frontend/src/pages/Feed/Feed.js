@@ -9,6 +9,8 @@ import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 
+import UserImage from '../../components/UserImage/UserImage';
+
 function Feed(props) {
 
 	const [cookies] = useCookies(['volunt3r']);
@@ -36,8 +38,12 @@ function Feed(props) {
 		<>
 
 			<div className="feed-container">
+
+				<UserImage imagem={imageUser} nome={cookies.volunt3r_user.nomeUsuario} />
+
 				<div className="feed-content">
 					<NewNavBar />
+				
 
 					<div className="new-post">
 						{/* <span className="title">postagem</span> */}
