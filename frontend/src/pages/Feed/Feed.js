@@ -22,7 +22,7 @@ function Feed(props) {
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
-			api.get("/publicacoes", {
+			api.get(`/publicacoes/${cookies.volunt3r_user.idUsuario}`, {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
 				setPublicacoes(resposta.data.reverse());
