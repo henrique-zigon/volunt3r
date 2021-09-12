@@ -43,7 +43,7 @@ function RecuperarSenha() {
 
 		if(userData.email === '' || TesteRegexEmail === false) {
 			console.log("OPA A MI GÃO PREENCHE Aí")
-			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
+			addToast('Por favor, preencha todos os campos corretamente. O email deve conter @ e .com', {appearance: 'warning', autoDismiss: true});
 		} 
 	
 		else {

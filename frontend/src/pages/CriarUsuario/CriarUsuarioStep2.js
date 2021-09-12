@@ -59,7 +59,7 @@ function CriarUsuarioStep2(props) {
 			.then(resposta => {
 				if (resposta.status === 201) {
 					addToast('Usuário cadastrado com sucesso!', {appearance: 'success', autoDismiss: true})
-					history.push("/")
+					history.push("/login")
 				}
 			}).catch((e) => {
 				if(e.response.status === 406) {
@@ -83,7 +83,7 @@ function CriarUsuarioStep2(props) {
 				<form onSubmit={(e) => submitForm(e)}>
 
 					<InputForm
-						type="email"
+						type="text"
 						id="email"
 						name="email"
 						label="Seu email"
@@ -115,16 +115,9 @@ function CriarUsuarioStep2(props) {
 							<BiKey className="icon-input-group" />
 						</label>
 					</div> */}
-				<Link id="linkRegister" to={{
-						pathname: "/register/step2",
-						state: userData
-					}}
-					>
-
+				
 						<button type="submit" className="btn-new-submit">Me Cadastrar</button>
-					
-				</Link>
-
+		
 				</form>
 
 				<div className="footer">
