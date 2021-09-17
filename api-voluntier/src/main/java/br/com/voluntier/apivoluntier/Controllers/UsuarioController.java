@@ -152,4 +152,10 @@ public class UsuarioController {
         }
 
     }
+
+    //get para teste
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity getUsuario(@PathVariable int id){
+        return ResponseEntity.status(200).body(usuarioRepository.findById(id));
+    }
 }

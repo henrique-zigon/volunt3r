@@ -1,10 +1,7 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
 
-import br.com.voluntier.apivoluntier.Models.Evento;
-import br.com.voluntier.apivoluntier.Models.InscricaoEvento;
-import br.com.voluntier.apivoluntier.Models.Publicacao;
-import br.com.voluntier.apivoluntier.Models.UsuarioEventoCategoria;
+import br.com.voluntier.apivoluntier.Models.*;
 import br.com.voluntier.apivoluntier.Repositories.*;
 import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
 import br.com.voluntier.apivoluntier.Services.EmailService;
@@ -43,6 +40,8 @@ public class EventoController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -98,19 +97,47 @@ public class EventoController {
             repositoryInscricaoEvento.save(novaInscricao);
             EmailService.listaEmail.insert(novaInscricao);
             retornoHasmap.put("message", "usuário inscrito com sucesso!");
-            //incrementando/atualizando---------------------------------------------
 
-
-           //List<UsuarioEventoCategoria> listaEventosCategorizados=repositoryInscricaoEvento.FindAllByFkUsuarioAndfkCategoria(novaInscricao.getFkUsuario(),repository.findById(novaInscricao.getFkEvento()).get().getId());
-
-
-
-            //-------------------------------------------------------------------------
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @PostMapping("/confirmar-presenca")
+    public ResponseEntity postParticipacao(@RequestBody InscricaoEvento inscricao){
+        retornoHasmap.clear();
+        try {
+
+            InscricaoEvento registroInscricao=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(inscricao.getFkUsuario(), inscricao.getFkEvento());
+            Optional <Usuario> usuario=usuarioRepository.findById(inscricao.getFkUsuario());
+
+            if (registroInscricao.getStatus().equals("confirmado")){
+                retornoHasmap.put("message","Você já participou desse evento");
+                return ResponseEntity.status(400).body(retornoHasmap);
+            }
+
+            if (usuario.isPresent()){
+                Integer milhas=usuario.get().getQuantidadeMilhas() + 5;
+                usuario.get().setQuantidadeMilhas(milhas);  //ADD 5 milhas
+                usuarioRepository.save(usuario.get());
+                registroInscricao.setStatus("confirmado");
+                repositoryInscricaoEvento.save(registroInscricao);
+                retornoHasmap.put("message","Participação registrada");
+                return ResponseEntity.status(201).body(retornoHasmap);
+            }
+            else {
+                return ResponseEntity.status(404).body("Usuario não encontrado");
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+            return ResponseEntity.status(500).build();
+        }
+
+
+
     }
 
     @GetMapping("/inscricoes")
