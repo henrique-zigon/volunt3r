@@ -1,6 +1,8 @@
 library(readr)
-Eventos <- read_delim("C:/Users/Henrique/Desktop/EstudoR/Eventos.csv", 
-                      ";", escape_double = FALSE, trim_ws = TRUE)
+Eventos <- read_delim("C:/Users/Henrique/Desktop/3CCO-2021-1-Grupo-04/R/Eventos.csv", 
+                      ";", escape_double = FALSE, col_types = cols(dataEvento = col_date(format = "%d/%m/%Y"), 
+                                                                   dataFechamento = col_date(format = "%d/%m/%Y")), 
+                      trim_ws = TRUE)
 
 
 Eventos$nParticipantes<-as.double(Eventos$nParticipantes)
