@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BiHomeAlt, BiShoppingBag, BiCalendarAlt, BiLineChart } from 'react-icons/bi';
+import { BiHomeAlt, BiShoppingBag, BiCalendarAlt, BiLineChart, BiUser } from 'react-icons/bi';
 
 import './newNavBar-style.css';
 
@@ -38,6 +38,14 @@ const NewNavBar = () => {
           <Link to="/dashboard" className="linkagem">
             <BiLineChart />
             <span>Dashboard</span>
+          </Link>
+        </li>
+        <li className={
+          location === "/perfil" ? "li-current": "" 
+        }>
+          <Link to="/perfil" className="linkagem">
+            <BiUser />
+            <span>Perfil</span>
           </Link>
         </li>
       </ul>

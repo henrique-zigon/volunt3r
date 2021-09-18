@@ -12,6 +12,7 @@ import RecuperarSenha1Email from './pages/RecuperarSenha/RecuperarSenha1Email';
 import RecuperarSenha2 from './pages/RecuperarSenha/RecuperarSenha2';
 import RecuperarSenhaSucesso from './pages/RecuperarSenha/RecuperarSenhaSucesso';
 import NotFound from './pages/NotFound/NotFound';
+import Perfil from './pages/Perfil/Perfil';
 import Feed from './pages/Feed/Feed.js';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
@@ -47,6 +48,7 @@ function Routes() {
                     <Route exact path="/recuperar-senha/sucesso" component={RecuperarSenhaSucesso} />
                     <Route exact path="/recuperar-senha-redefinir" component={RecuperarSenha2} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
+                    <Route exact path="/perfil" component={Perfil} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>

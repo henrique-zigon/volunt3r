@@ -1,0 +1,115 @@
+div.profile-card {
+	width: 100%;
+	height: auto;
+	min-height: 500px;
+
+	background: #FFF;
+	border-radius: 8px;
+	display: flex;
+	padding: 30px 25px;
+	gap: 25px;
+	margin-top: 25px;
+}
+
+div.profile-card-content{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	line-height: 18px;
+}
+
+
+div.profile-general-info{
+	display: flex;
+	flex-direction: column;
+}
+
+div.profile-cover{
+	width: 100%;
+	height: 200px;
+}
+
+div.profile-cover img{
+	width: 100%;
+	height: 100%;
+	border-radius: 5%;
+}
+
+div.profile-image{
+	width: 120px;
+	height: 120px;
+}
+
+div.profile-image img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 2px solid rgb(255, 255, 255);
+}
+
+div.profile-header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+div.profile-info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+div.profile-user-info span{
+	text-align: left;
+}
+
+div.profile-user-info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div.profile-header button.btn-edit-profile {
+	width: 150px;
+	height: 50px;
+	border-radius: 100px;
+	background: var(--principal-blue);
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+}
+
+div.profile-header button.btn-edit-profile div{
+	align-items: center;
+	justify-content: space-between;
+}
+
+div.profile-header button.btn-edit-profile:hover{
+	background: var(--hover-color-button);
+}
+
+@media screen and (max-width: 990px) {
+
+	div.profile-info{
+		flex-direction: column;
+	}
+
+
+	div.profile-header{
+		justify-content: center;
+	}
+
+}
+
+@media screen and (max-width: 580px) {
+
+	div.profile-header button.btn-edit-profile span{
+		display: none;
+	}
+
+	div.profile-header button.btn-edit-profile{
+		width: 50px;
+	}
+
+}
