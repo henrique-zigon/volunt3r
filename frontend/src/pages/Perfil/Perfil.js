@@ -5,7 +5,7 @@ import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardPerfil from '../../components/CardPerfil/CardPerfil'
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
-import capaPadrao from '../../images/capa_padrao.png';
+// import capaPadrao from '../../images/capa_padrao.png';
 import './style.css';
 
 
@@ -27,7 +27,7 @@ function Perfil(props) {
 					<NewNavBar />
                     <div>
                         {/* cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil */}
-                    <CardPerfil icone={avatarPadrao} nome={cookies.volunt3r_user.nomeUsuario} cargo={cookies.volunt3r_user.cargo} cover ={capaPadrao}/>
+                    <CardPerfil icone={avatarPadrao} nome={cookies.volunt3r_user.nomeUsuario} cargo={cookies.volunt3r_user.cargo} />
                     </div>
                     
 
