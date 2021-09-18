@@ -31,7 +31,7 @@ return(
                             <span> 
                                 Editar Perfil
                             </span>
-                            <BiEdit size="20px"/>
+                            <BiEdit size="15px"/>
                         </div>
                     </button>
                 </div>
