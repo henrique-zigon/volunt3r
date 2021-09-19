@@ -23,7 +23,7 @@ return(
                         </div>
                         <div className="profile-user-info">
                             <b><span>{props.nome}</span></b>
-                            <span>{props.cargo}</span>
+                            <span className="subtitle">{props.cargo}</span>
                         </div>
                     </div>
                     <button className="btn-edit-profile">
