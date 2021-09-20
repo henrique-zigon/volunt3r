@@ -27,17 +27,19 @@ div.profile-general-info{
 div.profile-cover{
 	width: 100%;
 	height: 200px;
+	overflow: hidden;
 }
 
 div.profile-cover img{
 	width: 100%;
 	height: 100%;
-	border-radius: 5%;
+	border-radius: 8px;
 }
 
 div.profile-image{
 	width: 120px;
 	height: 120px;
+	overflow: hidden;	
 }
 
 div.profile-image img{
@@ -52,6 +54,8 @@ div.profile-header{
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	top: -30px;
+	position: relative;
 }
 
 div.profile-info{
@@ -61,7 +65,19 @@ div.profile-info{
 }
 
 div.profile-user-info span{
-	text-align: left;
+	display: flex;
+	justify-content: initial;
+	width: 100%;
+}
+
+
+.subtitle{
+	color: #9A9A9A;
+}
+
+div.profile-user-info{
+	margin-left: 8px;
+
 }
 
 div.profile-user-info{
@@ -78,6 +94,7 @@ div.profile-header button.btn-edit-profile {
 	border: none;
 	color: #FFF;
 	cursor: pointer;
+	
 }
 
 div.profile-header button.btn-edit-profile div{
@@ -96,13 +113,20 @@ div.profile-header button.btn-edit-profile:hover{
 	}
 
 
-	div.profile-header{
-		justify-content: center;
+	div.profile-user-info{
+		margin-left: 0px;
 	}
 
-}
+	div.profile-user-info span{
+		justify-content: center;
+	}
+	
 
-@media screen and (max-width: 580px) {
+	div.profile-header{
+		justify-content: center;
+		margin-left: 50px;
+		top: -50px;
+	}
 
 	div.profile-header button.btn-edit-profile span{
 		display: none;
@@ -111,5 +135,13 @@ div.profile-header button.btn-edit-profile:hover{
 	div.profile-header button.btn-edit-profile{
 		width: 50px;
 	}
+
+}
+
+@media screen and (max-width: 580px) {
+
+	
+
+	
 
 }
