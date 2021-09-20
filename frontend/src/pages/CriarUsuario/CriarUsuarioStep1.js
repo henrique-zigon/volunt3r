@@ -38,7 +38,9 @@ function CriarUsuarioStep1() {
 	var ValidaArea = userData.area;
 	var ValidaTipoUsuario = userData.tipoUsuario;
 	var CamposValidados = "";
-		
+	var RegexNomeSobrenome = /(\w+ \w+)/
+	var ValidaNomeSobrenome = RegexNomeSobrenome.test(ValidaNome)	
+
 	console.log(CamposValidados);
 
 	if(
@@ -46,7 +48,8 @@ function CriarUsuarioStep1() {
 		ValidaGenero === "" ||
 		ValidaCargo === "" ||
 		ValidaArea === "" ||
-		ValidaTipoUsuario === ""  
+		ValidaTipoUsuario === "" ||
+		ValidaNomeSobrenome === false
 
 		){
 			
@@ -55,13 +58,6 @@ function CriarUsuarioStep1() {
 		addToast('Por favor, preencha todos os campos', {appearance: 'warning', autoDismiss: true})
 		console.log(CamposValidados);
 
-		console.log(ValidaNome);
-		console.log(ValidaGenero);
-		console.log(ValidaCargo);
-		console.log(ValidaArea);
-		console.log(ValidaTipoUsuario);
-
-		
 		}
 
 	else{
@@ -91,7 +87,7 @@ function CriarUsuarioStep1() {
 							type="text"
 							id="nomeUsuario"
 							name="nomeUsuario"
-							label="Seu nome"
+							label="Seu nome e sobrenome"
 							icon={<BiUser className="icon-input-group" />}
 							function={(e) => handle(e)}
 						/>

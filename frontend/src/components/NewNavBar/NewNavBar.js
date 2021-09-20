@@ -34,12 +34,6 @@ const NewNavBar = () => {
             <span>Eventos</span>
           </Link>
         </li>
-        <li>
-          <Link to="/dashboard" className="linkagem">
-            <BiLineChart />
-            <span>Dashboard</span>
-          </Link>
-        </li>
         <li className={
           location === "/perfil" ? "li-current": "" 
         }>
@@ -48,6 +42,13 @@ const NewNavBar = () => {
             <span>Perfil</span>
           </Link>
         </li>
+        <li>
+          <Link to="/dashboard" className="linkagem">
+            <BiLineChart />
+            <span>Dashboard</span>
+          </Link>
+        </li>
+        
       </ul>
     </nav>
   );

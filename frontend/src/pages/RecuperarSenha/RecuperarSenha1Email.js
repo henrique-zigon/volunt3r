@@ -4,6 +4,13 @@ import './style.css';
 
 
 function NotFound() {
+
+  //fazer ligação com a api
+
+
+
+
+
   return(
   
     <div className="container-notfound">
