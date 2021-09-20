@@ -16,6 +16,10 @@ function Perfil(props) {
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
+	// Foto de Perfil
+	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
+	var regexNomeSobrenome = /(\w+ \w+)/
+	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 	return (
 		<>
@@ -27,7 +31,7 @@ function Perfil(props) {
 					<NewNavBar />
                     <div>
                         {/* cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil */}
-                    <CardPerfil icone={avatarPadrao} nome={cookies.volunt3r_user.nomeUsuario} cargo={cookies.volunt3r_user.cargo} cover ={capaPadrao}/>
+                    <CardPerfil icone={avatarPadrao} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover ={capaPadrao}/>
                     </div>
                     
 
