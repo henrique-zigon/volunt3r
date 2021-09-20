@@ -1,6 +1,8 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
+import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
@@ -15,8 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Optional;
 
 /*
 TODO Acho importante freezar que devem estar todas as funcionalidades de um feed
@@ -79,6 +83,42 @@ public class PublicacaoController {
         } catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.status(500).build();
+        }
+    }
+
+    @PostMapping(path="/comentario/{idPublicacao}")
+    public ResponseEntity postComentario(@PathVariable Integer idPublicacao,
+                                         @RequestBody String comentario,
+                                         @RequestHeader String Authorization)  throws IOException {
+        Publicacao novaPublicacao = new Publicacao();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+
+        Optional<Publicacao> publiPai = repository.findById(idPublicacao);
+        System.out.println(publiPai.get());
+        if(publiPai.isPresent()) {
+            Usuario usu = new Usuario();
+            usu.setIdUsuario(idUsu);
+            novaPublicacao.setUsuario(usu);
+
+            Evento evento = new Evento();
+            evento.setId(publiPai.get().getEvento().getId());
+            novaPublicacao.setEvento(evento);
+
+            novaPublicacao.setDescricao(comentario);
+            novaPublicacao.setDataPostagem(dateFormat.format(new Date()));
+
+            novaPublicacao.setPublicacaoPai(publiPai.get());
+
+            novaPublicacao.setTipo("comentario");
+
+            repository.save(novaPublicacao);
+            return ResponseEntity.status(201).build();
+        }else {
+            return ResponseEntity.status(404).build();
         }
     }
 
