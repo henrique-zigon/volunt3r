@@ -16,8 +16,6 @@ public class Publicacao {
     @Column(name = "id_publicacao")
     private Integer id;
 
-    @Column(name = "titulo_publicacao")
-    private String titulo;
     private String descricao;
 
     private String dataPostagem;
@@ -35,8 +33,9 @@ public class Publicacao {
     private Evento evento;
     //Porque a utilização do cascade? Ta bloquenado um treco aqui
     //@ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publicacao_pai")
+    @JsonIgnore
     private Publicacao publicacaoPai;
 
     @OneToMany(mappedBy="fkPublicacao")
@@ -51,20 +50,22 @@ public class Publicacao {
     @Transient
     private boolean curtido;
 
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     public String getDescricao() {
@@ -132,14 +133,11 @@ public class Publicacao {
     }
 
     public boolean isPublicacaoEvento() {
-        return this.getPublicacaoPai() == null;
+        return this.getTipo().equals("evento");
     }
 
     public boolean isComentario() {
-        if(publicacaoPai == null) {
-            return false;
-        }
-        return !this.getPublicacaoPai().isPublicacaoEvento();
+        return this.getTipo().equals("comentario");
     }
 
     public Integer getNumeroLikes() {

@@ -1,6 +1,5 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
-import br.com.voluntier.apivoluntier.Models.Gostei;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
@@ -8,6 +7,8 @@ import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+
 /*
 TODO Acho importante freezar que devem estar todas as funcionalidades de um feed
  -Fazer filtros em publicações
@@ -51,24 +50,7 @@ public class PublicacaoController {
 //                .collect(Collectors.toList()));
 //    }
 
-    @GetMapping("/{usuario}")
-    public ResponseEntity getPublicacoes(@RequestHeader String Authorization) {
-        Integer idUsu=null;
-        String tokenLimpo=Authorization.substring(7,Authorization.length());
-        try{
-            List<Publicacao> listaPubl=repository.findAll();
-            idUsu =tokenService.getIdUsuario(tokenLimpo);
-            for(Publicacao pub : listaPubl){
-                pub.isCurtido(idUsu);
-            }
-            return ResponseEntity.status(200).body(listaPubl
-                    .stream()
-                    .filter(publicacao -> !publicacao.isComentario())
-                    .collect(Collectors.toList()));
-        }catch (Exception e){
-            return ResponseEntity.status(500).body("Erro ao trazer publicações");
-        }
-    }
+
 
 //    @GetMapping("/{usuario}")
 //    public ResponseEntity getPublicacoes(@PathVariable int usuario) {
@@ -130,15 +112,43 @@ public class PublicacaoController {
         }
     }
 
-    @GetMapping("/{id}/{comentarios}")
-    public ResponseEntity getComentarios(@PathVariable Integer id) {
+    @GetMapping("/{id}/comentarios")
+    public ResponseEntity getComentarios(@PathVariable Integer id, @RequestHeader String Authorization,
+                                         @RequestParam(defaultValue = "0") Integer pagina,
+                                         @RequestParam(defaultValue = "10") Integer tamanho) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+
         Publicacao p = new Publicacao();
         p.setId(id);
-        List<ComentarioResponse> comentarios = repository.findAllByPublicacaoPai(p);
+
+        Page<ComentarioResponse> comentarios = repository.findByPublicacaoPaiEqualsAndTipoEquals(p,"comentario",
+                PageRequest.of(pagina,tamanho));
+
         if(!comentarios.isEmpty()) {
+            comentarios.forEach(comentario -> {
+                comentario.isCurtido(idUsu);
+            });
             return ResponseEntity.status(200).body(comentarios);
         }else {
             return ResponseEntity.status(204).build();
+        }
+    }
+
+    @GetMapping()
+    public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                       @RequestHeader String Authorization) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+        Page<Publicacao> allPub = repository.findByTipoIsNot("comentario",PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
         }
     }
 }

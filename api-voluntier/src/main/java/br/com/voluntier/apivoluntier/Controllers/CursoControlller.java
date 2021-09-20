@@ -1,9 +1,12 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.Curso;
+import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Repositories.CursoRepository;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,9 +29,11 @@ public class CursoControlller {
     private CursoRepository repository;
     @Autowired
     private S3Services s3Services;
+
     @GetMapping
-    public ResponseEntity getCursos() {
-        List<Curso> listaCursos = repository.findAll();
+    public ResponseEntity getCursos(@RequestParam(defaultValue = "0") Integer pagina,
+                                    @RequestParam(defaultValue = "10") Integer tamanho) {
+        Page<Curso> listaCursos = repository.findAll(PageRequest.of(pagina, tamanho));
         if(!listaCursos.isEmpty()) {
             return ResponseEntity.status(200).body(listaCursos);
         }else {

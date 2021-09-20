@@ -7,9 +7,12 @@ import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.UsuarioEventoCategoria;
 import br.com.voluntier.apivoluntier.Repositories.*;
 import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
+import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.EmailService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,13 +47,27 @@ public class EventoController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
-    @GetMapping
-    public ResponseEntity getEventos() {
-        return ResponseEntity.status(200).body(repositoryPublicacao.findAllIdEventoNotNull());
+    @GetMapping()
+    public ResponseEntity getEventos(@RequestParam(defaultValue = "0") Integer pagina,
+                                     @RequestParam(defaultValue = "10") Integer tamanho,
+                                     @RequestHeader String Authorization) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+        Page<Publicacao> allPub = repositoryPublicacao.findByTipoIs("evento", PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
+        }
     }
-
 
 //    @PostMapping("/novo")
 //    public ResponseEntity postEvento(@RequestBody Evento novoEvento) {

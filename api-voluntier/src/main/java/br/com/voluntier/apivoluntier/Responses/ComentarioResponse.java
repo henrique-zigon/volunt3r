@@ -1,6 +1,10 @@
 package br.com.voluntier.apivoluntier.Responses;
 
+import br.com.voluntier.apivoluntier.Models.Gostei;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
 
 public class ComentarioResponse {
 
@@ -9,6 +13,9 @@ public class ComentarioResponse {
     private String dataPostagem;
     private UsuarioSimplesResponse usuario;
     private Integer numeroLikes;
+    @JsonIgnore
+    private List<Gostei> likes;
+    private boolean curtido;
 
     public ComentarioResponse(Publicacao publicacao) {
         this.id = publicacao.getId();
@@ -16,6 +23,7 @@ public class ComentarioResponse {
         this.dataPostagem = publicacao.getDataPostagem();
         this.usuario = new UsuarioSimplesResponse(publicacao.getUsuario());
         this.numeroLikes = publicacao.getNumeroLikes();
+        this.likes = publicacao.getLikes();
     }
 
 
@@ -57,5 +65,27 @@ public class ComentarioResponse {
 
     public void setNumeroLikes(Integer numeroLikes) {
         this.numeroLikes = numeroLikes;
+    }
+
+    public List<Gostei> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Gostei> likes) {
+        this.likes = likes;
+    }
+
+    public void isCurtido(Integer idUsu){
+        this.curtido=false;
+        for (Gostei gostei: likes){
+            if (gostei.getFkUsuario().getIdUsuario()==idUsu){
+                this.curtido=true;
+                return;
+            }
+        }
+    }
+
+    public boolean getCurtido(){
+        return this.curtido;
     }
 }

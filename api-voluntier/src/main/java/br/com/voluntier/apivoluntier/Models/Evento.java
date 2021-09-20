@@ -11,6 +11,7 @@ public class Evento {
     @Column(name = "id_evento")
     private Integer id;
 
+    private String titulo;
     private String dataEvento;
     private String dataFechamentoEvento;
     private String endereco;
@@ -30,6 +31,14 @@ public class Evento {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDataEvento() {

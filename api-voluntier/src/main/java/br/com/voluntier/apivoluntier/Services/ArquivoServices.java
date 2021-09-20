@@ -90,7 +90,8 @@ public class ArquivoServices {
             corpo = "02";
 
             corpo += String.format("%-4s", p.getId()); // Vamos trabalhar com id da publi ou id do evento?
-            corpo += String.format("%-50s", p.getTitulo());
+
+            corpo += String.format("%-50s", p.getEvento().getTitulo());
             corpo += String.format("%-2s", p.getEvento().getCategoria().getNomeCategoria());
             corpo += String.format("%4s", p.getEvento().getMaximoParticipantes());
             corpo += String.format("%4s", p.getEvento().getHoras());
@@ -145,7 +146,7 @@ public class ArquivoServices {
             for (Publicacao p : retornoRepositoryEvento) {
                 saida.format("%d;%s;%s;%d;%.2f;%.2f;%s;%s;%d;%d%n",
                         p.getId(),
-                        p.getTitulo(),
+                        p.getEvento(),
                         p.getEvento().getCategoria().getNomeCategoria(),
                         p.getEvento().getMaximoParticipantes(),
                         p.getEvento().getHoras(),
@@ -411,7 +412,7 @@ public class ArquivoServices {
                         evento.setCategoria(categoria);
                         repositoryEvento.save(evento);
                         publicacao.setEvento(evento);
-                        publicacao.setTitulo(registro.substring(02,52).trim());
+                        publicacao.getEvento().setTitulo(registro.substring(02,52).trim());
                         publicacao.setDescricao(registro.substring(494,749).trim());
                         publicacao.setDataPostagem(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
                         usuario.setIdUsuario(Integer.parseInt(registro.substring(749,754)));

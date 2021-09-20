@@ -52,7 +52,7 @@ public class EmailService {
             Publicacao publicacao = publicacaoRepository.findEventoById(evento).get();
             if(emailSender.sendMessage(
                     "Você se inscreveu a um novo evento!",
-                    "<h1>Você se inscreveu no evento "+ publicacao.getTitulo() +" !</h1>" +
+                    "<h1>Você se inscreveu no evento "+ publicacao.getEvento().getTitulo() +" !</h1>" +
                             "<p>O evento vai acontecer do dia "+evento.getDataEvento()+" até " +
                             evento.getDataFechamentoEvento() + ".</p>" +
                             "Vai ser no endereço \""+evento.getEndereco()+"\"! Fique atento. ",

@@ -1,5 +1,6 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,6 +22,7 @@ public class Usuario implements UserDetails {
     private String tipoUsuario;
     private String email;
     @Column(length = 70)
+    @JsonIgnore
     private String senha;
     private String cargo;
     private String area;
@@ -162,6 +164,7 @@ public class Usuario implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<TipoUsuario> listaRoles = new ArrayList<>();
         listaRoles.add(new TipoUsuario(this.getTipoUsuario()));
@@ -169,31 +172,37 @@ public class Usuario implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public String getPassword() {
         return this.senha;
     }
 
     @Override
+    @JsonIgnore
     public String getUsername() {
         return this.email;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return true;
     }

@@ -108,3 +108,9 @@ create table clique(
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario)
 );
+
+alter table publicacao add tipo varchar(10);
+alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
+
+alter table evento add titulo varchar(50);
+alter table publicacao drop column titulo_publicacao
