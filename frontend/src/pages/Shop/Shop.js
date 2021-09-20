@@ -29,11 +29,17 @@ function Shop() {
 		getAllCards();
 	}, [])
 
+	// Foto de Perfil
+	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
+	var regexNomeSobrenome = /(\w+ \w+)/
+	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+
 	return (
+
 		<>
 			<div className="feed-container">
 
-				<UserImage imagem={imageUser} nome={cookies.volunt3r_user.nomeUsuario} />
+			<UserImage imagem={imageUser} nome={NomeSobrenome[1]} />
 
 				<div className="feed-content">
 					<NewNavBar />

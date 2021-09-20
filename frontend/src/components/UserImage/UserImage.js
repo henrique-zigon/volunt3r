@@ -6,7 +6,7 @@ function UserImage(props){
     return(
 
         <div className="userImage">
-            <img className="imagem" src={props.imagem}/>
+            <img className="imagem" src={props.imagem} />
             <span className="nome">{props.nome}</span>
         </div>
 

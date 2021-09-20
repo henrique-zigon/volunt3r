@@ -15,7 +15,7 @@ p3 + scale_color_manual(values = c("#F57E6B","#0D9ED7")) +
  #+ theme(legend.position = c(0.5,1))
 
 #p/ salvar
-ggsave(filename = "graficobonito.png",plo)
+#ggsave(filename = "graficobonito.png",plo)
 
 #-------------------Faixas------------------------------------------------------
 
