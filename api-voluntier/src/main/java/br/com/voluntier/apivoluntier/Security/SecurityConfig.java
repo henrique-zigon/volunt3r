@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors(withDefaults())
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/usuarios/email-existente/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/usuarios/email-existente/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/usuarios/novo").permitAll()
                 .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/v3/**").permitAll()

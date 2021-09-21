@@ -6,8 +6,11 @@ import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
 import br.com.voluntier.apivoluntier.Responses.UsuarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
+import br.com.voluntier.apivoluntier.Utils.EmailSender;
 import br.com.voluntier.apivoluntier.Utils.LoginForm;
 import br.com.voluntier.apivoluntier.Utils.TokenDto;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +47,9 @@ public class UsuarioController {
 
     @Autowired
     private S3Services s3Services;
+
+    @Autowired
+    EmailSender emailSender;
 
     @GetMapping
     public ResponseEntity listar(){
@@ -129,6 +135,16 @@ public class UsuarioController {
         if(retornoRepository.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
+        String linkFrontEnd = "http://voluntier.eastus.cloudapp.azure.com/";
+        LocalDateTime dataHoraCriacaoToken = new LocalDateTime();
+        String token = "tokenSenha" + dataHoraCriacaoToken;
+
+        emailSender.sendMessage(
+                "Volunt3r Assunto",
+                "Link para redefinir sua senha: " + linkFrontEnd+token,
+                email
+        );
+
         return ResponseEntity.status(200).build();
     }
 
