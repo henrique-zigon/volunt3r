@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BiHeart } from 'react-icons/bi';
+import { BiHeart, BiRepost } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -19,6 +19,7 @@ const CardFeedEvent = (props) => {
   
   const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false); 
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
+  // const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props)
 
   async function likePostFunction() {
     if(!isLikedCardFeedEvent) {
@@ -94,6 +95,7 @@ const CardFeedEvent = (props) => {
           </div>
 
           <button onClick={props.onClick} className="btn-subscribe-post">Quero Participar</button>
+          
         </header>
 
         <div className="post-information">
@@ -116,6 +118,14 @@ const CardFeedEvent = (props) => {
               }
             </button>
             <span><b>{countLikesCardFeedEvent}</b> pessoas curtiram</span>
+          </div>
+          <div className="like-post">
+            <button className="btn-comment-post" >
+              {
+                <BiRepost />
+              }
+            </button>
+            <span><b>{countLikesCardFeedEvent}</b> postagens relacionadas</span>
           </div>
         </div>
       </div>

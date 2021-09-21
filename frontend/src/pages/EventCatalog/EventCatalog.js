@@ -31,10 +31,10 @@ function EventCatalog() {
 	useEffect(() => {
 
 		async function getAllCards() {
-			const resposta = await api.get("/eventos", {
+			const resposta = await api.get("/eventos", { params: {pagina : 0, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			setEventos(resposta.data);
+			setEventos(resposta.data.content);
 		}
 
 		getAllCards();

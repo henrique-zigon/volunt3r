@@ -129,6 +129,7 @@ div.post-information div.content-post-event span.descrition-event {
 div.information-card div.footer-information {
 	position: absolute;
 	width: 100%;
+	justify-content: space-between;
 	height: 40px;
 	display: flex;
 	align-items: center;
@@ -152,11 +153,23 @@ div.footer-information div.like-post button.btn-like-post {
 	align-items: center;
 	cursor: pointer;
 }
+
+div.footer-information div.like-post button.btn-comment-post {
+	border: none;
+	background: none;
+
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
 div.footer-information div.like-post button.btn-like-post svg {
 	font-size: 1.5rem;
 	color: #FF6868;
 }
-
+div.footer-information div.like-post button.btn-comment-post svg {
+	font-size: 1.5rem;
+	color: #083569;
+}
 
 
 /*
@@ -182,6 +195,7 @@ div.footer-information div.like-post button.btn-like-post svg {
 		/* height: 100%; */
 		position: relative;
 	}
+
 
 }
 

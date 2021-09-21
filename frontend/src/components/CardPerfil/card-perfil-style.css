@@ -33,6 +33,7 @@ div.profile-cover{
 div.profile-cover img{
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 	border-radius: 8px;
 }
 
@@ -45,6 +46,7 @@ div.profile-image{
 div.profile-image img{
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 	border-radius: 50%;
 	border: 2px solid rgb(255, 255, 255);
 }

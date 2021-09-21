@@ -22,10 +22,12 @@ function Feed(props) {
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
-			api.get(`/publicacoes/${cookies.volunt3r_user.idUsuario}`, {
+			api.get(`/publicacoes`, {
+				params: {pagina : 0, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
-				setPublicacoes(resposta.data.reverse());
+				setPublicacoes(resposta.data.content.reverse());
+				console.log(resposta.data)
 			}).catch(err => {
 				console.log("Deu erro"+err)
 			});
@@ -70,6 +72,7 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
+								console.log(publicacao);
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
@@ -78,10 +81,10 @@ function Feed(props) {
 												abrirModal();
 											}}*/
 											imagePost={publicacao.pathImagem}
-											nameUserPosted={publicacao.usuario.nomeUsuario}
+											nameUserPossted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
-											titlePost={publicacao.titulo}
+											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
 											descriptionPost={publicacao.descricao}
 											countLikes={publicacao.numeroLikes}
@@ -100,7 +103,7 @@ function Feed(props) {
 											nameUserPosted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
-											postedIn={publicacao.publicacaoPai.titulo}
+											postedIn={publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}

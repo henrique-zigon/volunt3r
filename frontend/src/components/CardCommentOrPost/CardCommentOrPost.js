@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BiHeart } from 'react-icons/bi';
+import { BiHeart, BiComment } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -15,6 +15,8 @@ const CardCommentOrPost = (props) => {
   const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(props.isLikedPost ? true : false); 
 
   const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
+
+  // const [countCommentsCardCommentOrPost, setCountCommentsCardCommentOrPost] = useState(props.coun)
 
   async function likePostFunction() {
     if(!isLikedCardCommentOrPost) {
@@ -105,6 +107,14 @@ const CardCommentOrPost = (props) => {
             </button>
             <span><b>{countLikesCardCommentOrPost}</b> pessoas curtiram</span>
             {/* <Teste countLikes={props.countLikes}/> */}
+          </div>
+          <div className="like-post">
+            <button className="btn-comment-post" >
+              {
+                <BiComment />
+              }
+            </button>
+            <span><b>{countLikesCardCommentOrPost}</b> comentários</span>
           </div>
         </div>
       </div>

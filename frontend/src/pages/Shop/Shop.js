@@ -20,10 +20,10 @@ function Shop() {
 	useEffect(() => {
 
 		async function getAllCards() {
-			const resposta = await api.get("/cursos", {
+			const resposta = await api.get("/cursos", { params: {pagina : 0, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			setCourses(resposta.data);
+			setCourses(resposta.data.content);
 		}
 
 		getAllCards();
