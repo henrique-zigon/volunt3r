@@ -130,11 +130,11 @@ public class EventoController {
 
             if (registroInscricao.getStatus().equals("confirmado")){
                 retornoHasmap.put("message","Você já participou desse evento");
-                return ResponseEntity.status(400).body(retornoHasmap);
+                return ResponseEntity.status(400).body(retornoHasmap); //ver status
             }
 
             if (usuario.isPresent()){
-                Integer milhas=usuario.get().getQuantidadeMilhas() + 5;
+                Integer milhas=usuario.get().getQuantidadeMilhas() + 5;  //mudar quantidade
                 usuario.get().setQuantidadeMilhas(milhas);  //ADD 5 milhas
                 usuarioRepository.save(usuario.get());
                 registroInscricao.setStatus("confirmado");

@@ -2,7 +2,11 @@ create table categoria(
 	id_categoria int identity primary key,
     nome_categoria varchar(100),
     nivel int,
-    check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4)
+    check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4),
+    limite_bronze int,
+    limite_prata int,
+    limite_ouro int,
+    milhas_promocao int
 );
 
 create table curso(
@@ -57,13 +61,15 @@ create table evento(
     endereco varchar(255),
     maximo_participantes int,
     horas float,
+    milhas_participacao int,
+    titulo varchar(45),
     fk_categoria int,
     foreign key (fk_categoria) references categoria(id_categoria)
 );
 
 create table publicacao(
 	id_publicacao int identity primary key,
-    titulo_publicacao varchar(50),
+    tipo varchar(50),
     descricao varchar(400),
     data_postagem varchar(15),
     imagem varchar(200), 
@@ -109,8 +115,8 @@ create table clique(
     foreign key(fk_usuario) references usuario(id_usuario)
 );
 
-alter table publicacao add tipo varchar(10);
-alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
+#alter table publicacao add tipo varchar(10);
+#alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
 
-alter table evento add titulo varchar(50);
-alter table publicacao drop column titulo_publicacao
+#alter table evento add titulo varchar(50);
+#alter table publicacao drop column titulo_publicacao

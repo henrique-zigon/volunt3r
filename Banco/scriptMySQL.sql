@@ -6,7 +6,11 @@ create table categoria(
 	id_categoria int auto_increment primary key,
     nome_categoria varchar(100),
     nivel int,
-    check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4)
+    check (nivel = 1 or nivel = 2 or nivel = 3 or nivel = 4),
+    limite_bronze int,
+    limite_prata int,
+    limite_ouro int,
+    milhas_promocao int    
 );
 
 create table curso(
@@ -61,13 +65,15 @@ create table evento(
     endereco varchar(255),
     maximo_participantes int,
     horas float,
+    milhas_participacao int,
+    titulo varchar(45),
     fk_categoria int,
     foreign key (fk_categoria) references categoria(id_categoria)
 );
 
 create table publicacao(
 	id_publicacao int auto_increment primary key,
-    titulo_publicacao varchar(50),
+    tipo varchar(50),
     descricao varchar(400),
     data_postagem varchar(15),
     imagem varchar(200), 
