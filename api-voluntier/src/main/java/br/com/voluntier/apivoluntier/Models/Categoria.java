@@ -15,6 +15,43 @@ public class Categoria {
     private String nomeCategoria;
     private int nivel;
 
+    private int limiteBronze;
+    private int limitePrata;
+    private int limiteOuro;
+    private int milhasPromocao;
+
+
+    public int getLimiteBronze() {
+        return limiteBronze;
+    }
+
+    public void setLimiteBronze(int limiteBronze) {
+        this.limiteBronze = limiteBronze;
+    }
+
+    public int getLimitePrata() {
+        return limitePrata;
+    }
+
+    public void setLimitePrata(int limitePrata) {
+        this.limitePrata = limitePrata;
+    }
+
+    public int getLimiteOuro() {
+        return limiteOuro;
+    }
+
+    public void setLimiteOuro(int limiteOuro) {
+        this.limiteOuro = limiteOuro;
+    }
+
+    public int getMilhasPromocao() {
+        return milhasPromocao;
+    }
+
+    public void setMilhasPromocao(int milhasPromocao) {
+        this.milhasPromocao = milhasPromocao;
+    }
 
     public Integer getIdCategoria() {
         return idCategoria;

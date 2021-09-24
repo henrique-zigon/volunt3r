@@ -17,13 +17,21 @@ public class Evento {
     private String endereco;
     private Integer maximoParticipantes;
     private double horas;
-
+    private Integer milhasParticipacao;
     @OneToMany(mappedBy = "fkEvento")
     private List<InscricaoEvento> inscritos;
 
     @ManyToOne
     @JoinColumn(name = "fk_categoria")
     private Categoria categoria;
+
+    public Integer getMilhasParticipacao() {
+        return milhasParticipacao;
+    }
+
+    public void setMilhasParticipacao(Integer milhasParticipacao) {
+        this.milhasParticipacao = milhasParticipacao;
+    }
 
     public Integer getId() {
         return id;

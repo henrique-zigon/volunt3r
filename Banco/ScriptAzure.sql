@@ -70,6 +70,7 @@ create table evento(
 create table publicacao(
 	id_publicacao int identity primary key,
     tipo varchar(50),
+    check(tipo = 'publicacao' or tipo='evento' or tipo='comentario')
     descricao varchar(400),
     data_postagem varchar(15),
     imagem varchar(200), 
