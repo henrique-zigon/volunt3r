@@ -81,7 +81,7 @@ function Feed(props) {
 												abrirModal();
 											}}*/
 											imagePost={publicacao.pathImagem}
-											nameUserPossted={publicacao.usuario.nomeUsuario}
+											nameUserPosted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import api from '../../api';
 import './card-perfil-style.css';
+import Conquista from '../../components/Conquista/Conquista';
 
 const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
@@ -38,7 +39,28 @@ return(
             </div>
 
             <div className="profile-content">
-                <span>TBD</span>
+                <div className="user-medals">
+                    <span>Minhas medalhas</span>
+                    <div className="user-medals-slots">
+                        <Conquista show="icone"/>
+                        <Conquista show="icone"/>
+                        <Conquista show="icone"/>
+                        <Conquista show="icone"/>
+                        <Conquista show="icone"/>
+                        <Conquista show="icone"/>
+                        {/* map de conquistas */}
+                    </div>
+                    <span>Ver mais</span>
+                </div>
+                <div className="user-medals-detailed">
+                    <span>Meu progresso</span>
+                    <div className="medals-detailed-scroll">
+                        <Conquista show="all"/>
+                        <Conquista show="all"/>
+                        <Conquista show="all"/>
+                                {/* map de conquistas */}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

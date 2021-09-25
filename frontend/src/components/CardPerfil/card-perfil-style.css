@@ -108,6 +108,39 @@ div.profile-header button.btn-edit-profile:hover{
 	background: var(--hover-color-button);
 }
 
+
+div.profile-content{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+div.user-medals{
+	width: 35%;
+	padding: 10px;
+	max-height: 200px;
+}
+
+div.user-medals-slots{
+	display: flex;
+  	flex-flow: row wrap;
+	justify-content: flex-start;
+
+	align-items: center;
+	width: 100%;
+}
+
+div.user-medals-detailed{
+	width: 50%;
+}
+
+div.medals-detailed-scroll{
+	max-height: 150px;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+
 @media screen and (max-width: 990px) {
 
 	div.profile-info{
@@ -138,12 +171,22 @@ div.profile-header button.btn-edit-profile:hover{
 		width: 50px;
 	}
 
+	div.profile-content{
+		flex-direction: column;
+	}
+
+	div.user-medals{
+		width: 80%;
+		max-height: 500px;
+	}
+
+	div.user-medals-detailed{
+		width: 80%;
+	}
+
+	div.medals-detailed-scroll{
+		max-height: 200px;
+
+	}
 }
 
-@media screen and (max-width: 580px) {
-
-	
-
-	
-
-}
