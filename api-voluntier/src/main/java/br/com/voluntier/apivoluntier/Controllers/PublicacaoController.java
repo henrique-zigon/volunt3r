@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -187,6 +188,21 @@ public class PublicacaoController {
         } else {
             allPub.forEach(pub -> {
                 pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
+        }
+    }
+
+    @GetMapping("/perfil/{usuario}")
+    public ResponseEntity getFeedUsuario(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                  @PathVariable Integer usuario) {
+        List<Publicacao> allPub = repository.findAllByFkUsario(usuario);
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(usuario);
             });
             return ResponseEntity.status(200).body(allPub);
         }
