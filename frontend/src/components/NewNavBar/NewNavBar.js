@@ -3,9 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { BiHomeAlt, BiShoppingBag, BiCalendarAlt, BiLineChart, BiUser } from 'react-icons/bi';
 
 import './newNavBar-style.css';
+import { useCookies } from 'react-cookie';
 
 const NewNavBar = () => {
   let location = useLocation().pathname;
+
+  const [cookies_user] = useCookies(['volunt3r_user']);
+
+  let tipoUsuario = cookies_user.volunt3r_user.tipoUsuario;
 
   return (
     <nav className="new-navbar">
@@ -42,12 +47,11 @@ const NewNavBar = () => {
             <span>Perfil</span>
           </Link>
         </li>
-        <li>
-          <Link to="/dashboard" className="linkagem">
-            <BiLineChart />
-            <span>Dashboard</span>
-          </Link>
-        </li>
+
+        {
+          tipoUsuario === "b3_social" ? <li> <Link to="/dashboard" className="linkagem"> <BiLineChart /> <span>Dashboard</span> </Link></li> : ""
+        }
+        
         
       </ul>
     </nav>
