@@ -54,7 +54,7 @@ function Feed(props) {
 
 	return (
 		<>
-			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} />
+			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} cookieUser={cookies_user} token={cookies.volunt3r} />
 			<div className="feed-container">
 
 				<UserImage imagem={imageUser} nome={NomeSobrenome[1]} />

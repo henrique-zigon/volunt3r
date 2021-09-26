@@ -14,11 +14,6 @@ div.container-modal-post {
 div.container-modal-post.show {
     display: flex; 
 }
-div.container-modal-post.hidden {
-    display: none; 
-}
-
-
 
 div.container-modal-post div.content-modal-post {
     position: relative;
@@ -61,6 +56,10 @@ div.container-modal-post div.content-modal-post div.line {
     width: 100%;
     height: 1px;
     background: #f1f1f1;
+}
+
+div.container-modal-post div.content-modal-post form {
+    width: 100%;
 }
 
 div.container-modal-post div.content-modal-post textarea {
