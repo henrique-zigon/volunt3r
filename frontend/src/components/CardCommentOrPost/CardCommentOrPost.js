@@ -16,6 +16,12 @@ const CardCommentOrPost = (props) => {
 
   const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
 
+
+
+  const { } = props;
+
+
+
   // const [countCommentsCardCommentOrPost, setCountCommentsCardCommentOrPost] = useState(props.coun)
 
   async function likePostFunction() {
@@ -90,7 +96,9 @@ const CardCommentOrPost = (props) => {
             </div>
           </div>
 
-          <span className="posted-in">Postou em <b>{props.postedIn}</b></span>
+          {
+            props.postedIn === "" ? <span className="posted-in">Postou em <b>Postou há 1h</b></span> : <span className="posted-in">Postou em <b>{props.postedIn}</b></span>
+          }
         </header>
 
         <div className="post-information">

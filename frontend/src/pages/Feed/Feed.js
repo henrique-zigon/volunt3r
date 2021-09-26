@@ -84,7 +84,7 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
-								// console.log(publicacao);
+								console.log();
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
@@ -115,7 +115,7 @@ function Feed(props) {
 											nameUserPosted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
-											postedIn={publicacao.evento.titulo}
+											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
