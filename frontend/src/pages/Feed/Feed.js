@@ -8,6 +8,7 @@ import avatarPadrao from '../../images/avatar_padrao.png';
 import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
+import ModalNewPost from '../../components/ModalNewPost/ModalNewPost';
 
 import UserImage from '../../components/UserImage/UserImage';
 
@@ -19,6 +20,16 @@ function Feed(props) {
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
+
+	const [stateModalNewPost, setStateModalNewPost] = useState("");
+
+	function showModalNewPost () {
+		setStateModalNewPost("show");
+	}
+
+	function closeDropdown() {
+		setStateModalNewPost("");
+	};
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
@@ -37,13 +48,13 @@ function Feed(props) {
 	}, [])
 
 	// Foto de Perfil
-	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
-	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+	let nomeCompleto = cookies.volunt3r_user.nomeUsuario;
+	let regexNomeSobrenome = /(\w+ \w+)/
+	let NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 	return (
 		<>
-
+			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} />
 			<div className="feed-container">
 
 				<UserImage imagem={imageUser} nome={NomeSobrenome[1]} />
@@ -58,10 +69,11 @@ function Feed(props) {
 							src={imageUser}
 							alt=""
 						/>
-						<input type="text" placeholder="Que tal compartilhar a sua experiência?" />
-						<button type="button">
+						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
+						{/* <button type="button">
 							<BiSend className="icon-submit-image" />
-						</button>
+						</button> */}
+
 					</div>
 
 					<div className="feed-cards">
@@ -72,7 +84,7 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
-								console.log(publicacao);
+								// console.log(publicacao);
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
