@@ -1,0 +1,57 @@
+.hide{
+    display: none;
+}
+
+div.user-medals{
+	width: 45%;
+	padding: 10px;
+	max-height: 200px;
+}
+
+div.user-medals-info{
+	width: 87%;
+}
+
+div.user-medals-slots{
+	display: flex;
+  	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+}
+
+div.slots-preview{
+	max-height: 150px;
+	overflow: hidden;
+}
+
+div.user-medals span.linkagem{
+	font-size: 0.7em;
+	color: #616161;
+	float: right;
+}
+
+
+@media screen and (max-width: 990px) {
+
+	div.slots-preview{
+		max-height: 200px;
+	}
+
+	div.user-medals{
+		padding-top: 40px;
+		width: 80%;
+		margin: auto;
+		max-height:none;
+	}
+
+	div.user-medals-info{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	div.slots-preview{
+		max-height: 250px;
+	}
+}

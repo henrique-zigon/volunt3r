@@ -1,8 +1,7 @@
 div.profile-card {
 	width: 100%;
 	height: auto;
-	min-height: 500px;
-
+	min-height: 640px;
 	background: #FFF;
 	border-radius: 8px;
 	display: flex;
@@ -112,41 +111,36 @@ div.profile-header button.btn-edit-profile:hover{
 div.profile-content{
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	justify-content: space-between;
+	width: 100%;
 }
 
-div.user-medals{
-	width: 35%;
+div.profile-bio{
+	padding-top: 10px;
+	color: #b5b5b5;
+	font-size: 0.8em;
+}
+
+div.profile-bio-area{
+	width: 50%;
 	padding: 10px;
 	max-height: 200px;
 }
 
-div.user-medals-slots{
+div.profile-content-inside{
 	display: flex;
-  	flex-flow: row wrap;
-	justify-content: flex-start;
-
-	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: auto;
 	width: 100%;
 }
 
-div.user-medals-detailed{
-	width: 50%;
-}
-
-div.medals-detailed-scroll{
-	max-height: 150px;
-	overflow-x: hidden;
-    overflow-y: auto;
-}
 
 @media screen and (max-width: 990px) {
 
 	div.profile-info{
 		flex-direction: column;
 	}
-
 
 	div.profile-user-info{
 		margin-left: 0px;
@@ -156,7 +150,6 @@ div.medals-detailed-scroll{
 		justify-content: center;
 	}
 	
-
 	div.profile-header{
 		justify-content: center;
 		margin-left: 50px;
@@ -172,21 +165,18 @@ div.medals-detailed-scroll{
 	}
 
 	div.profile-content{
-		flex-direction: column;
+		flex-direction: column;	
 	}
 
-	div.user-medals{
+	div.profile-content-inside{
+		flex-direction: column;	
+		justify-content: space-evenly;
+	}
+
+	div.profile-bio-area{
 		width: 80%;
-		max-height: 500px;
+		margin: auto;
 	}
 
-	div.user-medals-detailed{
-		width: 80%;
-	}
-
-	div.medals-detailed-scroll{
-		max-height: 200px;
-
-	}
 }
 

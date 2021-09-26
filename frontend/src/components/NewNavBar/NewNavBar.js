@@ -35,7 +35,7 @@ const NewNavBar = () => {
           </Link>
         </li>
         <li className={
-          location === "/perfil" ? "li-current": "" 
+          location === "/perfil" || location === "/perfil-conquistas" ? "li-current": "" 
         }>
           <Link to="/perfil" className="linkagem">
             <BiUser />
