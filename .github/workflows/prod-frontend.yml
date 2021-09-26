@@ -56,4 +56,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
-          script: "sudo systemctl stop frontend-voluntier && cd /tmp && sudo tar -zxvf prod_build.tar.gz && sudo rm -rf /var/www/frontend-voluntier/build && sudo mv /tmp/frontend/build /var/www/frontend-voluntier && sudo chown www-data:www-data /var/www/frontend-voluntier/build && sudo systemctl start frontend-voluntier"
+          script: "sudo systemctl stop frontend-voluntier && cd /tmp && sudo tar -zxvf prod_build.tar.gz && sudo rm -rf /var/www/frontend-voluntier/build && sudo mv /tmp/frontend/build /var/www/frontend-voluntier && sudo chown nginx:nginx /var/www/frontend-voluntier/build && sudo systemctl start frontend-voluntier"
