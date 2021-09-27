@@ -100,6 +100,7 @@ function Feed(props) {
 											addressPost={publicacao.evento.endereco}
 											descriptionPost={publicacao.descricao}
 											countLikes={publicacao.numeroLikes}
+											countRelatedPosts={publicacao.numeroComentarios}
 											dataEvent={publicacao.evento.dataEvento}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
@@ -117,6 +118,7 @@ function Feed(props) {
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
+											countComments={publicacao.numeroComentarios}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}

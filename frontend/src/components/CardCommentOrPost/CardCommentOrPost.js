@@ -16,6 +16,8 @@ const CardCommentOrPost = (props) => {
 
   const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
 
+  const [countCommentsCardCommentOrPost, setCountCommentsCardCommentOrPost] = useState(props.countComments);
+
   const [stateCommentContainer, setStateCommentContainer] = useState("");
 
 
@@ -35,7 +37,6 @@ const CardCommentOrPost = (props) => {
     console.log(stateCommentContainer)
   }
 
-  // const [countCommentsCardCommentOrPost, setCountCommentsCardCommentOrPost] = useState(props.coun)
 
   async function likePostFunction() {
     if(!isLikedCardCommentOrPost) {
@@ -138,7 +139,7 @@ const CardCommentOrPost = (props) => {
                   <BiComment onClick={showOrHiddenComments}/>
                 }
               </button>
-              <span><b>{countLikesCardCommentOrPost}</b> comentários</span>
+              <span><b>{countCommentsCardCommentOrPost}</b> comentários</span>
             </div>
           </div>
         </div>

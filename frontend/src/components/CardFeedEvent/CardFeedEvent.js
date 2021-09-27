@@ -19,7 +19,7 @@ const CardFeedEvent = (props) => {
   
   const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false); 
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
-  // const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props)
+  const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
 
   async function likePostFunction() {
     if(!isLikedCardFeedEvent) {
@@ -125,7 +125,7 @@ const CardFeedEvent = (props) => {
                 <BiRepost />
               }
             </button>
-            <span><b>{countLikesCardFeedEvent}</b> postagens relacionadas</span>
+            <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
           </div>
         </div>
       </div>
