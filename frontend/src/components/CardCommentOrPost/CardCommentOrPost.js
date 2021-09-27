@@ -8,8 +8,6 @@ import './style-cardCommentOrPost.css';
 import api from '../../api';
 
 
-const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
-
 const CardCommentOrPost = (props) => {
 
   const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(props.isLikedPost ? true : false); 
@@ -94,7 +92,7 @@ const CardCommentOrPost = (props) => {
 
       
         <img className="image-post"
-          src={`${URL}/arquivos/imagem/${props.imagePost}`}
+          src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
           alt={props.titlePost}
         />
 

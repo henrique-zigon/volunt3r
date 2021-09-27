@@ -18,10 +18,7 @@ function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [eventos, setEventos] = useState([]);
 
-	const URL_API = "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/";
-
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
-	
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	function handleSearch(e) {
 		console.log()
@@ -103,7 +100,7 @@ function EventCatalog() {
 											}}*/
 											imagePost={evento.pathImagem}
 											nameUserPosted={evento.usuario.nomeUsuario}
-											imageUserPosted={URL_API+evento.usuario.usuarioImagemPerfil}
+											imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
 											titlePost={evento.titulo}
 											addressPost={evento.evento.endereco}

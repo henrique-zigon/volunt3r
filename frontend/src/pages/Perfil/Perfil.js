@@ -49,7 +49,7 @@ function Perfil(props) {
 				<div className="perfil-content">
 					<NewNavBar />
                     <div>
-                    <CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover ={cookies.volunt3r_user.imagemCapa == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio}/>
+                    <CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover ={cookies.volunt3r_user.imagemCapa == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio}/>
                     </div>
 					<div className="feed-cards">
 
@@ -69,7 +69,7 @@ function Perfil(props) {
 											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
@@ -88,9 +88,9 @@ function Perfil(props) {
 										<CardCommentOrPost
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
-											postedIn={publicacao.evento.titulo}
+											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}

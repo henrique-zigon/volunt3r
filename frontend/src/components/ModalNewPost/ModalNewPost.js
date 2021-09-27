@@ -36,21 +36,16 @@ const ModalNewPost = (props) => {
         // PARA ENVIAR POST
         e.preventDefault();
 
-
         let descricao = e.target.descricao.value;
 
-        console.log(token)
-
-    
         const date = new Date();
 
         let hourPosted = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         let today = date.getDate()+"-"+(date.getMonth() + 1)+"-"+date.getFullYear() +" "+ hourPosted;
 
-        
-        let formData = new FormData()
-        
-        formData.append('file', e.target.file_new_post.files[0]);
+        let formData = new FormData();
+
+        formData.append('arquivo', e.target.file_new_post.files[0]);
 
         let headers = {
             'Content-Type': 'multipart/form-data',
@@ -68,7 +63,7 @@ const ModalNewPost = (props) => {
                 },
                 tipo: "publicacao"
             },
-            arquivo: null
+            arquivo: formData
         }
 
         await api.post("/publicacoes/novo", data, {
