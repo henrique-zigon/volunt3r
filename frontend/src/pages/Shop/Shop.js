@@ -60,17 +60,9 @@ function Shop() {
 					<div className="search-itens">
 						<InputForm  onkeyup={filtrarLoja()}
 							type="text"
-							id="categoriaCurso"
-							name="categoriaCurso"
-							label="Categoria do curso"
-
-						// function={(e) => handleSearch(e)}
-						/>
-						<InputForm
-							type="text"
-							id="ordernarPor"
-							name="ordernarPor"
-							label="Ordernar por"
+							id="filtroLoja"
+							name="filtroLoja"
+							label="Pesquise um curso"
 
 						// function={(e) => handleSearch(e)}
 						/>

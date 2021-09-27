@@ -70,6 +70,11 @@ function EventCatalog() {
 				<div className="feed-content">
 					<NewNavBar />
 
+					<div className="description-page">
+						<span className="title">Eventos</span>
+						<span className="description">Que tal abraçar uma causa? 😉</span>
+					</div>
+
 					<div className="search-itens">
 						<InputForm 
 							type="text"
