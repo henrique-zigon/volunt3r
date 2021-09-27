@@ -106,7 +106,7 @@ div.feed-cards span.not-content {
 }
 
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 750px) {
 
 	div.feed-container div.feed-content {
 		width: 95%;
