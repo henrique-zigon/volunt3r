@@ -18,14 +18,7 @@ const NewNavBar = () => {
             <span>Feed</span>
           </Link>
         </li>
-        <li className={
-          location === "/shop" ? "li-current": "" 
-        }>
-          <Link to="/shop" className="linkagem">
-            <BiShoppingBag />
-            <span>Loja</span>
-          </Link>
-        </li>
+        
         <li className={
           location === "/catalog" ? "li-current": "" 
         }>
@@ -34,6 +27,16 @@ const NewNavBar = () => {
             <span>Eventos</span>
           </Link>
         </li>
+
+        <li className={
+          location === "/shop" ? "li-current": "" 
+        }>
+          <Link to="/shop" className="linkagem">
+            <BiShoppingBag />
+            <span>Loja</span>
+          </Link>
+        </li>
+        
         <li className={
           location === "/perfil" ? "li-current": "" 
         }>

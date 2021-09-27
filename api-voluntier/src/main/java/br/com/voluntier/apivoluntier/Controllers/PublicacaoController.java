@@ -193,6 +193,27 @@ public class PublicacaoController {
         }
     }
 
+    @GetMapping("/filtroEventos/{filtro}")
+    public ResponseEntity getFiltroEventos(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                  @RequestHeader String Authorization,
+                                     @PathVariable String filtro
+                                     ) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+        Page<Publicacao> allPub = repository.findByEvento_TituloContainsOrDescricaoContainsAndTipoEquals(
+                filtro, filtro, "evento", PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
+        }
+    }
+
+
     @GetMapping("/perfil/{usuario}")
     public ResponseEntity getFeedUsuario(@RequestParam(defaultValue = "0") Integer pagina,
                                   @RequestParam(defaultValue = "10") Integer tamanho,
