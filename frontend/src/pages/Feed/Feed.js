@@ -14,10 +14,11 @@ import UserImage from '../../components/UserImage/UserImage';
 
 function Feed(props) {
 
+
 	const [cookies] = useCookies(['volunt3r']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
@@ -94,7 +95,7 @@ function Feed(props) {
 											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
@@ -114,7 +115,7 @@ function Feed(props) {
 										<CardCommentOrPost
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
