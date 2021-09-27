@@ -49,6 +49,7 @@ function Routes() {
                     <Route exact path="/recuperar-senha-redefinir" component={RecuperarSenha2} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/perfil" component={Perfil} />
+                    <Route exact path="/perfil-conquistas" component={Perfil} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>

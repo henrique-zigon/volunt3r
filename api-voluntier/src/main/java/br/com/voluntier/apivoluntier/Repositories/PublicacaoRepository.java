@@ -31,4 +31,10 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
 
     @Query(value = "select * from Publicacao where fk_usuario=?1",nativeQuery = true)
     List<Publicacao> findAllByFkUsario(int fkUsuario);
+
+    Page<Publicacao> findByDescricaoLike(String descricao, Pageable pageable);
+
+    Page<Publicacao> findByEvento_TituloContainsOrDescricaoContainsAndTipoEquals(String titulo, String descricao, String tipo, Pageable pageable);
+
+
 }

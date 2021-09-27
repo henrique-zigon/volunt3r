@@ -29,6 +29,13 @@ function Shop() {
 		getAllCards();
 	}, [])
 
+	function filtrarLoja(e){
+	
+		const cursosFiltrados = api.post(`/cursos/filtroLoja/${e}`);
+		
+		
+		}
+
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
 	var regexNomeSobrenome = /(\w+ \w+)/
@@ -51,7 +58,7 @@ function Shop() {
 
 
 					<div className="search-itens">
-						<InputForm
+						<InputForm  onkeyup={filtrarLoja()}
 							type="text"
 							id="categoriaCurso"
 							name="categoriaCurso"

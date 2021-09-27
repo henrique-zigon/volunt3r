@@ -26,6 +26,7 @@ function EventCatalog() {
 
 	function handleSearch(e) {
 		console.log(e.target.value)
+		const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
 	}
 
 	useEffect(() => {
@@ -34,11 +35,19 @@ function EventCatalog() {
 			const resposta = await api.get("/eventos", { params: {pagina : 0, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			setEventos(resposta.data.content);
+			setEventos(resposta.data.content.reverse());
 		}
 
 		getAllCards();
 	}, [])
+
+
+	function filtrarEventos(e){
+	
+	const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
+	
+	}
+
 
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
@@ -57,7 +66,7 @@ function EventCatalog() {
 					<NewNavBar />
 
 					<div className="search-itens">
-						<InputForm 
+						<InputForm onkeyup={filtrarEventos()}
 							type="text"
 							id="categoriaEvento"
 							name="categoriaEvento"
@@ -65,7 +74,7 @@ function EventCatalog() {
 
 							function={(e) => handleSearch(e)}
 						/>
-						<InputForm 
+						<InputForm onkeyup={filtrarEventos}
 							type="text"
 							id="tipoDoacao"
 							name="tipoDoacao"

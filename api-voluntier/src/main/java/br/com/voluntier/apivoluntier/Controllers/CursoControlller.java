@@ -2,6 +2,7 @@ package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.Curso;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Repositories.CursoRepository;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,4 +81,16 @@ public class CursoControlller {
     public ResponseEntity getCategorias() {
         return ResponseEntity.status(200).body(repository.findUniqueCategorias());
     }
+
+
+    @GetMapping("/filtroLoja")
+    public ResponseEntity getFiltroEventos(@RequestParam(defaultValue = "0") Integer pagina,
+                                           @RequestParam(defaultValue = "10") Integer tamanho,
+                                           @PathVariable String filtro
+    ) {
+        Page<Curso> allCursos = repository.findByTituloContainsOrDescricaoContainsOrCategoriaContains(
+                filtro, filtro, filtro, PageRequest.of(pagina, tamanho));
+            return ResponseEntity.status(200).body(allCursos);
+        }
 }
+
