@@ -138,7 +138,21 @@ div.contain-form div.footer2 .bold {
 	.information-page h2.title {
 		font-size: 1.2rem;
 	}
+
 	
+}
+
+
+@media screen and (max-width: 1000px) {
+	div.container-modal-post{
+		padding:  25px;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	div.information-card div.footer-information {
+		position: relative !important;
+	}
 }
 
 @media screen and (max-width: 840px) {
@@ -173,6 +187,8 @@ div.contain-form div.footer2 .bold {
 	div.shop-card img.course-image {
 		height: 250px !important;
 	}
+
+	
 } 
 
 @media screen and (max-width: 580px) {
@@ -182,5 +198,18 @@ div.contain-form div.footer2 .bold {
 
 	div.shop-card img.course-image {
 		height: 200px !important;
+	}
+
+	div.container-modal-post div.content-modal-post div.upload-files {
+		font-size: 0.8rem;
+	}
+
+	div.container-modal-post div.content-modal-post div.upload-files svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	div.container-modal-post div.content-modal-post textarea::placeholder {
+		font-size: 0.8rem !important;
 	}
 } 

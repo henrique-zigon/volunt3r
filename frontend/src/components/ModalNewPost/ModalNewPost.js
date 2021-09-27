@@ -1,16 +1,26 @@
+import api from '../../api';
 import React, { useState } from 'react';
-import { BiX, BiUpload } from 'react-icons/bi'
+import { BiX, BiUpload } from 'react-icons/bi';
+import { useToasts } from 'react-toast-notifications';
+
+
 import './ModalNewPost.css';
 
 
 const ModalNewPost = (props) => {
 
 
-    const { className, modalRef, nameUserLogged, closeModalFunction } = props;
+    const { 
+        className, 
+        nameUserLogged, 
+        closeModalFunction, 
+        cookieUser, 
+        token 
+    } = props;
 
     const [statePreview, setStatePreview] = useState();
 
-    const [stateModalNewPostA, setStateModalNewPostA] = useState(className);
+    const { addToast } = useToasts();
 
     const imageHandler = (e) => {
         const reader = new FileReader();
@@ -22,8 +32,52 @@ const ModalNewPost = (props) => {
         reader.readAsDataURL(e.target.files[0]);
     }
 
-    function sendNewPost() {
+    async function sendNewPost(e) {
         // PARA ENVIAR POST
+        e.preventDefault();
+
+
+        let descricao = e.target.descricao.value;
+
+        console.log(token)
+
+    
+        const date = new Date();
+
+        let hourPosted = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        let today = date.getDate()+"-"+(date.getMonth() + 1)+"-"+date.getFullYear() +" "+ hourPosted;
+
+        
+        let formData = new FormData()
+        
+        formData.append('file', e.target.file_new_post.files[0]);
+
+        let headers = {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': token
+        }
+
+        let data = {
+            novaPublicacao: {
+                descricao,
+                dataPostagem: today,
+                publicacaoPai: null,
+                evento: null,
+                usuario: {
+                    idUsuario: cookieUser.idUsuario
+                },
+                tipo: "publicacao"
+            },
+            arquivo: null
+        }
+
+        await api.post("/publicacoes/novo", data, {
+            headers
+        }).then((resposta) => {
+            console.log(resposta)
+        }).catch((e) => {
+            console.error(e)
+        });
 
     }  
 
@@ -35,20 +89,25 @@ const ModalNewPost = (props) => {
                     <BiX size={30} className="close-modal" onClick={closeModalFunction} />
                 </header>
                 <div className="line"></div>
-                <textarea placeholder={`Olá ${nameUserLogged}, o que você gostaria de compartilhar?`}></textarea>
 
-                <div className="upload-files">
-                    <div className="container-preview">
-                        <img src={statePreview} alt="" className="preview"/>
+                <form action="" onSubmit={sendNewPost}>
+                    <textarea placeholder={`Olá ${nameUserLogged}, o que você gostaria de compartilhar?`} name="descricao"></textarea>
+
+                    <div className="upload-files">
+                        <div className="container-preview">
+                            <img src={statePreview} alt="" className="preview"/>
+                        </div>
+                        <input type="file" name="file_new_post" id="" accept="image/*" onChange={imageHandler}/>
+                        <span className="title-upload">Que tal compartilhar uma foto?</span>
+                        <BiUpload size={25}/>
                     </div>
-                    <input type="file" name="file-new-post" id="" accept="image/*" onChange={imageHandler}/>
-                    <span className="title-upload">Que tal compartilhar uma foto?</span>
-                    <BiUpload size={25}/>
-                </div>
 
-                <button type="button" className="button-submit-new-post" onClick={sendNewPost}>
+                    <button type="submit" className="button-submit-new-post">
                     Enviar
-                </button>
+                    </button>
+                </form>
+
+                
             </div>
         </div>
     );

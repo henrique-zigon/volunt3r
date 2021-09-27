@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { BiEdit } from 'react-icons/bi';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../api';
 import './card-perfil-style.css';
 import Conquista from '../../components/Conquista/Conquista';
+import CardConquistasIcones from '../../components/CardConquistasIcones/CardConquistasIcones';
+import CardConquistasDetailed from '../../components/CardConquistasDetailed/CardConquistasDetailed';
 
 const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
 
 const CardPerfil = (props) => {
+    let location = useLocation().pathname;
 return(
     <div className="profile-card">
         <div className="profile-card-content">
@@ -39,29 +43,31 @@ return(
             </div>
 
             <div className="profile-content">
-                <div className="user-medals">
-                    <span>Minhas medalhas</span>
-                    <div className="user-medals-slots">
-                        <Conquista show="icone"/>
-                        <Conquista show="icone"/>
-                        <Conquista show="icone"/>
-                        <Conquista show="icone"/>
-                        <Conquista show="icone"/>
-                        <Conquista show="icone"/>
-                        {/* map de conquistas */}
+                {
+            (()=>{
+            if(location==="/perfil"){				
+                return (
+                        <div className="profile-content-inside">
+                            <div className="profile-bio-area">
+                                <span>Sobre mim</span>
+                                <div className="profile-bio">
+                                    <span>{props.bio}</span>
+                                </div>
+                            </div>
+                            <CardConquistasIcones />
+                        </div>
+                       );}
+
+            if(location==="/perfil-conquistas"){
+                return(      
+                    <div className="profile-content-inside">  
+                        <CardConquistasIcones />
+                        <CardConquistasDetailed />
                     </div>
-                    <span>Ver mais</span>
-                </div>
-                <div className="user-medals-detailed">
-                    <span>Meu progresso</span>
-                    <div className="medals-detailed-scroll">
-                        <Conquista show="all"/>
-                        <Conquista show="all"/>
-                        <Conquista show="all"/>
-                                {/* map de conquistas */}
-                    </div>
-                </div>
+                );}
+            })()}
             </div>
+
         </div>
     </div>
 );
