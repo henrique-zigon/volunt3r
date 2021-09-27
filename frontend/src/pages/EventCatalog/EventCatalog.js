@@ -23,10 +23,18 @@ function EventCatalog() {
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 	
 
-
 	function handleSearch(e) {
-		console.log(e.target.value)
-		const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
+		console.log()
+		let filtro = e.target.value
+		api.get(`/publicacoes/filtroEventos/${filtro}`, {
+			headers: {
+				'Authorization': cookies.volunt3r
+			}
+		}).then(resposta => {
+			console.log(resposta)
+		}).catch(err => {
+			console.log(err)
+		});
 	}
 
 	useEffect(() => {
@@ -42,11 +50,11 @@ function EventCatalog() {
 	}, [])
 
 
-	function filtrarEventos(e){
+	// function filtrarEventos(e){
+	// 	console.log(e)
+	// 	// const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
 	
-	const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
-	
-	}
+	// }
 
 
 	// Foto de Perfil
@@ -66,19 +74,11 @@ function EventCatalog() {
 					<NewNavBar />
 
 					<div className="search-itens">
-						<InputForm onkeyup={filtrarEventos()}
+						<InputForm 
 							type="text"
-							id="categoriaEvento"
-							name="categoriaEvento"
-							label="Categoria do evento"
-
-							function={(e) => handleSearch(e)}
-						/>
-						<InputForm onkeyup={filtrarEventos}
-							type="text"
-							id="tipoDoacao"
-							name="tipoDoacao"
-							label="Tipo de doação"
+							id="filtro"
+							name="filtro"
+							label="Pesquise um evento"
 
 							function={(e) => handleSearch(e)}
 						/>
