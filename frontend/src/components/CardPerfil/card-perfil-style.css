@@ -87,24 +87,10 @@ div.profile-user-info{
 	align-items: center;
 }
 
-div.profile-header button.btn-edit-profile {
-	width: 150px;
-	height: 50px;
-	border-radius: 100px;
-	background: var(--principal-blue);
-	border: none;
-	color: #FFF;
-	cursor: pointer;
-	
-}
 
 div.profile-header button.btn-edit-profile div{
 	align-items: center;
 	justify-content: space-between;
-}
-
-div.profile-header button.btn-edit-profile:hover{
-	background: var(--hover-color-button);
 }
 
 
@@ -154,14 +140,6 @@ div.profile-content-inside{
 		justify-content: center;
 		margin-left: 50px;
 		top: -50px;
-	}
-
-	div.profile-header button.btn-edit-profile span{
-		display: none;
-	}
-
-	div.profile-header button.btn-edit-profile{
-		width: 50px;
 	}
 
 	div.profile-content{

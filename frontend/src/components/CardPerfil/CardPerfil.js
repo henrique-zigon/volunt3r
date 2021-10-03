@@ -8,6 +8,7 @@ import './card-perfil-style.css';
 import Conquista from '../../components/Conquista/Conquista';
 import CardConquistasIcones from '../../components/CardConquistasIcones/CardConquistasIcones';
 import CardConquistasDetailed from '../../components/CardConquistasDetailed/CardConquistasDetailed';
+import Botao from '../../components/Botao/Botao';
 
 
 const CardPerfil = (props) => {
@@ -29,14 +30,7 @@ const CardPerfil = (props) => {
                                 <span className="subtitle">{props.cargo}</span>
                             </div>
                         </div>
-                        <button className="btn-edit-profile">
-                            <div>
-                                <span>
-                                    Editar Perfil
-                                </span>
-                                <BiEdit size="15px" />
-                            </div>
-                        </button>
+                        <Botao children="Editar Perfil"/>
                     </div>
                 </div>
 
