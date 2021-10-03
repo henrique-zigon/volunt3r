@@ -11,19 +11,23 @@ const Conquista = (props) => {
             <div className="medal-icon">
                 <img src={avatarPadrao}></img>
             </div>
-            {/* {renderProgress(props.show)} */
+            {
                 (() => {
+                    const porcProgresso = (props.progressoAtingido*100)/props.progressoMaximo;
+
+                    const checkProgress = porcProgresso < 50 ? "progresso-abaixo-media" : "progresso-acima-media";
+
                     if (props.show != "icone") {
                         return (
                             <div className="medal-progress">
                                 <div className="progress-statistics">
-                                    <span className="current-progress">19</span>
+                                    <span className="current-progress">{props.progressoAtingido}</span>
                                     <span>/</span>
-                                    <span className="total-progress">20</span>
+                                    <span className="total-progress">{props.progressoMaximo}</span>
                                 </div>
                                 <div className="progress-bar">
                                     <div className="total-progress-bar">
-                                        <div className="current-progress-bar"></div>
+                                        <div className={`current-progress-bar ${checkProgress}`} style={{width: porcProgresso+'%'}}></div>
                                     </div>
                                 </div>
                             </div>
@@ -35,26 +39,6 @@ const Conquista = (props) => {
     );
 }
 
-
-const renderProgress = (props) => {
-    if (props.show != "icone") {
-        return (
-            <div className="medal-progress">
-                <div className="progress-statistics">
-                    <span className="current-progress">19</span>
-                    <span>/</span>
-                    <span className="total-progress">20</span>
-                </div>
-                <div className="progress-bar">
-                    <div className="total-progress-bar">
-                        <div className="current-progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-}
 
 
 export default Conquista;

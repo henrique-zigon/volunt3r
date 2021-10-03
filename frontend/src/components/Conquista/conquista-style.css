@@ -41,10 +41,16 @@ div.total-progress-bar{
 }
 
 div.total-progress-bar .current-progress-bar{
-    width: 80%;
 	height: 100%;
-	background-color: #34FF85;
     border-radius: 50px;
+}
+
+.progresso-abaixo-media{
+    background-color: #FAFD74;
+}
+
+.progresso-acima-media{
+    background-color: #34FF85;
 }
 
 div.progress-statistics{

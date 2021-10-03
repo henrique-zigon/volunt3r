@@ -14,12 +14,12 @@ const CardConquistasDetailed = (props) => {
             <div className="user-medals-detailed">
                 <span>Meu progresso</span>
                 <div className="medals-detailed-scroll">
-                    <Conquista show="all"/>
-                    <Conquista show="all"/>
-                    <Conquista show="all"/>
-                    <Conquista show="all"/>
-                    <Conquista show="all"/>
-                    <Conquista show="all"/>
+                    <Conquista show="all" progressoAtingido={5} progressoMaximo={20}/>
+                    <Conquista show="all" progressoAtingido={3} progressoMaximo={20}/>
+                    <Conquista show="all" progressoAtingido={10} progressoMaximo={20}/>
+                    <Conquista show="all" progressoAtingido={18} progressoMaximo={20}/>
+                    <Conquista show="all" progressoAtingido={4} progressoMaximo={20}/>
+                    <Conquista show="all" progressoAtingido={5} progressoMaximo={20}/>
                 </div>
             </div>
     );
