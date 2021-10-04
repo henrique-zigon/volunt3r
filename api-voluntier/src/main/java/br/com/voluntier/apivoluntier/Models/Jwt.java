@@ -15,9 +15,6 @@ public class Jwt {
     public String createJWT(Usuario user) {
         String token="";
         Calendar date=Calendar.getInstance();
-
-
-
         Date dataLimite=new Date(date.getTimeInMillis()+(100000));
         System.out.println(dataLimite+" eeee");
 

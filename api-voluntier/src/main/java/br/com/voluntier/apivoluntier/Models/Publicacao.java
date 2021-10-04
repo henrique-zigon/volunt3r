@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -180,5 +182,16 @@ public class Publicacao {
         return this.curtido;
     }
 
+    public List<String> getHashtags(){
 
+        Pattern pattern = Pattern.compile("(\\#\\w+)");
+        List<String> listaHashtag = new ArrayList<String>();
+        Matcher m = pattern.matcher(descricao);
+        while (m.find()) {
+            if(!listaHashtag.contains(m.group())) {
+                listaHashtag.add(m.group());
+            }
+        }
+        return listaHashtag;
+    }
 }

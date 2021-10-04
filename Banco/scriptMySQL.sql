@@ -12,6 +12,7 @@ create table categoria(
     limite_ouro int,
     milhas_promocao int    
 );
+insert into categoria (nome_categoria,nivel,limite_bronze,limite_prata,limite_ouro) values ('cat1',1,2,5,10),('cat2',2,3,5,10),('cat3',2,20,50,10);
 
 create table curso(
     id_curso int auto_increment primary key,
@@ -22,6 +23,7 @@ create table curso(
     categoria varchar(50),
     path_imagem varchar(255)
 );
+
 
 create table usuario(
 	id_usuario int auto_increment primary key,
@@ -40,6 +42,7 @@ create table usuario(
     status_usuario int,
     check(status_usuario = 0 or status_usuario = 1)
 );
+insert into usuario  values (1,'nome1','homi','bio1',1,'comum','email@email.com','senha123','cargo1','area1','img1','img1',1),(2,'nome2','muie','bio2',2,'comum','email2@email.com','senha1223','cargo2','area1','img2','img2',1);
 
 create table transacao_compra(
     id_transacao_compra int auto_increment primary key,
@@ -70,7 +73,9 @@ create table evento(
     fk_categoria int,
     foreign key (fk_categoria) references categoria(id_categoria)
 );
-
+ insert into evento (data_evento,data_fechamento_evento,endereco,maximo_participantes,horas,milhas_participacao,titulo,fk_categoria) values ('01/01/2000','01/01/2001','minha c123123asa',10,15,10,'titulo',3),('01/01/2010','01/01/2011','min23123ha vila',10,15,10,'titulo2',3),('01/01/2100','01/01/2101','minh111111a 1111casa',10,15,10,'titulo3',3);
+ 
+ 
 create table publicacao(
 	id_publicacao int auto_increment primary key,
     tipo varchar(50),
@@ -95,6 +100,7 @@ create table inscricao_evento(
     status_UE varchar(10),
     check(status_UE = 'pendente'or status_UE = 'confirmado')
 );
+insert into inscricao_evento values (1,1,1,'confirmado'),(2,2,1,'pendente'),(3,1,2,'confirmado');
 
 create table inscricao_categoria(
     id_inscricao_categoria int primary key auto_increment,
@@ -135,3 +141,10 @@ select * from Usuario,Inscricao_Evento,Evento,Categoria;
 select nome_usuario,id_evento,nome_categoria from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 ;
 select nome_categoria,count(nome_categoria) as qnt from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 group by nome_categoria;
 select fk_categoria from Evento where id_evento=1;
+
+
+select nome_categoria,count(nome_categoria) as quantidade, (case when count(nome_categoria)>=limite_ouro then 'ouro' 
+												when count(nome_categoria)>=limite_prata then 'prata' 
+                                                when count(nome_categoria)>=limite_bronze then 'bronze'
+                                                when count(nome_categoria)<limite_bronze then 'nada'END 
+											) as elo from Usuario as usu,Inscricao_Evento as ins,Evento as eve,Categoria as cat where id_usuario=ins.fk_usuario and id_evento=ins.fk_evento and id_categoria=eve.fk_categoria and id_usuario=1  group by nome_categoria;

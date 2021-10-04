@@ -36,17 +36,14 @@ div.new-post img.user-picture {
 	object-fit: cover;
 }
 
-div.new-post input {
+div.new-post button {
 	width: calc(100% - 70px);
 	height: 70px;
 	border: 0;
 	font-size: .8rem;
+	text-align: left;
+	color: rgb(172, 172, 172);
 }
-
-div.new-post input::placeholder {
-    color: rgb(172, 172, 172);
-}
-
 
 div.new-post button {
 	background: none;
@@ -109,7 +106,7 @@ div.feed-cards span.not-content {
 }
 
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 750px) {
 
 	div.feed-container div.feed-content {
 		width: 95%;

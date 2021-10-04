@@ -38,7 +38,7 @@ function CriarUsuarioStep1() {
 	var ValidaArea = userData.area;
 	var ValidaTipoUsuario = userData.tipoUsuario;
 	var CamposValidados = "";
-	var RegexNomeSobrenome = /(\w+ \w+)/
+	var RegexNomeSobrenome = /(\w+\s\w+)/
 	var ValidaNomeSobrenome = RegexNomeSobrenome.test(ValidaNome)	
 
 	console.log(CamposValidados);

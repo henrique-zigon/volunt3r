@@ -1,5 +1,9 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
+import br.com.voluntier.apivoluntier.Models.Classificacao;
+import br.com.voluntier.apivoluntier.Models.UsuarioEventoCategoria;
+import br.com.voluntier.apivoluntier.Repositories.CategoriaRepository;
+import br.com.voluntier.apivoluntier.Repositories.ClassificacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.InscricaoEventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.RanqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/ranque")
@@ -19,12 +26,15 @@ public class RanqueController {
     @Autowired
     public InscricaoEventoRepository inscricaoEventoRepository;
 
+    @Autowired
+    public ClassificacaoRepository classificacaoRepository;
+
     //DEVE SER PUT? JA QUE ATUALIZA?
     @GetMapping("/{idUsuario}")
-    public ResponseEntity getRanque(@PathVariable int idUsuario){
+    public ResponseEntity getQuantidadeRanque(@PathVariable int idUsuario){
         //atualizar
-        inscricaoEventoRepository.FindAllByFkUsuarioAndfkCategoria(idUsuario);
-        return ResponseEntity.status(200).body("terminar esse END-Point-falta pegar o selcet e/ou mudar o banco ou decidir oq fazer");
+        List<Classificacao> resposta= classificacaoRepository.FindAllByFkUsuarioAndfkCategoria(idUsuario);
+        return ResponseEntity.status(200).body(resposta);
         //mostrar
     }
 }

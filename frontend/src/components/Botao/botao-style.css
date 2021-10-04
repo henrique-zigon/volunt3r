@@ -1,0 +1,70 @@
+.btn {
+    font-weight: 400;
+    width: 150px;
+	height: 50px;
+	border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.5s ease;
+  }
+  
+  
+  /* Button Colors and Styles */
+  
+  .btn--primary--solid {
+    background-color: var(--principal-blue);
+    color: var(--color-input);
+  }
+
+  .btn--primary--solid:hover{
+    background-color: var(--hover-color-button);
+  }
+
+  .btn--primary--outline {
+    background-color: var(--color-input);
+    border: 2px solid var(--principal-blue);
+    color: var(--principal-blue);
+  }
+
+
+  .btn--disabled--solid {
+    background-color: #f2f2f2;
+    color: #818181;
+  }
+
+  .btn--disabled--outline {
+    background-color: var(--color-input);
+    border: 2px solid #818181;
+    color: #818181;
+  }
+
+  .hide{
+      display: none;
+  }
+
+
+  /* Button Size */
+  
+  .btn--medium {
+    width: 150px;
+	height: 50px;
+  }
+  
+  .btn--long {
+    width: 150px;
+	height: 30px;
+    text-transform: uppercase;
+  }
+
+
+  
+  @media screen and (max-width: 990px) {
+
+	.btn span{
+		display: none;
+	}
+
+    .btn{
+		width: 50px;
+	}
+}

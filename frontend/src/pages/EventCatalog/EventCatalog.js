@@ -18,14 +18,21 @@ function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [eventos, setEventos] = useState([]);
 
-	const URL_API = "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/";
-
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
-	
-
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	function handleSearch(e) {
-		console.log(e.target.value)
+		console.log()
+		let filtro = e.target.value
+		api.get(`/publicacoes/filtroEventos/${filtro}`, {
+			headers: {
+				'Authorization': cookies.volunt3r
+			}
+		}).then(resposta => {
+			setEventos(resposta.data.content.reverse());
+			console.log(resposta)
+		}).catch(err => {
+			console.log(err)
+		});
 	}
 
 	useEffect(() => {
@@ -34,15 +41,23 @@ function EventCatalog() {
 			const resposta = await api.get("/eventos", { params: {pagina : 0, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			setEventos(resposta.data.content);
+			setEventos(resposta.data.content.reverse());
 		}
 
 		getAllCards();
 	}, [])
 
+
+	// function filtrarEventos(e){
+	// 	console.log(e)
+	// 	// const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
+	
+	// }
+
+
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
+	var regexNomeSobrenome = /(\w+\s\w+)/
 	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 	return (
@@ -56,20 +71,17 @@ function EventCatalog() {
 				<div className="feed-content">
 					<NewNavBar />
 
+					<div className="description-page">
+						<span className="title">Eventos</span>
+						<span className="description">Que tal abraçar uma causa? 😉</span>
+					</div>
+
 					<div className="search-itens">
 						<InputForm 
 							type="text"
-							id="categoriaEvento"
-							name="categoriaEvento"
-							label="Categoria do evento"
-
-							function={(e) => handleSearch(e)}
-						/>
-						<InputForm 
-							type="text"
-							id="tipoDoacao"
-							name="tipoDoacao"
-							label="Tipo de doação"
+							id="filtro"
+							name="filtro"
+							label="Busque por um evento usando uma palavra-chave"
 
 							function={(e) => handleSearch(e)}
 						/>
@@ -94,9 +106,9 @@ function EventCatalog() {
 											}}*/
 											imagePost={evento.pathImagem}
 											nameUserPosted={evento.usuario.nomeUsuario}
-											imageUserPosted={URL_API+evento.usuario.usuarioImagemPerfil}
+											imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
-											titlePost={evento.titulo}
+											titlePost={evento.evento.titulo}
 											addressPost={evento.evento.endereco}
 											descriptionPost={evento.descricao}
 											countLikes={evento.numeroLikes}

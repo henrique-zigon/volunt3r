@@ -4,6 +4,7 @@ import './style.css';
 
 
 function NotFound() {
+
   return(
   
     <div className="container-notfound">
@@ -11,7 +12,7 @@ function NotFound() {
       <span>Sucesso! Sua senha foi alterada!</span>
 
       <Link to="/login" className="back-page">
-        IR PARA O LOGIN
+        Voltar ao Login
       </Link>
     </div>
    

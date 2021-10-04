@@ -82,7 +82,6 @@ function RecuperarSenha() {
 						function={(e) => handle(e)}
 					/>
 				
-			
 					<button type="submit" className="btn-new-submit">Continuar</button>
 				
 				</form>

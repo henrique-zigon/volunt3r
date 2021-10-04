@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -190,6 +191,42 @@ public class PublicacaoController {
             return ResponseEntity.status(201).build();
         }else {
             return ResponseEntity.status(404).build();
+        }
+    }
+
+    @GetMapping("/filtroEventos/{filtro}")
+    public ResponseEntity getFiltroEventos(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                  @RequestHeader String Authorization,
+                                     @PathVariable String filtro
+                                     ) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+        Page<Publicacao> allPub = repository.findByEvento_TituloContainsOrDescricaoContainsAndTipoEquals(
+                filtro, filtro, "evento", PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
+        }
+    }
+
+
+    @GetMapping("/perfil/{usuario}")
+    public ResponseEntity getFeedUsuario(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                  @PathVariable Integer usuario) {
+        Page<Publicacao> allPub = repository.findAllByFkUsario(usuario, PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(usuario);
+            });
+            return ResponseEntity.status(200).body(allPub);
         }
     }
 }

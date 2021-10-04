@@ -1,10 +1,9 @@
 import axios from 'axios';
 
+console.log(process.env)
 
 const api = axios.create({
-    //baseURL:"https://api-volunt3r.azurewebsites.net/"
-    // baseURL: "http://localhost:3001/"
-    baseURL: "http://voluntier.eastus.cloudapp.azure.com:81"
+    baseURL: process.env.REACT_APP_PUBLIC_URL_API
 })
 
 export default api;

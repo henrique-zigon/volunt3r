@@ -9,6 +9,11 @@ import br.com.voluntier.apivoluntier.Services.S3Services;
 import br.com.voluntier.apivoluntier.Utils.EmailSender;
 import br.com.voluntier.apivoluntier.Utils.LoginForm;
 import br.com.voluntier.apivoluntier.Utils.TokenDto;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,24 +134,62 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(retornoHasmap);
     }
 
+    public String createJWT() {
+        String token = "";
+        Calendar date = Calendar.getInstance();
+        Date dataLimite = new Date(date.getTimeInMillis() + (600000));
+
+        Algorithm algorithm = Algorithm.HMAC256("secreto");
+        token = JWT.create()
+                .withIssuer("recuperarSenha")
+                .withExpiresAt(dataLimite)
+                .sign(algorithm);
+        return token;
+    }
+
+
     @PostMapping("/email-existente/{email}")
-    public ResponseEntity getEmailExistente(@PathVariable String email){
+    public ResponseEntity postEmailExistente(@PathVariable String email){
         List<UsuarioResponse> retornoRepository = usuarioRepository.findByEmail(email);
         if(retornoRepository.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
-        String linkFrontEnd = "http://voluntier.eastus.cloudapp.azure.com/";
-        LocalDateTime dataHoraCriacaoToken = new LocalDateTime();
-        String token = "tokenSenha" + dataHoraCriacaoToken;
+        String linkFrontEnd = "http//localhost:3000/recuperar-senha-redefinir/";
+        String token = createJWT();
+        String linkCompleto = linkFrontEnd+token;
 
         emailSender.sendMessage(
-                "Volunt3r Assunto",
-                "Link para redefinir sua senha: " + linkFrontEnd+token,
+                "Volunt3r - Recuperação de Senha",
+                "<h1>Você solicitou a recuperação de sua senha</h1>" +
+                        "<p>Clique no botão abaixo: </p>" +
+                        "<a href=\"" +linkCompleto+ "\"<button>Recuperar Senha</button></a>",
                 email
         );
-
         return ResponseEntity.status(200).build();
     }
+
+    @PostMapping("/validarToken/{token}")
+    public ResponseEntity postValidarToken(@PathVariable String token){
+
+        Algorithm algorithm = Algorithm.HMAC256("secreto");
+
+        try {
+            JWTVerifier verificar=JWT.require(algorithm)
+                    .withIssuer("recuperarSenha")
+                    .build();
+
+            verificar.equals(token);
+            DecodedJWT jwt=verificar.verify(token);
+
+            System.out.println("Token decodificado: "+token);
+            return ResponseEntity.status(200).build();
+
+        }catch (JWTVerificationException exception) {
+            System.out.println("Token inválido");
+            return ResponseEntity.status(404).build();
+        }
+    }
+
 
 
     @DeleteMapping("/desativar/{id}")
@@ -166,7 +209,6 @@ public class UsuarioController {
                 return ResponseEntity.status(500).build();
             }
         }
-
     }
 
     //get para teste

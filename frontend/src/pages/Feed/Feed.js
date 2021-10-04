@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BiSend } from 'react-icons/bi';
+import { BiSend, BiExit } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
+import { Link, useHistory } from 'react-router-dom';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
@@ -8,17 +9,30 @@ import avatarPadrao from '../../images/avatar_padrao.png';
 import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
+import ModalNewPost from '../../components/ModalNewPost/ModalNewPost';
 
 import UserImage from '../../components/UserImage/UserImage';
 
 function Feed(props) {
 
-	const [cookies] = useCookies(['volunt3r']);
+	const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
+
+	const [stateModalNewPost, setStateModalNewPost] = useState("");
+
+	const history =  useHistory();
+
+	function showModalNewPost () {
+		setStateModalNewPost("show");
+	}
+
+	function closeDropdown() {
+		setStateModalNewPost("");
+	};
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
@@ -37,13 +51,14 @@ function Feed(props) {
 	}, [])
 
 	// Foto de Perfil
-	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
-	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+	let nomeCompleto = cookies.volunt3r_user.nomeUsuario;
+	let regexNomeSobrenome = /(\w+\s\w+)/
+	let NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+
 
 	return (
 		<>
-
+			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} cookieUser={cookies_user} token={cookies.volunt3r} />
 			<div className="feed-container">
 
 				<UserImage imagem={imageUser} nome={NomeSobrenome[1]} />
@@ -58,10 +73,11 @@ function Feed(props) {
 							src={imageUser}
 							alt=""
 						/>
-						<input type="text" placeholder="Que tal compartilhar a sua experiência?" />
-						<button type="button">
+						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
+						{/* <button type="button">
 							<BiSend className="icon-submit-image" />
-						</button>
+						</button> */}
+
 					</div>
 
 					<div className="feed-cards">
@@ -72,7 +88,7 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
-								console.log(publicacao);
+								console.log();
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
@@ -81,13 +97,14 @@ function Feed(props) {
 												abrirModal();
 											}}*/
 											imagePost={publicacao.pathImagem}
-											nameUserPossted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											nameUserPosted={publicacao.usuario.nomeUsuario}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
 											descriptionPost={publicacao.descricao}
 											countLikes={publicacao.numeroLikes}
+											countRelatedPosts={publicacao.numeroComentarios}
 											dataEvent={publicacao.evento.dataEvento}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
@@ -101,10 +118,11 @@ function Feed(props) {
 										<CardCommentOrPost
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={"http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
-											postedIn={publicacao.evento.titulo}
+											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
+											countComments={publicacao.numeroComentarios}
 											idPost={publicacao.id}
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
