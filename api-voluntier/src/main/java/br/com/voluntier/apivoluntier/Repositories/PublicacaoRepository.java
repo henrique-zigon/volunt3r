@@ -30,7 +30,7 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
     Optional<Publicacao> findEventoById(Evento evento);
 
     @Query(value = "select * from Publicacao where fk_usuario=?1",nativeQuery = true)
-    List<Publicacao> findAllByFkUsario(int fkUsuario);
+    Page<Publicacao> findAllByFkUsario(int fkUsuario, Pageable pageable);
 
     Page<Publicacao> findByDescricaoLike(String descricao, Pageable pageable);
 

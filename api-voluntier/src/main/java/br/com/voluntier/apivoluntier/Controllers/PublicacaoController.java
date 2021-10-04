@@ -218,7 +218,7 @@ public class PublicacaoController {
     public ResponseEntity getFeedUsuario(@RequestParam(defaultValue = "0") Integer pagina,
                                   @RequestParam(defaultValue = "10") Integer tamanho,
                                   @PathVariable Integer usuario) {
-        List<Publicacao> allPub = repository.findAllByFkUsario(usuario);
+        Page<Publicacao> allPub = repository.findAllByFkUsario(usuario, PageRequest.of(pagina, tamanho));
         if(allPub.isEmpty()) {
             return ResponseEntity.status(204).build();
         } else {

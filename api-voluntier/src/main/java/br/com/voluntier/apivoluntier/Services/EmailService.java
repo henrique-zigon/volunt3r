@@ -44,8 +44,8 @@ public class EmailService {
     */
     //@Scheduled(cron="0 30 8 * * MON-FRI")
     @Scheduled(fixedDelay = 1000*60)
-    public void enviarEmails() {
-        while(!listaEmail.isEmpty()) {
+    public void enviarEmailsRecursivo() {
+        if (!listaEmail.isEmpty()){
             InscricaoEvento inscricao = listaEmail.poll();
             Usuario usuario = usuarioRepository.findById(inscricao.getFkUsuario()).get();
             Evento evento = eventoRepository.findById(inscricao.getFkEvento()).get();
@@ -62,6 +62,8 @@ public class EmailService {
             }else {
                 System.out.println("Erro ao enviar email.");
             }
+            enviarEmailsRecursivo();
         }
+
     }
 }
