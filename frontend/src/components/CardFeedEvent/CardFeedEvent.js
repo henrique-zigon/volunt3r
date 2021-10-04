@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { BiHeart, BiRepost } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
+import { useToasts } from 'react-toast-notifications';
 
 import api from '../../api';
 import './card-feed-style.css';
-
-const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
 const CardFeedEvent = (props) => {
 
@@ -15,11 +14,40 @@ const CardFeedEvent = (props) => {
   let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ];
   let dayEvent = props.dataEvent.split("/")[0];
   
-
+	const { addToast } = useToasts();
   
   const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false); 
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
   const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
+
+  async function inscrever(){
+   await api("/eventos/inscrever", {
+    method: "POST",
+    headers: { 
+      'Authorization': props.token,
+      'Content-Type': 'application/json'
+    },
+    data: {
+      fkUsuario: {
+        idUsuario: props.idLoggedUser
+      },
+      fkPublicacao: {
+        id: props.idPost
+      }
+    }
+  }).then(resposta => {
+    if(resposta.status === 201) {
+      addToast('Inscrito com sucesso! 😀', {appearance: 'success', autoDismiss: true})
+    }
+  }).catch((e) => {
+    if(e.response.status === 400) {
+      addToast(e.message, {appearance: 'warning', autoDismiss: true})
+    }
+    else if(e.response.status === 500) {
+      addToast('Erro ao se inscrever... 😥', {appearance: 'error', autoDismiss: true})
+    }
+  });
+  }
 
   async function likePostFunction() {
     if(!isLikedCardFeedEvent) {
@@ -76,7 +104,7 @@ const CardFeedEvent = (props) => {
   return (
     <div className="feed-card">
       <img className="image-post"
-        src={`${URL}/arquivos/imagem/${props.imagePost}`}
+        src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 
@@ -94,7 +122,7 @@ const CardFeedEvent = (props) => {
             </div>
           </div>
 
-          <button onClick={props.onClick} className="btn-subscribe-post">Quero Participar</button>
+          <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
           
         </header>
 

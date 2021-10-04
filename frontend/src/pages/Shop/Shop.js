@@ -17,6 +17,22 @@ function Shop() {
 	const [courses, setCourses] = useState([]);
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 
+	function handleSearch(e) {
+		console.log()
+		let filtro = e.target.value
+		api.get(`/cursos/filtroLoja/${filtro}`, {
+			headers: {
+				'Authorization': cookies.volunt3r
+			}
+		}).then(resposta => {
+			setCourses(resposta.data.content);
+			console.log(resposta)
+		}).catch(err => {
+			console.log(err)
+		});
+	}
+
+
 	useEffect(() => {
 
 		async function getAllCards() {
@@ -29,16 +45,10 @@ function Shop() {
 		getAllCards();
 	}, [])
 
-	function filtrarLoja(e){
-	
-		const cursosFiltrados = api.post(`/cursos/filtroLoja/${e}`);
-		
-		
-	}
 
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
+	var regexNomeSobrenome = /(\w+\s\w+)/
 	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 	return (
@@ -56,15 +66,14 @@ function Shop() {
 						<span className="description">Que tal trocar as suas milhas?</span>
 					</div>
 
-
 					<div className="search-itens">
-						<InputForm  onkeyup={filtrarLoja()}
+						<InputForm
 							type="text"
-							id="filtroLoja"
-							name="filtroLoja"
+							id="filtro"
+							name="filtro"
 							label="Pesquise um curso"
 
-						// function={(e) => handleSearch(e)}
+						function={(e) => handleSearch(e)}
 						/>
 					</div>
 

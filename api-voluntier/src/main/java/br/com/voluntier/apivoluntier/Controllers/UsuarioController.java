@@ -154,12 +154,15 @@ public class UsuarioController {
         if(retornoRepository.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
-        String linkFrontEnd = "http://voluntier.eastus.cloudapp.azure.com/recuperar-senha-redefinir/";
+        String linkFrontEnd = "http//localhost:3000/recuperar-senha-redefinir/";
         String token = createJWT();
+        String linkCompleto = linkFrontEnd+token;
 
         emailSender.sendMessage(
                 "Volunt3r - Recuperação de Senha",
-                "Link para redefinir sua senha: " + linkFrontEnd+token,
+                "<h1>Você solicitou a recuperação de sua senha</h1>" +
+                        "<p>Clique no botão abaixo: </p>" +
+                        "<a href=\"" +linkCompleto+ "\"<button>Recuperar Senha</button></a>",
                 email
         );
         return ResponseEntity.status(200).build();
@@ -169,6 +172,7 @@ public class UsuarioController {
     public ResponseEntity postValidarToken(@PathVariable String token){
 
         Algorithm algorithm = Algorithm.HMAC256("secreto");
+
         try {
             JWTVerifier verificar=JWT.require(algorithm)
                     .withIssuer("recuperarSenha")
@@ -179,13 +183,11 @@ public class UsuarioController {
 
             System.out.println("Token decodificado: "+token);
             return ResponseEntity.status(200).build();
-        }catch (JWTVerificationException exception){
+
+        }catch (JWTVerificationException exception) {
             System.out.println("Token inválido");
-            ResponseEntity.status(404).build();
+            return ResponseEntity.status(404).build();
         }
-
-
-        return ResponseEntity.status(200).build();
     }
 
 
@@ -207,7 +209,6 @@ public class UsuarioController {
                 return ResponseEntity.status(500).build();
             }
         }
-
     }
 
     //get para teste

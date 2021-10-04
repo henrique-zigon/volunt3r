@@ -28,6 +28,7 @@ function EventCatalog() {
 				'Authorization': cookies.volunt3r
 			}
 		}).then(resposta => {
+			setEventos(resposta.data.content.reverse());
 			console.log(resposta)
 		}).catch(err => {
 			console.log(err)
@@ -56,7 +57,7 @@ function EventCatalog() {
 
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
+	var regexNomeSobrenome = /(\w+\s\w+)/
 	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 	return (
@@ -80,7 +81,7 @@ function EventCatalog() {
 							type="text"
 							id="filtro"
 							name="filtro"
-							label="Pesquise um evento"
+							label="Busque por um evento usando uma palavra-chave"
 
 							function={(e) => handleSearch(e)}
 						/>
@@ -107,7 +108,7 @@ function EventCatalog() {
 											nameUserPosted={evento.usuario.nomeUsuario}
 											imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
-											titlePost={evento.titulo}
+											titlePost={evento.evento.titulo}
 											addressPost={evento.evento.endereco}
 											descriptionPost={evento.descricao}
 											countLikes={evento.numeroLikes}

@@ -17,6 +17,7 @@ import Feed from './pages/Feed/Feed.js';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
 import RelatorioPage from './pages/RelatorioPage/RelatorioPage';
+import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -45,7 +46,8 @@ function Routes() {
                     <Route exact path="/recuperar-senha" component={RecuperarSenha} />
                     <Route exact path="/recuperar-senha/email" component={RecuperarSenha1Email} />
                     <Route exact path="/recuperar-senha/sucesso" component={RecuperarSenhaSucesso} />
-                    <Route exact path="/recuperar-senha-redefinir" component={RecuperarSenha2} />
+                    <Route exact path="/recuperar-senha-redefinir/*" component={RecuperarSenha2} />
+                    <Route exact path="/recuperar-senha/token-invalido" component={RecuperarSenhaInvalido} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
                     <Route exact path="/perfil" component={Perfil} />
                     <Route exact path="/perfil-conquistas" component={Perfil} />

@@ -36,7 +36,7 @@ function Perfil(props) {
 
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+ \w+)/
+	var regexNomeSobrenome = /(\w+\s\w+)/
 	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
 
 

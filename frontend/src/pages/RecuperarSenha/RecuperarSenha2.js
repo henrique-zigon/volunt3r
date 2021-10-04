@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../global-pages.css';
 import './style.css';
 import RecuperarSenhaImage from '../../images/RecuperarSenha.png';
 import '../global-pages.css';
 import InputForm from '../../components/InputForm/InputForm';
-import { BiCheck, BiKey } from 'react-icons/bi';
+import { BiCheck, BiDockBottom, BiKey } from 'react-icons/bi';
 import { useHistory } from 'react-router-dom';
 import api from '../../api'
 import { useCookies } from 'react-cookie';
@@ -23,6 +23,22 @@ function RecuperarSenha2() {
 	let history = useHistory();
 	const { addToast } = useToasts();
 
+	useEffect(() => {
+		async function getFormulario() {
+
+			let urlSenha = document.location.href;
+			let regexToken = /\/recuperar-senha-redefinir\/(.*)/
+			let token = urlSenha.match(regexToken)[1];
+
+			await api.post(`/usuarios/validarToken/${token}`)
+			.then().catch((e) => {
+				if(e.response.status === 404){
+					history.push("/recuperar-senha/token-invalido");
+			}
+		});
+		}
+		getFormulario();
+	}, [])
 
 	function handle(e) {
 		const newUserData = { ...userData }
@@ -58,7 +74,7 @@ function RecuperarSenha2() {
 			<div className="content">
 				<img src={RecuperarSenhaImage} aria-hidden alt="Imagem de recuperação de senha" />
 			</div>
-			<div className="contain-form">
+			<div id="formularioSenha" className="contain-form">
 				<div className="information-page">
 					<h2 className="title">Olá, vamos criar a sua nova senha</h2>
 					<span className="subtitle">Digite sua nova senha</span>

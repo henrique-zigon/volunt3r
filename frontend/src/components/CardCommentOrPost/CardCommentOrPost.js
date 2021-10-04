@@ -112,7 +112,7 @@ const CardCommentOrPost = (props) => {
             </div>
 
             {
-              props.postedIn === "" ? <span className="posted-in">Postou <b>Postou há 1h</b></span> : <span className="posted-in">Postou em <b>{props.postedIn}</b></span>
+              props.postedIn === "" ? <span className="posted-in">Postou <b> há 1h</b></span> : <span className="posted-in">Postou em <b>{props.postedIn}</b></span>
             }
           </header>
 

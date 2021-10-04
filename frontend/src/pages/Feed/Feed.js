@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BiSend } from 'react-icons/bi';
+import { BiSend, BiExit } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
+import { Link, useHistory } from 'react-router-dom';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
@@ -14,8 +15,7 @@ import UserImage from '../../components/UserImage/UserImage';
 
 function Feed(props) {
 
-
-	const [cookies] = useCookies(['volunt3r']);
+	const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
@@ -23,6 +23,8 @@ function Feed(props) {
 	const [publicacoes, setPublicacoes] = useState([]);
 
 	const [stateModalNewPost, setStateModalNewPost] = useState("");
+
+	const history =  useHistory();
 
 	function showModalNewPost () {
 		setStateModalNewPost("show");
@@ -50,8 +52,9 @@ function Feed(props) {
 
 	// Foto de Perfil
 	let nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	let regexNomeSobrenome = /(\w+ \w+)/
+	let regexNomeSobrenome = /(\w+\s\w+)/
 	let NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+
 
 	return (
 		<>
