@@ -46,6 +46,23 @@ public class PublicacaoController {
     @Autowired
     GosteiRepository repositoryGostei;
 
+    @GetMapping()
+    public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
+                                  @RequestParam(defaultValue = "10") Integer tamanho,
+                                  @RequestHeader String Authorization) {
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+        Page<Publicacao> allPub = repository.findByTipoIsNot("comentario",PageRequest.of(pagina, tamanho));
+        if(allPub.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            allPub.forEach(pub -> {
+                pub.isCurtido(idUsu);
+            });
+            return ResponseEntity.status(200).body(allPub);
+        }
+    }
+
 //    @GetMapping()
 //    public ResponseEntity getPublicacoes() {
 //        return ResponseEntity.status(200).body(repository.findAll()
@@ -56,17 +73,16 @@ public class PublicacaoController {
 
 
 
-//    @GetMapping("/{usuario}")
-//    public ResponseEntity getPublicacoes(@PathVariable int usuario) {
-//        List<Publicacao> listaPubl=repository.findAll();
-//        for(Publicacao pub : listaPubl){
-//            pub.isCurtido(usuario);
-//        }
-//        return ResponseEntity.status(200).body(listaPubl
-//                .stream()
-//                .filter(publicacao -> !publicacao.isComentario())
-//                .collect(Collectors.toList()));
-//    }
+    @GetMapping("/usuario/{usuario}")
+    public ResponseEntity getPublicacoesByUsuario(@PathVariable int usuario,
+                                                  @RequestParam(defaultValue = "0") Integer pagina,
+                                                  @RequestParam(defaultValue = "10") Integer tamanho) {
+        Page<Publicacao> listaPubl=repository.findByUsuario_IdUsuarioIsAndTipoIsNot(usuario, "comentario",PageRequest.of(pagina, tamanho));
+        for(Publicacao pub : listaPubl.getContent()){
+            pub.isCurtido(usuario);
+        }
+        return ResponseEntity.status(200).body(listaPubl);
+    }
 
     @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity postPublicacao(@RequestPart MultipartFile arquivo,
@@ -86,41 +102,7 @@ public class PublicacaoController {
         }
     }
 
-    @PostMapping(path="/comentario/{idPublicacao}")
-    public ResponseEntity postComentario(@PathVariable Integer idPublicacao,
-                                         @RequestBody String comentario,
-                                         @RequestHeader String Authorization)  throws IOException {
-        Publicacao novaPublicacao = new Publicacao();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-        String tokenLimpo=Authorization.substring(7,Authorization.length());
-        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-
-        Optional<Publicacao> publiPai = repository.findById(idPublicacao);
-        System.out.println(publiPai.get());
-        if(publiPai.isPresent()) {
-            Usuario usu = new Usuario();
-            usu.setIdUsuario(idUsu);
-            novaPublicacao.setUsuario(usu);
-
-            Evento evento = new Evento();
-            evento.setId(publiPai.get().getEvento().getId());
-            novaPublicacao.setEvento(evento);
-
-            novaPublicacao.setDescricao(comentario);
-            novaPublicacao.setDataPostagem(dateFormat.format(new Date()));
-
-            novaPublicacao.setPublicacaoPai(publiPai.get());
-
-            novaPublicacao.setTipo("comentario");
-
-            repository.save(novaPublicacao);
-            return ResponseEntity.status(201).build();
-        }else {
-            return ResponseEntity.status(404).build();
-        }
-    }
 
 //    @PostMapping("/eventos/novo")
 //    public ResponseEntity postPublicacaoEvento(@RequestBody Publicacao novaPublicacaoEvento) {
@@ -175,20 +157,39 @@ public class PublicacaoController {
         }
     }
 
-    @GetMapping()
-    public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
-                                  @RequestParam(defaultValue = "10") Integer tamanho,
-                                       @RequestHeader String Authorization) {
+    @PostMapping(path="/comentarios/{idPublicacao}")
+    public ResponseEntity postComentario(@PathVariable Integer idPublicacao,
+                                         @RequestBody String comentario,
+                                         @RequestHeader String Authorization)  throws IOException {
+        Publicacao novaPublicacao = new Publicacao();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
         String tokenLimpo=Authorization.substring(7,Authorization.length());
         Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-        Page<Publicacao> allPub = repository.findByTipoIsNot("comentario",PageRequest.of(pagina, tamanho));
-        if(allPub.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        } else {
-            allPub.forEach(pub -> {
-                pub.isCurtido(idUsu);
-            });
-            return ResponseEntity.status(200).body(allPub);
+
+        Optional<Publicacao> publiPai = repository.findById(idPublicacao);
+        System.out.println(publiPai.get());
+        if(publiPai.isPresent()) {
+            Usuario usu = new Usuario();
+            usu.setIdUsuario(idUsu);
+            novaPublicacao.setUsuario(usu);
+
+            Evento evento = new Evento();
+            evento.setId(publiPai.get().getEvento().getId());
+            novaPublicacao.setEvento(evento);
+
+            novaPublicacao.setDescricao(comentario);
+            novaPublicacao.setDataPostagem(dateFormat.format(new Date()));
+
+            novaPublicacao.setPublicacaoPai(publiPai.get());
+
+            novaPublicacao.setTipo("comentario");
+
+            repository.save(novaPublicacao);
+            return ResponseEntity.status(201).build();
+        }else {
+            return ResponseEntity.status(404).build();
         }
     }
 }

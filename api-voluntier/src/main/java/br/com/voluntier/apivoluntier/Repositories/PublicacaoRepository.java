@@ -29,5 +29,6 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
     @Query("select p from Publicacao p where p.evento = ?1 and p.publicacaoPai is null")
     Optional<Publicacao> findEventoById(Evento evento);
 
+    Page<Publicacao> findByUsuario_IdUsuarioIsAndTipoIsNot(Integer idUsuario, String tipo, Pageable pageable);
 
 }

@@ -20,7 +20,6 @@ public class Categoria {
     private int limiteOuro;
     private int milhasPromocao;
 
-
     public int getLimiteBronze() {
         return limiteBronze;
     }

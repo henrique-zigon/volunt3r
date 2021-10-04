@@ -12,4 +12,5 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
     @Query("SELECT DISTINCT c.nivel from Categoria c")
     List<String> findUniqueNiveis();
+
 }

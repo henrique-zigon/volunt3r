@@ -1,9 +1,11 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -44,7 +46,7 @@ public class Publicacao {
 
     @OneToMany(mappedBy="publicacaoPai")
     @JsonIgnore
-    private List<Publicacao> comentarios;
+    private List<Publicacao> publicacoesFilhos;
 
     @JsonInclude
     @Transient
@@ -124,12 +126,28 @@ public class Publicacao {
         this.likes = likes;
     }
 
-    public List<Publicacao> getComentarios() {
-        return comentarios;
+    public List<ComentarioResponse> getComentarios() {
+        List<ComentarioResponse> comentarioResponseList = new ArrayList<>();
+        for(Publicacao coment : publicacoesFilhos) {
+            comentarioResponseList.add(new ComentarioResponse(coment));
+        }
+        return comentarioResponseList;
     }
 
-    public void setComentarios(List<Publicacao> comentarios) {
-        this.comentarios = comentarios;
+    public List<Publicacao> getPublicacoesFilhos() {
+        return publicacoesFilhos;
+    }
+
+    public void setPublicacoesFilhos(List<Publicacao> publicacoesFilhos) {
+        this.publicacoesFilhos = publicacoesFilhos;
+    }
+
+    public boolean isCurtido() {
+        return curtido;
+    }
+
+    public void setCurtido(boolean curtido) {
+        this.curtido = curtido;
     }
 
     public boolean isPublicacaoEvento() {
@@ -145,7 +163,7 @@ public class Publicacao {
     }
 
     public Integer getNumeroComentarios() {
-        return this.getComentarios().size();
+        return this.getPublicacoesFilhos().size();
     }
 
     public void isCurtido(Integer idUsu){
@@ -161,4 +179,6 @@ public class Publicacao {
     public boolean getCurtido(){
         return this.curtido;
     }
+
+
 }
