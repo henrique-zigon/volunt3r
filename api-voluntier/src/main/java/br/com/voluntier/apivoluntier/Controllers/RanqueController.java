@@ -1,8 +1,6 @@
 package br.com.voluntier.apivoluntier.Controllers;
 
-import br.com.voluntier.apivoluntier.Models.Classificacao;
-import br.com.voluntier.apivoluntier.Models.UsuarioEventoCategoria;
-import br.com.voluntier.apivoluntier.Repositories.CategoriaRepository;
+import br.com.voluntier.apivoluntier.Responses.Classificacao;
 import br.com.voluntier.apivoluntier.Repositories.ClassificacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.InscricaoEventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.RanqueRepository;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/ranque")
