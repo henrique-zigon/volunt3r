@@ -19,7 +19,7 @@ function Perfil(props) {
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
-			api.get(`/publicacoes`, {
+			api.get(`/publicacoes/usuario/${cookies.volunt3r_user.idUsuario}`, {
 				params: { pagina: 0, tamanho: 10 },
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
@@ -49,7 +49,7 @@ function Perfil(props) {
 				<div className="perfil-content">
 					<NewNavBar />
 					<div>
-						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? avatarPadrao : "http://voluntier.eastus.cloudapp.azure.com:81/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} />
+						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} />
 					</div>
 					<div className="feed-cards">
 
