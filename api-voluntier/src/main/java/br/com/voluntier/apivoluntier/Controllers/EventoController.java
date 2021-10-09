@@ -141,10 +141,11 @@ public class EventoController {
                 return ResponseEntity.status(400).body(retornoHasmap); //ver status
             }
             //String catDoEvento=eventoRepository.findCategoria(inscricao.getFkEvento());
-            Optional<Evento> eventoSelecionado=eventoRepository.findById(inscricao.getFkEvento());
-            Classificacao ranqueEmCategoria=classificacaoRepository.FindAllByFkUsuarioAndfkCategoriaBonificacao(usuario.get().getIdUsuario(), Integer.parseInt(catDoEvento));
+            Evento eventoSelecionado=eventoRepository.findById(inscricao.getFkEvento()).get();
+            System.out.println("Evento selecionado: "+eventoSelecionado.getId());
+            Classificacao ranqueEmCategoria=classificacaoRepository.FindAllByFkUsuarioAndfkCategoriaBonificacao(usuario.get().getIdUsuario(),eventoSelecionado.getCategoria().getIdCategoria());
             if (usuario.isPresent()){
-                Integer milhas=usuario.get().getQuantidadeMilhas() + eventoSelecionado.get().getMilhasParticipacao();
+                Integer milhas=usuario.get().getQuantidadeMilhas() + eventoSelecionado.getMilhasParticipacao();
                 usuario.get().setQuantidadeMilhas(milhas);  //ADD milhas de participação
                 usuarioRepository.save(usuario.get());
                 registroInscricao.setStatus("confirmado");
