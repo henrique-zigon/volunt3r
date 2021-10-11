@@ -118,6 +118,7 @@ function Feed(props) {
 										<CardCommentOrPost
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
+											areaUserPosted={publicacao.usuario.area}
 											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
