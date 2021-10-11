@@ -93,4 +93,30 @@ public class Classificacao {
     public void setRanque(String ranque) {
         this.ranque = ranque;
     }
+
+    public String getProximoNivel(){
+        if (contagem<limiteBronze){
+            return "BRONZE";
+        }
+        else if (contagem<limitePrata){
+            return "PRATA";
+        }
+        else if (contagem<limiteOuro){
+            return "OURO";
+        }
+        return null;
+    }
+
+    public Integer getQtdDoProximoNivel(){
+        if (contagem<limiteBronze){
+            return limiteBronze;
+        }
+        else if (contagem<limitePrata){
+            return limitePrata;
+        }
+        else if (contagem<limiteOuro){
+            return limiteOuro;
+        }
+        return null;
+    }
 }
