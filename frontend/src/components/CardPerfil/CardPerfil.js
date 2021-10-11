@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { BiEdit} from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../api';
@@ -28,7 +29,7 @@ const CardPerfil = (props) => {
                                 <span className="subtitle">{props.cargo}</span>
                             </div>
                         </div>
-                        <Botao children="Editar Perfil" buttonIcon="edit" buttonType="btn--texticon"/>
+                        <Botao children="Editar Perfil" icone= {<BiEdit size="15px" />} buttonType="btn--texticon" />
                     </div>
                 </div>
 

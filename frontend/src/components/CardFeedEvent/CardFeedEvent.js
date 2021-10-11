@@ -145,8 +145,8 @@ const CardFeedEvent = (props) => {
           </div>
           {
 
-            isSubscribed === true ? <button onClick={inscrever} className="btn-subscribed">Participando</button>
-              : <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+            isSubscribed === true ? <Botao onClick={inscrever} children="PARTICIPANDO" buttonSize="btn--long" buttonStyle="btn--primary--outline"/> 
+              : <Botao onClick={inscrever} children="QUERO PARTICIPAR" buttonSize="btn--long"/>
           }
 
 

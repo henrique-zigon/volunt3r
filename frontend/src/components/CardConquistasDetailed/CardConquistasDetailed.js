@@ -15,7 +15,7 @@ const CardConquistasDetailed = (props) => {
 
 	useEffect(() => {
 		async function getAllRanques() {
-			api.get(`/ranque/${cookies.volunt3r_user.idUsuario}`, {
+			api.get(`/ranques/${cookies.volunt3r_user.idUsuario}`, {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
 				setRanques(resposta.data.reverse());
@@ -37,7 +37,7 @@ const CardConquistasDetailed = (props) => {
 								console.log(ranque);
 									return (
                                         <Conquista
-                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDo} />
+                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} />
                                         );
                                 })
                             }
