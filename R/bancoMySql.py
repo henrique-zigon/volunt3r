@@ -1,6 +1,7 @@
 from mysql import connector
 import mysql.connector
 from rpy2.robjects import NULL
+import pyodbc 
 
 class Mysql:
     def __init__(self, user, password, host, database):
@@ -10,12 +11,28 @@ class Mysql:
         self.database = database
         self.mysql = None
         self.cursor = None
+        self.driver= '{ODBC Driver 17 for SQL Server}'
 
     def connect(self):
         try:
-            self.mysql = mysql.connector.connect(
-            user=self.user, password=self.password, host=self.host, database=self.database,auth_plugin='mysql_native_password')
-            #Criando cursor para manipulação do banco.
+
+
+            driver_name = ''
+            driver_names = [x for x in pyodbc.drivers() if x.endswith(' for SQL Server')]
+            if driver_names:
+                driver_name = driver_names[0]
+            if driver_name:
+                conn_str = 'DRIVER={}; ...'.format(driver_name)
+    # then continue with ...
+    # pyodbc.connect(conn_str)
+    # ... etc.
+            else:
+                print('(No suitable driver found. Cannot connect.)')
+
+            self.mysql= pyodbc.connect('DRIVER='+self.driver+';SERVER=tcp:'+self.host+';PORT=1433;DATABASE='+self.database+';UID='+self.user+';PWD='+ self.password)
+            # self.mysql = mysql.connector.connect(
+            # user=self.user, password=self.password, host=self.host, database=self.database,auth_plugin='mysql_native_password')
+            # #Criando cursor para manipulação do banco.
             print(self.mysql)
             print("\033[32m", "Conexao ao Banco Estabelecida", "\033[0;0m")
             self.cursor = self.mysql.cursor()
