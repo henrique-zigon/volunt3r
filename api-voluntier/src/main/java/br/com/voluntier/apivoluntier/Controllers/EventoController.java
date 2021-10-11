@@ -60,7 +60,7 @@ public class EventoController {
             return ResponseEntity.status(204).build();
         } else {
             allPub.forEach(pub -> {
-                pub.isCurtido(idUsu);
+                pub.setCurtido(idUsu);
             });
             return ResponseEntity.status(200).body(allPub);
         }

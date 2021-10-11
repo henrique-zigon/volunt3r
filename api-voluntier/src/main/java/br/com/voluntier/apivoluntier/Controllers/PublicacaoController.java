@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 
 /*
@@ -58,7 +57,7 @@ public class PublicacaoController {
             return ResponseEntity.status(204).build();
         } else {
             allPub.forEach(pub -> {
-                pub.isCurtido(idUsu);
+                pub.setCurtido(idUsu);
             });
             return ResponseEntity.status(200).body(allPub);
         }
@@ -80,7 +79,7 @@ public class PublicacaoController {
                                                   @RequestParam(defaultValue = "10") Integer tamanho) {
         Page<Publicacao> listaPubl=repository.findByUsuario_IdUsuarioIsAndTipoIsNot(usuario, "comentario",PageRequest.of(pagina, tamanho));
         for(Publicacao pub : listaPubl.getContent()){
-            pub.isCurtido(usuario);
+            pub.setCurtido(usuario);
         }
         return ResponseEntity.status(200).body(listaPubl);
     }
@@ -208,7 +207,7 @@ public class PublicacaoController {
             return ResponseEntity.status(204).build();
         } else {
             allPub.forEach(pub -> {
-                pub.isCurtido(idUsu);
+                pub.setCurtido(idUsu);
             });
             return ResponseEntity.status(200).body(allPub);
         }
@@ -224,7 +223,7 @@ public class PublicacaoController {
             return ResponseEntity.status(204).build();
         } else {
             allPub.forEach(pub -> {
-                pub.isCurtido(usuario);
+                pub.setCurtido(usuario);
             });
             return ResponseEntity.status(200).body(allPub);
         }
