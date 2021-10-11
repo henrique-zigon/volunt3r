@@ -92,10 +92,6 @@ function Feed(props) {
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
-											/*onClick={() => {
-												setPublicacaoSelecionada(publicacao);
-												abrirModal();
-											}}*/
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
 											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
@@ -128,6 +124,7 @@ function Feed(props) {
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
+											isSubscribe={false}
 										/>
 									);
 								}

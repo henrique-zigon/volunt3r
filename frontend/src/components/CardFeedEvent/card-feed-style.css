@@ -66,8 +66,8 @@ div.information-card header.header-card div.user-posted img {
 }
 
 div.information-card header.header-card button.btn-subscribe-post {
-	width: 150px;
-	height: 30px;
+	width: 170px;
+	height: 35px;
 	border-radius: 100px;
 	background: var(--principal-blue);
 	border: none;
@@ -76,6 +76,16 @@ div.information-card header.header-card button.btn-subscribe-post {
 	cursor: pointer;
 }
 
+div.information-card header.header-card button.btn-subscribed {
+	width: 170px;
+	height: 35px;
+	border-radius: 100px;
+	color: #000;
+	text-transform: uppercase;
+	cursor: pointer;
+	border: 2px solid var(--principal-blue);
+	background: none;
+}
 
 div.information-card div.post-information {
 	width: 100%;

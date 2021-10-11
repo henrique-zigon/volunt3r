@@ -10,50 +10,55 @@ import './card-feed-style.css';
 const CardFeedEvent = (props) => {
 
   let months = ["Jan", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dec"]
-  
-  let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) -1 ];
+
+  let monthEvent = months[parseInt(props.dataEvent.split("/")[1]) - 1];
   let dayEvent = props.dataEvent.split("/")[0];
-  
-	const { addToast } = useToasts();
-  
-  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false); 
+
+  const { addToast } = useToasts();
+
+  const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false);
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
   const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
+  const [isSubscribed,  setIsSubscribed] = useState(props.isSubscribe ? true : false)
 
-  async function inscrever(){
-   await api("/eventos/inscrever", {
-    method: "POST",
-    headers: { 
-      'Authorization': props.token,
-      'Content-Type': 'application/json'
-    },
-    data: {
-      fkUsuario: {
-        idUsuario: props.idLoggedUser
-      },
-      fkPublicacao: {
-        id: props.idPost
-      }
+  async function inscrever() {
+
+
+    if(!isSubscribed) {
+      await api("/eventos/inscrever", {
+        method: "POST",
+        headers: {
+          'Authorization': props.token
+        },
+        data: {
+          fkUsuario: props.idLoggedUser,
+          fkEvento:  props.idPost,
+          status_UE: "pendente"
+        }
+        
+      }).then(resposta => {
+        if(resposta.status === 201) {
+          addToast('Inscrito com sucesso! 😀', { appearance: 'success', autoDismiss: true })
+          setIsSubscribed(true);
+        }
+      }).catch((e) => {
+        if (e.response.status === 400) {
+          addToast('Você já está inscrito!', { appearance: 'warning', autoDismiss: true })
+        }
+        if (e.response.status === 500) {
+          addToast('Erro ao se inscrever... 😥', { appearance: 'error', autoDismiss: true })
+        }
+      });
+    } else {
+      // código para se desiscrever
     }
-  }).then(resposta => {
-    if(resposta.status === 201) {
-      addToast('Inscrito com sucesso! 😀', {appearance: 'success', autoDismiss: true})
-    }
-  }).catch((e) => {
-    if(e.response.status === 400) {
-      addToast(e.message, {appearance: 'warning', autoDismiss: true})
-    }
-    else if(e.response.status === 500) {
-      addToast('Erro ao se inscrever... 😥', {appearance: 'error', autoDismiss: true})
-    }
-  });
   }
 
   async function likePostFunction() {
-    if(!isLikedCardFeedEvent) {
+    if (!isLikedCardFeedEvent) {
       await api("/gostei", {
         method: "POST",
-        headers: { 
+        headers: {
           'Authorization': props.token,
           'Content-Type': 'application/json'
         },
@@ -66,10 +71,10 @@ const CardFeedEvent = (props) => {
           }
         }
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           setIsLikedCardFeedEvent(true);
           setCountLikesCardFeedEvent(countLikesCardFeedEvent + 1);
-        }      
+        }
       }).catch(err => {
         console.error(err);
       });
@@ -77,7 +82,7 @@ const CardFeedEvent = (props) => {
 
       await api("/gostei", {
         method: "DELETE",
-        headers: { 
+        headers: {
           'Authorization': props.token,
           'Content-Type': 'application/json'
         },
@@ -90,10 +95,10 @@ const CardFeedEvent = (props) => {
           }
         }
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           setIsLikedCardFeedEvent(false);
           setCountLikesCardFeedEvent(countLikesCardFeedEvent - 1);
-        }      
+        }
       }).catch(err => {
         console.error(err);
       });
@@ -121,9 +126,13 @@ const CardFeedEvent = (props) => {
               <span className="area-user-posted">{props.areaUserPosted}</span>
             </div>
           </div>
+          {
 
-          <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+            isSubscribed === true ? <button onClick={inscrever} className="btn-subscribed">Partipando</button>
+            : <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+          }
           
+
         </header>
 
         <div className="post-information">
