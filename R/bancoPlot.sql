@@ -1,3 +1,4 @@
+drop database plots;
 create database Plots;
 use Plots;
 
@@ -15,22 +16,25 @@ create table Evento(
 );
 
 create table Voluntario(
-	id int primary key auto_increment,
-    nome varchar(45),
+	idUsuario int primary key auto_increment,
+    nomeUsuario varchar(45),
     cargo varchar(20),
-    classificacao varchar(2),
-    totalHrN1 int,
-    totalHrN2 int,
-    totalHrN3 int,
-    totalHrN4 int,
-    totalHr int,
-    totalQntN1 int,
-    totalQntN2 int,
-    totalQntN3 int,
-    totalQntN4 int,
-    totalQnt int,
+    ano2019 varchar(2),
+    ano2020 varchar(2),
+    ano2021 varchar(2),
+    totalMinutosN1 int,
+    totalMinutosN2 int,
+    totalMinutosN3 int,
+    totalMinutosN4 int,
+    totalMinutos int,
+    totalParticipacoesN1 int,
+    totalParticipacoesN2 int,
+    totalParticipacoesN3 int,
+    totalParticipacoesN4 int,
+    totalParticipacoes int,
     score int,
-    tempoCasa double
+    tempoCasa double,
+    aderencia double
 );
 
 create table Publicacao(

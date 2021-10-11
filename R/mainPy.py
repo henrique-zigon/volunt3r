@@ -5,7 +5,7 @@ import time
 
 
 #---------------------------------------------------
-mysql=Mysql('root','admin','localhost','PLOTS')
+mysql=Mysql('root','admin','localhost','plots')
 mysql.connect()
 #---------------------------------------------------
 

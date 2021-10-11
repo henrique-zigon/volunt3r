@@ -3,6 +3,7 @@ package br.com.voluntier.apivoluntier.Controllers;
 
 import br.com.voluntier.apivoluntier.Models.*;
 import br.com.voluntier.apivoluntier.Repositories.*;
+import br.com.voluntier.apivoluntier.Responses.Classificacao;
 import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.EmailService;
@@ -46,6 +47,12 @@ public class EventoController {
 
     @Autowired
     private TokenService tokenService;
+
+    @Autowired
+    private ClassificacaoRepository classificacaoRepository;
+
+    @Autowired
+    private EventoRepository eventoRepository;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -128,18 +135,35 @@ public class EventoController {
             InscricaoEvento registroInscricao=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(inscricao.getFkUsuario(), inscricao.getFkEvento());
             Optional <Usuario> usuario=usuarioRepository.findById(inscricao.getFkUsuario());
 
+
             if (registroInscricao.getStatus().equals("confirmado")){
                 retornoHasmap.put("message","Você já participou desse evento");
                 return ResponseEntity.status(400).body(retornoHasmap); //ver status
             }
-
+            //String catDoEvento=eventoRepository.findCategoria(inscricao.getFkEvento());
+            Evento eventoSelecionado=eventoRepository.findById(inscricao.getFkEvento()).get();
+            System.out.println("Evento selecionado: "+eventoSelecionado.getId());
+            Classificacao ranqueEmCategoria=classificacaoRepository.FindAllByFkUsuarioAndfkCategoriaBonificacao(usuario.get().getIdUsuario(),eventoSelecionado.getCategoria().getIdCategoria());
             if (usuario.isPresent()){
-                Integer milhas=usuario.get().getQuantidadeMilhas() + 5;  //mudar quantidade
-                usuario.get().setQuantidadeMilhas(milhas);  //ADD 5 milhas
+                Integer milhas=usuario.get().getQuantidadeMilhas() + eventoSelecionado.getMilhasParticipacao();
+                usuario.get().setQuantidadeMilhas(milhas);  //ADD milhas de participação
                 usuarioRepository.save(usuario.get());
                 registroInscricao.setStatus("confirmado");
                 repositoryInscricaoEvento.save(registroInscricao);
                 retornoHasmap.put("message","Participação registrada");
+
+
+
+                if (ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteBronze() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimitePrata() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteOuro()){
+                    retornoHasmap.clear();
+                    retornoHasmap.put("message","Participação registrada! \n Você acabou de subir de nível na categoria "+ranqueEmCategoria.getNomeCategoria());
+                    milhas=usuario.get().getQuantidadeMilhas() + ranqueEmCategoria.getMilhasPromocao();
+                    usuario.get().setQuantidadeMilhas(milhas);  //ADD milhas de promoção
+                    usuarioRepository.save(usuario.get());
+                }
+
+
+
                 return ResponseEntity.status(201).body(retornoHasmap);
             }
             else {

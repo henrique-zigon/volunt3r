@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { BiEdit } from 'react-icons/bi';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../api';
 import './card-perfil-style.css';
-import Conquista from '../../components/Conquista/Conquista';
 import CardConquistasIcones from '../../components/CardConquistasIcones/CardConquistasIcones';
 import CardConquistasDetailed from '../../components/CardConquistasDetailed/CardConquistasDetailed';
 import Botao from '../../components/Botao/Botao';
@@ -30,7 +28,7 @@ const CardPerfil = (props) => {
                                 <span className="subtitle">{props.cargo}</span>
                             </div>
                         </div>
-                        <Botao children="Editar Perfil"/>
+                        <Botao children="Editar Perfil" buttonIcon="biEdit"/>
                     </div>
                 </div>
 

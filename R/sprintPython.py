@@ -8,6 +8,15 @@ from rpy2.robjects.vectors import StrVector
 import datetime
 
 
+utils=rpackages.importr('utils')
+utils.chooseCRANmirror(ind=1)
+utils.install_packages('randomNames')
+utils.install_packages('tidyverse')
+utils.install_packages('dplyr')
+utils.install_packages('stringr')
+utils.install_packages('tibble')
+utils.install_packages('tibble')
+
 package_names = ('afex','emmeans')
 
 if all(rpackages.isinstalled(x) for x in package_names):
@@ -17,16 +26,18 @@ else:
     have_package=False
 
 if not have_package:
-    utils=rpackages.importr('utils')
+    
     utils.chooseCRANmirror(ind=1)
 
     packnames_to_install=[x for x in package_names if not rpackages.isinstalled(x)]
 
     if len(packnames_to_install)>0:
         utils.install_packages(StrVector(packnames_to_install))
+
+    
 #-----------------------------------------------------------------------------------
 
-robjects.r('source("C:/Users/Henrique/Desktop/ScriptR2.R")')
+robjects.r('source("C:/Users/Henrique/Desktop/ScriptR2(2).R")')
 
 
 
@@ -62,8 +73,8 @@ def function_evento():
 
 def function_voluntario():
     
-    tabelVolu=robjects.r('Voluntario')
-    nRowVol=robjects.r('nrow(Voluntario)')
+    tabelVolu=robjects.r('matriz_pessoas_nivel')
+    nRowVol=robjects.r('nrow(matriz_pessoas_nivel)')
     print(int(nRowVol[0]))
     #print(tabelVolu[0][0])
     #convertido=datetime.date(int(tabelEvent[6][6]))
@@ -78,15 +89,19 @@ def function_voluntario():
         objVol[3]=tabelVolu[3][ev]
         objVol[4]=tabelVolu[4][ev]
         objVol[5]=tabelVolu[5][ev]
-        objVol[6]=tabelVolu[6][ev]
-        objVol[7]=tabelVolu[7][ev]
-        objVol[8]=tabelVolu[8][ev]
-        objVol[9]=tabelVolu[9][ev]
-        objVol[10]=tabelVolu[10][ev]
-        objVol[11]=tabelVolu[11][ev]
-        objVol[12]=tabelVolu[12][ev]
-        objVol[13]=tabelVolu[13][ev]
-        objVol[14]=tabelVolu[14][ev]
-  
+        objVol[6]=int(tabelVolu[6][ev])
+        objVol[7]=int(tabelVolu[7][ev])
+        objVol[8]=int(tabelVolu[8][ev])
+        objVol[9]=int(tabelVolu[9][ev])
+        objVol[10]=int(tabelVolu[10][ev])
+        objVol[11]=int(tabelVolu[11][ev])
+        objVol[12]=int(tabelVolu[12][ev])
+        objVol[13]=int(tabelVolu[13][ev])
+        objVol[14]=int(tabelVolu[14][ev])
+        objVol[15]=int(tabelVolu[15][ev])
+        objVol[16]=int(tabelVolu[16][ev])
+        objVol[17]=tabelVolu[17][ev]
+        objVol[18]=tabelVolu[18][ev]
+      
         tabelaVoluntario[ev]=objVol
     return tabelaVoluntario

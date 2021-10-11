@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ranque")
+@RequestMapping("/ranques")
 public class RanqueController {
 
     @Autowired

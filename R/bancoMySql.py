@@ -1,5 +1,6 @@
 from mysql import connector
 import mysql.connector
+from rpy2.robjects import NULL
 
 class Mysql:
     def __init__(self, user, password, host, database):
@@ -46,19 +47,19 @@ class Mysql:
             self.close()
 
     def insert_voluntario(self, data):
-        # print("Data=")
-        # print(data)
-        # print("------") 
-        values = data       
+        print("Data=")
+        values = data 
+        print(values)
+        print("------")       
         query = ("INSERT INTO Voluntario"
-         "(nome, cargo, classificacao,totalHrN1,"
-         "totalHrN2,totalHrN3,totalHrN4,totalHr,totalQntN1,"
-         "totalQntN2,totalQntN3,totalQntN4,totalQnt,score,tempoCasa)"
-        "VALUES('{}','{}','{}',{},{},{},{},{},{},{},{},{},{},{},{})"
-        ).format(values[0],values[1],values[2],values[3],
+        "(nomeUsuario,cargo,ano2019,ano2020,ano2021,totalMinutosN1,totalMinutosN2,"
+        "totalMinutosN3,totalMinutosN4,totalMinutos,totalParticipacoesN1,totalParticipacoesN2,"
+        "totalParticipacoesN3,totalParticipacoesN4,totalParticipacoes,score,tempoCasa, aderencia)" 
+        "VALUES('{}','{}','{}','{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{})"
+        ).format(values[1],values[2],values[3],
         values[4],values[5],values[6],values[7],values[8],
         values[9],values[10],values[11],values[12],values[13],
-        values[14])
+        values[14],values[15],values[16],values[17],values[18])
      
         
         try:
