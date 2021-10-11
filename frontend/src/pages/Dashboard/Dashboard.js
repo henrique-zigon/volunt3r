@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './dashboard.css';
+import './styles/dashboard.css';
 import SideBar from '../../components/SideBar/SideBar';
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import { BiUserPlus, BiUserMinus, BiHeart } from 'react-icons/bi';

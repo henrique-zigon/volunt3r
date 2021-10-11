@@ -50,4 +50,8 @@ public class Ranque {
     public void setFkCategoria(Categoria fkCategoria) {
         this.fkCategoria = fkCategoria;
     }
+
+
+
+
 }
