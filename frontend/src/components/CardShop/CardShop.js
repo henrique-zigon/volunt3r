@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Botao from '../../components/Botao/Botao';
 import './card-shop.css';
 
 const CardShop = (props) => {
@@ -17,7 +17,8 @@ const CardShop = (props) => {
             <span className="title">{props.title}</span><br />
             <span className="prince-and-temp">{props.prince} Milhas - {props.time} horas</span>
           </div>
-          <button className="btn-buy">Comprar</button>
+          <Botao children="COMPRAR" buttonSize="btn--medium"/>
+          {/* <button className="btn-buy">Comprar</button> */}
         </div>
         <span className="description-courses">{props.description}</span>
       </div>

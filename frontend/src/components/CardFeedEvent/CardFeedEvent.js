@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { BiHeart, BiRepost } from 'react-icons/bi';
+import { BiHeart, BiRepost} from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
+import Botao from '../../components/Botao/Botao';
+import PessoasInteressadas from '../../components/PessoasInteressadas/PessoasInteressadas';
 
 import api from '../../api';
 import './card-feed-style.css';
@@ -122,7 +124,8 @@ const CardFeedEvent = (props) => {
             </div>
           </div>
 
-          <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+          <Botao onClick={inscrever} children="QUERO PARTICIPAR" buttonSize="btn--long"/>
+          {/* <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button> */}
           
         </header>
 
@@ -155,6 +158,7 @@ const CardFeedEvent = (props) => {
             </button>
             <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
           </div>
+          <PessoasInteressadas inscritos={props.inscritos}/>
         </div>
       </div>
     </div>

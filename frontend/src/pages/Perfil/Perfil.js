@@ -49,7 +49,7 @@ function Perfil(props) {
 				<div className="perfil-content">
 					<NewNavBar />
 					<div>
-						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} />
+						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} />
 					</div>
 					<div className="feed-cards">
 
@@ -75,6 +75,7 @@ function Perfil(props) {
 											addressPost={publicacao.evento.endereco}
 											descriptionPost={publicacao.descricao}
 											countLikes={publicacao.numeroLikes}
+											countRelatedPosts={publicacao.numeroComentarios}
 											dataEvent={publicacao.evento.dataEvento}
 											idPost={publicacao.id}
 											idLoggedUser={cookies_user.volunt3r_user.idUsuario}
@@ -92,6 +93,7 @@ function Perfil(props) {
 											descriptionPost={publicacao.descricao}
 											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
+											countComments={publicacao.numeroComentarios}
 											idPost={publicacao.id}
 											idLoggedUser={cookies_user.volunt3r_user.idUsuario}
 											token={cookies.volunt3r}
