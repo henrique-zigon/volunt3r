@@ -16,7 +16,7 @@ import Perfil from './pages/Perfil/Perfil';
 import Feed from './pages/Feed/Feed.js';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
-import RelatorioPage from './pages/RelatorioPage/RelatorioPage';
+import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
 
 function Routes() {

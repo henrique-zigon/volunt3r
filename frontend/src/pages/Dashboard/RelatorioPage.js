@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBar from '../../components/SideBar/SideBar';
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
-import './relatorioPage.css';
+import './styles/relatorioPage.css';
 import api from '../../api';
 import TransformFile from '../../utils/TransformFile';
 import { useCookies } from 'react-cookie';
