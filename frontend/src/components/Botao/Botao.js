@@ -13,6 +13,7 @@ const STYLES = [
 ];
 
 const SIZE = [
+    "btn--big",
     "btn--medium",
     "btn--long",
   ];
@@ -36,20 +37,21 @@ const Botao = (props) => {
 
   const checkButtonIcon = ICONS.includes(props.buttonIcon) ? ICONS[ICONS.find(props.buttonIcon)[1]] : ICONS[0][1];
 
-  const iconTeste= "biEdit";
+  // const iconTeste= "edit";
 
   return (
     
-    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize}`}
+    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize} ${checkButtonType}`}
         onClick={props.onClick}
         type={props.type}>
         <div>
             <span className={props.buttonType==="btn--icon" ? "hide" : ""}>
-            {props.children}
+              {props.children}
             </span>
-            {/* <span icon = {BiEdit} /> */}
-            {/* <span icon = {iconTeste==="biEdit" ? BiEdit: "falink"} /> */}
-            <BiEdit size="15px" className={props.buttonType==="btn--text" ? "hide" : ""}/>
+            {/* <span> <BiEdit /></span> */}
+            
+            {props.buttonIcon==="edit" ? <FaEdit />: ""}
+            {/* <BiEdit size="15px" className={props.buttonType==="btn--text" ? "hide" : ""}/> */}
         </div>
     </button>
   );

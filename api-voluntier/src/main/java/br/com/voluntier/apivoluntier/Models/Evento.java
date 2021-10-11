@@ -1,5 +1,7 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +26,10 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "fk_categoria")
     private Categoria categoria;
+
+    @JsonInclude
+    @Transient
+    private boolean inscrito;
 
     public Integer getMilhasParticipacao() {
         return milhasParticipacao;
@@ -108,6 +114,20 @@ public class Evento {
     public Integer getNumeroInscritos() {
         return this.getInscritos().size();
     }
+
+    public void setInscrito(Integer idUsuario) {
+        for(InscricaoEvento inscrito : inscritos) {
+            if(inscrito.getFkUsuario() == idUsuario) {
+                this.inscrito = true;
+                break;
+            }
+        }
+    }
+
+    public boolean isInscrito() {
+        return inscrito;
+    }
+
 }
 
 

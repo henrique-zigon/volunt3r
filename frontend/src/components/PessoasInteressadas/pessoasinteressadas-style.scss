@@ -1,0 +1,43 @@
+div.user-interested .seeMore {
+	width: 35px;
+	height: 35px;
+	background-color: #F0F0F5;
+	border-radius: 50%;
+	color: #366DBF;
+	display: flex;
+  position: relative;
+	justify-content: center;
+	align-items: center;
+  left: -20px;
+}
+
+div.user-interested{
+    width: 140px;
+    display: flex;
+	  justify-content: left;
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
+
+$maxImagesNumber: 3;
+
+div.user-interested {
+  img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%; 
+    position: relative;
+    border: 2px solid rgb(255, 255, 255);
+  }
+
+  @for $i from $maxImagesNumber through 1 {
+    :nth-child(#{ $i }) {
+      z-index: #{ $maxImagesNumber - ($i - 1) };
+      right: #{ ($i - 1) * 7 }px;
+    }
+  }
+}

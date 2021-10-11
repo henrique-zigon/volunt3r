@@ -28,7 +28,7 @@ const CardPerfil = (props) => {
                                 <span className="subtitle">{props.cargo}</span>
                             </div>
                         </div>
-                        <Botao children="Editar Perfil" buttonIcon="biEdit"/>
+                        <Botao children="Editar Perfil" buttonIcon="edit" buttonType="btn--texticon"/>
                     </div>
                 </div>
 

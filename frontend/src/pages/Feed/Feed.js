@@ -107,6 +107,7 @@ function Feed(props) {
 											isLikedPost={publicacao.curtido}
 											isSubscribe={publicacao.evento.inscrito}
 											idEvent={publicacao.evento.id}
+											inscritos={publicacao.evento.inscritos}
 										/>
 									);
 

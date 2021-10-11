@@ -25,3 +25,9 @@ div.medals-detailed-scroll{
 		max-height: 350px;
 	}
 }
+
+@media screen and (max-width: 580px) {
+	div.user-medals-detailed{
+		width: 90%;
+	}
+}

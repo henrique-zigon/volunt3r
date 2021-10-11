@@ -158,3 +158,10 @@ div.profile-content-inside{
 
 }
 
+@media screen and (max-width: 580px) {
+	div.profile-bio-area{
+		width: 90%;
+		margin: auto;
+	}
+
+}

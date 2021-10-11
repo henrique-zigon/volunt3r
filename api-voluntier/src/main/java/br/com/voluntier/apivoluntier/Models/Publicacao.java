@@ -144,7 +144,7 @@ public class Publicacao {
         this.publicacoesFilhos = publicacoesFilhos;
     }
 
-    public boolean isCurtido() {
+    public boolean setCurtido() {
         return curtido;
     }
 
@@ -168,9 +168,12 @@ public class Publicacao {
         return this.getPublicacoesFilhos().size();
     }
 
-    public void isCurtido(Integer idUsu){
+    public void setCurtido(Integer idUsu){
         this.curtido=false;
         for (Gostei gostei: likes){
+            if(this.isPublicacaoEvento()) {
+                this.evento.setInscrito(idUsu);
+            }
             if (gostei.getFkUsuario().getIdUsuario()==idUsu){
                 this.curtido=true;
                 return;
@@ -178,7 +181,7 @@ public class Publicacao {
         }
     }
 
-    public boolean getCurtido(){
+    public boolean isCurtido(){
         return this.curtido;
     }
 
