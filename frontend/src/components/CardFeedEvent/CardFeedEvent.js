@@ -19,12 +19,10 @@ const CardFeedEvent = (props) => {
   const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false);
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
   const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
-  const [isSubscribed,  setIsSubscribed] = useState(props.isSubscribe ? true : false)
+  const [isSubscribed, setIsSubscribed] = useState(props.isSubscribe ? true : false)
 
   async function inscrever() {
-
-
-    if(!isSubscribed) {
+    if (!isSubscribed) {
       await api("/eventos/inscrever", {
         method: "POST",
         headers: {
@@ -32,12 +30,12 @@ const CardFeedEvent = (props) => {
         },
         data: {
           fkUsuario: props.idLoggedUser,
-          fkEvento:  props.idPost,
+          fkEvento: props.idEvent,
           status_UE: "pendente"
         }
-        
+
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           addToast('Inscrito com sucesso! 😀', { appearance: 'success', autoDismiss: true })
           setIsSubscribed(true);
         }
@@ -50,7 +48,24 @@ const CardFeedEvent = (props) => {
         }
       });
     } else {
-      // código para se desiscrever
+      await api("/eventos/inscrever", {
+        method: "POST",
+        headers: {
+          'Authorization': props.token
+        },
+        data: {
+          fkUsuario: props.idLoggedUser,
+          fkEvento: props.idEvent,
+        }
+      }).then(resposta => {
+        if (resposta.status === 200) {
+          addToast('Inscrição Cancelada! 😟', { appearance: 'success', autoDismiss: true })
+          setIsSubscribed(false);
+        }
+      }).catch(e => {
+        
+        addToast('Opps ... Ocorreu algum erro 😥', { appearance: 'error', autoDismiss: true })
+      })
     }
   }
 
@@ -128,10 +143,10 @@ const CardFeedEvent = (props) => {
           </div>
           {
 
-            isSubscribed === true ? <button onClick={inscrever} className="btn-subscribed">Partipando</button>
-            : <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+            isSubscribed === true ? <button onClick={inscrever} className="btn-subscribed">Participando</button>
+              : <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
           }
-          
+
 
         </header>
 

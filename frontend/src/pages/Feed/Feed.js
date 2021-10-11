@@ -41,7 +41,6 @@ function Feed(props) {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
 				setPublicacoes(resposta.data.content.reverse());
-				console.log(resposta.data)
 			}).catch(err => {
 				console.log("Deu erro"+err)
 			});
@@ -88,7 +87,7 @@ function Feed(props) {
 
 						{
 							publicacoes.map((publicacao) => {
-								console.log();
+				
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
@@ -106,6 +105,8 @@ function Feed(props) {
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
+											isSubscribe={publicacao.evento.inscrito}
+											idEvent={publicacao.evento.id}
 										/>
 									);
 
@@ -124,7 +125,6 @@ function Feed(props) {
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
-											isSubscribe={false}
 										/>
 									);
 								}
