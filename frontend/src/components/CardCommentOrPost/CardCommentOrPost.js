@@ -1,46 +1,81 @@
-import React, { useEffect } from 'react';
-import { BiHeart, BiComment } from 'react-icons/bi';
+import React, { useState } from 'react';
+import { BiHeart, BiComment, BiSend } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
-import { useState } from 'react';
+import { useCookies } from 'react-cookie';
+import { useToasts } from 'react-toast-notifications';
 
 import './style-cardCommentOrPost.css';
 
 import api from '../../api';
+import InputForm from '../InputForm/InputForm';
+
 
 
 const CardCommentOrPost = (props) => {
 
-  const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(props.isLikedPost ? true : false); 
-
+  const [isLikedCardCommentOrPost, setIstLikedCardCommentOrPost] = useState(props.isLikedPost ? true : false);
   const [countLikesCardCommentOrPost, setCountCardCommentOrPost] = useState(props.countLikes);
-
   const [countCommentsCardCommentOrPost, setCountCommentsCardCommentOrPost] = useState(props.countComments);
-
+  const [paginationComments, setPaginationComments] = useState(0);
   const [stateCommentContainer, setStateCommentContainer] = useState("");
+  const [comentarios, setComentarios] = useState([]);
+  const [isShowComments, setIsShowComments] = useState(false);
 
+  const { addToast } = useToasts();
 
-  let isShowComments = false;
+  async function newComment(e) {
+    e.preventDefault();
+    let comentario = e.target.comentario.value
+    if(comentario === "") {
+      addToast('Opps ... Preencha o seu comentário!', { appearance: 'success', autoDismiss: true })
+    } else {
+      await api(`/publicacoes/comentarios/${props.idPost}`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'text/plain',
+          'Authorization': props.token
+        },
+        data: comentario
+      }).then(resposta => {
+        if(resposta.status === 201) {
+          getComentarios();
+          addToast('Comentário registrado com sucesso!', { appearance: 'success', autoDismiss: true })
+        }
+      }).catch(err => {
+        console.error(err);
+      })
+    }
+  }
 
   function showOrHiddenComments() {
-  
-    console.log(isShowComments)
-    if(!isShowComments) {
+    if (!isShowComments) {
+      getComentarios();
       setStateCommentContainer("hidden-comments");
-      
-      isShowComments = true;
+      setIsShowComments(true);
     } else {
       setStateCommentContainer("");
-      isShowComments = false;
+      setIsShowComments(false);
     }
-    console.log(stateCommentContainer)
+  }
+
+  async function getComentarios() {
+    await api.get(`/publicacoes/${props.idPost}/comentarios`, {
+      params: { pagina: 0, tamanho: 10 },
+      headers: { 'Authorization': props.token }
+    }).then(resposta => {
+      if (resposta.status === 200) {
+        setComentarios(resposta.data.content)
+      }
+    })
   }
 
 
+
   async function likePostFunction() {
-    if(!isLikedCardCommentOrPost) {
+    if (!isLikedCardCommentOrPost) {
       await api("/gostei", {
         method: "POST",
-        headers: { 
+        headers: {
           'Authorization': props.token,
           'Content-Type': 'application/json'
         },
@@ -53,10 +88,10 @@ const CardCommentOrPost = (props) => {
           }
         }
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           setIstLikedCardCommentOrPost(true);
           setCountCardCommentOrPost(countLikesCardCommentOrPost + 1);
-        }      
+        }
       }).catch(err => {
         console.error(err);
       });
@@ -64,7 +99,7 @@ const CardCommentOrPost = (props) => {
 
       await api("/gostei", {
         method: "DELETE",
-        headers: { 
+        headers: {
           'Authorization': props.token,
           'Content-Type': 'application/json'
         },
@@ -77,10 +112,10 @@ const CardCommentOrPost = (props) => {
           }
         }
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           setIstLikedCardCommentOrPost(false);
           setCountCardCommentOrPost(countLikesCardCommentOrPost - 1);
-        }      
+        }
       }).catch(err => {
         console.error(err);
       });
@@ -90,8 +125,6 @@ const CardCommentOrPost = (props) => {
   return (
     <div className="feed-card card-comment-or-post">
       <div className="principal-content-card">
-
-      
         <img className="image-post"
           src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
           alt={props.titlePost}
@@ -132,11 +165,7 @@ const CardCommentOrPost = (props) => {
               {/* <Teste countLikes={props.countLikes}/> */}
             </div>
             <div className="like-post">
-              <button className="btn-comment-post" >
-                {
-                  <BiComment onClick={showOrHiddenComments}/>
-                }
-              </button>
+              <button className="btn-comment-post" onClick={showOrHiddenComments}> <BiComment /> </button>
               <span><b>{countCommentsCardCommentOrPost}</b> comentários</span>
             </div>
           </div>
@@ -144,15 +173,37 @@ const CardCommentOrPost = (props) => {
       </div>
       {/* <div className="hidden-line line"></div> */}
       <div className={`${stateCommentContainer} container-comments`}>
-        <div className="user-comment">
-          <div className="icon-user">
-            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" /> 
-          </div>
-          <div className="box-user-comment">
-              <span className="name-user-comment">Gabriel Ronny</span>
-              <span className="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quae magnam expedita maiores eos quis hic iure, eveniet sit voluptates ea commodi nesciunt delectus fugiat similique veniam repellat ex repellendus!</span>
-          </div>
+        <div className="new-comment">
+            <form action="" onSubmit={(e) => newComment(e)}>
+              <InputForm 
+                type="text"
+                id="comentario"
+                name="comentario"
+                label="Digite um comentário"
+              />
+              <button className="send-new-comment"> <BiSend /> </button>
+            </form>
         </div>
+        {
+          comentarios.length === 0 ? <div>Não há comentários!</div>
+            :
+            comentarios.map(comentario => {
+              return (
+                <div className="user-comment">
+                  <div className="icon-user">
+                    <img src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + comentario.usuario.usuarioImagemPerfil} />
+                  </div>
+                  <div className="box-user-comment">
+                    <span className="name-user-comment">{comentario.usuario.nome}</span>
+                    <span className="comment">{comentario.descricao}</span>
+                  </div>
+                </div>
+              );
+            })
+        }
+
+        {/* <button className="show-more">Ver mais</button> */}
+
       </div>
     </div>
   );

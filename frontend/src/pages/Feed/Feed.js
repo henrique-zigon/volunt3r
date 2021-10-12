@@ -65,26 +65,16 @@ function Feed(props) {
 				<div className="feed-content">
 					<NewNavBar />
 				
-
 					<div className="new-post">
-						{/* <span className="title">postagem</span> */}
 						<img className="user-picture"
 							src={imageUser}
 							alt=""
 						/>
 						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
-						{/* <button type="button">
-							<BiSend className="icon-submit-image" />
-						</button> */}
 
 					</div>
 
 					<div className="feed-cards">
-
-						{/* <span className="not-content">
-							Olá, Ainda não temos posts
-						</span> */}
-
 						{
 							publicacoes.map((publicacao) => {
 				
@@ -93,7 +83,7 @@ function Feed(props) {
 										<CardFeedEvent
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${publicacao.usuario.usuarioImagemPerfil}`}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}

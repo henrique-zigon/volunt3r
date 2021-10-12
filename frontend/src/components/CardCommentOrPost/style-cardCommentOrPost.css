@@ -13,7 +13,7 @@ div.feed-card.card-comment-or-post .hidden-line {
 }
 
 div.feed-card.card-comment-or-post .hidden-comments {
-  display: block;
+  display: flex;
 }
 
 div.principal-content-card {
@@ -40,8 +40,43 @@ div.container-comments {
   padding: 10px 15px;
   /* display: flex; */
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 15px;
   /* background: red; */
+}
+
+div.container-comments div.new-comment {
+  width: 100%;
+  height: auto;
+
+  margin-bottom: 30px;
+}
+
+
+div.container-comments div.new-comment form {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+
+
+div.container-comments div.new-comment button.send-new-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--principal-blue);
+  cursor: pointer;
+}
+
+div.container-comments div.new-comment button.send-new-comment svg {
+  font-size: 1.5rem;
+  color: #FFF;
 }
 
 div.container-comments div.user-comment {
@@ -85,9 +120,29 @@ div.container-comments div.box-user-comment span.name-user-comment {
   font-size: 0.9rem;
   color: var(--principal-blue);
 }
+
 div.container-comments div.box-user-comment span.comment {
   font-size: 0.9rem;
   margin-top: 10px;
+}
+
+div.container-comments button.show-more {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  margin-top: 25px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #000;
+  border-radius: 8px;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+
+div.container-comments button.show-more:hover {
+  opacity: 1;
 }
 
 

@@ -165,11 +165,16 @@ div.footer-information div.like-post button.btn-like-post {
 }
 
 div.footer-information div.like-post button.btn-comment-post {
-	border: none;
-	background: none;
+	/* width: 30px;
+	height: 30px; */
+	border: none !important;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+}
+
+div.footer-information div.like-post button{
+	background: none !important;
 }
 
 div.footer-information div.like-post button.btn-like-post svg {
