@@ -3,8 +3,7 @@ name: Produção Backend
 on:
   push:
     branches: [main]
-    paths:
-      - api-voluntier/**
+    
   
 jobs:
   setup:
