@@ -6,6 +6,7 @@ on:
     paths:
       - frontend/**
 
+
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -36,9 +37,9 @@ jobs:
       - name: Copy file zip
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST_AZURE }}
-          username: ${{ secrets.USERNAME_AZURE }}
-          key: ${{ secrets.KEY_AZURE }}
+          host: ${{ secrets.HOST_FRONTEND }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
           port: 22
           source: prod_build.tar.gz
           target: /tmp
@@ -52,8 +53,8 @@ jobs:
       - name: Update Service Azure
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_AZURE }}
-          username: ${{ secrets.USERNAME_AZURE }}
-          key: ${{ secrets.KEY_AZURE }}
+          host: ${{ secrets.HOST_FRONTEND }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
           port: 22
-          script: "sudo systemctl stop frontend-voluntier && cd /tmp && sudo tar -zxvf prod_build.tar.gz && sudo rm -rf /var/www/frontend-voluntier/build && sudo mv /tmp/frontend/build /var/www/frontend-voluntier && sudo chown nginx:nginx /var/www/frontend-voluntier/build && sudo systemctl start frontend-voluntier"
+          script: "sudo systemctl stop frontend-voluntier && cd /tmp && sudo tar -zxvf prod_build.tar.gz && sudo rm -rf /var/www/frontend-voluntier/build && sudo mv /tmp/frontend/build /var/www/frontend-voluntier && sudo chown www-data:www-data  /var/www/frontend-voluntier/build && sudo systemctl start frontend-voluntier"
