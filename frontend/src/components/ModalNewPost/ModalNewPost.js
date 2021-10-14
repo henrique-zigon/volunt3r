@@ -45,35 +45,39 @@ const ModalNewPost = (props) => {
 
         let formData = new FormData();
 
-        formData.append('arquivo', e.target.file_new_post.files[0]);
-
-        let headers = {
-            'Content-Type': 'multipart/form-data',
-            'Authorization': token
-        }
-
         let data = {
             novaPublicacao: {
                 descricao,
                 dataPostagem: today,
                 publicacaoPai: null,
-                evento: null,
+                evento: 40,
                 usuario: {
                     idUsuario: cookieUser.idUsuario
                 },
                 tipo: "publicacao"
             },
-            arquivo: formData
         }
 
-        await api.post("/publicacoes/novo", data, {
-            headers
-        }).then((resposta) => {
+        formData.append('novaPublicacao', data)
+        formData.append('arquivo', e.target.file_new_post.files[0]);
+
+        let config = {
+            url: "/publicacoes/novo",
+            method: "POST",
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'multipart/form-data',
+                'Accept': 'application/json'
+            },
+            data: formData
+        }
+
+
+        await api(config).then((resposta) => {
             console.log(resposta)
         }).catch((e) => {
             console.error(e)
         });
-
     }  
 
     return (
