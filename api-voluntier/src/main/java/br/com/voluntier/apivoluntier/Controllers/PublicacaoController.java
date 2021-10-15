@@ -8,6 +8,7 @@ import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
+import br.com.voluntier.apivoluntier.Utils.HashTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -63,13 +65,18 @@ public class PublicacaoController {
         }
     }
 
-//    @GetMapping()
-//    public ResponseEntity getPublicacoes() {
-//        return ResponseEntity.status(200).body(repository.findAll()
-//                .stream()
-//                .filter(publicacao -> !publicacao.isComentario())
-//                .collect(Collectors.toList()));
-//    }
+    @GetMapping("/recomendados/{nivel}")
+    public ResponseEntity getRecomendados(@PathVariable Integer nivel){
+        List<Publicacao> listaPub= repository.findByTipoIsNot("comentario");
+        HashTable hash=new HashTable(4);
+
+        for (Publicacao pub : listaPub){
+            hash.insere(pub);
+        }
+
+        return ResponseEntity.status(200).body(hash.getLista(nivel-1));
+
+    }
 
 
 
