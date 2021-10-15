@@ -122,8 +122,35 @@ const CardCommentOrPost = (props) => {
     }
   }
 
+
+  async function clickPost() {
+    await api("/cliques/novo", {
+      method: "POST",
+      headers: {
+        'Authorization': props.token,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        fkUsuario: {
+          idUsuario: props.idLoggedUser
+        },
+        fkPublicacao: {
+          id: props.idPost
+        }
+      }
+    }).then(resposta => {
+      if(resposta.status === 201) {
+        console.log("OK")
+      }
+    }).catch(err => {
+      console.error(err)
+    });
+  }
+
+
+
   return (
-    <div className="feed-card card-comment-or-post">
+    <div className="feed-card card-comment-or-post" onClick={clickPost}>
       <div className="principal-content-card">
         <img className="image-post"
           src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
