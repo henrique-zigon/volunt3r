@@ -75,10 +75,9 @@ create table evento(
 );
  insert into evento (data_evento,data_fechamento_evento,endereco,maximo_participantes,horas,milhas_participacao,titulo,fk_categoria) values ('01/01/2000','01/01/2001','minha c123123asa',10,15,10,'titulo',3),('01/01/2010','01/01/2011','min23123ha vila',10,15,10,'titulo2',3),('01/01/2100','01/01/2101','minh111111a 1111casa',10,15,10,'titulo3',3);
  
- 
 create table publicacao(
 	id_publicacao int auto_increment primary key,
-    tipo varchar(50),
+    tipo varchar(10),
 	check(tipo = 'publicacao' or tipo='evento' or tipo='comentario'),
     descricao varchar(400),
     data_postagem varchar(15),
@@ -125,6 +124,9 @@ create table clique(
     fk_usuario int,
     foreign key(fk_usuario) references usuario(id_usuario)
 );
+
+#alter table publicacao add tipo varchar(10);
+#alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
 
 
 insert into Evento value (3,"15/10/10","11/11/11","minha vila",10,14.30,2);

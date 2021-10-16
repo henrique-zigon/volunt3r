@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './conquista-style.css';
-import avatarPadrao from '../../images/avatar_padrao.png';
+import medalhaPadrao from '../../images/disabled_medal.PNG';
 
 const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
@@ -9,7 +9,7 @@ const Conquista = (props) => {
     return (
         <div className="medal-info-container">
             <div className="medal-icon">
-                <img src={avatarPadrao}></img>
+                <img src={medalhaPadrao}></img>
             </div>
             {
                 (() => {

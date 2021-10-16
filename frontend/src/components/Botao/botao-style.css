@@ -76,7 +76,7 @@
 		width: 50px;
 	}
 
-  .btn--texticon span{
+  .btn--texticon .text{
 		display: none;
 	}
 

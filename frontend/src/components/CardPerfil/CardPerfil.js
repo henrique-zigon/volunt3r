@@ -8,6 +8,7 @@ import './card-perfil-style.css';
 import CardConquistasIcones from '../../components/CardConquistasIcones/CardConquistasIcones';
 import CardConquistasDetailed from '../../components/CardConquistasDetailed/CardConquistasDetailed';
 import Botao from '../../components/Botao/Botao';
+import Milhas from '../../components/Milhas/Milhas';
 
 
 const CardPerfil = (props) => {
@@ -27,6 +28,7 @@ const CardPerfil = (props) => {
                             <div className="profile-user-info">
                                 <b><span>{props.nome}</span></b>
                                 <span className="subtitle">{props.cargo}</span>
+                                <Milhas milhas={props.milhas} />
                             </div>
                         </div>
                         <Botao children="Editar Perfil" icone= {<BiEdit size="15px" />} buttonType="btn--texticon" />
