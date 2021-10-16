@@ -33,7 +33,7 @@ const Botao = (props) => {
         onClick={props.onClick}
         type={props.type}>
         <div className="btn-content">
-            <span className={props.buttonType==="btn--icon" ? "hide" : ""}>
+            <span className={`text ${props.buttonType==="btn--icon" ? "hide" : ""}`}>
               {props.children}
             </span>
             <span className={`icon ${props.buttonType==="btn--text" ? "hide" : ""}`}>
