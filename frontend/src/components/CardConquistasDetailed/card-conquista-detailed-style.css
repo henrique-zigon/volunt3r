@@ -6,6 +6,7 @@ div.user-medals-detailed{
 }
 
 div.medals-detailed-scroll{
+	margin-top: 10px;
 	max-height: 200px;
 	overflow-x: hidden;
     overflow-y: auto;
@@ -23,5 +24,11 @@ div.medals-detailed-scroll{
 
 	div.medals-detailed-scroll{
 		max-height: 350px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	div.user-medals-detailed{
+		width: 90%;
 	}
 }

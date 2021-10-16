@@ -1,9 +1,6 @@
 import React from "react";
 import './botao-style.css';
-import { BiEdit } from 'react-icons/bi';
-import { FaEdit } from "react-icons/fa";
-import { BiEditAlt } from 'react-icons/bi';
-import { BiQuestionMark } from 'react-icons/bi';
+
 
 const STYLES = [
   "btn--primary--solid",
@@ -13,16 +10,11 @@ const STYLES = [
 ];
 
 const SIZE = [
+    "btn--big",
     "btn--medium",
     "btn--long",
   ];
 
-
-const ICONS = [
-    BiQuestionMark, 
-    BiEdit,
-    BiEditAlt,
-];
 
 const TYPE = ["btn--text", "btn--icon", "btn--texticon"];
 
@@ -34,22 +26,20 @@ const Botao = (props) => {
 
   const checkButtonSize = SIZE.includes(props.buttonSize) ? props.buttonSize : SIZE[0];
 
-  const checkButtonIcon = ICONS.includes(props.buttonIcon) ? ICONS[ICONS.find(props.buttonIcon)[1]] : ICONS[0][1];
-
-  const iconTeste= "biEdit";
 
   return (
     
-    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize}`}
+    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize} ${checkButtonType}`}
         onClick={props.onClick}
         type={props.type}>
-        <div>
-            <span className={props.buttonType==="btn--icon" ? "hide" : ""}>
-            {props.children}
+        <div className="btn-content">
+            <span className={`text ${props.buttonType==="btn--icon" ? "hide" : ""}`}>
+              {props.children}
             </span>
-            {/* <span icon = {BiEdit} /> */}
-            {/* <span icon = {iconTeste==="biEdit" ? BiEdit: "falink"} /> */}
-            <BiEdit size="15px" className={props.buttonType==="btn--text" ? "hide" : ""}/>
+            <span className={`icon ${props.buttonType==="btn--text" ? "hide" : ""}`}>
+              {props.icone}
+            </span> 
+            
         </div>
     </button>
   );

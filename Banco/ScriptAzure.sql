@@ -116,6 +116,29 @@ create table clique(
     foreign key(fk_usuario) references usuario(id_usuario)
 );
 
+#PLOT:
+create table Voluntario(
+                           idUsuario int primary key identity ,
+                           nomeUsuario varchar(45),
+                           cargo varchar(20),
+                           ano2019 varchar(2),
+                           ano2020 varchar(2),
+                           ano2021 varchar(2),
+                           totalMinutosN1 int,
+                           totalMinutosN2 int,
+                           totalMinutosN3 int,
+                           totalMinutosN4 int,
+                           totalMinutos int,
+                           totalParticipacoesN1 int,
+                           totalParticipacoesN2 int,
+                           totalParticipacoesN3 int,
+                           totalParticipacoesN4 int,
+                           totalParticipacoes int,
+                           score int,
+                           tempoCasa float,
+                           aderencia float
+);
+
 #alter table publicacao add tipo varchar(10);
 #alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
 

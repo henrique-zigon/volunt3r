@@ -15,7 +15,8 @@ import '../global-pages.css';
 import UserImage from '../../components/UserImage/UserImage';
 
 function EventCatalog() {
-	const [cookies] = useCookies(['volunt3r']);
+	const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
+	const [cookies_user] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
@@ -100,19 +101,21 @@ function EventCatalog() {
 								if (evento.publicacaoEvento) {
 									return (
 										<CardFeedEvent
-											/*onClick={() => {
-												setPublicacaoSelecionada(publicacao);
-												abrirModal();
-											}}*/
 											imagePost={evento.pathImagem}
 											nameUserPosted={evento.usuario.nomeUsuario}
-											imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+evento.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + evento.usuario.usuarioImagemPerfil}
 											areaUserPosted={evento.usuario.area}
 											titlePost={evento.evento.titulo}
 											addressPost={evento.evento.endereco}
 											descriptionPost={evento.descricao}
 											countLikes={evento.numeroLikes}
+											countRelatedPosts={evento.numeroComentarios}
 											dataEvent={evento.evento.dataEvento}
+											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
+											token = {cookies.volunt3r}
+											isLikedPost={evento.curtido}
+											isSubscribe={evento.evento.inscrito}
+											idEvent={evento.evento.id}
 										/>
 									);
 

@@ -54,4 +54,7 @@ div.user-medals span.linkagem{
 	div.slots-preview{
 		max-height: 250px;
 	}
+	div.user-medals{
+		width: 90%;
+	}
 }

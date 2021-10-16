@@ -75,4 +75,5 @@ public class Categoria {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
+
 }

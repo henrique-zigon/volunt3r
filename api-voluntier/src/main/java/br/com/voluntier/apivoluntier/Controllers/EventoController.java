@@ -109,8 +109,11 @@ public class EventoController {
         retornoHasmap.clear();
         Evento evento = repository.findById(novaInscricao.getFkEvento()).get();
         for(InscricaoEvento inscricao : evento.getInscritos()) {
-            if(inscricao.getFkUsuario() == novaInscricao.getFkUsuario())
-                return ResponseEntity.status(400).body("Você já está inscrito neste evento");
+            if(inscricao.getFkUsuario() == novaInscricao.getFkUsuario()){
+                InscricaoEvento insc=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(novaInscricao.getFkUsuario(), novaInscricao.getFkEvento());
+                repositoryInscricaoEvento.delete(insc);
+                return ResponseEntity.status(200).body("Inscrição cancelada");
+            }
         }
         try {
             if(evento.getNumeroInscritos() == evento.getMaximoParticipantes())

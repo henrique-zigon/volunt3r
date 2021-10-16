@@ -35,17 +35,6 @@ div.shop-card div.information-card-shop div.principal-information-course {
 }
 
 
-div.shop-card div.information-card-shop button.btn-buy {
-  width: 140px;
-  height: 40px;
-  border-radius: 100px;
-  border: 0;
-  background: var(--principal-blue);
-  color: #FFF;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
 div.principal-information-course div.info-course span.title {
   font-weight: 700;
   color: var(--principal-blue);

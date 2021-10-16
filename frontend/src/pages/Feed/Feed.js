@@ -41,7 +41,6 @@ function Feed(props) {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
 				setPublicacoes(resposta.data.content.reverse());
-				console.log(resposta.data)
 			}).catch(err => {
 				console.log("Deu erro"+err)
 			});
@@ -66,35 +65,25 @@ function Feed(props) {
 				<div className="feed-content">
 					<NewNavBar />
 				
-
 					<div className="new-post">
-						{/* <span className="title">postagem</span> */}
 						<img className="user-picture"
 							src={imageUser}
 							alt=""
 						/>
 						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
-						{/* <button type="button">
-							<BiSend className="icon-submit-image" />
-						</button> */}
 
 					</div>
 
 					<div className="feed-cards">
-
-						{/* <span className="not-content">
-							Olá, Ainda não temos posts
-						</span> */}
-
 						{
 							publicacoes.map((publicacao) => {
-								console.log();
+				
 								if (publicacao.publicacaoEvento) {
 									return (
 										<CardFeedEvent
 											imagePost={publicacao.pathImagem}
 											nameUserPosted={publicacao.usuario.nomeUsuario}
-											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
+											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${publicacao.usuario.usuarioImagemPerfil}`}
 											areaUserPosted={publicacao.usuario.area}
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
@@ -106,6 +95,9 @@ function Feed(props) {
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
+											isSubscribe={publicacao.evento.inscrito}
+											idEvent={publicacao.evento.id}
+											inscritos={publicacao.evento.inscritos}
 										/>
 									);
 
@@ -124,7 +116,6 @@ function Feed(props) {
 											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
 											token = {cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
-											isSubscribe={false}
 										/>
 									);
 								}

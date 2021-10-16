@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { BiHeart, BiRepost } from 'react-icons/bi';
+import { BiHeart, BiRepost} from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
+import Botao from '../../components/Botao/Botao';
+import PessoasInteressadas from '../../components/PessoasInteressadas/PessoasInteressadas';
 
 import api from '../../api';
 import './card-feed-style.css';
@@ -19,12 +21,10 @@ const CardFeedEvent = (props) => {
   const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false);
   const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
   const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
-  const [isSubscribed,  setIsSubscribed] = useState(props.isSubscribe ? true : false)
+  const [isSubscribed, setIsSubscribed] = useState(props.isSubscribe ? true : false)
 
   async function inscrever() {
-
-
-    if(!isSubscribed) {
+    if (!isSubscribed) {
       await api("/eventos/inscrever", {
         method: "POST",
         headers: {
@@ -32,12 +32,12 @@ const CardFeedEvent = (props) => {
         },
         data: {
           fkUsuario: props.idLoggedUser,
-          fkEvento:  props.idPost,
+          fkEvento: props.idEvent,
           status_UE: "pendente"
         }
-        
+
       }).then(resposta => {
-        if(resposta.status === 201) {
+        if (resposta.status === 201) {
           addToast('Inscrito com sucesso! 😀', { appearance: 'success', autoDismiss: true })
           setIsSubscribed(true);
         }
@@ -50,7 +50,24 @@ const CardFeedEvent = (props) => {
         }
       });
     } else {
-      // código para se desiscrever
+      await api("/eventos/inscrever", {
+        method: "POST",
+        headers: {
+          'Authorization': props.token
+        },
+        data: {
+          fkUsuario: props.idLoggedUser,
+          fkEvento: props.idEvent,
+        }
+      }).then(resposta => {
+        if (resposta.status === 200) {
+          addToast('Inscrição Cancelada! 😟', { appearance: 'success', autoDismiss: true })
+          setIsSubscribed(false);
+        }
+      }).catch(e => {
+        
+        addToast('Opps ... Ocorreu algum erro 😥', { appearance: 'error', autoDismiss: true })
+      })
     }
   }
 
@@ -106,8 +123,33 @@ const CardFeedEvent = (props) => {
   }
 
 
+  async function clickPost() {
+    await api("/cliques/novo", {
+      method: "POST",
+      headers: {
+        'Authorization': props.token,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        fkUsuario: {
+          idUsuario: props.idLoggedUser
+        },
+        fkPublicacao: {
+          id: props.idPost
+        }
+      }
+    }).then(resposta => {
+      if(resposta.status === 201) {
+        console.log("OK")
+      }
+    }).catch(err => {
+      console.error(err)
+    });
+  }
+
+
   return (
-    <div className="feed-card">
+    <div className="feed-card" onClick={clickPost}>
       <img className="image-post"
         src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
@@ -128,10 +170,10 @@ const CardFeedEvent = (props) => {
           </div>
           {
 
-            isSubscribed === true ? <button onClick={inscrever} className="btn-subscribed">Partipando</button>
-            : <button onClick={inscrever} className="btn-subscribe-post">Quero Participar</button>
+            isSubscribed === true ? <Botao onClick={inscrever} children="PARTICIPANDO" buttonSize="btn--long" buttonStyle="btn--primary--outline"/> 
+              : <Botao onClick={inscrever} children="QUERO PARTICIPAR" buttonSize="btn--long"/>
           }
-          
+
 
         </header>
 
@@ -164,6 +206,7 @@ const CardFeedEvent = (props) => {
             </button>
             <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
           </div>
+          <PessoasInteressadas inscritos={props.inscritos}/>
         </div>
       </div>
     </div>

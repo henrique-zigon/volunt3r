@@ -1,14 +1,17 @@
 .btn {
     font-weight: 400;
     width: 150px;
-	height: 50px;
-	border-radius: 100px;
+    height: 50px;
+    border-radius: 100px;
     cursor: pointer;
     border: none;
     transition: transform 0.5s ease;
   }
   
-  
+.btn-content{
+  display: flex;
+  justify-content: center;
+}
   /* Button Colors and Styles */
   
   .btn--primary--solid {
@@ -45,26 +48,41 @@
 
   /* Button Size */
   
-  .btn--medium {
+  .btn--big {
     width: 150px;
 	height: 50px;
   }
   
+  .btn--medium{
+    width: 140px;
+    height: 40px;
+  }
+
   .btn--long {
     width: 150px;
-	height: 30px;
+	  height: 30px;
     text-transform: uppercase;
   }
 
+  /* Button type */
+  .btn--icon{
+    width: 50px;
+  }
 
   
   @media screen and (max-width: 990px) {
 
-	.btn span{
+  .btn--icon{
+		width: 50px;
+	}
+
+  .btn--texticon .text{
 		display: none;
 	}
 
-    .btn{
+  .btn--texticon{
 		width: 50px;
 	}
+
+  
 }

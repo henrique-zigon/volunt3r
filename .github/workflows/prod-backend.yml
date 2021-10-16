@@ -28,9 +28,9 @@ jobs:
       - name: Copy jar
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST_AWS_BACKEND }}
-          username: ${{ secrets.HOST_AWS_BACKEND }}
-          key: ${{ secrets.KEY_AWS_PRIV }}
+          host: ${{ secrets.HOST_BACKEND }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
           port: 22
           source: api-voluntier/target/api.jar.gz
           target: /tmp
@@ -42,8 +42,8 @@ jobs:
       - name: Update service
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_AWS_BACKEND }}
-          username: ${{ secrets.USERNAME_AWS_PRIV }}
-          key: ${{ secrets.KEY_AWS_PRIV }}
+          host: ${{ secrets.HOST_BACKEND }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
           port: 22
-          script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown nginx:nginx /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"
+          script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown www-data:www-data /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"
