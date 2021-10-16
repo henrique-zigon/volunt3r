@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
-
+import { useToasts } from 'react-toast-notifications';
 import InputForm from '../../components/InputForm/InputForm';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
@@ -13,28 +13,43 @@ import '../global-pages.css';
 //import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
 
 import UserImage from '../../components/UserImage/UserImage';
+import { accessibilityProps } from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
 
 function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
+	const { addToast } = useToasts();
+
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
-	function handleSearch(e) {
+	function handleSearch(e) {	
 		console.log()
 		let filtro = e.target.value
+
+		if(filtro === ""){
+			addToast('Adicione um filtro...', { appearance: 'warning', autoDismiss: true })
+		}
+		else{
 		api.get(`/publicacoes/filtroEventos/${filtro}`, {
 			headers: {
 				'Authorization': cookies.volunt3r
 			}
 		}).then(resposta => {
+			if(resposta == 200){
 			setEventos(resposta.data.content.reverse());
 			console.log(resposta)
+			}
+			// else if (resposta == 204){
+			// setEventos= "Não encontramos eventos com esse filtro 😥"
+			// }
 		}).catch(err => {
 			console.log(err)
+			addToast('Algo deu errado... 😥', { appearance: 'error', autoDismiss: true })
 		});
 	}
+}
 
 	useEffect(() => {
 

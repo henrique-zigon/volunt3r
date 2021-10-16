@@ -54,20 +54,25 @@ function RecuperarSenha2() {
 			console.log("OPA A MI GÃO PREENCHE Aí")
 			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
 		} 
+		else if(userData.senha != userData.confirmaSenha ){
+			addToast('Senhas não coincidem...', {appearance: 'warning', autoDismiss: true})
+		}
 
-			
-		// else {
-		// 	api.post("/usuarios/login", {
-		// 		email: userData.email,
-		// 		senha: userData.senha
-		// 	}).then((resposta) => {
-		// 		setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
-		// 		setCookie('volunt3r_user', resposta.data.user, { path: "/" });
-		// 		history.push("/");
-		// 	})
-
-		// }
+		else {
+			api.post("/usuarios/updateSenha", {
+				email: userData.email,
+				senha: userData.senha
+			}).then((resposta) => {
+				if(resposta == 200){
+					history.push("/recuperar-senha/sucesso")
+				}
+		}).catch(err => {
+			console.log(err)
+			addToast('Algo deu errado... 😥', { appearance: 'error', autoDismiss: true })
+		});
 	}
+}
+
 
     return (
 		<div className="container">
@@ -99,7 +104,7 @@ function RecuperarSenha2() {
 						function={(e) => handle(e)}
 					/>
 				
-					<button type="submit" className="btn-new-submit" onClick={() => push('/recuperar-senha/sucesso')}>Confirmar</button>
+					<button type="submit" className="btn-new-submit">Confirmar</button>
 				</form>
 
 			</div>
