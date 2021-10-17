@@ -94,7 +94,7 @@ const SideBar = props => {
                 <span>Criar Usuário</span>
               </Link>
 
-              <Link className="sub-item">
+              <Link to="/dashboard/gerencia-usuarios/usuarios" className="sub-item">
                 <BiListUl className="icon" size={20} />
                 <span>Meus Usuários</span>
               </Link>
