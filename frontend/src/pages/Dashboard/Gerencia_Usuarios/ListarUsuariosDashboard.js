@@ -45,7 +45,7 @@ const ListarUsuariosDashboard = () => {
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>E-mail</th>
+                {/* <th>E-mail</th> */}
                 <th>Area</th>
                 <th>Quantidade de Milhas</th>
                 <th>Tipo</th>
@@ -61,7 +61,7 @@ const ListarUsuariosDashboard = () => {
                   return (
                     <tr>
                       <td>{user.nomeUsuario}</td>
-                      <td>{user.email}</td>
+                      {/* <td>{user.email}</td> */}
                       <td>{user.area}</td>
                       <td>{user.quantidadeMilhas}</td>
                       <td>{user.tipoUsuario}</td>

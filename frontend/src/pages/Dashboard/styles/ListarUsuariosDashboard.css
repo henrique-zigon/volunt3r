@@ -10,6 +10,8 @@ div.container-list-users {
 div.container-list-users table {
   width: 100%;
   height: 100%;
+
+  padding-right: 25px;
   /* background: blue; */
  
   text-align: center;
