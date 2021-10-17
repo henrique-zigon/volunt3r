@@ -13,7 +13,7 @@ import '../global-pages.css';
 //import { BiImageAdd, BiSend, BiHeart } from 'react-icons/bi';
 
 import UserImage from '../../components/UserImage/UserImage';
-import { accessibilityProps } from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
+
 
 function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -24,7 +24,21 @@ function EventCatalog() {
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
-	function handleSearch(e) {	
+
+	useEffect(() => {
+
+		async function getAllCards() {
+			const resposta = await api.get("/eventos", { params: {pagina : 0, tamanho: 10},
+				headers: { 'Authorization': cookies.volunt3r }
+			});
+			setEventos(resposta.data.content.reverse());
+		}
+
+		getAllCards();
+	}, [])
+
+
+	function filtrarEventos(e){
 		console.log()
 		let filtro = e.target.value
 
@@ -49,26 +63,7 @@ function EventCatalog() {
 			addToast('Algo deu errado... 😥', { appearance: 'error', autoDismiss: true })
 		});
 	}
-}
-
-	useEffect(() => {
-
-		async function getAllCards() {
-			const resposta = await api.get("/eventos", { params: {pagina : 0, tamanho: 10},
-				headers: { 'Authorization': cookies.volunt3r }
-			});
-			setEventos(resposta.data.content.reverse());
-		}
-
-		getAllCards();
-	}, [])
-
-
-	// function filtrarEventos(e){
-	// 	console.log(e)
-	// 	// const eventosFiltrados = api.post(`/publicacoes/filtroEventos/${e}`);
-	
-	// }
+	}
 
 
 	// Foto de Perfil
@@ -98,8 +93,7 @@ function EventCatalog() {
 							id="filtro"
 							name="filtro"
 							label="Busque por um evento usando uma palavra-chave"
-
-							function={(e) => handleSearch(e)}
+							
 						/>
 					</div>
 

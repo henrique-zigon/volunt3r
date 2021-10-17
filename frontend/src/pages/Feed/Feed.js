@@ -88,6 +88,7 @@ function Feed(props) {
 											titlePost={publicacao.evento.titulo}
 											addressPost={publicacao.evento.endereco}
 											descriptionPost={publicacao.descricao}
+											hashtags={publicacao.hashtags}
 											countLikes={publicacao.numeroLikes}
 											countRelatedPosts={publicacao.numeroComentarios}
 											dataEvent={publicacao.evento.dataEvento}
@@ -109,6 +110,7 @@ function Feed(props) {
 											areaUserPosted={publicacao.usuario.area}
 											imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 											descriptionPost={publicacao.descricao}
+											hashtags={publicacao.hashtags}
 											postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 											countLikes={publicacao.numeroLikes}
 											countComments={publicacao.numeroComentarios}

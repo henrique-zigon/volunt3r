@@ -39,8 +39,6 @@ public class ArquivoServices {
     @Autowired
     PublicacaoRepository repositoryPublicacao;
     @Autowired
-    CategoriaRepository repositoryCategoria;
-    @Autowired
     Validator validator;
 
     PilhaObj<BufferedReader> pilhaSalvar = new PilhaObj(10);
@@ -369,7 +367,6 @@ public class ArquivoServices {
         if(pilhaSalvar.isEmpty()) {
             return;
         }
-        List<Usuario> listaUsuario = new ArrayList<>();
         while(!pilhaSalvar.isEmpty()) {
             BufferedReader entrada = pilhaSalvar.peek();
             String registro;
@@ -385,52 +382,42 @@ public class ArquivoServices {
                     case "02":
                         //Usuário
                         Usuario user = new Usuario();
-                        user.setNomeUsuario(registro.substring(2,202).trim()); //OK
-                        user.setGenero(registro.substring(202,212).trim()); //OK
-                        user.setTipoUsuario(registro.substring(212,222).trim()); //OK
-                        user.setEmail(registro.substring(222,277).trim()); //OK
-                        user.setCargo(registro.substring(277,327).trim()); //OK
-                        user.setArea(registro.substring(327,427).trim()); //OK
-                        user.setStatusUsuario(1); //OK
-                        user.setQuantidadeMilhas(0); //RETIRAR
+                        user.setNomeUsuario(registro.substring(2,202).trim());
+                        user.setGenero(registro.substring(202,212).trim());
+                        user.setQuantidadeMilhas(Integer.parseInt(registro.substring(212,217)));
+                        user.setTipoUsuario(registro.substring(217,227).trim());
+                        user.setEmail(registro.substring(227,277).trim());
+                        user.setCargo(registro.substring(277,327).trim());
+                        user.setArea(registro.substring(327,426).trim());
+                        user.setStatusUsuario(1);
                         user.setBio("");
                         user.setSenha("");
                         user.setUsuarioImagemCapa("");
                         user.setUsuarioImagemPerfil("");
-                        listaUsuario.add(user);
+                        repositoryUsuario.save(user);
                         System.out.println("Criado");
                         break;
-//                    case "03":
-//                        //Evento
-//                        Evento evento = new Evento();
-//                        Categoria categoria = new Categoria();
-//                        Publicacao publicacao = new Publicacao();
-//                        Usuario usuario = new Usuario();
-//                        categoria.setIdCategoria(Integer.parseInt(registro.substring(52,55)));
-//                        evento.setDataEvento(registro.substring(64,79).trim());
-//                        evento.setDataFechamentoEvento(registro.substring(79,94).trim());
-//                        evento.setEndereco(registro.substring(494,749).trim());
-//                        evento.setHoras(Double.parseDouble(registro.substring(59,64)));
-//                        evento.setMaximoParticipantes(Integer.parseInt(registro.substring(55,59)));
-//                        evento.setCategoria(categoria);
-//                        repositoryEvento.save(evento);
-//                        publicacao.setEvento(evento);
-//                        publicacao.getEvento().setTitulo(registro.substring(02,52).trim());
-//                        publicacao.setDescricao(registro.substring(494,749).trim());
-//                        publicacao.setDataPostagem(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
-//                        usuario.setIdUsuario(Integer.parseInt(registro.substring(749,754)));
-//                        publicacao.setUsuario(usuario);
-//                        repositoryPublicacao.save(publicacao);
-//                        break;
-                    case "04":
+                    case "03":
+                        //Evento
+                        Evento evento = new Evento();
                         Categoria categoria = new Categoria();
-                        categoria.setNomeCategoria(registro.substring(2, 52));
-                        categoria.setNivel(Integer.valueOf(registro.substring(52, 53).trim()));
-                        categoria.setLimiteBronze(Integer.valueOf(registro.substring(53, 56)));
-                        categoria.setLimitePrata(Integer.valueOf(registro.substring(56, 59)));
-                        categoria.setLimiteOuro(Integer.valueOf(registro.substring(59, 62)));
-                        categoria.setMilhasPromocao(Integer.valueOf(registro.substring(62, 65)));
-                        repositoryCategoria.save(categoria);
+                        Publicacao publicacao = new Publicacao();
+                        Usuario usuario = new Usuario();
+                        categoria.setIdCategoria(Integer.parseInt(registro.substring(52,55)));
+                        evento.setDataEvento(registro.substring(64,79).trim());
+                        evento.setDataFechamentoEvento(registro.substring(79,94).trim());
+                        evento.setEndereco(registro.substring(494,749).trim());
+                        evento.setHoras(Double.parseDouble(registro.substring(59,64)));
+                        evento.setMaximoParticipantes(Integer.parseInt(registro.substring(55,59)));
+                        evento.setCategoria(categoria);
+                        repositoryEvento.save(evento);
+                        publicacao.setEvento(evento);
+                        publicacao.getEvento().setTitulo(registro.substring(02,52).trim());
+                        publicacao.setDescricao(registro.substring(494,749).trim());
+                        publicacao.setDataPostagem(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+                        usuario.setIdUsuario(Integer.parseInt(registro.substring(749,754)));
+                        publicacao.setUsuario(usuario);
+                        repositoryPublicacao.save(publicacao);
                         break;
                 }
 
@@ -440,6 +427,5 @@ public class ArquivoServices {
             entrada.close();
             pilhaSalvar.pop();
         }
-        repositoryUsuario.saveAll(listaUsuario);
     }
 }

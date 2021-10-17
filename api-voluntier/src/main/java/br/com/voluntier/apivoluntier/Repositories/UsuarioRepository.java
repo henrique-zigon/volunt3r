@@ -35,4 +35,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Query("select u from Usuario u where u.idUsuario in (?1)")
     List<UsuarioSimplesResponse> pesquisarTodosIds(List<Integer> idsUsuarios);
+
+    @Transactional
+    @Modifying
+    @Query("update Usuario u set u.senha = :senha where u.email = :email")
+    void updateSenhaUsuarioByEmail(String senha, String email);
 }

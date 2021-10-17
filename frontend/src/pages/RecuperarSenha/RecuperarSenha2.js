@@ -15,6 +15,7 @@ function RecuperarSenha2() {
 
 	const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [userData, setUserData] = useState({
+		email: "",
 		senha: "",
 		confirmaSenha: ""
 	});
@@ -22,14 +23,11 @@ function RecuperarSenha2() {
 	const { push } = useHistory();
 	let history = useHistory();
 	const { addToast } = useToasts();
+	const token = document.location.href.match(/\/recuperar-senha-redefinir\/(.*)/)[1];
 
 	useEffect(() => {
 		async function getFormulario() {
-
-			let urlSenha = document.location.href;
-			let regexToken = /\/recuperar-senha-redefinir\/(.*)/
-			let token = urlSenha.match(regexToken)[1];
-
+			
 			await api.post(`/usuarios/validarToken/${token}`)
 			.then().catch((e) => {
 				if(e.response.status === 404){
@@ -47,7 +45,7 @@ function RecuperarSenha2() {
 		console.log(newUserData)
 	}
 
-	function submitForm(e) {
+	async function submitForm(e) {
 		e.preventDefault();
 
 		if(userData.senha === '' || userData.confirmaSenha === '') {
@@ -59,17 +57,18 @@ function RecuperarSenha2() {
 		}
 
 		else {
-			api.post("/usuarios/updateSenha", {
-				email: userData.email,
+			await api.post("/usuarios/updateSenha", {
+				token: token,
 				senha: userData.senha
 			}).then((resposta) => {
-				if(resposta == 200){
-					history.push("/recuperar-senha/sucesso")
+				if(resposta.status == 200){
+					history.push("/recuperar-senha/sucesso");
 				}
-		}).catch(err => {
-			console.log(err)
-			addToast('Algo deu errado... 😥', { appearance: 'error', autoDismiss: true })
-		});
+			}).catch((e) => {
+					if(e.response.status === 500) {
+						addToast('Algo deu errado... 😕', {appearance: 'error', autoDismiss: true})
+					}
+				});
 	}
 }
 
