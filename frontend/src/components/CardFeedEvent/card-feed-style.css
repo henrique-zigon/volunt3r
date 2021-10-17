@@ -136,6 +136,14 @@ div.post-information div.content-post-event span.descrition-event {
 	padding-bottom: 35px;
 }
 
+div.post-information div.content-post-event span.hashtags {
+	font-size: 0.9rem;
+	margin-top: 10px;
+	color: #366DBF;
+	padding-bottom: 35px;
+}
+
+
 div.information-card div.footer-information {
 	position: absolute;
 	width: 100%;

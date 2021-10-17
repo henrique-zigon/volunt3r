@@ -4,7 +4,8 @@ import LoginAndRegisterImage from '../../images/login_register_image.png';
 import { BiEnvelope, BiKey } from 'react-icons/bi';
 import InputForm from '../../components/InputForm/InputForm';
 import { useToasts } from 'react-toast-notifications';
-
+import avatarPadrao from '../../images/avatar_padrao.png';
+import capaPadrao from '../../images/capa_padrao.png';
 
 import './style.css';
 import '../global-pages.css';
@@ -15,15 +16,16 @@ function CriarUsuarioStep2(props) {
 	const history = useHistory();
 	const { addToast } = useToasts();
 
-
 	const [userData, setUserData] = useState({
-		nomeUsuario: "",
+		// imagemPerfil: avatarPadrao,
+		// imagemCapa: capaPadrao,
+		nomeUsuario: "", 
 		genero: "",
 		cargo: "",
 		area: "",
 		tipoUsuario: "",
 		email: "",
-		senha: "",
+		senha: ""
 	});
 
 	function handle(e) {

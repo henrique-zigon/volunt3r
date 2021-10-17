@@ -187,6 +187,7 @@ const CardFeedEvent = (props) => {
             <h2 className="title">{props.titlePost}</h2>
             <span className="address-event">{props.addressPost}</span>
             <span className="descrition-event">{props.descriptionPost}</span>
+            <span className="hashtags">{props.hashtags}</span>
           </div>
         </div>
         <div className="footer-information">
