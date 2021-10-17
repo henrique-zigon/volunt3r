@@ -94,7 +94,7 @@ const RelatorioPage = () => {
   return(
     <main className="container">
       <SideBar 
-        userpic={cookies.volunt3r_user.imagemPerfil}
+        userpic={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil}
         username={cookies.volunt3r_user.nomeUsuario}
         useremail={cookies.volunt3r_user.email}
       />

@@ -18,6 +18,7 @@ import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
 import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
+import CriarUsuarioDashboard from './pages/Dashboard/Gerencia_Usuarios/CriarUsuarioDashboard';
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -54,6 +55,7 @@ function Routes() {
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
+                    <LoggedRoute exact path="/dashboard/gerencia-usuarios/criar-usuario" component={CriarUsuarioDashboard}/>
                     <Route path="*" component={NotFound} />
 
                 </Switch>

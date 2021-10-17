@@ -89,7 +89,7 @@ const SideBar = props => {
               <BiChevronDown className="icon icon-left" size={20} />
             </div>
             <div className={`sub-itens ${openSubItem} `} >
-              <Link className="sub-item">
+              <Link to="/dashboard/gerencia-usuarios/criar-usuario" className="sub-item">
                 <BiAddToQueue className="icon" size={20} />
                 <span>Criar Usuário</span>
               </Link>
