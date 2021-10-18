@@ -81,6 +81,7 @@ function Perfil(props) {
 											idLoggedUser={cookies_user.volunt3r_user.idUsuario}
 											token={cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
+											hashtags={publicacao.hashtags}
 										/>
 									);
 
@@ -98,6 +99,7 @@ function Perfil(props) {
 											idLoggedUser={cookies_user.volunt3r_user.idUsuario}
 											token={cookies.volunt3r}
 											isLikedPost={publicacao.curtido}
+											hashtags={publicacao.hashtags}
 										/>
 									);
 								}
