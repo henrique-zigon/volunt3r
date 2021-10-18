@@ -119,6 +119,7 @@ public class EventoController {
             if(evento.getNumeroInscritos() == evento.getMaximoParticipantes())
                 return ResponseEntity.status(400).body("Número de inscritos já atingido");
 
+            novaInscricao.setStatus("pendente");
             repositoryInscricaoEvento.save(novaInscricao);
             EmailService.listaEmail.insert(novaInscricao);
             retornoHasmap.put("message", "usuário inscrito com sucesso!");
