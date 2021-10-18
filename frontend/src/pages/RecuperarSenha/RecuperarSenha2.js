@@ -15,6 +15,7 @@ function RecuperarSenha2() {
 
 	const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [userData, setUserData] = useState({
+		email: "",
 		senha: "",
 		confirmaSenha: ""
 	});
@@ -22,14 +23,11 @@ function RecuperarSenha2() {
 	const { push } = useHistory();
 	let history = useHistory();
 	const { addToast } = useToasts();
+	const token = document.location.href.match(/\/recuperar-senha-redefinir\/(.*)/)[1];
 
 	useEffect(() => {
 		async function getFormulario() {
-
-			let urlSenha = document.location.href;
-			let regexToken = /\/recuperar-senha-redefinir\/(.*)/
-			let token = urlSenha.match(regexToken)[1];
-
+			
 			await api.post(`/usuarios/validarToken/${token}`)
 			.then().catch((e) => {
 				if(e.response.status === 404){
@@ -47,27 +45,33 @@ function RecuperarSenha2() {
 		console.log(newUserData)
 	}
 
-	function submitForm(e) {
+	async function submitForm(e) {
 		e.preventDefault();
 
 		if(userData.senha === '' || userData.confirmaSenha === '') {
 			console.log("OPA A MI GÃO PREENCHE Aí")
 			addToast('Opa, faltou preencher algo...', {appearance: 'warning', autoDismiss: true})
 		} 
+		else if(userData.senha != userData.confirmaSenha ){
+			addToast('Senhas não coincidem...', {appearance: 'warning', autoDismiss: true})
+		}
 
-			
-		// else {
-		// 	api.post("/usuarios/login", {
-		// 		email: userData.email,
-		// 		senha: userData.senha
-		// 	}).then((resposta) => {
-		// 		setCookie('volunt3r', resposta.data.token.tipo + " " + resposta.data.token.token, { path: '/' });
-		// 		setCookie('volunt3r_user', resposta.data.user, { path: "/" });
-		// 		history.push("/");
-		// 	})
-
-		// }
+		else {
+			await api.post("/usuarios/updateSenha", {
+				token: token,
+				senha: userData.senha
+			}).then((resposta) => {
+				if(resposta.status == 200){
+					history.push("/recuperar-senha/sucesso");
+				}
+			}).catch((e) => {
+					if(e.response.status === 500) {
+						addToast('Algo deu errado... 😕', {appearance: 'error', autoDismiss: true})
+					}
+				});
 	}
+}
+
 
     return (
 		<div className="container">
@@ -99,7 +103,7 @@ function RecuperarSenha2() {
 						function={(e) => handle(e)}
 					/>
 				
-					<button type="submit" className="btn-new-submit" onClick={() => push('/recuperar-senha/sucesso')}>Confirmar</button>
+					<button type="submit" className="btn-new-submit">Confirmar</button>
 				</form>
 
 			</div>

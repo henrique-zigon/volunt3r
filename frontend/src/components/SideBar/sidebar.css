@@ -1,39 +1,50 @@
 div.sidebar {
   position: relative;
-  width: 250px;
+  width: 300px;
   background: white;
 
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 3.5rem 2.5rem;
+  /* align-items: center;*/
+  flex-direction: column; 
+  padding: 0.6rem;
 }
 
-div.sidebar .exit-icon {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+
+div.sidebar header {
+  width: 100%;
+  /* background: red; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.sidebar header div.userpic {
+  width: 40px;
+  height: 40px;
+}
+
+div.sidebar header div.userpic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+
+div.sidebar header .exit-icon {
+  /* position: absolute; */
   color: var(--gray-not-selected);
   cursor: pointer;
   transition: .3s ease;
 }
 
-div.sidebar .exit-icon:hover {
-  position: absolute;
+
+div.sidebar header.exit-icon:hover {
   color: black;
 }
 
-div.sidebar div.userpic {
-  width: 120px;
-  height: 120px;
-}
-
-div.sidebar div.userpic img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2px solid rgb(235, 235, 235);
-}
+/* 
 
 div.sidebar span.username {
   font-size: 1.5rem;
@@ -44,7 +55,7 @@ div.sidebar span.useremail {
   font-size: 0.9rem;
   color: var(--color-subtitle);
   cursor: pointer;
-}
+} */
 
 div.sidebar div.sidebar-itens {
   width: 100%;
@@ -52,36 +63,147 @@ div.sidebar div.sidebar-itens {
   margin-top: 30px;
 }
 
-div.sidebar div.sidebar-itens a.item {
-  display: block;
+
+div.sidebar div.sidebar-itens .item {
+  margin-top: 500px;
+}
+
+div.sidebar div.sidebar-itens div.container-item {
+  display: flex;
   width: 100%;
-  height: 45px;
+  height: auto;
+  flex-direction: column;
+}
+
+div.sidebar div.sidebar-itens div.principal-item {
+  display: flex;
+  width: 100%;
+  /* height: auto; */
+  min-height: 45px;
+  padding: 0 20px 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--gray-not-selected);
+  cursor: pointer;
+  gap: 0.5rem;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+div.sidebar div.sidebar-itens div.principal-item:first-child {
+  margin-top: 0;
+}
+
+div.sidebar div.sidebar-itens div.principal-item.current {
+  background: #000;
+  color: #FFFFFF;
+}
+
+div.sidebar div.sidebar-itens div.principal-item div.group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+div.sidebar div.sidebar-itens div.container-item div.sub-itens {
+  display: none;
+  width: 100%;
+  height: auto;
+  padding: 0 20px 0 25px;
+  /* background: red; */
+  align-items: center;
+  justify-content: space-between;
+  color: var(--gray-not-selected);
+  cursor: pointer;
+  gap: 0.5rem;
+  border-radius: 5px;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+div.sidebar div.sidebar-itens div.container-item div.sub-itens.open {
+  display: flex;
+}
+
+
+/* div.sidebar div.sidebar-itens div.container-item div.principal-item:hover +
+#aaa {
+  display: flex;
+} */
+
+div.sidebar-itens div.container-item div.sub-itens a.sub-item {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 5px;
+  transform: .3s ease;
+  color: var(--gray-not-selected);
+  /* background: red; */
+}
+
+
+
+
+div.sidebar-itens div.container-item div.sub-itens a.sub-item:hover {
+  color: #000;
+}
+
+div.sidebar-itens div.container-item div.sub-itens div.sub-item:first-child {
+  margin-top: 0;
+}
+
+/*div.sidebar div.sidebar-itens .item {
+  display: block;
+  width: 100%;
+  min-height: 45px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-left: 5px;
+  padding-right: 20px;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;
   color: var(--gray-not-selected);
   transition: .3s ease;
+  flex-direction: column;
 }
 
-div.sidebar div.sidebar-itens a.item.current {
+div.sidebar div.sidebar-itens .principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+} */
+
+
+
+
+/* div.sidebar div.sidebar-itens .item.current {
   background: black;
   color: white;
-}
+} */
 
-div.sidebar div.sidebar-itens a.item:hover {
+/* div.sidebar div.sidebar-itens .item:hover {
   color: var(--blue-color);
-}
+} */
 
-div.sidebar div.sidebar-itens a.item:first-child {
+/* div.sidebar div.sidebar-itens .item:first-child {
   margin: 0;
-}
+} */
 
-div.sidebar div.sidebar-itens .item .icon {
+/* div.sidebar div.sidebar-itens .item .icon {
   width: 20px;
   margin: 0.5rem;
   margin-right: 0.5rem;
-}
+} */
+
+/* 
+div.sidebar div.sidebar-itens .item .icon.icon-left {
+  position: relative;
+  left: 15px;
+} */

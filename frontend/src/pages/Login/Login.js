@@ -52,11 +52,10 @@ function Login() {
 					addToast('Email e/ou senha inválidos...', {appearance: 'error', autoDismiss: true})
 				}
 				else if(e.response.status === 404) {
-					addToast('Email não cadastrado =(', {appearance: 'error', autoDismiss: true})
+					addToast('Email não cadastrado 😥', {appearance: 'error', autoDismiss: true})
 				}
 			});
 		}
-
 
 		/* 
 		* Aqui estou realizando a destruturação do array newUserData!

@@ -18,6 +18,8 @@ import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
 import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
+import CriarUsuarioDashboard from './pages/Dashboard/Gerencia_Usuarios/CriarUsuarioDashboard';
+import ListarUsuariosDashboard from './pages/Dashboard/Gerencia_Usuarios/ListarUsuariosDashboard';
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -49,11 +51,13 @@ function Routes() {
                     <Route exact path="/recuperar-senha-redefinir/*" component={RecuperarSenha2} />
                     <Route exact path="/recuperar-senha/token-invalido" component={RecuperarSenhaInvalido} />
                     <Route exact path="/register" component={CriarUsuarioStep1} />
-                    <Route exact path="/perfil" component={Perfil} />
-                    <Route exact path="/perfil-conquistas" component={Perfil} />
+                    <LoggedRoute exact path="/perfil" component={Perfil} />
+                    <LoggedRoute exact path="/perfil-conquistas" component={Perfil} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
+                    <LoggedRoute exact path="/dashboard/gerencia-usuarios/criar-usuario" component={CriarUsuarioDashboard}/>
+                    <LoggedRoute exact path="/dashboard/gerencia-usuarios/usuarios" component={ListarUsuariosDashboard}/>
                     <Route path="*" component={NotFound} />
 
                 </Switch>

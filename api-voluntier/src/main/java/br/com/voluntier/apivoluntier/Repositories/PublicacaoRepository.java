@@ -16,9 +16,6 @@ import java.util.Optional;
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
     Page<Publicacao> findByTipoIsNotOrderByIdDesc(String tipo, Pageable pageable);
 
-    List<Publicacao> findByTipoIsNot(String tipo);
-
-
     Page<Publicacao> findByTipoIsIn(Collection<String> tipos, Pageable pageable);
 
     Page<Publicacao> findByTipoIs(String tipo, Pageable pageable);
