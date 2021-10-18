@@ -141,7 +141,7 @@ public class UsuarioController {
     public String createJWT(String email) {
         String token = "";
         Calendar date = Calendar.getInstance();
-        Date dataLimite = new Date(date.getTimeInMillis() + (600000));
+        Date dataLimite = new Date(date.getTimeInMillis() + (3600000));
 
         token = Jwts.builder()
                 .setIssuer("recuperarSenha")
