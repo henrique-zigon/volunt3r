@@ -54,7 +54,7 @@ public class PublicacaoController {
                                   @RequestHeader String Authorization) {
         String tokenLimpo=Authorization.substring(7,Authorization.length());
         Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-        Page<Publicacao> allPub = repository.findByTipoIsNot("comentario",PageRequest.of(pagina, tamanho));
+        Page<Publicacao> allPub = repository.findByTipoIsNotOrderByIdDesc("comentario",PageRequest.of(pagina, tamanho));
         if(allPub.isEmpty()) {
             return ResponseEntity.status(204).build();
         } else {
