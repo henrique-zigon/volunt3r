@@ -1,5 +1,6 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
