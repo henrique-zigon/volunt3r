@@ -10,6 +10,7 @@ import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import ModalNewPost from '../../components/ModalNewPost/ModalNewPost';
+import CardFeedEventRecommended from '../../components/CardFeedEventRecommended/CardFeedEventRecommended';
 
 import UserImage from '../../components/UserImage/UserImage';
 
@@ -73,6 +74,27 @@ function Feed(props) {
 						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
 
 					</div>
+
+					{/* <div>
+						{
+					publicacoes.map((publicacao) => {
+				
+					if (publicacao.publicacaoEvento) {
+						return (
+						<CardFeedEventRecommended 
+											imagePost={publicacao.pathImagem}
+											titlePost={publicacao.evento.titulo}
+											dataEvent={publicacao.evento.dataEvento}
+											idPost={publicacao.id}
+											idLoggedUser = {cookies_user.volunt3r_user.idUsuario}
+											token = {cookies.volunt3r}
+											idEvent={publicacao.evento.id}/>
+
+											);
+								}
+							})
+						}
+					</div> */}
 
 					<div className="feed-cards">
 						{
