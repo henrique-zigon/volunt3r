@@ -3,6 +3,10 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { useCookies } from 'react-cookie';
 
+//Teste QR
+import QRCode from 'qrcode.react';
+import FormularioQR from './components/qrcode/FormularioQR';
+
 import CriarUsuarioStep1 from './pages/CriarUsuario/CriarUsuarioStep1';
 import CriarUsuarioStep2 from './pages/CriarUsuario/CriarUsuarioStep2';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -20,6 +24,14 @@ import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
 import CriarUsuarioDashboard from './pages/Dashboard/Gerencia_Usuarios/CriarUsuarioDashboard';
 import ListarUsuariosDashboard from './pages/Dashboard/Gerencia_Usuarios/ListarUsuariosDashboard';
+
+
+function CodeQR(props) {
+  const idEvento = props.match.params.idEvento;
+  return (
+      <QRCode value={`http://192.168.15.4:3000/confirmar/${idEvento}`} renderAs="canvas"/>
+  );
+}
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -58,8 +70,10 @@ function Routes() {
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/criar-usuario" component={CriarUsuarioDashboard}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/usuarios" component={ListarUsuariosDashboard}/>
+                    <Route exact path="/confirmar/:idEvento" component={FormularioQR} />
+                    <Route exact path="/QRCode/:idEvento" component={CodeQR} />
                     <Route path="*" component={NotFound} />
-
+                    
                 </Switch>
             </BrowserRouter>
         </ToastProvider>
