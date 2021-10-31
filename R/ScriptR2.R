@@ -1,5 +1,5 @@
 library(readr)
-Eventos <- read_delim("C:/Users/Henrique/Desktop/3CCO-2021-1-Grupo-04/R/Eventos.csv", 
+Eventos <- read_delim("C:/Users/ygor/Documents/volunt3r/R/Eventos.csv", 
                       ";", escape_double = FALSE, col_types = cols(dataEvento = col_date(format = "%d/%m/%Y"), 
                                                                    dataFechamento = col_date(format = "%d/%m/%Y")), 
                       trim_ws = TRUE)
@@ -7,12 +7,12 @@ Eventos <- read_delim("C:/Users/Henrique/Desktop/3CCO-2021-1-Grupo-04/R/Eventos.
 
 Eventos$nParticipantes<-as.double(Eventos$nParticipantes)
 
-Publicacoes <- read_delim("C:/Users/Henrique/Desktop/EstudoR/Publicacoes.csv", 
+Publicacoes <- read_delim("C:/Users/ygor/Documents/volunt3r/R/Publicacoes.csv", 
                           ";", escape_double = FALSE, trim_ws = TRUE)
 
 library(readr)
 
-Voluntario <- read_delim("C:/Users/Henrique/Desktop/EstudoR/Voluntario.csv", 
+Voluntario <- read_delim("C:/Users/ygor/Documents/volunt3r/R/Voluntario.csv", 
                          ";", escape_double = FALSE, trim_ws = TRUE)
 
 library(readr)
@@ -419,6 +419,14 @@ library(readr)
     
     somaScore[iVol1]<-as.double(somaHr[iVol1])*as.double(somaQnt[iVol1])
     
+    #
+    # 20min - 100 satisfação   |  1 evento - 100 satisfação
+    # 40min - 140 satisfação   |  2 evento - 180 satisfação
+    # 60min - 180 satisfação   |  3 evento - 240 satisfação
+    #
+    # 
+    # 25h   - 
+    
     if(somaScore[iVol1]<=500){
       sorteio <- rbinom(1,1,0.8) #80% de ter grande tempo de casa
       if(sorteio==1){
@@ -577,3 +585,173 @@ library(readr)
   
   #-------------------------------------------------------------------------------
 }
+
+library(randomNames)
+library(tibble)
+library(dplyr)
+library(readr)
+library(tidyverse)
+library(stringr)
+library(readr)
+
+set.seed(333)
+
+base_pessoas_imp <- read_delim("C:/Users/ygor/Documents/volunt3r/R/Voluntario.csv", 
+                               ";", escape_double = FALSE, trim_ws = TRUE)
+#  nome_usuario OK 
+#  genero OK
+#  bio SEM
+#  quantidade_milhas SEM
+#  tipo_usuario OK
+#  email OK 
+#  senha SEM
+#  cargo OK
+#  area OK
+#  imagem_perfil SEM
+#  imagem_capa SEM
+#  status_usuario  OK
+
+base_pessoas <- randomNames(nrow(base_pessoas_imp),
+                            ethnicity=4,
+                            which.names="both",
+                            name.order="first.last",
+                            name.sep=" ",
+                            sample.with.replacement=TRUE,
+                            return.complete.data=TRUE)
+
+base_pessoas$id_usuario <- 1:nrow(base_pessoas)
+
+base_pessoas$cargo <- Voluntario$Cargo
+
+base_pessoas$tipo_usuario <- "comum"
+
+base_pessoas <- base_pessoas %>%
+  mutate(sexo = case_when(
+    gender == 0 ~ "Masculino",
+    gender == 1 ~ "Feminino"
+  )) %>%
+  unite(nome_usuario, c("first_name","last_name"), sep=" ")
+
+base_pessoas$email <- tolower(paste(
+  word(base_pessoas$nome_usuario,1),
+  ".",
+  word(base_pessoas$nome_usuario,-1),
+  "@b4.com.br",
+  sep = ""
+)
+)
+
+base_pessoas$status_usuario <- 1
+
+base_pessoas$area <- sample(rep(
+  c(
+    rep("B3 Social", 2),
+    rep("Produtos Analytics", 5),
+    rep("Listados", 6),
+    rep("Balcao", 6)
+  ),
+  times = nrow(base_pessoas) / 19
+))
+
+base_pessoas$gender <- NULL
+base_pessoas$ethnicity <- NULL
+
+categorias <- data.frame(
+  id_categoria = c(1,2,3,4),
+  nome_categoria = c("Live Instagram",
+                     "Doacao",
+                     "Mentoria",
+                     "Curso Intensivo"),
+  nivel = c(1,2,3,4),
+  limite_bronze = c(5,5,2,1),
+  limite_prata = c(10,10,3,2),
+  limite_ouro = c(15,15,4,3),
+  milhas_promocao = 5
+)
+
+
+library("dplyr")
+library("ggplot2")
+library("alluvial")
+# devtools::install_github('thomasp85/ggforce')
+library("ggforce")
+# devtools::install_github("corybrunson/ggalluvial")
+library("ggalluvial")
+library("ggparallel")
+
+#global variables
+A_col <- "darkorchid1"
+B_col <- "darkorange1"
+C_col <- "skyblue1"
+D_col <- "burlywood"
+alpha <- 0.7 # transparency value
+fct_levels <- c("A","C","B","D")
+
+matriz_pessoas_nivel <- data.frame(
+  idUsuario = base_pessoas$id_usuario,
+  nomeUsuario = base_pessoas$nome_usuario,
+  ano2019 = sample(c("N1","N2","N3","N4"),nrow(base_pessoas_imp),
+                   replace = TRUE,prob=c(0.7,0.15,0.10, 0.05)),
+  ano2020  = sample(c("N1","N2","N3","N4"),nrow(base_pessoas_imp),
+                    replace = TRUE,prob=c(0.6,0.2,0.25, 0.1)),
+  ano2021 = Voluntario$Classificacao,
+  totalMinutosN1 = Voluntario$TotalHrN1,
+  totalMinutosN2 = Voluntario$TotalHrN2,
+  totalMinutosN3 = Voluntario$TotalHrN3,
+  totalMinutosN4 = Voluntario$TotalHrN4,
+  totalMinutos = Voluntario$TotalHr,
+  totalParticipacoesN1 = Voluntario$TotalQntN1,
+  totalParticipacoesN2 = Voluntario$TotalQntN2,
+  totalParticipacoesN3 = Voluntario$TotalQntN3,
+  totalParticipacoesN4 = Voluntario$TotalQntN4,
+  totalParticipacoes = Voluntario$TotalQnt,
+  score = Voluntario$Score,
+  tempoCasa = Voluntario$TempoCasa,
+  aderencia = Voluntario$Aderencia,
+  stringsAsFactors = FALSE
+)
+
+dimensao_alluvial <- matriz_pessoas_nivel %>%
+  group_by(ano2019,ano2020,ano2021) %>%
+  summarise(freq = n()) %>%
+  ungroup()
+
+dat_ggforce <- dimensao_alluvial  %>%
+  gather_set_data(1:3) %>%        # <- ggforce helper function
+  arrange(x,ano2019,ano2020,desc(ano2021))
+
+#ggplot(dat_ggforce,
+#       aes(x = x, stratum = y, alluvium = id,
+#           y = freq,
+#           fill = y, label = y)) +
+#  scale_x_discrete(expand = c(.1, .1)) +
+#  geom_flow() +
+#  geom_stratum(alpha = .5) +
+#  geom_text(stat = "stratum", size = 3) +
+#  theme(legend.position = "none") +
+#  ggtitle("Evolução do voluntariado ao passar dos anos") +
+#  xlab("Ano de referência") +
+#  ylab("Quantidade de voluntários")
+
+#ggsave(path = "C:/Users/Ygor/Pictures", width = 9, height = 10, device='png', dpi=700, filename="graph.png")
+
+export_data <- c(
+  paste("00UPLOAD07-10-202123:42:0001"),
+  paste(
+    "02",
+    format(base_pessoas$nome_usuario, width = 200, justify="left"),
+    format(base_pessoas$sexo, width = 10, justify="left"),
+    format(base_pessoas$tipo_usuario, width = 10, justify="left"),
+    format(base_pessoas$email, width = 55, justify="left"),
+    format(base_pessoas$cargo, width = 50, justify="left"),
+    format(base_pessoas$area, width = 100, justify="left"),
+    sep=""
+  ),
+  "0101178"
+)
+
+
+#write.table(export_data, "C:/Users/Ygor/Pictures/tests", quote = FALSE, append = FALSE, row.names = FALSE, col.names = FALSE)
+
+#library("writexl")
+#write_xlsx(matriz_pessoas_nivel,"C:/Users/Ygor/Pictures/dimensao_voluntarios.xlsx")
