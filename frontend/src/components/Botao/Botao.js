@@ -29,7 +29,7 @@ const Botao = (props) => {
 
   return (
     
-    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize} ${checkButtonType}`}
+    <button className={`btn ${checkButtonStyle} ${checkButtonType} ${checkButtonSize}`}
         onClick={props.onClick}
         type={props.type}>
         <div className="btn-content">

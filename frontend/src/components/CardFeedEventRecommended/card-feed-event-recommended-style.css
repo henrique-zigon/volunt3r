@@ -1,0 +1,59 @@
+div.feed-card-recommended {
+	width: 250px;
+	height: 100px;
+	background: #06377B;
+    color: #fff;
+	border-radius: 8px;
+	display: flex;
+	padding: 8px;
+	/* gap: 25px; */
+	margin-top: 20px;
+}
+
+div.feed-card:first-child {
+	margin: 0;
+}
+
+
+div.feed-card-recommended img.image-post-recommended {
+	width: 93px;
+	height: 88px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+div.date-event-post-recommended {
+	width: 42px;
+	height: 35px;
+	background: #fff;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	/* line-height: 20px; */
+	color:  #000;
+}
+
+h2.title-recommended {
+	font-size: 0.75rem;
+    font-weight: 300;
+	/* line-height: 40px; */
+}
+
+div.feed-card-recommended div.information-card-recommended {
+	position: relative;
+	width: 70%;
+    margin-left: 10px;
+	/* height: 100%; */
+}
+
+div.post-information-recommended div.date-event-post-recommended h2.day {
+	font-size: 0.8rem;
+}
+
+
+div.post-information-recommended div.date-event-post-recommended span.month {
+	text-transform: uppercase;
+    font-size: 10px;
+}
