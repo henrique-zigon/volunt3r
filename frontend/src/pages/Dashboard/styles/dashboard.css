@@ -229,7 +229,7 @@ form.form-create .group-form .input-group {
     background: rgba(182, 182, 182, 0.616);
 }
 
-.form-create div.submit-file-create-user {
+.form-create div.submit-file {
     position: relative;
     width: 100%;
     height: 150px;
@@ -238,7 +238,7 @@ form.form-create .group-form .input-group {
     border: 2px dotted #B9B9B9;
 }
 
-.form-create div.submit-file-create-user input[type="file"] {
+.form-create div.submit-file input[type="file"] {
     position: absolute;
     width: 100%;
     height: 100%;

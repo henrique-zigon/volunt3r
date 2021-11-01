@@ -29,7 +29,7 @@ const CriarUsuarioDashboard = () => {
 						subtitle="Que tal criar um usuário?"
 					/>
 
-					<form className="form-create-new-user" action="">
+					<form className="form-create" action="">
 
 						<div className="group-form">
 							<InputForm
@@ -118,7 +118,7 @@ const CriarUsuarioDashboard = () => {
 							<span>OU</span>
 						</div>
 
-						<div className="submit-file-create-user">
+						<div className="submit-file">
 							<input type="text" type="file" />
 						</div>
 

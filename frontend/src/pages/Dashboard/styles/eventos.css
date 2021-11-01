@@ -1,0 +1,7 @@
+button.generate-qrcode {
+    cursor: pointer;
+}
+
+button.generate-qrcode:hover {
+    color: var(--principal-blue);
+}

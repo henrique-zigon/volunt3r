@@ -24,6 +24,8 @@ import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
 import CriarUsuarioDashboard from './pages/Dashboard/Gerencia_Usuarios/CriarUsuarioDashboard';
 import ListarUsuariosDashboard from './pages/Dashboard/Gerencia_Usuarios/ListarUsuariosDashboard';
+import CriarEventoDashboard from './pages/Dashboard/Eventos/CriarEventoDashboard';
+import ListarEventosDashboard from './pages/Dashboard/Eventos/ListarEventosDashboard';
 
 
 function CodeQR(props) {
@@ -70,6 +72,8 @@ function Routes() {
                     <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/criar-usuario" component={CriarUsuarioDashboard}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/usuarios" component={ListarUsuariosDashboard}/>
+                    <LoggedRoute exact path="/dashboard/eventos/criar-evento" component={CriarEventoDashboard}/>
+                    <LoggedRoute exact path="/dashboard/eventos" component={ListarEventosDashboard}/>
                     <Route exact path="/confirmar/:idEvento" component={FormularioQR} />
                     <Route exact path="/QRCode/:idEvento" component={CodeQR} />
                     <Route path="*" component={NotFound} />

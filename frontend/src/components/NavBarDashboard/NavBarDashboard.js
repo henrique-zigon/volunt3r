@@ -42,20 +42,20 @@ const NavBarDashboard = (props) => {
                 </li>
 
                 <li>
-                    <Link>
+                    <Link className={location === "/dashboard/eventos/" || location ==="/dashboard/eventos/criar-evento" ? "current" : ""}>
                         <BiCalendar size={20} />
                         <span>Eventos</span>
                         <BiChevronDown size={20} />
                         <ul className="nav-dropdown">
 
                             <li>
-                                <Link>
+                                <Link to="/dashboard/eventos/criar-evento">
                                     <BiAddToQueue size={20} />
                                     <span>Criar Eventos</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link>
+                                <Link to="/dashboard/eventos">
                                     <BiListOl size={20} />
                                     <span>Meus Eventos</span>
                                 </Link>
