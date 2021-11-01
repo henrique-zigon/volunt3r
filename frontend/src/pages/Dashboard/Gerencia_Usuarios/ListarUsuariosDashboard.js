@@ -14,9 +14,8 @@ const ListarUsuariosDashboard = () => {
 
 	const [isLoaded, setIsloaded] = useState(false);
 
-	useEffect(() => {
-
-		api("/usuarios", {
+	async function getUsers() {
+		await api("/usuarios", {
 			method: "GET",
 			headers: {
 				'Authorization': cookies.volunt3r
@@ -25,11 +24,28 @@ const ListarUsuariosDashboard = () => {
 			setUsers(resposta.data)
 			setIsloaded(true);
 		})
+	}
+
+	useEffect(() => {
+		getUsers();
 	}, [])
 
 
-	function desativarUsuario(id) {
-		console.log(id)
+	function desativarUsuario(nomeUsuario, id) {
+		let confirm = window.confirm(`Você deseja desativar o usuário: ${nomeUsuario}`)
+		if(confirm) {
+			api(`usuarios/desativar/${id}`, {
+				method: "DELETE",
+				headers: {
+					'Authorization': cookies.volunt3r,
+					'token': cookies.volunt3r
+				}
+			}).then(resposta => {
+				if(resposta.status === 200) {
+					getUsers()
+				}
+			});
+		}
 	}
 
 	return (
@@ -72,9 +88,6 @@ const ListarUsuariosDashboard = () => {
 
 										{
 											users.map(user => {
-
-												console.log(user)
-
 												return (
 													<tr>
 														<td>{user.nomeUsuario.split(" ")[0] + " " + user.nomeUsuario.split(" ")[1]}</td>
@@ -83,12 +96,12 @@ const ListarUsuariosDashboard = () => {
 															{user.statusUsuario == 1 ? "Ativado" : "Desativado"}
 														</td>
 														<td>
-															<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
+															<button type="button">
 																<BiEdit className="icon-table edit" />
 															</button>
 														</td>
 														<td>
-															<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
+															<button type="button" onClick={(e) => desativarUsuario(user.nomeUsuario, user.idUsuario)}>
 																<BiX className="icon-table close " />
 															</button>
 														</td>
