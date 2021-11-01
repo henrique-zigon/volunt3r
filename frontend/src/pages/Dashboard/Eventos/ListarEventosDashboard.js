@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { BiEdit, BiX } from 'react-icons/bi';
+import ReactLoading from 'react-loading';
 import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import '../styles/eventos.css';
 import api from '../../../api';
@@ -11,9 +12,9 @@ import InputForm from '../../../components/InputForm/InputForm';
 const ListarEventosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
+	const [isLoaded, setIsloaded] = useState(false);
 
 	useEffect(() => {
-
 		api("/eventos", {
 			method: "GET",
 			headers: {
@@ -21,7 +22,8 @@ const ListarEventosDashboard = () => {
 			}
 		}).then(resposta => {
 			setEventos(resposta.data.content)
-		})
+			setIsloaded(true);
+		});
 	}, [])
 
 
@@ -52,55 +54,59 @@ const ListarEventosDashboard = () => {
 						label="Filtrar evento"
 					/>
 
-					<div className="content-list-users">
-						<table>
-							<thead>
-								<tr>
-									<td>Descrição</td>
-									<td>Data Término</td>
-									<td>Qtd Comentarios</td>
-									<td>Qtd Likes</td>
-									<td>Qtd Inscritos</td>
-									<td>Gerar QRCODE</td>
-									<td>Editar</td>
-									<td>Excluir</td>
-								</tr>
-							</thead>
-							<tbody>
+					{
+						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
+							<div className={!isLoaded ? "content-list-users" : "content-list loaded"}>
+								<table>
+									<thead>
+										<tr>
+											<td>Descrição</td>
+											<td>Data Término</td>
+											<td>Qtd Comentarios</td>
+											<td>Qtd Likes</td>
+											<td>Qtd Inscritos</td>
+											<td>Gerar QRCODE</td>
+											<td>Editar</td>
+											<td>Excluir</td>
+										</tr>
+									</thead>
+									<tbody>
 
-								{
-									eventos.map(evento => {
-										return (
-											<tr>
-												<td>{ evento.evento.titulo.substr(0, 25)+"..." }</td>
-												<td>{ evento.evento.dataFechamentoEvento }</td>
-												<td>{ evento.numeroComentarios }</td>
-												<td>{ evento.numeroLikes }</td>
-												<td>{ evento.evento.numeroInscritos }</td>
-												<td>
-													<button type="button" className="generate-qrcode" onClick={(e) => generateQrCode(evento.evento.id)}>
-														Gerar QR Code
-													</button>
-												</td>
-												<td>
-													<button type="button">
-														<BiEdit className="icon-table edit" />
-													</button>
-												</td>
-												<td>
-													<button type="button">
-														<BiX className="icon-table close "/>
-													</button>
-												</td>
-											</tr>
+										{
+											eventos.map(evento => {
+												return (
+													<tr>
+														<td>{evento.evento.titulo.substr(0, 25) + "..."}</td>
+														<td>{evento.evento.dataFechamentoEvento}</td>
+														<td>{evento.numeroComentarios}</td>
+														<td>{evento.numeroLikes}</td>
+														<td>{evento.evento.numeroInscritos}</td>
+														<td>
+															<button type="button" className="generate-qrcode" onClick={(e) => generateQrCode(evento.evento.id)}>
+																Gerar QR Code
+															</button>
+														</td>
+														<td>
+															<button type="button">
+																<BiEdit className="icon-table edit" />
+															</button>
+														</td>
+														<td>
+															<button type="button">
+																<BiX className="icon-table close " />
+															</button>
+														</td>
+													</tr>
 
-										);
-									
-									})
-								}
-							</tbody>
-						</table>
-					</div>
+												);
+
+											})
+										}
+									</tbody>
+								</table>
+							</div>
+					}
+
 				</div>
 			</main>
 		</div>

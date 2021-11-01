@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { BiEdit, BiX } from 'react-icons/bi';
+import ReactLoading from 'react-loading';
 import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
-import '../styles/ListarUsuariosDashboard.css';
 import api from '../../../api';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import InputForm from '../../../components/InputForm/InputForm';
@@ -11,6 +11,8 @@ import InputForm from '../../../components/InputForm/InputForm';
 const ListarUsuariosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
 	const [users, setUsers] = useState([]);
+
+	const [isLoaded, setIsloaded] = useState(false);
 
 	useEffect(() => {
 
@@ -21,6 +23,7 @@ const ListarUsuariosDashboard = () => {
 			}
 		}).then(resposta => {
 			setUsers(resposta.data)
+			setIsloaded(true);
 		})
 	}, [])
 
@@ -51,51 +54,54 @@ const ListarUsuariosDashboard = () => {
 						name="filtro"
 						label="Filtrar usuário"
 					/>
+					{
+						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
+							<div className={!isLoaded ? "content-list" : "content-list loaded"}>
 
-					<div className="content-list-users">
-						<table>
-							<thead>
-								<tr>
-									<td>Nome</td>
-									<td>E-mail</td>
-									<td>Status</td>
-									<td>Editar</td>
-									<td>Desativar</td>
-								</tr>
-							</thead>
-							<tbody>
+								<table>
+									<thead>
+										<tr>
+											<td>Nome</td>
+											<td>E-mail</td>
+											<td>Status</td>
+											<td>Editar</td>
+											<td>Desativar</td>
+										</tr>
+									</thead>
+									<tbody>
 
-								{
-									users.map(user => {
+										{
+											users.map(user => {
 
-										console.log(user)
+												console.log(user)
 
-										return (
-											<tr>
-												<td>{user.nomeUsuario.split(" ")[0] + " " + user.nomeUsuario.split(" ")[1]}</td>
-												<td>{ user.email }</td>
-												<td className={user.statusUsuario == 1 ? "activateduser" : "desactiveUser"}>
-													{ user.statusUsuario == 1 ? "Ativado" : "Desativado" }
-												</td>
-												<td>
-													<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
-														<BiEdit className="icon-table edit" />
-													</button>
-												</td>
-												<td>
-													<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
-														<BiX className="icon-table close "/>
-													</button>
-												</td>
-											</tr>
+												return (
+													<tr>
+														<td>{user.nomeUsuario.split(" ")[0] + " " + user.nomeUsuario.split(" ")[1]}</td>
+														<td>{user.email}</td>
+														<td className={user.statusUsuario == 1 ? "activateduser" : "desactiveUser"}>
+															{user.statusUsuario == 1 ? "Ativado" : "Desativado"}
+														</td>
+														<td>
+															<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
+																<BiEdit className="icon-table edit" />
+															</button>
+														</td>
+														<td>
+															<button type="button" onClick={(e) => desativarUsuario(user.idUsuario)}>
+																<BiX className="icon-table close " />
+															</button>
+														</td>
+													</tr>
 
-										);
-									
-									})
-								}
-							</tbody>
-						</table>
-					</div>
+												);
+
+											})
+										}
+									</tbody>
+								</table>
+							</div>
+					}
 				</div>
 			</main>
 		</div>

@@ -6,7 +6,6 @@ import {
 	BiTimeFive
 } from 'react-icons/bi';
 import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
-import '../styles/criar-usuario.css';
 import InputForm from '../../../components/InputForm/InputForm';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import api from '../../../api';
