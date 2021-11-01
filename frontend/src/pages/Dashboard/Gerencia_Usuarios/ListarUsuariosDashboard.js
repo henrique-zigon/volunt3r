@@ -105,26 +105,6 @@ const ListarUsuariosDashboard = () => {
 				</div>
 			</main>
 		</div>
-
-
-
-		// <main className="container">
-		//   <SideBar
-		//     userpic={process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
-		//     username={cookies.volunt3r_user.nomeUsuario}
-		//     useremail={cookies.volunt3r_user.email}
-		//   />
-
-		//   <div className="content">
-		//     <HeaderWelcomePageDashboard
-		//       username={cookies.volunt3r_user.nomeUsuario}
-		//       subtitle="Todos os usuários estão aqui!"
-		//     />
-
-
-		//   </div>
-		// </main>
-
 	);
 }
 

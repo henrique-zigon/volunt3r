@@ -56,7 +56,7 @@ function Routes() {
             <BrowserRouter>
                 <Switch>
                     <LoggedRoute exact path="/shop" component={Shop} />
-                    <LoggedRoute exact path="/catalog" component={EventCatalog} />
+                    <LoggedRoute exact path="/eventos" component={EventCatalog} />
                     <LoggedRoute exact path="/" component={Feed} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/recuperar-senha" component={RecuperarSenha} />
