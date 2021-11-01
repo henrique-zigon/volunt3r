@@ -8,7 +8,7 @@ const HeaderWelcomePageDashboard = props => {
         <span className="title">Olá, {props.username} 👋</span>
         <span className="subtitle">{props.subtitle}</span>
       </div>
-      <span className="logo">Volunt3r</span>
+      {/* <span className="logo">Volunt3r</span> */}
     </header>
   );
 }

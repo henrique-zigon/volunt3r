@@ -1,41 +1,57 @@
-div.container-list-users {
+div.content-list-users {
   width: 100%;
-  height: 100%;
-  min-height: 400px;
-  overflow-y: auto;
+  height: auto;
+  margin-bottom: 25px;
   margin-top: 25px;
-  /* background: red; */
 }
 
-div.container-list-users table {
+div.content-list-users table {
   width: 100%;
   height: 100%;
-
-  padding-right: 25px;
-  /* background: blue; */
- 
   text-align: center;
   border-collapse: separate;
-  border-spacing: 0px;
+  border-spacing: 0 0.5rem;
 }
 
-div.container-list-users table thead {
-  /* height: 50px; */
-}
-
-div.container-list-users table th {
-  font-weight: normal !important;
-}
-div.container-list-users table tbody {
+div.content-list-users table tbody {
   height: 50px;
   background: #FFFF;
   position: relative;
   top: 25px;
 }
 
-div.container-list-users table tbody tr {
+div.content-list-users table tbody tr {
   height: 70px;
   position: relative;
-  /* margin-top: 25px; */
-  /* top: 50px; */
+  border-radius: 50px;
 }
+
+div.content-list-users table tbody tr td button {
+  background: none;
+  border: none;
+}
+
+div.content-list-users table tbody .icon-table {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+
+.activateduser {
+  color: #00a743;
+}
+
+.desactiveUser {
+  color: #F00
+}
+
+div.content-list-users table tbody .edit {
+  color: #34FF85;
+}
+
+div.content-list-users table tbody .close {
+  color: #F00;
+}
+
+

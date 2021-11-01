@@ -1,210 +1,251 @@
 :root {
-  --background: #F0F0F5;
-  --gray-not-selected: #bbbbbb;
-  --shadow: 5px 0px 10px rgba(211, 211, 211, 0.15);
-  --blue-color: #06377B;
-  --title-color: #FFF;
-  --color-subtitle: #979797;
+    --background: #eeeeee;
+    --shadow: 5px 0px 10px rgba(211, 211, 211, 0.15);
+    --blue-color: #06377B;
+    --title-color: #FFF;
+    --color-subtitle: #979797;
 }
 
-main.container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  
-  display: flex;
-  background: var(--background);
+div.container-dashboard {
+    width: 100vw;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--background) !important;
 }
 
-
-main.container div.content {
-  width: calc(100vw - 300px);
-  height: 100vh;
-  padding: 15px 25px;
+div.container-dashboard main.content-dashboard {
+    width: 100%;
+    height: auto;
+    padding: 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main.container div.container-charts {
-  width: 100%;
-  height: calc(100% - 35px);
-
+div.container-dashboard main.content-dashboard div.subcontent-controller {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-main.container div.container-charts div.leading-indicators {
-  width: 100%;
-  height: 130px;
-  padding-top: 10px;
-  display: flex;
+/*
+* ===============================================================
+*                   TOP INDICATORS
+* ===============================================================
+*/
+
+div.container-dashboard main.content-dashboard div.leading-indicators {
+    width: 100%;
+    height: 130px;
+    margin-top: 15px;
+    display: flex;
+    gap: 1rem;
 }
 
-div.container-charts div.leading-indicators div.box-leading-indicator {
-  width: 350px;
-  height: 100%;
-  background: white;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  margin-left: 25px;
+div.container-dashboard main.content-dashboard div.leading-indicators div.box-leading-indicator {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    filter: drop-shadow(0px 0px 10px rgba(87, 87, 87, 0.1));
 }
 
-div.container-charts div.leading-indicators div.box-leading-indicator:first-child {
-  margin: 0;
+div.container-dashboard main.content-dashboard div.leading-indicators div.box-leading-indicator:first-child {
+    margin: 0;
 }
-
 
 div.box-leading-indicator {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 15px 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
 }
 
 div.box-leading-indicator div.icon-box {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(to right, #35f067,#26e058);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to right, #35f067, #26e058);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 div.box-leading-indicator div.icon-box.positive {
-  background: linear-gradient(to right, #35f067,#26e058);
+    background: linear-gradient(to right, #35f067, #26e058);
 }
 
 div.box-leading-indicator div.icon-box.heart {
-  background: linear-gradient(to right, #fca349,#fc9a38);
+    background: linear-gradient(to right, #fca349, #fc9a38);
 }
 
 div.box-leading-indicator div.icon-box.inactive {
-  background: linear-gradient(to right, #f54033,#f02416);
+    background: linear-gradient(to right, #f54033, #f02416);
 }
 
 div.box-leading-indicator span.title {
-  font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 
 div.box-leading-indicator span.indicator {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: var(--blue-color);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--blue-color);
 }
 
 /*
-* CHARTS
+* ===============================================================
+*                   PRINCIPAL CHARTS
+* ===============================================================
 */
 
-div.content-charts {
-  width: 100%;
-  height: calc(100% - 130px);
-  padding-top: 20px;
-
-  display: flex;
+div.principal-charts {
+    width: 100%;
+    min-height: 50px;
+    height: auto;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-div.content-charts div.container-chart-left {
-  width: 700px;
-  height: 100%;
-  overflow-y: scroll;
+div.principal-charts div.chart {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    gap: 1rem;
+}
+
+div.principal-charts div.chart div.box {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    padding: 15px 15px;
+    flex-direction: column;
+}
+
+div.principal-charts div.chart div.box-chart-left {
+    width: 70%;
+}
+
+div.principal-charts div.chart div.box-chart-right {
+    width: 34%;
+}
+
+div.principal-charts div.chart div.box .chart-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-charts div.chart div.box .chart-canvas.one {
+    width: 800px;
+    height: 800px;
+}
+
+div.container-canvas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: red; */
+}
+
+div.principal-charts div.chart div.box .chart-canvas.two {
+    width: 250px;
+    height: 250px;
+    margin: 50px auto;
+}
+
+div.principal-charts div.chart.one div.box-chart-left {
+    width: 100%;
+}
+
+/* div.principal-charts div.container-chart-left {
+    width: 100%;
+    height: 100%;
 }
 
 div.container-chart-left div.box-chart-left {
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 15px 15px;
-  background: white;
-  border-radius: 8px;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    
 }
 
 div.container-chart-left div.box-chart-left:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 div.container-chart-left div.box-chart-left .title {
-  font-size: 1rem;
+    font-size: 1rem;
 }
-
 
 div.container-chart-left div.box-chart-left .chart-left {
-  position: relative;
-  display: block;
-  width: 620px;
-  top: 50px;
- 
-  display: flex;
-  justify-content: center;
+    position: relative;
+    display: block;
+    width: 620px;
+    top: 50px;
+    display: flex;
+    justify-content: center;
 }
 
-
-div.content-charts div.container-chart-right {
-  width: 335px;
-  height: 100%;
-  background: white;
-  border-radius: 8px;
-  margin-left: 28px;
-  overflow-y: scroll;
+div.principal-charts div.container-chart-right {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
 }
 
 div.container-chart-right div.box-chart-right {
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 15px 15px;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 15px;
 }
 
 div.container-chart-right div.box-chart-right:first-child {
-  margin: 0;
+    margin: 0;
 }
 
 div.container-chart-right div.box-chart-right .title {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 div.container-chart-right div.box-chart-right .chart-right {
-  position: relative;
-  display: block;
-  width: 250px;
-  top: 65px;
-  left: 20px;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    display: block;
+    width: 250px;
+    top: 65px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (min-width: 1900px) {
-  div.content-charts div.container-chart-right {
-    width: 350px;
-    margin-left: 30px;
-  
-  }
-
-  div.content-charts div.container-chart-left {
-    width: 720px;
-  }
-}
-
-
-/*
-* ScrollBar
-*/
-::-webkit-scrollbar {
-  width: 10px;
-}
- 
-::-webkit-scrollbar-track {
-  background: #e4e3e3;
-}
- 
-::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background: var(--blue-color);
-}
+    div.principal-charts div.container-chart-right {
+        width: 350px;
+        margin-left: 30px;
+    }
+    div.principal-charts div.container-chart-left {
+        width: 720px;
+    }
+} */

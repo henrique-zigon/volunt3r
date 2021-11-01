@@ -1,6 +1,6 @@
 
 
-div.content form.form-create-new-user {
+form.form-create-new-user {
   display: flex;
   width: 100%;
   height: auto;
@@ -11,16 +11,66 @@ div.content form.form-create-new-user {
   gap: 2rem;
 }
 
-div.content form.form-create-new-user .group-form {
+form.form-create-new-user .group-form {
   width: 100%;
   height: 50px;
   display: flex;
   gap: 1rem;
 }
 
-
-div.content form.form-create-new-user .group-form .input-group {
+form.form-create-new-user .group-form .input-group {
   margin-top: 0 !important;
+}
+
+
+.form-create-new-user div.line-form {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem
+  /* height: 1px; */
+}
+
+.form-create-new-user div.line-form::after {
+  display: block;
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: rgba(182, 182, 182, 0.616);
+}
+
+.form-create-new-user div.line-form::before {
+  display: block;
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: rgba(182, 182, 182, 0.616);
+}
+
+
+
+
+.form-create-new-user div.submit-file-create-user {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  /* background: red; */
+  border-radius: 8px;
+  border: 2px dotted #B9B9B9;
+}
+
+.form-create-new-user div.submit-file-create-user input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* opacity: 0; */
 }
 
 button.btn-new-submit {
@@ -34,3 +84,5 @@ button.btn-new-submit {
 	border: none;
   border-radius: 5px;
 }
+
+
