@@ -131,13 +131,17 @@ public class EventoController {
         }
     }
 
-    @PostMapping("/confirmar-presenca")
-    public ResponseEntity postParticipacao(@RequestBody InscricaoEvento inscricao){
+    @PostMapping("/confirmar-presenca/{idEvento}")
+    public ResponseEntity postParticipacao(@RequestBody String email, @PathVariable Integer idEvento){
         retornoHasmap.clear();
         try {
-
-            InscricaoEvento registroInscricao=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(inscricao.getFkUsuario(), inscricao.getFkEvento());
-            Optional <Usuario> usuario=usuarioRepository.findById(inscricao.getFkUsuario());
+            Optional<Usuario> optionalUsuario = usuarioRepository.findByEmail1(email);
+            if(!optionalUsuario.isPresent()) {
+                retornoHasmap.put("message","E-mail não cadastrado!");
+                return ResponseEntity.status(400).body(retornoHasmap); //ver status
+            }
+            Usuario usuario=optionalUsuario.get();
+            InscricaoEvento registroInscricao=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(usuario.getIdUsuario(), idEvento);
 
 
             if (registroInscricao.getStatus().equals("confirmado")){
@@ -145,35 +149,29 @@ public class EventoController {
                 return ResponseEntity.status(400).body(retornoHasmap); //ver status
             }
             //String catDoEvento=eventoRepository.findCategoria(inscricao.getFkEvento());
-            Evento eventoSelecionado=eventoRepository.findById(inscricao.getFkEvento()).get();
+            Evento eventoSelecionado=eventoRepository.findById(idEvento).get();
             System.out.println("Evento selecionado: "+eventoSelecionado.getId());
-            Classificacao ranqueEmCategoria=classificacaoRepository.FindAllByFkUsuarioAndfkCategoriaBonificacao(usuario.get().getIdUsuario(),eventoSelecionado.getCategoria().getIdCategoria());
-            if (usuario.isPresent()){
-                Integer milhas=usuario.get().getQuantidadeMilhas() + eventoSelecionado.getMilhasParticipacao();
-                usuario.get().setQuantidadeMilhas(milhas);  //ADD milhas de participação
-                usuarioRepository.save(usuario.get());
-                registroInscricao.setStatus("confirmado");
-                repositoryInscricaoEvento.save(registroInscricao);
-                retornoHasmap.put("message","Participação registrada");
+            Classificacao ranqueEmCategoria=classificacaoRepository.FindAllByFkUsuarioAndfkCategoriaBonificacao(usuario.getIdUsuario(),eventoSelecionado.getCategoria().getIdCategoria());
+            Integer milhas=usuario.getQuantidadeMilhas() + eventoSelecionado.getMilhasParticipacao();
+            usuario.setQuantidadeMilhas(milhas);  //ADD milhas de participação
+            usuarioRepository.save(usuario);
+            registroInscricao.setStatus("confirmado");
+            repositoryInscricaoEvento.save(registroInscricao);
+            retornoHasmap.put("message","Participação registrada");
 
 
 
-                if (ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteBronze() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimitePrata() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteOuro()){
-                    retornoHasmap.clear();
-                    retornoHasmap.put("message","Participação registrada! \n Você acabou de subir de nível na categoria "+ranqueEmCategoria.getNomeCategoria());
-                    milhas=usuario.get().getQuantidadeMilhas() + ranqueEmCategoria.getMilhasPromocao();
-                    usuario.get().setQuantidadeMilhas(milhas);  //ADD milhas de promoção
-                    usuarioRepository.save(usuario.get());
-                }
-
-
-
-                return ResponseEntity.status(201).body(retornoHasmap);
-            }
-            else {
-                return ResponseEntity.status(404).body("Usuario não encontrado");
+            if (ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteBronze() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimitePrata() || ranqueEmCategoria.getcontagem()==ranqueEmCategoria.getLimiteOuro()){
+                retornoHasmap.clear();
+                retornoHasmap.put("message","Participação registrada! \n Você acabou de subir de nível na categoria "+ranqueEmCategoria.getNomeCategoria());
+                milhas=usuario.getQuantidadeMilhas() + ranqueEmCategoria.getMilhasPromocao();
+                usuario.setQuantidadeMilhas(milhas);  //ADD milhas de promoção
+                usuarioRepository.save(usuario);
             }
 
+
+
+            return ResponseEntity.status(201).body(retornoHasmap);
         }catch (Exception e){
             System.out.println(e);
             return ResponseEntity.status(500).build();

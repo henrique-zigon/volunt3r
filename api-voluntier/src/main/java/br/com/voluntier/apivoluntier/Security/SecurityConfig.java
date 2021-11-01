@@ -75,6 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/cursos/*").hasAuthority("b3_social")
                 //Filtrando autoridades de EventoController
                 .antMatchers(HttpMethod.PUT, "/eventos/novo").hasAuthority("b3_social")
+                .antMatchers(HttpMethod.POST, "/eventos/confirmar-presenca/*").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
