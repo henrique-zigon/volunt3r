@@ -7,6 +7,8 @@ import {
 
 } from 'react-icons/bi';
 
+import { getURLApi } from '../../configs/getUrlApi';
+
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import NavBarDashboard from '../../components/NavBarDashboard/NavBarDashboard';
 import DoughnutDivisaoEngajamento from '../../components/ChartsComponents/DoughnutDivisaoEngajamento';
@@ -22,7 +24,7 @@ const Dashboard = () => {
     return (
         <div className="container-dashboard">
             <NavBarDashboard
-                userpic={process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
+                userpic={getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
                 username={cookies.volunt3r_user.nomeUsuario}
             />
 

@@ -10,6 +10,7 @@ import capaPadrao from '../../images/capa_padrao.png';
 import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
+import { getURLApi } from '../../configs/getUrlApi';
 
 
 
@@ -20,7 +21,7 @@ function Perfil(props) {
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 	const [isLoaded, setIsloaded] = useState(false);
 
 	useEffect(() => {
@@ -57,7 +58,7 @@ function Perfil(props) {
 
 				<div className="feed-content">
 					<div>
-						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
+						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
 					</div>
 
 
@@ -78,7 +79,7 @@ function Perfil(props) {
 													}}*/
 													imagePost={publicacao.pathImagem}
 													nameUserPosted={publicacao.usuario.nomeUsuario}
-													imageUserPosted={process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
+													imageUserPosted={getURLApi + "/arquivos/imagem/" + publicacao.usuario.usuarioImagemPerfil}
 													areaUserPosted={publicacao.usuario.area}
 													titlePost={publicacao.evento.titulo}
 													addressPost={publicacao.evento.endereco}
@@ -99,7 +100,7 @@ function Perfil(props) {
 												<CardCommentOrPost
 													imagePost={publicacao.pathImagem}
 													nameUserPosted={publicacao.usuario.nomeUsuario}
-													imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
+													imageUserPosted={`${getURLApi}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 													descriptionPost={publicacao.descricao}
 													postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
 													countLikes={publicacao.numeroLikes}

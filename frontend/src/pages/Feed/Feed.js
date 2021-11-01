@@ -12,13 +12,14 @@ import './style.css';
 import CardCommentOrPost from '../../components/CardCommentOrPost/CardCommentOrPost';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import ModalNewPost from '../../components/ModalNewPost/ModalNewPost';
+import { getURLApi } from '../../configs/getUrlApi';
 
 function Feed(props) {
 
 	const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
 
@@ -88,7 +89,7 @@ function Feed(props) {
 											<CardFeedEvent
 												imagePost={publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
-												imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${publicacao.usuario.usuarioImagemPerfil}`}
+												imageUserPosted={`${getURLApi()}/arquivos/imagem/${publicacao.usuario.usuarioImagemPerfil}`}
 												areaUserPosted={publicacao.usuario.area}
 												titlePost={publicacao.evento.titulo}
 												addressPost={publicacao.evento.endereco}
@@ -113,7 +114,7 @@ function Feed(props) {
 												imagePost={publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												areaUserPosted={publicacao.usuario.area}
-												imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
+												imageUserPosted={`${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 												descriptionPost={publicacao.descricao}
 												hashtags={publicacao.hashtags}
 												postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}

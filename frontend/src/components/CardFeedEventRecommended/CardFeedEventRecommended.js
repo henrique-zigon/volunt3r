@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 
 
+import { getURLApi } from '../../configs/getUrlApi';
 import api from '../../api';
 import './card-feed-event-recommended-style.css';
 
@@ -14,111 +15,6 @@ const CardFeedEventRecommended = (props) => {
   let dayEvent = props.dataEvent.split("/")[0];
 
   const { addToast } = useToasts();
-
-  // const [isLikedCardFeedEvent, setIsLikedCardFeedEvent] = useState(props.isLikedPost ? true : false);
-  // const [countLikesCardFeedEvent, setCountLikesCardFeedEvent] = useState(props.countLikes);
-  // const [countCommentsCardFeedEvent, setCountCommentsCardFeedEvent] = useState(props.countRelatedPosts)
-  // const [isSubscribed, setIsSubscribed] = useState(props.isSubscribe ? true : false)
-
-  // async function inscrever() {
-  //   if (!isSubscribed) {
-  //     await api("/eventos/inscrever", {
-  //       method: "POST",
-  //       headers: {
-  //         'Authorization': props.token
-  //       },
-  //       data: {
-  //         fkUsuario: props.idLoggedUser,
-  //         fkEvento: props.idEvent,
-  //         status_UE: "pendente"
-  //       }
-
-  //     }).then(resposta => {
-  //       if (resposta.status === 201) {
-  //         addToast('Inscrito com sucesso! 😀', { appearance: 'success', autoDismiss: true })
-  //         setIsSubscribed(true);
-  //       }
-  //     }).catch((e) => {
-  //       if (e.response.status === 400) {
-  //         addToast('Você já está inscrito!', { appearance: 'warning', autoDismiss: true })
-  //       }
-  //       if (e.response.status === 500) {
-  //         addToast('Erro ao se inscrever... 😥', { appearance: 'error', autoDismiss: true })
-  //       }
-  //     });
-  //   } else {
-  //     await api("/eventos/inscrever", {
-  //       method: "POST",
-  //       headers: {
-  //         'Authorization': props.token
-  //       },
-  //       data: {
-  //         fkUsuario: props.idLoggedUser,
-  //         fkEvento: props.idEvent,
-  //       }
-  //     }).then(resposta => {
-  //       if (resposta.status === 200) {
-  //         addToast('Inscrição Cancelada! 😟', { appearance: 'success', autoDismiss: true })
-  //         setIsSubscribed(false);
-  //       }
-  //     }).catch(e => {
-        
-  //       addToast('Opps ... Ocorreu algum erro 😥', { appearance: 'error', autoDismiss: true })
-  //     })
-  //   }
-  // }
-
-  // async function likePostFunction() {
-  //   if (!isLikedCardFeedEvent) {
-  //     await api("/gostei", {
-  //       method: "POST",
-  //       headers: {
-  //         'Authorization': props.token,
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         fkUsuario: {
-  //           idUsuario: props.idLoggedUser
-  //         },
-  //         fkPublicacao: {
-  //           id: props.idPost
-  //         }
-  //       }
-  //     }).then(resposta => {
-  //       if (resposta.status === 201) {
-  //         setIsLikedCardFeedEvent(true);
-  //         setCountLikesCardFeedEvent(countLikesCardFeedEvent + 1);
-  //       }
-  //     }).catch(err => {
-  //       console.error(err);
-  //     });
-  //   } else {
-
-  //     await api("/gostei", {
-  //       method: "DELETE",
-  //       headers: {
-  //         'Authorization': props.token,
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         fkUsuario: {
-  //           idUsuario: props.idLoggedUser
-  //         },
-  //         fkPublicacao: {
-  //           id: props.idPost
-  //         }
-  //       }
-  //     }).then(resposta => {
-  //       if (resposta.status === 201) {
-  //         setIsLikedCardFeedEvent(false);
-  //         setCountLikesCardFeedEvent(countLikesCardFeedEvent - 1);
-  //       }
-  //     }).catch(err => {
-  //       console.error(err);
-  //     });
-  //   }
-  // }
-
 
   async function clickPost() {
     await api("/cliques/novo", {
@@ -148,7 +44,7 @@ const CardFeedEventRecommended = (props) => {
   return (
     <div className="feed-card-recommended" onClick={clickPost}>
       <img className="image-post-recommended"
-        src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
+        src={`${getURLApi()}/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 

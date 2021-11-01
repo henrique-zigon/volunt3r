@@ -5,6 +5,7 @@ import './styles/relatorioPage.css';
 import api from '../../api';
 import TransformFile from '../../utils/TransformFile';
 import { useCookies } from 'react-cookie';
+import { getURLApi } from '../../configs/getUrlApi';
 
 const RelatorioPage = () => {
 
@@ -94,7 +95,7 @@ const RelatorioPage = () => {
   return(
     <main className="container">
       <SideBar 
-        userpic={process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil}
+        userpic={getURLApi() +"/arquivos/imagem/"+cookies.volunt3r_user.imagemPerfil}
         username={cookies.volunt3r_user.nomeUsuario}
         useremail={cookies.volunt3r_user.email}
       />

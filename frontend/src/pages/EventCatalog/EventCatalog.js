@@ -8,7 +8,7 @@ import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
 
 import ReactLoading from 'react-loading';
-
+import { getURLApi } from '../../configs/getUrlApi';
 import './style.css';
 import '../global-pages.css';
 
@@ -19,7 +19,7 @@ function EventCatalog() {
 	const { addToast } = useToasts();
 
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	const [isLoaded, setIsloaded] = useState(false);
 
@@ -111,7 +111,7 @@ function EventCatalog() {
 											<CardFeedEvent
 												imagePost={evento.pathImagem}
 												nameUserPosted={evento.usuario.nomeUsuario}
-												imageUserPosted={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + evento.usuario.usuarioImagemPerfil}
+												imageUserPosted={`${getURLApi()}/arquivos/imagem/` + evento.usuario.usuarioImagemPerfil}
 												areaUserPosted={evento.usuario.area}
 												titlePost={evento.evento.titulo}
 												addressPost={evento.evento.endereco}

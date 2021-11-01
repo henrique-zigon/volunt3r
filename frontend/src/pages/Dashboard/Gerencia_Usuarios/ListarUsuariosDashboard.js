@@ -6,7 +6,7 @@ import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDas
 import api from '../../../api';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import InputForm from '../../../components/InputForm/InputForm';
-
+import { getURLApi } from '../../../configs/getUrlApi';
 
 const ListarUsuariosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
@@ -36,7 +36,7 @@ const ListarUsuariosDashboard = () => {
 
 		<div className="container-dashboard">
 			<NavBarDashboard
-				userpic={process.env.REACT_APP_PUBLIC_URL_API + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
+				userpic={getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
 				username={cookies.volunt3r_user.nomeUsuario}
 			/>
 
