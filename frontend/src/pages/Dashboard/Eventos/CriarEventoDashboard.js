@@ -13,6 +13,7 @@ import api from '../../../api';
 
 const CriarEventoDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
+	const [statePreview, setStatePreview] = useState();
 
 	const [categorias, setCategorias] = useState([]);
 
@@ -26,20 +27,64 @@ const CriarEventoDashboard = () => {
 		})
 	}
 	
+	const documentHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if(reader.readyState === 2) {
+                setStatePreview(reader.result)
+            }
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    }
 
-	function criarEvento(e) {
-		e.preventDefault();
+    async function createNewEvent(e) {
+        // PARA ENVIAR POST
+        e.preventDefault();
 
-		// api("/eventos/novo", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		'Authorization': cookies.volunt3r
-		// 	}
-		// }).then(resposta => {
-		// })
+		if(statePreview == null){
+		// Usar formulário
+		}
 
+		else{
+        
+        let formData = new FormData();
 
+		console.log(e.target);
+
+        formData.append('arquivo', e.target.file_new_events.files[0]);
+
+        let config = {
+            url: "/arquivos/upload",
+            method: "POST",
+            headers: {
+                'Authorization': cookies.volunt3r,
+                'Content-Type': 'multipart/form-data'
+            },
+            data: formData
+        }
+
+        await api(config).then((resposta) => {
+            console.log(resposta)
+        }).catch((e) => {
+            console.error(e)
+        });
+    }
 	}
+
+
+	// function criarEvento(e) {
+	// 	e.preventDefault();
+
+	// 	// api("/eventos/novo", {
+	// 	// 	method: "POST",
+	// 	// 	headers: {
+	// 	// 		'Authorization': cookies.volunt3r
+	// 	// 	}
+	// 	// }).then(resposta => {
+	// 	// })
+
+
+	// }
 
 
 	useEffect(() => {
@@ -62,7 +107,7 @@ const CriarEventoDashboard = () => {
 						subtitle="Que tal criar um novo evento?"
 					/>
 
-					<form className="form-create" onSubmit={(e) => criarEvento(e)}>
+					<form className="form-create" onSubmit={createNewEvent}>
 						
 						<div className="submit-file">
 							<label htmlFor="">Selecione a imagem do evento</label>
@@ -164,7 +209,7 @@ const CriarEventoDashboard = () => {
 						</div>
 
 						<div className="submit-file">
-							<input type="text" type="file" />
+							<input type="file" id="" name="file_new_events" onChange={documentHandler}/>
 						</div>
 
 						<button type="submit" className="btn-new-submit">Cadastrar Novo Evento</button>
