@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import api from '../../../api';
 import { useCookies } from 'react-cookie';
 import {
 	BiBuilding,
@@ -13,7 +14,54 @@ import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard
 import { getURLApi } from '../../../configs/getUrlApi';
 
 const CriarUsuarioDashboard = () => {
-	const [cookies] = useCookies(['volunt3r_user']);
+	const [cookies] = useCookies(['volunt3r']);
+	const [statePreview, setStatePreview] = useState();
+
+	const documentHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if(reader.readyState === 2) {
+                setStatePreview(reader.result)
+            }
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
+    async function createNewUser(e) {
+        // PARA ENVIAR POST
+        e.preventDefault();
+
+		if(statePreview == null){
+		// Usar formulário
+		}
+
+		else{
+        
+        let formData = new FormData();
+
+		console.log(e.target);
+
+        formData.append('arquivo', e.target.file_new_users.files[0]);
+
+        let config = {
+            url: "/arquivos/upload",
+            method: "POST",
+            headers: {
+                'Authorization': cookies.volunt3r,
+                'Content-Type': 'multipart/form-data'
+            },
+            data: formData
+        }
+
+        await api(config).then((resposta) => {
+            console.log(resposta)
+        }).catch((e) => {
+            console.error(e)
+        });
+    }
+	}
+
+
 	return (
 		<div className="container-dashboard">
 			<NavBarDashboard
@@ -29,7 +77,7 @@ const CriarUsuarioDashboard = () => {
 						subtitle="Que tal criar um usuário?"
 					/>
 
-					<form className="form-create" action="">
+					<form className="form-create" action="" onSubmit={createNewUser}>
 
 						<div className="group-form">
 							<InputForm
@@ -119,7 +167,7 @@ const CriarUsuarioDashboard = () => {
 						</div>
 
 						<div className="submit-file">
-							<input type="text" type="file" />
+							<input name="file_new_users" type="file" id="" onChange={documentHandler} />
 						</div>
 
 						<button type="submit" className="btn-new-submit">Cadastrar Novo Usuário</button>
