@@ -122,7 +122,7 @@ nav.nav-bar-feed div.user-logged {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: red;
+    /* background: red; */
 }
 
 nav.nav-bar-feed div.user-logged img {
