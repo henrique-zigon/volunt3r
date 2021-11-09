@@ -1,13 +1,21 @@
-div.content div.buttons-group {
+
+div.content-reports {
   width: 100%;
-  height: 300px;
+  height: auto;
+  margin-top: 25px;
+  padding-bottom: 15px;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background: red; */
+  flex-direction: column;
+  gap: 2rem
 }
 
-button.button {
+div.content-reports div.report {
+  display: flex;
+  flex-direction: column;
+}
+
+div.content-reports div.report div.buttons-report button.button {
   position: relative;
   width: 200px;
   height: 40px;
@@ -18,8 +26,13 @@ button.button {
   border-radius: 5px;
   top: 10px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 15px;
 }
-button.button:first-child {
+
+div.content-reports div.report div.buttons-report button.button:first-child {
   margin: 0;
 }
+
+button.button:first-child {
+  margin: 0;
+} 

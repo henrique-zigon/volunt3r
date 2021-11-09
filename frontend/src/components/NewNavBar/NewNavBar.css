@@ -58,11 +58,9 @@ nav.nav-bar-feed ul li a ul.nav-dropdown {
     top: 30px;
     border-radius: 8px;
     left: 0;
-    padding-left: 15px;
-
+    padding: 10px 0 10px 15px;
     filter: drop-shadow(0px 4px 22px rgba(0, 0, 0, 0.1));
     z-index: 2;
-    /* padding: 10px; */
 }
 
 nav.nav-bar-feed ul li:hover ul.nav-dropdown  {
@@ -145,10 +143,9 @@ nav.nav-bar-feed div.user-logged ul.dropdown-user-logged {
     top: 80px;
     border-radius: 8px;
     right: 0;
-    padding-left: 15px;
     filter: drop-shadow(0px 4px 22px rgba(0, 0, 0, 0.1));
     z-index: 2;
-    /* padding: 10px; */
+    padding: 15px 0 15px 15px;
 }
 
 nav.nav-bar-feed div.user-logged:hover ul.dropdown-user-logged {

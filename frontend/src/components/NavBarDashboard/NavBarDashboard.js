@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { 
-    BiLineChart, 
     BiCalendar, 
     BiChevronDown, 
     BiUser,
     BiAddToQueue,
-    BiListOl,
+    BiListUl,
     BiExit,
-    BiLeftArrowAlt
+    BiLeftArrowAlt,
+    BiBarChartAlt2,
+    BiFile,
+    BiExport
 } from 'react-icons/bi';
 import './NavBarDashboard.css';
 import avatarPadrao from '../../images/avatar_padrao.png';
@@ -36,7 +38,7 @@ const NavBarDashboard = (props) => {
             <ul>
                 <li>
                     <Link to="/dashboard" className={location === "/dashboard" ? "current" : ""}>
-                        <BiLineChart size={20} />
+                        <BiBarChartAlt2 size={20} />
                         <span>Dashboard</span>
                     </Link>
                 </li>
@@ -56,7 +58,7 @@ const NavBarDashboard = (props) => {
                             </li>
                             <li>
                                 <Link to="/dashboard/eventos">
-                                    <BiListOl size={20} />
+                                    <BiListUl size={20} />
                                     <span>Meus Eventos</span>
                                 </Link>
                             </li>
@@ -79,8 +81,25 @@ const NavBarDashboard = (props) => {
                             </li>
                             <li>
                                 <Link to="/dashboard/gerencia-usuarios/usuarios">
-                                    <BiListOl size={20} />
+                                    <BiListUl size={20} />
                                     <span>Meus Usuários</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link className={location === "/dashboard/relatorios/geral" ? "current" : ""}>
+                        <BiFile size={20} />
+                        <span>Relatórios</span>
+                        <BiChevronDown size={20} />
+
+                        <ul className="nav-dropdown">
+                            <li>
+                                <Link to="/dashboard/relatorios/geral">
+                                    <BiExport size={20} />
+                                    <span>Exportar</span>
                                 </Link>
                             </li>
                         </ul>
