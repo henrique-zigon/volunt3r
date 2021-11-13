@@ -81,7 +81,7 @@ const Dashboard = () => {
                         </div>
 
                 
-                        <div className="chart one">
+                        {/* <div className="chart one">
                             <div className="box-chart-left box">
                             <span className="title">Turnover</span>
                             <div className="container-canvas">
@@ -90,11 +90,11 @@ const Dashboard = () => {
                                 </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="chart one">
                             <div className="box-chart-left box">
-                                <span className="title">Voluntários tempo de casa</span>
+                                <span className="title">Voluntários por tempo de casa</span>
                                 <div className="container-canvas">
                                     <div className="chart-canvas one">
                                         <ScatterVoluntariosTempoDeCasa />
