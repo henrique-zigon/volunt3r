@@ -212,14 +212,9 @@ public class EventoController {
 
     @GetMapping("/{id}/inscritos")
     public ResponseEntity getInscritos(@PathVariable Integer id) {
-        Evento evento = repository.findById(id).get();
-        List<Integer> lista = new ArrayList<>();
-        for(InscricaoEvento ie : evento.getInscritos()) {
-            lista.add(ie.getFkUsuario());
-        }
-        List<UsuarioSimplesResponse> listaUsuario = usuarioRepository.pesquisarTodosIds(lista);
-        if(!listaUsuario.isEmpty()) {
-            return ResponseEntity.status(200).body(listaUsuario);
+        Optional<Evento> evento = repository.findById(id);
+        if(evento.isPresent()) {
+            return ResponseEntity.status(200).body(evento.get().getInscritos());
         }else {
             return ResponseEntity.status(204).build();
         }

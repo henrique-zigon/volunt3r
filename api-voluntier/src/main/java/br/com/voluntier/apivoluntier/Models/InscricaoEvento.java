@@ -1,5 +1,8 @@
 package br.com.voluntier.apivoluntier.Models;
 
+import br.com.voluntier.apivoluntier.Responses.UsuarioResponse;
+import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +13,9 @@ public class InscricaoEvento {
     @Column(name = "id_inscricao_evento")
     private Integer id;
     private Integer fkEvento;
-    private Integer fkUsuario;
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario")
+    private Usuario fkUsuario;
     @Column(name = "status_UE")
     private String status;
 
@@ -30,11 +35,15 @@ public class InscricaoEvento {
         this.fkEvento = fkEvento;
     }
 
-    public Integer getFkUsuario() {
-        return fkUsuario;
+    public UsuarioSimplesResponse getUsuario() {
+        return new UsuarioSimplesResponse(fkUsuario);
     }
 
-    public void setFkUsuario(Integer fkUsuario) {
+    public Integer getFkUsuario() {
+        return fkUsuario.getIdUsuario();
+    }
+
+    public void setFkUsuario(Usuario fkUsuario) {
         this.fkUsuario = fkUsuario;
     }
 
