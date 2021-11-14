@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import Botao from '../../components/Botao/Botao';
 import PessoasInteressadas from '../../components/PessoasInteressadas/PessoasInteressadas';
+import { getURLApi } from '../../configs/getUrlApi';
 
 import api from '../../api';
 import './card-feed-style.css';
@@ -151,7 +152,7 @@ const CardFeedEvent = (props) => {
   return (
     <div className="feed-card" onClick={clickPost}>
       <img className="image-post"
-        src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
+        src={`${getURLApi()}/arquivos/imagem/${props.imagePost}`}
         alt={props.titlePost}
       />
 

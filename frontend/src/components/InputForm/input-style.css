@@ -34,6 +34,9 @@ div.input-group .input-field.select {
 	padding-left: 6px;
 }
 
+div.input-group .input-field[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+}
 
 
 div.input-group div.underline {

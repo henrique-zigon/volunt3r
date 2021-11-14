@@ -2,19 +2,32 @@
 
 div.feed-container {
     width: 100%;
-    height: 100vh;
+    /* height: 100%; */
+	height: auto;
     /* background: red; */
 
     display: flex;
     justify-content: center;
-    overflow-y: auto;
+	align-items: center;
 	position: relative;
+	flex-direction: column;
+
 }
 
 div.feed-container div.feed-content {
+	display: flex;
     width: 70%;
     height: 100%;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
+
+
+div.feed-container div.feed-content .loading-spin {
+    margin-top: 50px;
+}
+
 
 div.feed-container div.feed-content div.new-post {
 	width: 100%;

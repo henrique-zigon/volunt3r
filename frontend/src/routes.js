@@ -20,10 +20,12 @@ import Perfil from './pages/Perfil/Perfil';
 import Feed from './pages/Feed/Feed.js';
 import EventCatalog from './pages/EventCatalog/EventCatalog';
 import Shop from './pages/Shop/Shop';
-import RelatorioPage from './pages/Dashboard/RelatorioPage';
 import RecuperarSenhaInvalido from './pages/RecuperarSenha/RecuperarSenhaTokenInvalido';
 import CriarUsuarioDashboard from './pages/Dashboard/Gerencia_Usuarios/CriarUsuarioDashboard';
 import ListarUsuariosDashboard from './pages/Dashboard/Gerencia_Usuarios/ListarUsuariosDashboard';
+import CriarEventoDashboard from './pages/Dashboard/Eventos/CriarEventoDashboard';
+import ListarEventosDashboard from './pages/Dashboard/Eventos/ListarEventosDashboard';
+import RelatorioGeral from './pages/Dashboard/Relatorios/RelatorioGeral';
 
 
 function CodeQR(props) {
@@ -54,7 +56,7 @@ function Routes() {
             <BrowserRouter>
                 <Switch>
                     <LoggedRoute exact path="/shop" component={Shop} />
-                    <LoggedRoute exact path="/catalog" component={EventCatalog} />
+                    <LoggedRoute exact path="/eventos" component={EventCatalog} />
                     <LoggedRoute exact path="/" component={Feed} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/recuperar-senha" component={RecuperarSenha} />
@@ -67,9 +69,11 @@ function Routes() {
                     <LoggedRoute exact path="/perfil-conquistas" component={Perfil} />
                     <Route exact path="/register/step2" component={CriarUsuarioStep2} />
                     <LoggedRoute exact path="/dashboard" component={Dashboard}/>
-                    <LoggedRoute exact path="/dashboard/relatorios" component={RelatorioPage}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/criar-usuario" component={CriarUsuarioDashboard}/>
                     <LoggedRoute exact path="/dashboard/gerencia-usuarios/usuarios" component={ListarUsuariosDashboard}/>
+                    <LoggedRoute exact path="/dashboard/eventos/criar-evento" component={CriarEventoDashboard}/>
+                    <LoggedRoute exact path="/dashboard/eventos" component={ListarEventosDashboard}/>
+                    <LoggedRoute exact path="/dashboard/relatorios/geral" component={RelatorioGeral}/>
                     <Route exact path="/confirmar/:idEvento" component={FormularioQR} />
                     <Route exact path="/QRCode/:idEvento" component={CodeQR} />
                     <Route path="*" component={NotFound} />

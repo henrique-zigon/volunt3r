@@ -1,64 +1,102 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { BiHomeAlt, BiShoppingBag, BiCalendarAlt, BiLineChart, BiUser } from 'react-icons/bi';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import { 
+    BiHomeAlt, 
+    BiLineChart, 
+    BiShoppingBag, 
+    BiCalendar,
+    BiLeftArrowAlt,
+    BiExit,
+    BiUser
+} from 'react-icons/bi';
 
-import './newNavBar-style.css';
+import './NewNavBar.css';
+import avatarPadrao from '../../images/avatar_padrao.png';
 import { useCookies } from 'react-cookie';
 
-const NewNavBar = () => {
-  let location = useLocation().pathname;
 
-  const [cookies_user] = useCookies(['volunt3r_user']);
+const NewNavBar = (props) => {
 
-  let tipoUsuario = cookies_user.volunt3r_user.tipoUsuario;
+    let location = useLocation().pathname;
 
-  return (
-    <nav className="new-navbar">
-      <ul>
-        <li className={
-          location === "/" ? "li-current": "" 
-        }>
-          <Link to="/" className="linkagem">
-            <BiHomeAlt />
-            <span>Feed</span>
-          </Link>
-        </li>
-        
-        <li className={
-          location === "/catalog" ? "li-current": "" 
-        }>
-          <Link to="/catalog" className="linkagem">
-            <BiCalendarAlt />
-            <span>Eventos</span>
-          </Link>
-        </li>
+    const imageUser = props.userpic == null || props.userpic == " " ? avatarPadrao : props.userpic;
+    const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
+    const history = useHistory();
+    let tipoUsuario = cookies.volunt3r_user.tipoUsuario;
 
-        <li className={
-          location === "/shop" ? "li-current": "" 
-        }>
-          <Link to="/shop" className="linkagem">
-            <BiShoppingBag />
-            <span>Loja</span>
-          </Link>
-        </li>
-        
-        <li className={
-          location === "/perfil" || location === "/perfil-conquistas" ? "li-current": "" 
-        }>
-          <Link to="/perfil" className="linkagem">
-            <BiUser />
-            <span>Perfil</span>
-          </Link>
-        </li>
 
-        {
-          tipoUsuario === "b3_social" ? <li> <Link to="/dashboard" className="linkagem"> <BiLineChart /> <span>Dashboard</span> </Link></li> : ""
-        }
-        
-        
-      </ul>
-    </nav>
-  );
+    function sair() {
+        removeCookie('volunt3r')
+        removeCookie('volunt3r_user');
+        setTimeout(() => {
+          history.push("/");
+        }, 1000)
+      }
+
+    return (
+
+        <nav className="nav-bar-feed">
+            <ul>
+                <li>
+                    <Link to="/" className={location === "/" ? "current" : ""}>
+                        <BiHomeAlt size={20} />
+                        <span>Feed</span>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to="/eventos" className={
+                        location === "/eventos" ? "current": "" 
+                    }>
+                        <BiCalendar size={20} />
+                        <span>Eventos</span>          
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to="/shop" className={
+                        location === "/shop" ? "current": "" 
+                    }>
+                        <BiShoppingBag size={20} />
+                        <span>Loja</span>
+                    </Link>
+                </li>
+                {
+                 tipoUsuario === "b3_social" ?
+
+                    <li>
+                        <Link to="/dashboard" className={
+                            location === "/dashboard" ? "current": "" 
+                        }>
+                            <BiLineChart size={20} />
+                            <span>Dashboard</span>
+                        </Link>
+                    </li>
+                    : ""
+                }
+               
+            </ul>
+            <div className="user-logged">
+                <img src={imageUser} alt={props.username} className="" />
+                <ul className="dropdown-user-logged">
+                    <li>
+                        <Link to="/perfil">
+                            <BiUser size={20} />
+                            <span>Meu Perfil</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link onClick={sair}>
+                            <BiExit size={20} />
+                            <span>Sair</span>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    );
 }
+
 
 export default NewNavBar;

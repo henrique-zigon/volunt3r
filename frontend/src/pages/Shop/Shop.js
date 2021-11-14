@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
-
+import ReactLoading from 'react-loading';
 
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import InputForm from '../../components/InputForm/InputForm';
@@ -11,14 +11,15 @@ import CardShop from '../../components/CardShop/CardShop';
 
 import UserImage from '../../components/UserImage/UserImage';
 import avatarPadrao from '../../images/avatar_padrao.png';
+import { getURLApi } from '../../configs/getUrlApi';
 
 function Shop() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [courses, setCourses] = useState([]);
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : process.env.REACT_APP_PUBLIC_URL_API+"/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const [isLoaded, setIsloaded] = useState(false);
 
 	function handleSearch(e) {
-		console.log()
 		let filtro = e.target.value
 		api.get(`/cursos/filtroLoja/${filtro}`, {
 			headers: {
@@ -26,7 +27,6 @@ function Shop() {
 			}
 		}).then(resposta => {
 			setCourses(resposta.data.content);
-			console.log(resposta)
 		}).catch(err => {
 			console.log(err)
 		});
@@ -36,10 +36,12 @@ function Shop() {
 	useEffect(() => {
 
 		async function getAllCards() {
-			const resposta = await api.get("/cursos", { params: {pagina : 0, tamanho: 10},
+			const resposta = await api.get("/cursos", {
+				params: { pagina: 0, tamanho: 10 },
 				headers: { 'Authorization': cookies.volunt3r }
 			});
 			setCourses(resposta.data.content);
+			setIsloaded(true);
 		}
 
 		getAllCards();
@@ -55,12 +57,11 @@ function Shop() {
 
 		<>
 			<div className="feed-container">
-
-			<UserImage imagem={imageUser} nome={NomeSobrenome[1]} />
+				<NewNavBar 
+					userpic={imageUser}
+				/>
 
 				<div className="feed-content">
-					<NewNavBar />
-
 					<div className="description-page">
 						<span className="title">Loja</span>
 						<span className="description">Que tal trocar as suas milhas?</span>
@@ -73,29 +74,33 @@ function Shop() {
 							name="filtro"
 							label="Pesquise um curso"
 
-						function={(e) => handleSearch(e)}
+							function={(e) => handleSearch(e)}
 						/>
 					</div>
 
+					{
+						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
+						
+						<div className="shop-cards">
 
-					<div className="shop-cards">
+							{
+								courses.map((course) => {
 
-						{
-							courses.map((course) => {
+									return (
+										<CardShop
+											title={course.titulo}
+											image={course.imagem}
+											prince={course.preco}
+											time={course.duracao}
+											description={course.descricao}
+										/>
 
-								return(
-									<CardShop 
-										title={course.titulo}
-										image={course.imagem}
-										prince={course.preco}
-										time={course.duracao}
-										description={course.descricao}
-									/>
+									);
+								})
+							}
+						</div>
+					}
 
-								);
-							})
-						}
-					</div>
 				</div>
 
 			</div>

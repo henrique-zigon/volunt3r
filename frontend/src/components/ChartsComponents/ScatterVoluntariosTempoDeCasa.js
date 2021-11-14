@@ -1,41 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Scatter } from 'react-chartjs-2';
+import { useCookies } from 'react-cookie';
+import api from '../../api';
+
+import ReactLoading from 'react-loading';
 
 const ScatterVoluntariosTempoDeCasa = () => {
 
-  const state = {
-    datasets: [{
-      data: [
-        { x: 0, y: 0}, 
-        { x: 0, y: 10 }, 
-        { x: 10, y: 5 }, 
-        { x: 0.5, y: 5.5 }, 
-        { x: 15, y: 5 },
-        { x: 5, y: 5 },
-        { x: 25, y: 6 },
-        { x: 10, y: 4 },
-        { x: 10, y: 15 },
-      ],
-      backgroundColor: 'rgb(54, 162, 235)'
-    }],
+    const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
 
-  }
+    const [dataChart, setDataChart] = useState([]);
 
-  const options = {
-    datalabels: {
-      display: false
+    const [isLoaded, setIsloaded] = useState(false);
+
+
+    useEffect(() => {
+
+        api('/dash/score', {
+            method: "GET",
+            headers: {
+                'Authorization': cookies.volunt3r
+            }
+        }).then(resposta => {
+            setDataChart(resposta.data.map(s => ({ x: s.tempoCasa, y: s.score })));
+            setIsloaded(true);
+        })
+
+    }, [])
+
+    const state = {
+        datasets: [{
+            data: dataChart,
+            backgroundColor: 'rgb(54, 162, 235)'
+        }],
+
     }
-  }
 
-  return(
-    <Scatter 
-      data={state}
-      option={options}
-    />
+   
 
-  );
-
-
+    return (
+        !isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> : <Scatter data={state}  />
+    );
 }
 
 export default ScatterVoluntariosTempoDeCasa;

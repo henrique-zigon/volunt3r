@@ -1,22 +1,32 @@
-import React, {useState} from 'react';
-import api from '../../../api';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import {
-	BiBuilding,
-	BiDonateHeart,
-	BiEnvelope,
-	BiKey,
-	BiUser
+	BiCalendar,
+	BiUser,
+	BiTimeFive
 } from 'react-icons/bi';
 import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import InputForm from '../../../components/InputForm/InputForm';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import { getURLApi } from '../../../configs/getUrlApi';
+import api from '../../../api';
 
-const CriarUsuarioDashboard = () => {
-	const [cookies] = useCookies(['volunt3r']);
+const CriarEventoDashboard = () => {
+	const [cookies] = useCookies(['volunt3r_user']);
 	const [statePreview, setStatePreview] = useState();
 
+	const [categorias, setCategorias] = useState([]);
+
+	function getCategorias() {
+		api("/eventos/categorias", {
+			headers: {
+				'Authorization': cookies.volunt3r
+			}
+		}).then(resposta => {
+			setCategorias(resposta.data)
+		})
+	}
+	
 	const documentHandler = (e) => {
         const reader = new FileReader();
         reader.onload = () => {
@@ -27,7 +37,7 @@ const CriarUsuarioDashboard = () => {
         reader.readAsDataURL(e.target.files[0]);
     }
 
-    async function createNewUser(e) {
+    async function createNewEvent(e) {
         // PARA ENVIAR POST
         e.preventDefault();
 
@@ -41,7 +51,7 @@ const CriarUsuarioDashboard = () => {
 
 		console.log(e.target);
 
-        formData.append('arquivo', e.target.file_new_users.files[0]);
+        formData.append('arquivo', e.target.file_new_events.files[0]);
 
         let config = {
             url: "/arquivos/upload",
@@ -62,6 +72,26 @@ const CriarUsuarioDashboard = () => {
 	}
 
 
+	// function criarEvento(e) {
+	// 	e.preventDefault();
+
+	// 	// api("/eventos/novo", {
+	// 	// 	method: "POST",
+	// 	// 	headers: {
+	// 	// 		'Authorization': cookies.volunt3r
+	// 	// 	}
+	// 	// }).then(resposta => {
+	// 	// })
+
+
+	// }
+
+
+	useEffect(() => {
+		getCategorias();
+	}, [])
+
+
 	return (
 		<div className="container-dashboard">
 			<NavBarDashboard
@@ -74,23 +104,32 @@ const CriarUsuarioDashboard = () => {
 
 					<HeaderWelcomePageDashboard
 						username={cookies.volunt3r_user.nomeUsuario}
-						subtitle="Que tal criar um usuário?"
+						subtitle="Que tal criar um novo evento?"
 					/>
 
-					<form className="form-create" action="" onSubmit={createNewUser}>
+					<form className="form-create" onSubmit={createNewEvent}>
+						
+						<div className="submit-file">
+							<label htmlFor="">Selecione a imagem do evento</label>
+							<input type="text" id="foto_evento" type="file" />
+						</div>
 
 						<div className="group-form">
 							<InputForm
-								type="name"
-								id="name"
-								name="name"
-								label="Nome do usuário"
-								icon={<BiUser className="icon-input-group" />}
-							// function={(e) => handle(e)}
+								type="text"
+								id="titulo"
+								name="titulo"
+								label="Título do evento"
 							/>
 
+							<InputForm
+								type="text"
+								id="descricao"
+								name="descricao"
+								label="Descrição"
+							/>
 
-							<div className="input-group">
+							{/* <div className="input-group">
 								<label htmlFor="senha">
 									<span>Qual o gênero?</span>
 
@@ -102,64 +141,67 @@ const CriarUsuarioDashboard = () => {
 									</select>
 									<div className="underline"></div>
 								</label>
-							</div>
+							</div> */}
 						</div>
 
 						<div className="group-form">
 							<InputForm
-								type="text"
-								id="cargo"
-								name="cargo"
-								label="Cargo do usuário"
-								icon={<BiBuilding className="icon-input-group" />}
+								type="date"
+								id="data_evento_abertura"
+								name="data_evento_abertura"
+								label="Data de abertura do evento"
+								icon={<BiCalendar className="icon-input-group" />}
 							// function={(e) => handle(e)}
 							/>
-							<div className="input-group">
-								<label htmlFor="area">
-									<span>Qual a área?</span>
-									<select className="input-field select" name="area" id="area">
-										<option disabled selected>Selecione sua área</option>
-										<option value="B3 Social">B3 Social</option>
-										<option value="Produtos Analytics">Produtos Analytics</option>
-										<option value="Listados">Listados</option>
-										<option value="Balcão">Balcão</option>
-									</select>
-									<div className="underline"></div>
-								</label>
-							</div>
+
+							<InputForm
+								type="date"
+								id="data_evento_fechamento"
+								name="data_evento_fechamento"
+								label="Data de fechamento do evento"
+								icon={<BiCalendar className="icon-input-group" />}
+							
+							/>
+							
 						</div>
 
 						<div className="group-form">
 							<InputForm
 								type="text"
-								id="email"
-								name="email"
-								label="Qual o email do usuário?"
-								icon={<BiEnvelope className="icon-input-group" />}
+								id="maxParticipantes"
+								name="maxParticipantes"
+								label="Máximo de participantes."
+								icon={<BiUser className="icon-input-group" />}
+							// function={(e) => handle(e)}
+							/>
+
+							<InputForm
+								type="text"
+								id="horasEvento"
+								name="horasEvento"
+								label="Quantas horas vale o evento?"
+								icon={<BiTimeFive className="icon-input-group" />}
 							// function={(e) => handle(e)}
 							/>
 							<div className="input-group">
 								<label htmlFor="tipoUsuario">
-									<span>O usuário é B3 Social?</span>
+									<span>Qual a Categoria do Evento?</span>
 
 									<select className="input-field select" name="tipoUsuario" id="tipoUsuario">
 										<option disabled selected >Selecione</option>
-										<option value="b3_social">Sim</option>
-										<option value="comum">Não</option>
+
+										{
+											categorias.map(categoria => {
+												return(
+													<option value={categoria.idCategoria}>{categoria.nomeCategoria}</option>
+												);
+											})
+										}
+								
 									</select>
 									<div className="underline"></div>
-
-									<BiDonateHeart className="icon-input-group" />
 								</label>
 							</div>
-							{/* <InputForm
-								type="password"
-								id="senha"
-								name="senha"
-								label="Senha para o usuário"
-								icon={<BiKey className="icon-input-group" />}
-							// function={(e) => handle(e)}
-							/> */}
 						</div>
 
 						<div className="line-form">
@@ -167,41 +209,17 @@ const CriarUsuarioDashboard = () => {
 						</div>
 
 						<div className="submit-file">
-							<input name="file_new_users" type="file" id="" onChange={documentHandler} />
+							<input type="file" id="" name="file_new_events" onChange={documentHandler}/>
 						</div>
 
-						<button type="submit" className="btn-new-submit">Cadastrar Novo Usuário</button>
+						<button type="submit" className="btn-new-submit">Cadastrar Novo Evento</button>
 					</form>
-
-
-					
-
 				</div>
-
-
 			</main>
-
-
 		</div>
-		// <main className="container">
-		// 	<SideBar
-		// 		userpic={getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil}
-		// 		username={cookies.volunt3r_user.nomeUsuario}
-		// 		useremail={cookies.volunt3r_user.email}
-		// 	/>
-
-		// 	<div className="content">
-		// 		<HeaderWelcomePageDashboard
-		// 			username={cookies.volunt3r_user.nomeUsuario}
-		// 			subtitle="Que tal criar um usuário?"
-		// 		/>
-
-
-		// 	</div>
-		// </main>
 	);
 }
 
 
-export default CriarUsuarioDashboard;
+export default CriarEventoDashboard;
 

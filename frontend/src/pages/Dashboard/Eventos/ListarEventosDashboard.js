@@ -3,49 +3,32 @@ import { useCookies } from 'react-cookie';
 import { BiEdit, BiX } from 'react-icons/bi';
 import ReactLoading from 'react-loading';
 import HeaderWelcomePageDashboard from '../../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
+import '../styles/eventos.css';
 import api from '../../../api';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import InputForm from '../../../components/InputForm/InputForm';
 import { getURLApi } from '../../../configs/getUrlApi';
 
-const ListarUsuariosDashboard = () => {
+const ListarEventosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
-	const [users, setUsers] = useState([]);
-
+	const [eventos, setEventos] = useState([]);
 	const [isLoaded, setIsloaded] = useState(false);
 
-	async function getUsers() {
-		await api("/usuarios", {
+	useEffect(() => {
+		api("/eventos", {
 			method: "GET",
 			headers: {
 				'Authorization': cookies.volunt3r
 			}
 		}).then(resposta => {
-			setUsers(resposta.data)
+			setEventos(resposta.data.content)
 			setIsloaded(true);
-		})
-	}
-
-	useEffect(() => {
-		getUsers();
+		});
 	}, [])
 
 
-	function desativarUsuario(nomeUsuario, id) {
-		let confirm = window.confirm(`Você deseja desativar o usuário: ${nomeUsuario}`)
-		if(confirm) {
-			api(`usuarios/desativar/${id}`, {
-				method: "DELETE",
-				headers: {
-					'Authorization': cookies.volunt3r,
-					'token': cookies.volunt3r
-				}
-			}).then(resposta => {
-				if(resposta.status === 200) {
-					getUsers()
-				}
-			});
-		}
+	function generateQrCode(idEvento) {
+		// Para gerar o QRCODE
 	}
 
 	return (
@@ -68,32 +51,40 @@ const ListarUsuariosDashboard = () => {
 						type="filtro"
 						id="filtro"
 						name="filtro"
-						label="Filtrar usuário"
+						label="Filtrar evento"
 					/>
+
 					{
 						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
-							<div className={!isLoaded ? "content-list" : "content-list loaded"}>
-
+							<div className={!isLoaded ? "content-list-users" : "content-list loaded"}>
 								<table>
 									<thead>
 										<tr>
-											<td>Nome</td>
-											<td>E-mail</td>
-											<td>Status</td>
+											<td>Descrição</td>
+											<td>Data Término</td>
+											<td>Qtd Comentarios</td>
+											<td>Qtd Likes</td>
+											<td>Qtd Inscritos</td>
+											<td>Gerar QRCODE</td>
 											<td>Editar</td>
-											<td>Desativar</td>
+											<td>Excluir</td>
 										</tr>
 									</thead>
 									<tbody>
 
 										{
-											users.map(user => {
+											eventos.map(evento => {
 												return (
 													<tr>
-														<td>{user.nomeUsuario.split(" ")[0] + " " + user.nomeUsuario.split(" ")[1]}</td>
-														<td>{user.email}</td>
-														<td className={user.statusUsuario == 1 ? "activateduser" : "desactiveUser"}>
-															{user.statusUsuario == 1 ? "Ativado" : "Desativado"}
+														<td>{evento.evento.titulo.substr(0, 25) + "..."}</td>
+														<td>{evento.evento.dataFechamentoEvento}</td>
+														<td>{evento.numeroComentarios}</td>
+														<td>{evento.numeroLikes}</td>
+														<td>{evento.evento.numeroInscritos}</td>
+														<td>
+															<button type="button" className="generate-qrcode" onClick={(e) => generateQrCode(evento.evento.id)}>
+																Gerar QR Code
+															</button>
 														</td>
 														<td>
 															<button type="button">
@@ -101,7 +92,7 @@ const ListarUsuariosDashboard = () => {
 															</button>
 														</td>
 														<td>
-															<button type="button" onClick={(e) => desativarUsuario(user.nomeUsuario, user.idUsuario)}>
+															<button type="button">
 																<BiX className="icon-table close " />
 															</button>
 														</td>
@@ -115,6 +106,7 @@ const ListarUsuariosDashboard = () => {
 								</table>
 							</div>
 					}
+
 				</div>
 			</main>
 		</div>
@@ -122,4 +114,4 @@ const ListarUsuariosDashboard = () => {
 }
 
 
-export default ListarUsuariosDashboard;
+export default ListarEventosDashboard;

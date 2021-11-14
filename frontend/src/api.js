@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-console.log(process.env)
+import { getURLApi } from './configs/getUrlApi';
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_PUBLIC_URL_API
+    baseURL: getURLApi()
 })
 
 export default api;

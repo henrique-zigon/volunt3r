@@ -4,6 +4,8 @@ import { FaHeart } from 'react-icons/fa';
 import { useCookies } from 'react-cookie';
 import { useToasts } from 'react-toast-notifications';
 
+import { getURLApi } from '../../configs/getUrlApi';
+
 import './style-cardCommentOrPost.css';
 
 import api from '../../api';
@@ -153,7 +155,7 @@ const CardCommentOrPost = (props) => {
     <div className="feed-card card-comment-or-post" onClick={clickPost}>
       <div className="principal-content-card">
         <img className="image-post"
-          src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/${props.imagePost}`}
+          src={`${getURLApi()}/arquivos/imagem/${props.imagePost}`}
           alt={props.titlePost}
         />
 
@@ -218,7 +220,7 @@ const CardCommentOrPost = (props) => {
               return (
                 <div className="user-comment">
                   <div className="icon-user">
-                    <img src={`${process.env.REACT_APP_PUBLIC_URL_API}/arquivos/imagem/` + comentario.usuario.usuarioImagemPerfil} />
+                    <img src={`${getURLApi()}/arquivos/imagem/` + comentario.usuario.usuarioImagemPerfil} />
                   </div>
                   <div className="box-user-comment">
                     <span className="name-user-comment">{comentario.usuario.nome}</span>
