@@ -136,24 +136,114 @@ base_categorias <- rbind(categorias_n1,
 
 base_categorias$id_categoria <- 1:nrow(base_categorias)
 
+rm(categorias_n1, categorias_n2, categorias_n3, categorias_n4)
+
 #Simbora criar os eventos
 numero_eventos_ano <- 53
-datas <- sample(seq(as.Date('2021/01/01'), as.Date('2021/11/30'), by="day"), numero_eventos_ano)
-numero_participantes <- as.integer(rnorm(numero_eventos_ano, 15, 5))
+id_evento <- 1:numero_eventos_ano
+data_evento <- sample(seq(as.Date('2021/01/01'), as.Date('2021/11/30'), by="day")
+                      , numero_eventos_ano)
+data_fechamento_evento = data_evento + 30
+endereco <- paste("Rua ", id_evento, " de 2021")
 set.seed(69)
 fk_categoria <- round(runif(numero_eventos_ano, 1, 12))
 set.seed(333)
+titulo <- paste("Evento ", id_evento, " de 2021")
+
+# Para definir os seguintes valores utilizarei uma tabela auxiliar de categoria
+#        (Ou seja, nesse caso, simularemos baseando-se na categoria)
+#    maximo_participantes
+#    horas
+#    milhas_participacao
+
+categorias_aux <- data.frame(
+  id = base_categorias$id_categoria,
+  nome = base_categorias$nome_categoria,
+  nivel = base_categorias$nivel
+)
+
+categorias_aux$maximo_participantes <- c(
+  0,  #Doação de Cestas Básicas
+  0,  #Doação de Cobertores e Agasalhos
+  0,  #Sacolinha de fim de ano
+  0,  #Doação de Sangue
+  0,  #Indicação de Projetos
+  10, #Workshops/Lives/Palestras
+  7,  #Simulação de Entrevista
+  20, #Multirões Mão na Massa
+  5,  #Mentoria
+  8,  #Aulas de Inglês
+  4,  #Comitês Estratégicos
+  4   #Consultoria/Serviços a ONGs Parceiras
+)
+
+categorias_aux$horas <- c(
+  0.25,  #Doação de Cestas Básicas
+  1,     #Doação de Cobertores e Agasalhos
+  0.25,  #Sacolinha de fim de ano
+  8,     #Doação de Sangue
+  0.5,   #Indicação de Projetos
+  2,     #Workshops/Lives/Palestras
+  5,     #Simulação de Entrevista
+  8,     #Multirões Mão na Massa
+  20,    #Mentoria
+  10,    #Aulas de Inglês
+  5,     #Comitês Estratégicos
+  20     #Consultoria/Serviços a ONGs Parceiras
+)
+
+categorias_aux$milhas_participacao <- c(
+  5,  #Doação de Cestas Básicas
+  10, #Doação de Cobertores e Agasalhos
+  5,  #Sacolinha de fim de ano
+  15, #Doação de Sangue
+  10, #Indicação de Projetos
+  15, #Workshops/Lives/Palestras
+  20, #Simulação de Entrevista
+  20, #Multirões Mão na Massa
+  30, #Mentoria
+  25, #Aulas de Inglês
+  25, #Comitês Estratégicos
+  30  #Consultoria/Serviços a ONGs Parceiras
+)
+
+eventos_aux <- data.frame(
+  fk_categoria
+)
+
+eventos_aux$maximo_participantes <- categorias_aux$maximo_participantes[eventos_aux$fk_categoria]
+eventos_aux$horas                <- categorias_aux$horas[eventos_aux$fk_categoria]
+eventos_aux$milhas_participacao  <- categorias_aux$milhas_participacao[eventos_aux$fk_categoria]
 
 base_eventos <- data.frame(
-  id_evento = 1:numero_eventos_ano,
-  data_evento = datas,
-  data_fechamento_evento = datas + 30,
-  maximo_participantes = numero_participantes,
-  fk_categoria,
-  
+  id_evento,
+  data_evento,
+  data_fechamento_evento,
+  endereco,
+  maximo_participantes = eventos_aux$maximo_participantes,
+  horas                = eventos_aux$horas,
+  fk_categoria         = eventos_aux$fk_categoria,
+  titulo,
+  milhas_participacao  = eventos_aux$milhas_participacao
 )
-#Pensar na possibilidade de utilizar a base enviada pela B3SOCIAL
-#Existem eventos que não tem limite de participantes
+
+#Criando publicações
+numero_publicacoes <- numero_eventos_ano * 5
+fk_usuario <- round(runif(numero_publicacoes, 1, nrow(base_pessoas)))
+fk_evento <- rep(
+  1:nrow(base_eventos),
+  5
+)
+publicacao_pai <- fk_evento
+
+pub_aux <- data.frame(
+  fk_usuario,
+  fk_evento,
+  publicacao_pai
+)
+
+pub_aux <- pub_aux[sample(1:numero_publicacoes, numero_publicacoes/2), ]
+
 
 
 #Exportando os dados
