@@ -37,7 +37,7 @@ public class Publicacao {
     private Evento evento;
     //Porque a utilização do cascade? Ta bloquenado um treco aqui
     //@ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "publicacao_pai")
     @JsonIgnore
     private Publicacao publicacaoPai;
@@ -46,7 +46,7 @@ public class Publicacao {
     @JsonIgnore
     private List<Gostei> likes;
 
-    @OneToMany(mappedBy="publicacaoPai")
+    @OneToMany(mappedBy="publicacaoPai",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Publicacao> publicacoesFilhos;
 
