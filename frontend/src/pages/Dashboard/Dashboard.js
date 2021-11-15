@@ -16,6 +16,7 @@ import LineAcompanhamentoEventoTempo from '../../components/ChartsComponents/Lin
 import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/ScatterVoluntariosTempoDeCasa';
 import BarTurnover from '../../components/ChartsComponents/BarTurnover';
 import './styles/dashboard.css';
+import AlluvialVoluntarios from '../../components/ChartsComponents/AlluvialVoluntarios';
 
 const Dashboard = () => {
 
@@ -67,6 +68,7 @@ const Dashboard = () => {
                                 <span className="title">Acompanhamento de um evento durante o tempo</span>
                                 <div className="chart-canvas one">
                                     <LineAcompanhamentoEventoTempo />
+                             
                                 </div>
                             </div>
 
@@ -81,16 +83,16 @@ const Dashboard = () => {
                         </div>
 
                 
-                        {/* <div className="chart one">
+                        <div className="chart one">
                             <div className="box-chart-left box">
-                            <span className="title">Turnover</span>
+                            <span className="title">Perfil Voluntários</span>
                             <div className="container-canvas">
                                 <div className="chart-canvas one">
-                                    <BarTurnover />
+                                     <AlluvialVoluntarios />
                                 </div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
 
                         <div className="chart one">
                             <div className="box-chart-left box">

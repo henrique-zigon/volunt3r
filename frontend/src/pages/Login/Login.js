@@ -101,15 +101,15 @@ function Login() {
 					<button type="submit" className="btn-new-submit">Entrar</button>
 				</form>
 
-				<div className="footer">
+				{/* <div className="footer">
 					Não tenho uma conta, <Link className="bold" to="/register">quero criar uma!</Link>
 				</div>
 
 				<div className="footer2">
 					OU
-				</div>
+				</div> */}
 
-				<div className="footer2">
+				<div className="footer">
 					Esqueci a minha senha, <Link className="bold" to="/recuperar-senha">quero recuperar!</Link>
 				</div>
 
