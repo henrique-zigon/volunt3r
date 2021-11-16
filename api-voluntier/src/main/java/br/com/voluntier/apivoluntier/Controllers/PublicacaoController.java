@@ -5,9 +5,13 @@ import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
+import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
+import br.com.voluntier.apivoluntier.Services.HashComponent;
+import br.com.voluntier.apivoluntier.Services.HashService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
+import br.com.voluntier.apivoluntier.Utils.HashTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,10 +20,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -38,6 +44,9 @@ public class PublicacaoController {
     @Autowired
     PublicacaoRepository repository;
 
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
     @Autowired
@@ -45,6 +54,10 @@ public class PublicacaoController {
 
     @Autowired
     GosteiRepository repositoryGostei;
+
+    @Autowired
+    HashService hashService;
+    HashTable hashTable=null;
 
     @GetMapping()
     public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
@@ -228,4 +241,41 @@ public class PublicacaoController {
             return ResponseEntity.status(200).body(allPub);
         }
     }
+
+//    @GetMapping("/recomendados")
+//    public ResponseEntity getRecomendados(@RequestHeader String Authorization){
+//
+//        String tokenLimpo=Authorization.substring(7,Authorization.length());
+//        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+//
+//        HashTable hash = hashService.getHashTable();
+//
+//
+//        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
+//        //Adicionar nivel
+//        List<Publicacao> lista=hash.getLista(1);
+//        return ResponseEntity.status(200).body(lista);
+//    }
+
+    @GetMapping("/recomendados")
+    public ResponseEntity getRecomendados(@RequestHeader String Authorization){
+
+        String tokenLimpo=Authorization.substring(7,Authorization.length());
+        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+
+        if (hashTable==null){
+            hashTable=new HashTable(4);
+            List<Publicacao> listaPub=repository.findAll();
+            for (Publicacao pub : listaPub){
+                hashTable.insere(pub);
+            }
+        }
+
+
+        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
+        //Adicionar nivel
+        List<Publicacao> lista=hashTable.getLista(1);
+        return ResponseEntity.status(200).body(lista);
+    }
+
 }

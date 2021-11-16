@@ -20,7 +20,7 @@ public class Evento {
     private Integer maximoParticipantes;
     private double horas;
     private Integer milhasParticipacao;
-    @OneToMany(mappedBy = "fkEvento")
+    @OneToMany(mappedBy = "fkEvento",fetch = FetchType.EAGER)
     private List<InscricaoEvento> inscritos;
 
     @ManyToOne

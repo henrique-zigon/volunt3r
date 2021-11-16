@@ -2,11 +2,13 @@ package br.com.voluntier.apivoluntier.Utils;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 public class HashTable {
 
     ListaLigada[] tabela;
+
 
     public HashTable(int numeroEntradas) {
         this.tabela = tabela;
@@ -17,7 +19,7 @@ public class HashTable {
     }
 
     public Integer funcaoHash(Publicacao pub){
-        System.out.println(pub.getEvento().getCategoria().getNivel()-1);
+        //System.out.println(pub.getEvento().getCategoria().getNivel()-1);
         return pub.getEvento().getCategoria().getNivel()-1;
     }
 
