@@ -5,10 +5,8 @@ library(readr)
 library(randomNames)
 library(tibble)
 library(dplyr)
-library(readr)
 library(tidyverse)
 library(stringr)
-library(readr)
 
 #Configuração
 set.seed(333)
@@ -228,6 +226,19 @@ base_eventos <- data.frame(
 )
 
 #Criando publicações
+
+base_publicacao <- data.frame(
+  id_publicacao = base_eventos$id_evento,
+  descricao = paste("Descrição adequada do", base_eventos$titulo),
+  data_postagem = base_eventos$data_evento,
+  imagem = paste("evento_",base_eventos$id_evento,".jpg", sep=""),
+  fk_usuario = rep(0, nrow(base_eventos)),
+  fk_evento = base_eventos$id_evento,
+  publicacao_pai = rep(0, nrow(base_eventos)),
+  tipo = rep("EVENTO", nrow(base_eventos))
+)
+
+
 numero_publicacoes <- numero_eventos_ano * 5
 fk_usuario <- round(runif(numero_publicacoes, 1, nrow(base_pessoas)))
 fk_evento <- rep(
@@ -244,7 +255,236 @@ pub_aux <- data.frame(
 
 pub_aux <- pub_aux[sample(1:numero_publicacoes, numero_publicacoes/2), ]
 
+data_postagem_pub <- c()
+for(i in pub_aux$fk_evento) {
+  x = sample(seq(base_eventos[i,]$data_evento, base_eventos[i,]$data_fechamento_evento+5, by="day"), 1)
+  data_postagem_pub <- c(data_postagem_pub, x)
+}
+data_postagem_pub
+data_postagem_pub <- as.Date(data_postagem_pub, "1970-01-01")
+pub_aux <- data.frame(
+  id_publicacao = (1+nrow(base_publicacao)):(nrow(pub_aux)+nrow(base_publicacao)),
+  descricao = paste("Descricao adequada da publicação ", pub_aux$fk_evento),
+  data_postagem = data_postagem_pub,
+  imagem = paste("pub_",1:nrow(pub_aux),".jgp", sep=""),
+  fk_usuario = pub_aux$fk_usuario,
+  fk_evento = pub_aux$fk_evento,
+  publicacao_pai = pub_aux$publicacao_pai,
+  tipo = "PUBLICACAO"
+)
+base_publicacao <- rbind(base_publicacao, pub_aux)
 
+rm(categorias_aux,eventos_aux, pub_aux)
+rm(data_evento, data_fechamento_evento, data_postagem_pub, endereco, 
+   fk_categoria, fk_evento, fk_usuario, i, id_evento, numero_eventos_ano,
+   numero_publicacoes, publicacao_pai, titulo, x)
+
+#SIMBORA COMENTARIOS
+numero_comentarios <- (nrow(base_publicacao) - nrow(base_eventos)) * 10
+fk_usuario <- round(runif(numero_comentarios, 1, nrow(base_pessoas)))
+publicacao_pai <- rep(
+  (1+nrow(base_eventos)):nrow(base_publicacao),
+  10
+)
+fk_evento <- base_publicacao[publicacao_pai,]$fk_evento
+
+coment_aux <- data.frame(
+  fk_usuario,
+  fk_evento,
+  publicacao_pai
+)
+
+coment_aux <- coment_aux[sample(1:numero_comentarios, numero_comentarios/2),]
+
+data_postagem_coment <- c()
+for(i in coment_aux$publicacao_pai) {
+  x = sample(seq(base_publicacao[i, ]$data_postagem, base_publicacao[i, ]$data_postagem+5,  by="day"), 1)
+  data_postagem_coment <- c(data_postagem_coment, x)
+}
+data_postagem_coment <- as.Date(data_postagem_coment, "1970-01-01")
+coment_aux <- data.frame(
+  id_publicacao = (1+nrow(base_publicacao)):(nrow(coment_aux)+nrow(base_publicacao)),
+  descricao = paste("Descricao adequada do comentario da publicação ", coment_aux$publicacao_pai),
+  data_postagem = data_postagem_coment,
+  imagem = paste("coment_",1:nrow(coment_aux),".jgp", sep=""),
+  fk_usuario = coment_aux$fk_usuario,
+  fk_evento = coment_aux$fk_evento,
+  publicacao_pai = coment_aux$publicacao_pai,
+  tipo = "COMENTARIO"
+)
+base_publicacao <- rbind(base_publicacao, coment_aux)
+
+rm(coment_aux, data_postagem_coment, fk_evento, fk_usuario, i, numero_comentarios, publicacao_pai, x)
+
+#Vamos inscrever os usuários nos eventos
+#Primeiro, filtrarei todos os eventos que não são ilimitados
+eventos_aux <- base_eventos %>%
+  filter(maximo_participantes != 0)
+
+quantidade_inscricoes <- sum(eventos_aux$maximo_participantes)
+
+base_inscricoes <- data.frame(
+  id_inscricao_evento = 1:quantidade_inscricoes,
+  fk_evento = c(rep(eventos_aux$id_evento, eventos_aux$maximo_participantes)),
+  fk_usuario = round(runif(quantidade_inscricoes, 1, nrow(base_pessoas))),
+  status_ue = "CONFIRMADO"
+)
+
+base_inscricoes %>%
+  group_by(fk_usuario) %>%
+  summarise(n = n())
+
+rm(eventos_aux, quantidade_inscricoes)
+
+#Agora as inscrições dos eventos de participações ilimitadas
+eventos_aux <- base_eventos %>%
+  filter(maximo_participantes == 0)
+
+porcentagem_por_evento <- 0.08
+
+participados <- data.frame()
+for(ev in eventos_aux$id_evento) {
+  participados_now <- data.frame(
+    id_evento = ev,
+    participou = runif(nrow(base_pessoas),0, 1) < porcentagem_por_evento,
+    id_usuario = 1:nrow(base_pessoas)
+  )
+    
+  participados_now <- participados_now %>%
+                        filter(participou)
+  
+  participados <- rbind(participados, participados_now)
+} 
+
+inscricoes_aux <- data.frame(
+  id_inscricao_evento = (1+nrow(base_inscricoes)):(nrow(participados)+nrow(base_inscricoes)),
+  fk_evento = participados$id_evento,
+  fk_usuario = participados$id_usuario,
+  status_ue = "CONFIRMADO"
+)
+
+base_inscricoes <- rbind(base_inscricoes, inscricoes_aux)
+
+base_inscricoes %>%
+  group_by(fk_usuario) %>%
+  summarise(n = n()) -> teste_usuario
+
+nrow(base_pessoas) - nrow(teste_usuario) 
+
+rm(eventos_aux, inscricoes_aux, participados, participados_now, teste_usuario, ev, porcentagem_por_evento)
+
+#Simulando os gosteis de EVENTOS
+pubs_aux <- base_publicacao %>%
+                  filter(tipo == "EVENTO")
+porcentagem_por_evento <- 0.2
+
+curtidos <- data.frame()
+for(pub in pubs_aux$id_publicacao) {
+  curtidos_now <- data.frame(
+    id_publicacao = pub,
+    curtiu = runif(nrow(base_pessoas), 0, 1) < porcentagem_por_evento,
+    id_usuario = 1:nrow(base_pessoas)
+  )
+  
+  curtidos_now <- curtidos_now %>%
+                    filter(curtiu)
+  
+  curtidos <- rbind(curtidos, curtidos_now)
+}
+
+base_gostei <- data.frame(
+  id_gostei = 1:nrow(curtidos),
+  fk_publicacao = curtidos$id_publicacao,
+  fk_usuario = curtidos$id_usuario
+)
+
+rm(curtidos, curtidos_now, porcentagem_por_evento, pub, pubs_aux)
+
+#Simulando os gosteis de PUBLICACOES
+pubs_aux <- base_publicacao %>%
+  filter(tipo == "PUBLICACAO")
+porcentagem_por_evento <- 0.08
+
+curtidos <- data.frame()
+for(pub in pubs_aux$id_publicacao) {
+  curtidos_now <- data.frame(
+    id_publicacao = pub,
+    curtiu = runif(nrow(base_pessoas), 0, 1) < porcentagem_por_evento,
+    id_usuario = 1:nrow(base_pessoas)
+  )
+  
+  curtidos_now <- curtidos_now %>%
+    filter(curtiu)
+  
+  curtidos <- rbind(curtidos, curtidos_now)
+}
+
+gostei_aux <- data.frame(
+  id_gostei = (1+nrow(base_gostei)):(nrow(curtidos)+nrow(base_gostei)),
+  fk_publicacao = curtidos$id_publicacao,
+  fk_usuario = curtidos$id_usuario
+)
+
+base_gostei <- rbind(base_gostei, gostei_aux)
+
+rm(curtidos, curtidos_now, porcentagem_por_evento, pub, pubs_aux, gostei_aux)
+
+#Simulando os gosteis de COMENTARIOS
+pubs_aux <- base_publicacao %>%
+  filter(tipo == "COMENTARIO")
+porcentagem_por_evento <- 0.003
+
+curtidos <- data.frame()
+for(pub in pubs_aux$id_publicacao) {
+  curtidos_now <- data.frame(
+    id_publicacao = pub,
+    curtiu = runif(nrow(base_pessoas), 0, 1) < porcentagem_por_evento,
+    id_usuario = 1:nrow(base_pessoas)
+  )
+  
+  curtidos_now <- curtidos_now %>%
+    filter(curtiu)
+  
+  curtidos <- rbind(curtidos, curtidos_now)
+}
+
+gostei_aux <- data.frame(
+  id_gostei = (1+nrow(base_gostei)):(nrow(curtidos)+nrow(base_gostei)),
+  fk_publicacao = curtidos$id_publicacao,
+  fk_usuario = curtidos$id_usuario
+)
+
+base_gostei <- rbind(base_gostei, gostei_aux)
+
+rm(curtidos, curtidos_now, porcentagem_por_evento, pub, pubs_aux, gostei_aux)
+
+
+#Simulando os cliques de EVENTOS
+pubs_aux <- base_publicacao %>%
+  filter(tipo == "EVENTO")
+porcentagem_por_evento <- 0.2
+
+clicados <- data.frame()
+for(pub in pubs_aux$id_publicacao) {
+  clicados_now <- data.frame(
+    id_publicacao = pub,
+    clicou = runif(nrow(base_pessoas), 0, 1) < porcentagem_por_evento,
+    id_usuario = 1:nrow(base_pessoas)
+  )
+  
+  clicados_now <- clicados_now %>%
+    filter(clicou)
+  
+  clicados <- rbind(clicados, clicados_now)
+}
+
+base_cliques <- data.frame(
+  id_gostei = 1:nrow(clicados),
+  fk_publicacao = clicados$id_publicacao,
+  fk_usuario = clicados$id_usuario
+)
+
+rm(clicados, clicados_now, porcentagem_por_evento, pub, pubs_aux)
 
 #Exportando os dados
 export_data <- c(
@@ -274,4 +514,12 @@ export_data <- c(
 
 write.table(export_data, "C:/Users/Ygor/Pictures/upload_arquivo", quote = FALSE, append = FALSE, row.names = FALSE, col.names = FALSE, fileEncoding="UTF-8")
 
+write.table(base_categorias, "C:/Users/Ygor/Pictures/CATEGORIAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_cliques, "C:/Users/Ygor/Pictures/CLIQUES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_eventos, "C:/Users/Ygor/Pictures/EVENTOS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_gostei, "C:/Users/Ygor/Pictures/GOSTEI.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_inscricoes, "C:/Users/Ygor/Pictures/INSCRICOES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_pessoas, "C:/Users/Ygor/Pictures/PESSOAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_publicacao, "C:/Users/Ygor/Pictures/PUBLICACAO.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
 
+rm(export_data)

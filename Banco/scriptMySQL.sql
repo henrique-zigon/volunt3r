@@ -150,3 +150,8 @@ select nome_categoria,count(nome_categoria) as quantidade, (case when count(nome
                                                 when count(nome_categoria)>=limite_bronze then 'bronze'
                                                 when count(nome_categoria)<limite_bronze then 'nada'END 
 											) as elo from Usuario as usu,Inscricao_Evento as ins,Evento as eve,Categoria as cat where id_usuario=ins.fk_usuario and id_evento=ins.fk_evento and id_categoria=eve.fk_categoria and id_usuario=1  group by nome_categoria;
+
+
+create view view_quantidade_voluntario_categoria as select ano2021 as categoria,
+count(nomeUsuario) as quantidade_voluntarios 
+from Voluntario group by ano2021;

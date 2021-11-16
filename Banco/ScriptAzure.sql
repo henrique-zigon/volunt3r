@@ -144,3 +144,4 @@ create table Voluntario(
 
 #alter table evento add titulo varchar(50);
 #alter table publicacao drop column titulo_publicacao
+alter table publicacao alter column descricao varchar(1000) null
