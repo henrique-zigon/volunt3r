@@ -242,40 +242,40 @@ public class PublicacaoController {
         }
     }
 
-//    @GetMapping("/recomendados")
-//    public ResponseEntity getRecomendados(@RequestHeader String Authorization){
-//
-//        String tokenLimpo=Authorization.substring(7,Authorization.length());
-//        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-//
-//        HashTable hash = hashService.getHashTable();
-//
-//
-//        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
-//        //Adicionar nivel
-//        List<Publicacao> lista=hash.getLista(1);
-//        return ResponseEntity.status(200).body(lista);
-//    }
-
     @GetMapping("/recomendados")
     public ResponseEntity getRecomendados(@RequestHeader String Authorization){
 
         String tokenLimpo=Authorization.substring(7,Authorization.length());
         Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
 
-        if (hashTable==null){
-            hashTable=new HashTable(4);
-            List<Publicacao> listaPub=repository.findAll();
-            for (Publicacao pub : listaPub){
-                hashTable.insere(pub);
-            }
-        }
+        HashTable hash = hashService.getHashTable();
 
 
         Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
         //Adicionar nivel
-        List<Publicacao> lista=hashTable.getLista(1);
+        List<Publicacao> lista=hash.getLista(1);
         return ResponseEntity.status(200).body(lista);
     }
+
+//    @GetMapping("/recomendados")
+//    public ResponseEntity getRecomendados(@RequestHeader String Authorization){
+//
+//        String tokenLimpo=Authorization.substring(7,Authorization.length());
+//        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
+//
+//        if (hashTable==null){
+//            hashTable=new HashTable(4);
+//            List<Publicacao> listaPub=repository.findAll();
+//            for (Publicacao pub : listaPub){
+//                hashTable.insere(pub);
+//            }
+//        }
+//
+//
+//        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
+//        //Adicionar nivel
+//        List<Publicacao> lista=hashTable.getLista(1);
+//        return ResponseEntity.status(200).body(lista);
+//    }
 
 }

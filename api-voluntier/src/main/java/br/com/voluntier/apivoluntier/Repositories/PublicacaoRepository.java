@@ -1,6 +1,8 @@
 package br.com.voluntier.apivoluntier.Repositories;
 
+import br.com.voluntier.apivoluntier.Models.CachePublicacao;
 import br.com.voluntier.apivoluntier.Models.Evento;
+import br.com.voluntier.apivoluntier.Models.Gostei;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import org.springframework.data.domain.Page;
@@ -38,5 +40,7 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
 
     Page<Publicacao> findByEvento_TituloContainsOrDescricaoContainsAndTipoEquals(String titulo, String descricao, String tipo, Pageable pageable);
 
+    @Query("SELECT new br.com.voluntier.apivoluntier.Models.CachePublicacao(p.id, p.descricao, p.likes.size) FROM Publicacao p")
+    List<CachePublicacao> findByPublicaoCache();
 
 }

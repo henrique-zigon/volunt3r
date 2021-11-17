@@ -27,8 +27,15 @@ public class HashService {
         hashTable = new HashTable(4);
 
         List<Publicacao> listaPub=publicacaoRepository.findAll();
+        publicacaoRepository.findByPublicaoCache().forEach((item) -> {
+            System.out.println(item.getId());
+            System.out.println(item.getTitulo());
+            System.out.println(item.getQuantidadeGostei());
+        });
+
         for (Publicacao pub : listaPub){
-            hashTable.insere(pub);
+            //System.out.println(pub.getLikes().stream().map((gostei) -> 1).reduce(Integer::sum).orElse(0));
+            //hashTable.insere(pub);
         }
     }
 
