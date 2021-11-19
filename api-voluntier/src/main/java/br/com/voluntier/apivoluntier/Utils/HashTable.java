@@ -1,6 +1,7 @@
 package br.com.voluntier.apivoluntier.Utils;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -18,17 +19,17 @@ public class HashTable {
         }
     }
 
-    public Integer funcaoHash(Publicacao pub){
+    public Integer funcaoHash(ViewCachePublicacao pub){
         //System.out.println(pub.getEvento().getCategoria().getNivel()-1);
-        return pub.getEvento().getCategoria().getNivel()-1;
+        return pub.getnivel()-1;
     }
 
-    public void insere(Publicacao pub){
+    public void insere(ViewCachePublicacao pub){
         Integer resto=funcaoHash(pub);
         this.tabela[resto].insereNode(pub);
     }
 
-    public boolean busca(Publicacao pub){
+    public boolean busca(ViewCachePublicacao pub){
         Integer resto=funcaoHash(pub);
         Node nodeEncontrado=tabela[resto].buscaNode(pub);
         if(nodeEncontrado==null){
@@ -37,7 +38,7 @@ public class HashTable {
         return true;
     }
 
-    public boolean remove(Publicacao pub){
+    public boolean remove(ViewCachePublicacao pub){
         if (busca(pub)){
             Integer resto=funcaoHash(pub);
             tabela[resto].removeNode(pub);
@@ -48,7 +49,7 @@ public class HashTable {
         }
     }
 
-    public List<Publicacao> getLista(int nivel){
+    public List<ViewCachePublicacao> getLista(int nivel){
         return tabela[nivel].exibeLista();
     }
 }

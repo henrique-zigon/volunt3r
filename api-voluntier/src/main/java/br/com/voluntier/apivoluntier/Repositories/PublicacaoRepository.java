@@ -40,7 +40,9 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
 
     Page<Publicacao> findByEvento_TituloContainsOrDescricaoContainsAndTipoEquals(String titulo, String descricao, String tipo, Pageable pageable);
 
-    @Query("SELECT new br.com.voluntier.apivoluntier.Models.CachePublicacao(p.id, p.descricao, p.likes.size) FROM Publicacao p")
+    @Query("SELECT new br.com.voluntier.apivoluntier.Models.CachePublicacao(p.id, p.descricao, p.likes.size,p.pathImagem) FROM Publicacao p where p.tipo='evento'")
     List<CachePublicacao> findByPublicaoCache();
+
+
 
 }

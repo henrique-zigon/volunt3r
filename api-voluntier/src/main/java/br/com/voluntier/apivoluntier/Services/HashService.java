@@ -1,6 +1,8 @@
 package br.com.voluntier.apivoluntier.Services;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
+import br.com.voluntier.apivoluntier.Repositories.CachePublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.EventoRepository;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
@@ -19,23 +21,17 @@ public class HashService {
     HashTable hashTable;
 
     @Autowired
-    PublicacaoRepository publicacaoRepository;
+    CachePublicacaoRepository cacheRepository;
 
 
     @PostConstruct
     public void ConstrutorHashService(){
         hashTable = new HashTable(4);
 
-        List<Publicacao> listaPub=publicacaoRepository.findAll();
-        publicacaoRepository.findByPublicaoCache().forEach((item) -> {
-            System.out.println(item.getId());
-            System.out.println(item.getTitulo());
-            System.out.println(item.getQuantidadeGostei());
-        });
+        List<ViewCachePublicacao> listaPub=cacheRepository.findAll();
 
-        for (Publicacao pub : listaPub){
-            //System.out.println(pub.getLikes().stream().map((gostei) -> 1).reduce(Integer::sum).orElse(0));
-            //hashTable.insere(pub);
+        for (ViewCachePublicacao pub : listaPub){
+            hashTable.insere(pub);
         }
     }
 

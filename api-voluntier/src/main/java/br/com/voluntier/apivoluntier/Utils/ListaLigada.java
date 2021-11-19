@@ -1,6 +1,7 @@
 package br.com.voluntier.apivoluntier.Utils;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class ListaLigada {
         this.head=new Node(null);
     }
 
-    public void insereNode(Publicacao valor){
+    public void insereNode(ViewCachePublicacao valor){
         Node novoNode=new Node(valor);
         novoNode.setNext(this.head.getNext());
         this.head.setNext(novoNode);
@@ -31,8 +32,8 @@ public class ListaLigada {
         }
     }
 
-    public List<Publicacao> exibeLista(){
-        List<Publicacao> listaPub = new ArrayList<>();
+    public List<ViewCachePublicacao> exibeLista(){
+        List<ViewCachePublicacao> listaPub = new ArrayList<>();
         Node atual=this.head.getNext();
         while (atual!=null){
             listaPub.add(atual.getInfo());
@@ -42,7 +43,7 @@ public class ListaLigada {
     }
 
 
-    public Node buscaNode(Publicacao valor){
+    public Node buscaNode(ViewCachePublicacao valor){
         Node atual=this.head.getNext();
         while (atual!=null){
             if (atual.getInfo()==valor){
@@ -54,7 +55,7 @@ public class ListaLigada {
     }
 
 
-    public boolean removeNode(Publicacao valor){
+    public boolean removeNode(ViewCachePublicacao valor){
         Node ant=this.head;
         Node atual=this.head.getNext();
         while (atual!=null){

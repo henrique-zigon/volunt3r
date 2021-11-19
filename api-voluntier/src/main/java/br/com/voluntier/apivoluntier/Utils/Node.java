@@ -1,21 +1,22 @@
 package br.com.voluntier.apivoluntier.Utils;
 
 import br.com.voluntier.apivoluntier.Models.Publicacao;
+import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
 
 public class Node {
-    private Publicacao info;
+    private ViewCachePublicacao info;
     private Node next;
 
-    public Node(Publicacao info) {
+    public Node(ViewCachePublicacao info) {
         this.info = info;
         this.next=null;
     }
 
-    public Publicacao getInfo() {
+    public ViewCachePublicacao getInfo() {
         return info;
     }
 
-    public void setInfo(Publicacao info) {
+    public void setInfo(ViewCachePublicacao info) {
         this.info = info;
     }
 

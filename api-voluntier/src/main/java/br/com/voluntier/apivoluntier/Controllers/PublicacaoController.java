@@ -3,6 +3,7 @@ package br.com.voluntier.apivoluntier.Controllers;
 import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.Usuario;
+import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
@@ -253,29 +254,9 @@ public class PublicacaoController {
 
         Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
         //Adicionar nivel
-        List<Publicacao> lista=hash.getLista(1);
+        List<ViewCachePublicacao> lista=hash.getLista(1);
         return ResponseEntity.status(200).body(lista);
     }
-
-//    @GetMapping("/recomendados")
-//    public ResponseEntity getRecomendados(@RequestHeader String Authorization){
-//
-//        String tokenLimpo=Authorization.substring(7,Authorization.length());
-//        Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-//
-//        if (hashTable==null){
-//            hashTable=new HashTable(4);
-//            List<Publicacao> listaPub=repository.findAll();
-//            for (Publicacao pub : listaPub){
-//                hashTable.insere(pub);
-//            }
-//        }
-//
-//
-//        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
-//        //Adicionar nivel
-//        List<Publicacao> lista=hashTable.getLista(1);
-//        return ResponseEntity.status(200).body(lista);
-//    }
+    
 
 }

@@ -56,59 +56,40 @@ public class DashboardController {
         List<ViewAluvialPassado> nodesPassado=aluvialPassadoRepository.findAll();
 
         List<NodeAluvial> nodes=new ArrayList<>();
+        nodes.add(new NodeAluvial("n0_2019","N0"));
+        nodes.add(new NodeAluvial("n1_2019","N1"));
+        nodes.add(new NodeAluvial("n2_2019","N2"));
+        nodes.add(new NodeAluvial("n3_2019","N3"));
+        nodes.add(new NodeAluvial("n4_2019","N4"));//----
         nodes.add(new NodeAluvial("n0_2020","N0"));
         nodes.add(new NodeAluvial("n1_2020","N1"));
         nodes.add(new NodeAluvial("n2_2020","N2"));
         nodes.add(new NodeAluvial("n3_2020","N3"));
-        nodes.add(new NodeAluvial("n4_2020","N4"));
-
+        nodes.add(new NodeAluvial("n4_2020","N4"));//---
         nodes.add(new NodeAluvial("n0_2021","N0"));
         nodes.add(new NodeAluvial("n1_2021","N1"));
         nodes.add(new NodeAluvial("n2_2021","N2"));
         nodes.add(new NodeAluvial("n3_2021","N3"));
         nodes.add(new NodeAluvial("n4_2021","N4"));
 
-        nodes.add(new NodeAluvial("n0_2019","N0"));
-        nodes.add(new NodeAluvial("n1_2019","N1"));
-        nodes.add(new NodeAluvial("n2_2019","N2"));
-        nodes.add(new NodeAluvial("n3_2019","N3"));
-        nodes.add(new NodeAluvial("n4_2019","N4"));
-
-        for (ViewAluvialAtual dePara : nodesAtuais){
-            if (dePara.getTo().equals("N0")){
-                dePara.setTo(nodes.get(0).getId());
-            }
-            else if (dePara.getTo().equals("N1")){
-                dePara.setTo(nodes.get(1).getId());
-            }
-            else if (dePara.getTo().equals("N2")){
-                dePara.setTo(nodes.get(2).getId());
-            }
-            else if (dePara.getTo().equals("N3")){
-                dePara.setTo(nodes.get(3).getId());
-            }
-            else if (dePara.getTo().equals("N4")){
-                dePara.setTo(nodes.get(4).getId());
-            }
-//-----
-            if (dePara.getFrom().equals("N0")){
-                dePara.setFrom(nodes.get(5).getId());
-            }
-            else if (dePara.getFrom().equals("N1")){
-                dePara.setFrom(nodes.get(6).getId());
-            }
-            else if (dePara.getFrom().equals("N2")){
-                dePara.setFrom(nodes.get(7).getId());
-            }
-            else if (dePara.getFrom().equals("N3")){
-                dePara.setFrom(nodes.get(8).getId());
-            }
-            else if (dePara.getFrom().equals("N4")){
-                dePara.setFrom(nodes.get(9).getId());
-            }
-        }
 
         for (ViewAluvialPassado dePara : nodesPassado){
+            if (dePara.getFrom().equals("N0")){
+                dePara.setFrom(nodes.get(0).getId());
+            }
+            else if (dePara.getFrom().equals("N1")){
+                dePara.setFrom(nodes.get(1).getId());
+            }
+            else if (dePara.getFrom().equals("N2")){
+                dePara.setFrom(nodes.get(2).getId());
+            }
+            else if (dePara.getFrom().equals("N3")){
+                dePara.setFrom(nodes.get(3).getId());
+            }
+            else if (dePara.getFrom().equals("N4")){
+                dePara.setFrom(nodes.get(4).getId());
+            }
+                //------
             if (dePara.getTo().equals("N0")){
                 dePara.setTo(nodes.get(5).getId());
             }
@@ -124,25 +105,45 @@ public class DashboardController {
             else if (dePara.getTo().equals("N4")){
                 dePara.setTo(nodes.get(9).getId());
             }
-            //------
+        }
+
+        for (ViewAluvialAtual dePara : nodesAtuais){
             if (dePara.getFrom().equals("N0")){
-                dePara.setFrom(nodes.get(10).getId());
+            dePara.setFrom(nodes.get(5).getId());
             }
             else if (dePara.getFrom().equals("N1")){
-                dePara.setFrom(nodes.get(11).getId());
+                dePara.setFrom(nodes.get(6).getId());
             }
             else if (dePara.getFrom().equals("N2")){
-                dePara.setFrom(nodes.get(12).getId());
+                dePara.setFrom(nodes.get(7).getId());
             }
             else if (dePara.getFrom().equals("N3")){
-                dePara.setFrom(nodes.get(13).getId());
+                dePara.setFrom(nodes.get(8).getId());
             }
             else if (dePara.getFrom().equals("N4")){
-                dePara.setFrom(nodes.get(14).getId());
+                dePara.setFrom(nodes.get(9).getId());
+            }
+            //-----
+            if (dePara.getTo().equals("N0")){
+                dePara.setTo(nodes.get(10).getId());
+            }
+            else if (dePara.getTo().equals("N1")){
+                dePara.setTo(nodes.get(11).getId());
+            }
+            else if (dePara.getTo().equals("N2")){
+                dePara.setTo(nodes.get(12).getId());
+            }
+            else if (dePara.getTo().equals("N3")){
+                dePara.setTo(nodes.get(13).getId());
+            }
+            else if (dePara.getTo().equals("N4")){
+                dePara.setTo(nodes.get(14).getId());
             }
         }
 
-        retornoHasmap.put("nodes",nodes);
+
+
+        //retornoHasmap.put("nodes",nodes);
         retornoHasmap.put("data",nodesAtuais);
         retornoHasmap.put("dataAntigo",nodesPassado);
 
