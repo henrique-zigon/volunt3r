@@ -2,13 +2,16 @@ div.container-modal-post {
     
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: rgba(77, 77, 77, 0.877);
+
+    padding: 25px 0;
 
     display: none;
     justify-content: center;
     align-items: center;
-   z-index: 999;
+    z-index: 999;
+
 }
 
 div.container-modal-post.show {
@@ -19,6 +22,8 @@ div.container-modal-post div.content-modal-post {
     position: relative;
     width: 970px;
     height: 550px;
+    /* height: auto; */
+
     background: #FFF;
     border-radius: 8px;
 
@@ -26,7 +31,9 @@ div.container-modal-post div.content-modal-post {
     flex-direction: column;
     align-items: center;
 
-    padding: 0 25px;
+    overflow-y: auto;
+
+    padding: 10px 25px 25px 25px;
 }
 
 
@@ -84,7 +91,7 @@ div.container-modal-post div.content-modal-post div.upload-files {
 
     border: 2px dotted #B9B9B9;
     border-radius: 8px;
-    margin-top: 10px;
+    margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
