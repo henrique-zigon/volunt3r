@@ -50,7 +50,8 @@ function EventCatalog() {
 					'Authorization': cookies.volunt3r
 				}
 			}).then(resposta => {
-				if (resposta == 200) {
+
+				if (resposta.status == 200) {
 					setEventos(resposta.data.content.reverse());
 					console.log(resposta)
 				}
@@ -90,6 +91,7 @@ function EventCatalog() {
 							id="filtro"
 							name="filtro"
 							label="Busque por um evento usando uma palavra-chave"
+							function={(e) => filtrarEventos(e)}
 
 						/>
 					</div>
