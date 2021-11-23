@@ -6,10 +6,7 @@ import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
 import br.com.voluntier.apivoluntier.Responses.UsuarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
-import br.com.voluntier.apivoluntier.Utils.EmailSender;
-import br.com.voluntier.apivoluntier.Utils.LoginForm;
-import br.com.voluntier.apivoluntier.Utils.SenhaForm;
-import br.com.voluntier.apivoluntier.Utils.TokenDto;
+import br.com.voluntier.apivoluntier.Utils.*;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -60,6 +57,9 @@ public class UsuarioController {
     @Autowired
     EmailSender emailSender;
 
+    @Autowired
+    JSONStringConverterToUsuario jsonStringConverterToUsuario;
+
     @GetMapping
     public ResponseEntity listar(){
         return ResponseEntity.status(200).body(usuarioRepository.findAll());
@@ -99,24 +99,21 @@ public class UsuarioController {
     }
 
     @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity postCriarUsuario(@RequestPart MultipartFile imagemPerfil,
-                                            @RequestPart MultipartFile imagemCapa,
-                                            @RequestPart Usuario usuario) throws IOException {
+    public ResponseEntity postCriarUsuario(@RequestParam(required = false) Optional<MultipartFile> imagemPerfil,
+                                            @RequestParam(required = false) Optional<MultipartFile> imagemCapa,
+                                            @RequestParam(value = "usuario") String usuarioJson) throws IOException {
         retornoHasmap.clear();
-
-        String filenamePerfil = imagemPerfil.getOriginalFilename();
-        String namePerfil = new Date().getTime()+"."+filenamePerfil.substring(filenamePerfil.lastIndexOf(".")+1);
-        s3Services.uploadFile(namePerfil,imagemPerfil);
-
-        String filenameCapa = imagemCapa.getOriginalFilename();
-        String nameCapa = new Date().getTime()+"."+filenameCapa.substring(filenameCapa.lastIndexOf(".")+1);
-        s3Services.uploadFile(nameCapa,imagemCapa);
-
+        Usuario usuario = jsonStringConverterToUsuario.convert(usuarioJson);
         // Validando se o e-mail já foi cadastrado
         List<UsuarioResponse> retornoRepository = usuarioRepository.findByEmail(usuario.getEmail());
         if(!retornoRepository.isEmpty()) {
             retornoHasmap.put("message:", "Esse e-mail já está cadastrado!");
             return ResponseEntity.status(406).body(retornoHasmap);
+        }
+
+        if(usuario.getSenha().equals("")) {
+            //Dispara e-mail com a senha temporária
+            System.out.println("Alooo");
         }
 
         Usuario usuNovo=new Usuario();
@@ -130,8 +127,23 @@ public class UsuarioController {
         usuNovo.setGenero(usuario.getGenero());
         usuNovo.setQuantidadeMilhas(0);
         usuNovo.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
-        usuNovo.setUsuarioImagemPerfil(namePerfil);
-        usuNovo.setUsuarioImagemCapa(nameCapa);
+        usuNovo.setUsuarioImagemPerfil(null);
+        usuNovo.setUsuarioImagemCapa(null);
+
+        if(imagemPerfil.isPresent()) {
+            MultipartFile imagemPerfilUpload = imagemPerfil.get();
+            String filenamePerfil = imagemPerfilUpload.getOriginalFilename();
+            String namePerfil = new Date().getTime()+"_"+filenamePerfil;
+            s3Services.uploadFile(namePerfil,imagemPerfilUpload);
+            usuNovo.setUsuarioImagemPerfil(namePerfil);
+        }
+
+        if(imagemCapa.isPresent()) {
+            MultipartFile imagemCapaUpload = imagemCapa.get();
+            String filenameCapa = imagemCapaUpload.getOriginalFilename();
+            String nameCapa = new Date().getTime()+"_"+filenameCapa;
+            s3Services.uploadFile(nameCapa,imagemCapaUpload);
+        }
 
         usuarioRepository.save(usuNovo);
         retornoHasmap.put("message:", "Usuario criado com sucesso!");

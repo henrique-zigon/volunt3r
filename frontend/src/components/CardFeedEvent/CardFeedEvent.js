@@ -42,9 +42,13 @@ const CardFeedEvent = (props) => {
           addToast('Inscrito com sucesso! 😀', { appearance: 'success', autoDismiss: true })
           setIsSubscribed(true);
         }
+        if (resposta.status === 200) {
+          addToast('Você já está inscrito! 🙌😎👍', { appearance: 'warning', autoDismiss: true })
+          setIsSubscribed(true);
+        }
       }).catch((e) => {
         if (e.response.status === 400) {
-          addToast('Você já está inscrito!', { appearance: 'warning', autoDismiss: true })
+          addToast('Número de inscritos já atingido! 🐱‍🏍', { appearance: 'warning', autoDismiss: true })
         }
         if (e.response.status === 500) {
           addToast('Erro ao se inscrever... 😥', { appearance: 'error', autoDismiss: true })

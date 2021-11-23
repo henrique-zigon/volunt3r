@@ -18,20 +18,19 @@ import { useHistory } from 'react-router';
 const CriarUsuarioDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
 	const [statePreview, setStatePreview] = useState();
+	
 
 	const history = useHistory();
 	const { addToast } = useToasts();
 
 	const [userData, setUserData] = useState({
-		imagemPerfil: "",
-		imagemCapa: "",
 		nomeUsuario: "",
 		genero: "",
 		cargo: "",
 		area: "",
 		tipoUsuario: "",
 		email: "",
-		senha: "123"
+		senha: "" 
 	});
 
 	const documentHandler = (e) => {
@@ -51,7 +50,6 @@ const CriarUsuarioDashboard = () => {
 	}
 
 	async function submitForm(e) {
-		e.preventDefault();
 		const newUserData = { ...userData }
 
 		//Validação dos campos
@@ -62,27 +60,31 @@ const CriarUsuarioDashboard = () => {
 
 		if (
 			ValidaEmail === "" ||
-			ValidaSenha === "" ||
 			TesteRegexEmail === false
 		) {
 			addToast('Por favor, preencha todos os campos corretamente. O email deve conter @ e .com', { appearance: 'warning', autoDismiss: true });
 		}
 		else {
-			//Parte para enviar para a API
-			await api.post("/usuarios/novo", {
+			let formData = new FormData();
+
+			formData.append('usuario', JSON.stringify(userData));
+
+			let config = {
+				url: "/usuarios/novo",
+				method: "POST",
 				headers: {
-					'Authorization': cookies.volunt3r
+					'Content-Type': 'multipart/form-data'
 				},
-				data: newUserData
-			})
-				.then(resposta => {
+				data: formData
+			}
+
+			await api(config).then(resposta => {
 					if (resposta.status === 201) {
 						addToast('Usuário cadastrado com sucesso!', { appearance: 'success', autoDismiss: true })
-						history.push("/login")
 					}
-				}).catch((e) => {
-					if (e.response.status === 406) {
-						addToast('Ops... Seu usuário já existe', { appearance: 'error', autoDismiss: true })
+				}).catch((err) => {
+					if (err.response.status === 406) {
+						addToast('Ops... Este e-mail já está cadastrado.', { appearance: 'error', autoDismiss: true })
 					}
 				});
 		}
@@ -94,9 +96,8 @@ const CriarUsuarioDashboard = () => {
 		e.preventDefault();
 
 		if (statePreview == null) {
-			// Usar formulário
+			submitForm(e);
 		}
-
 		else {
 
 			let formData = new FormData();
@@ -139,13 +140,13 @@ const CriarUsuarioDashboard = () => {
 						subtitle="Que tal criar um usuário?"
 					/>
 
-					<form className="form-create" onSubmit={(e) => submitForm(e)}>
+					<form className="form-create" onSubmit={(e) => createNewUser(e)}>
 
 						<div className="group-form">
 							<InputForm
-								type="name"
-								id="name"
-								name="name"
+								type="text"
+								id="nomeUsuario"
+								name="nomeUsuario"
 								label="Nome do usuário"
 								icon={<BiUser className="icon-input-group" />}
 								function={(e) => handle(e)}

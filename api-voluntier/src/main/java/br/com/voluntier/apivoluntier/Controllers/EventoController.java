@@ -8,6 +8,8 @@ import br.com.voluntier.apivoluntier.Responses.UsuarioSimplesResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.EmailService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
+import br.com.voluntier.apivoluntier.Utils.JSONStringConverterToPublicacao;
+import br.com.voluntier.apivoluntier.Utils.JSONStringConverterToUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -56,6 +58,9 @@ public class EventoController {
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
+    @Autowired
+    JSONStringConverterToPublicacao jsonStringConverterToPublicacao;
+
     @GetMapping()
     public ResponseEntity getEventos(@RequestParam(defaultValue = "0") Integer pagina,
                                      @RequestParam(defaultValue = "10") Integer tamanho,
@@ -87,16 +92,22 @@ public class EventoController {
 //    }
 
     @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity postPublicacaoEvento(@RequestPart MultipartFile arquivo,
-                                               @RequestPart Publicacao novaPublicacaoEvento)  throws IOException {
-        String filename = arquivo.getOriginalFilename();
-        String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
-        s3Services.uploadFile(name,arquivo);
-        novaPublicacaoEvento.setPathImagem(name);
-        repository.save(novaPublicacaoEvento.getEvento());
+    public ResponseEntity postPublicacaoEvento(@RequestParam(required = false) Optional<MultipartFile> arquivo,
+                                               @RequestPart String novaPublicacaoEvento)  throws IOException {
+        Publicacao publicacao = jsonStringConverterToPublicacao.convert(novaPublicacaoEvento);
+        publicacao.setPathImagem(null);
+        publicacao.setTipo("evento");
+        if(arquivo.isPresent()) {
+            MultipartFile imagemEventoUpload = arquivo.get();
+            String filename = imagemEventoUpload.getOriginalFilename();
+            String name = new Date().getTime()+"_"+filename;
+            s3Services.uploadFile(name,imagemEventoUpload);
+            publicacao.setPathImagem(name);
+        }
+        repository.save(publicacao.getEvento());
 
         try {
-            repositoryPublicacao.save(novaPublicacaoEvento);
+            repositoryPublicacao.save(publicacao);
             retornoHasmap.put("message", "Evento criado com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package br.com.voluntier.apivoluntier.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +23,6 @@ public class  Usuario implements UserDetails {
     private String tipoUsuario;
     private String email;
     @Column(length = 70)
-    @JsonIgnore
     private String senha;
     private String cargo;
     private String area;
@@ -131,12 +131,14 @@ public class  Usuario implements UserDetails {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
+    @JsonProperty
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    @JsonIgnore
+    public String getSenha() {
+        return senha;
     }
 
     public int getStatusUsuario() {
