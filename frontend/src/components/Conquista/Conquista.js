@@ -8,6 +8,7 @@ const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 const Conquista = (props) => {
     return (
         <div className="medal-info-container">
+            <span className="tooltip-categoria">{props.categoria}</span>
             <div className="medal-icon">
                 <img src={medalhaPadrao}></img>
             </div>
