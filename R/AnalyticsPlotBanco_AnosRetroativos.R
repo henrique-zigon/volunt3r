@@ -137,10 +137,14 @@ base_categorias$id_categoria <- 1:nrow(base_categorias)
 rm(categorias_n1, categorias_n2, categorias_n3, categorias_n4)
 
 #Simbora criar os eventos
-numero_eventos_ano <- 53
+numero_eventos_ano <- 53 * 3
 id_evento <- 1:numero_eventos_ano
 data_evento <- sample(seq(as.Date('2021/01/01'), as.Date('2021/11/30'), by="day")
-                      , numero_eventos_ano)
+                      , numero_eventos_ano/3)
+data_evento <- c(data_evento, sample(seq(as.Date('2020/01/01'), as.Date('2020/11/30'), by="day")
+                                     , numero_eventos_ano/3))
+data_evento <- c(data_evento, sample(seq(as.Date('2019/01/01'), as.Date('2019/11/30'), by="day")
+                                     , numero_eventos_ano/3))
 data_fechamento_evento = data_evento + 30
 endereco <- paste("Rua ", id_evento, " de 2021")
 set.seed(69)
@@ -349,9 +353,9 @@ for(ev in eventos_aux$id_evento) {
     participou = runif(nrow(base_pessoas),0, 1) < porcentagem_por_evento,
     id_usuario = 1:nrow(base_pessoas)
   )
-    
+  
   participados_now <- participados_now %>%
-                        filter(participou)
+    filter(participou)
   
   participados <- rbind(participados, participados_now)
 } 
@@ -375,7 +379,7 @@ rm(eventos_aux, inscricoes_aux, participados, participados_now, teste_usuario, e
 
 #Simulando os gosteis de EVENTOS
 pubs_aux <- base_publicacao %>%
-                  filter(tipo == "EVENTO")
+  filter(tipo == "EVENTO")
 porcentagem_por_evento <- 0.2
 
 curtidos <- data.frame()
@@ -387,7 +391,7 @@ for(pub in pubs_aux$id_publicacao) {
   )
   
   curtidos_now <- curtidos_now %>%
-                    filter(curtiu)
+    filter(curtiu)
   
   curtidos <- rbind(curtidos, curtidos_now)
 }
@@ -514,19 +518,12 @@ export_data <- c(
 
 write.table(export_data, "C:/Users/Ygor/Pictures/upload_arquivo", quote = FALSE, append = FALSE, row.names = FALSE, col.names = FALSE, fileEncoding="UTF-8")
 
-funcao <- function(base, nome) {
-  con <- file(nome, open="w", encoding="UTF-8")
-  write.table(base, nome, sep = ";", row.names = FALSE, quote=FALSE)
-  close(con)
-}
-
-funcao(base_categorias, "C:/Users/Ygor/Pictures/CATEGORIAS.csv")
-funcao(base_cliques, "C:/Users/Ygor/Pictures/CLIQUES.csv")
-funcao(base_eventos, "C:/Users/Ygor/Pictures/EVENTOS.csv")
-funcao(base_gostei, "C:/Users/Ygor/Pictures/GOSTEI.csv")
-funcao(base_inscricoes, "C:/Users/Ygor/Pictures/INSCRICOES.csv")
-funcao(base_pessoas, "C:/Users/Ygor/Pictures/PESSOAS.csv")
-funcao(base_publicacao, "C:/Users/Ygor/Pictures/PUBLICACAO.csv")
-
+write.table(base_categorias, "C:/Users/Ygor/Pictures/CATEGORIAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_cliques, "C:/Users/Ygor/Pictures/CLIQUES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_eventos, "C:/Users/Ygor/Pictures/EVENTOS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_gostei, "C:/Users/Ygor/Pictures/GOSTEI.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_inscricoes, "C:/Users/Ygor/Pictures/INSCRICOES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_pessoas, "C:/Users/Ygor/Pictures/PESSOAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+write.table(base_publicacao, "C:/Users/Ygor/Pictures/PUBLICACAO.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
 
 rm(export_data)
