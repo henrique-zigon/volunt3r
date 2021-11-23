@@ -31,7 +31,7 @@ const CardPerfil = (props) => {
                                 <Milhas milhas={props.milhas} />
                             </div>
                         </div>
-                        <Botao children="Editar Perfil" icone= {<BiEdit size="15px" />} buttonType="btn--texticon" />
+                        {/* <Botao children="Editar Perfil" icone= {<BiEdit size="15px" />} buttonType="btn--texticon" /> */}
                     </div>
                 </div>
 

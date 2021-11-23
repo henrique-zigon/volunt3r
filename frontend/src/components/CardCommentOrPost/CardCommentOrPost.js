@@ -27,7 +27,8 @@ const CardCommentOrPost = (props) => {
 
   async function newComment(e) {
     e.preventDefault();
-    let comentario = e.target.comentario.value
+    let comentario = e.target.comentario.value;
+
     if(comentario === "") {
       addToast('Opps ... Preencha o seu comentário!', { appearance: 'success', autoDismiss: true })
     } else {
@@ -41,6 +42,7 @@ const CardCommentOrPost = (props) => {
       }).then(resposta => {
         if(resposta.status === 201) {
           getComentarios();
+          e.target.comentario.value = ""
           addToast('Comentário registrado com sucesso!', { appearance: 'success', autoDismiss: true })
         }
       }).catch(err => {

@@ -37,7 +37,7 @@ const CardConquistasDetailed = (props) => {
 								console.log(ranque);
 									return (
                                         <Conquista
-                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} />
+                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} categoria={ranque.nomeCategoria}/>
                                         );
                                 })
                             }

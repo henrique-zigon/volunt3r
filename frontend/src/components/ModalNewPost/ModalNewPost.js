@@ -1,21 +1,20 @@
 import api from '../../api';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiX, BiUpload } from 'react-icons/bi';
 import { useToasts } from 'react-toast-notifications';
 
-
 import './ModalNewPost.css';
-
 
 const ModalNewPost = (props) => {
 
+    const [eventos, setEventos] = useState([]);
 
-    const { 
-        className, 
-        nameUserLogged, 
-        closeModalFunction, 
-        cookieUser, 
-        token 
+    const {
+        className,
+        nameUserLogged,
+        closeModalFunction,
+        cookieUser,
+        token
     } = props;
 
     const [statePreview, setStatePreview] = useState();
@@ -25,12 +24,30 @@ const ModalNewPost = (props) => {
     const imageHandler = (e) => {
         const reader = new FileReader();
         reader.onload = () => {
-            if(reader.readyState === 2) {
+            if (reader.readyState === 2) {
                 setStatePreview(reader.result)
             }
         }
         reader.readAsDataURL(e.target.files[0]);
     }
+
+
+    async function getEventos() {
+        await api("eventos", {
+            method: "GET",
+            headers: {
+                'Authorization': token,
+            },
+            
+        }).then(reposta => {
+            setEventos(reposta.data.content);
+        });
+    }
+
+    useEffect(() => {
+        getEventos();
+    }, [])
+
 
     async function sendNewPost(e) {
         // PARA ENVIAR POST
@@ -41,7 +58,7 @@ const ModalNewPost = (props) => {
         const date = new Date();
 
         let hourPosted = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-        let today = date.getDate()+"-"+(date.getMonth() + 1)+"-"+date.getFullYear() +" "+ hourPosted;
+        let today = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + hourPosted;
 
         let formData = new FormData();
 
@@ -78,7 +95,7 @@ const ModalNewPost = (props) => {
         }).catch((e) => {
             console.error(e)
         });
-    }  
+    }
 
     return (
         <div className={`${className} container-modal-post`}>
@@ -92,21 +109,41 @@ const ModalNewPost = (props) => {
                 <form action="" onSubmit={sendNewPost}>
                     <textarea placeholder={`Olá ${nameUserLogged}, o que você gostaria de compartilhar?`} name="descricao"></textarea>
 
+                    <div className="input-group">
+                        <label htmlFor="senha">
+                            <span>Selecione o evento</span>
+
+                            <select className="input-field select" name="genero" id="genero">
+                                <option disabled selected>Selecione a Publicação</option>
+
+                                {
+                                    eventos.map(evento => {
+                                        console.log(evento)
+                                        return (
+                                            <option value={evento.evento.id}>{evento.evento.titulo}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            <div className="underline"></div>
+                        </label>
+                    </div>
+
                     <div className="upload-files">
                         <div className="container-preview">
-                            <img src={statePreview} alt="" className="preview"/>
+                            <img src={statePreview} alt="" className="preview" />
                         </div>
-                        <input type="file" name="file_new_post" id="" accept="image/*" onChange={imageHandler}/>
+                        <input type="file" name="file_new_post" id="" accept="image/*" onChange={imageHandler} />
                         <span className="title-upload">Que tal compartilhar uma foto?</span>
-                        <BiUpload size={25}/>
+                        <BiUpload size={25} />
                     </div>
 
                     <button type="submit" className="button-submit-new-post">
-                    Enviar
+                        Enviar
                     </button>
                 </form>
 
-                
+
             </div>
         </div>
     );
