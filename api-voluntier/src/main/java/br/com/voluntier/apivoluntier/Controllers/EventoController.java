@@ -118,16 +118,18 @@ public class EventoController {
     @PostMapping("/inscrever")
     public ResponseEntity postInscricaoEvento(@RequestBody InscricaoEvento novaInscricao) {
         retornoHasmap.clear();
-        Evento evento = repository.findById(novaInscricao.getFkEvento()).get();
-        for(InscricaoEvento inscricao : evento.getInscritos()) {
+        Optional<Evento> evento = repository.findById(novaInscricao.getFkEvento());
+
+        for(InscricaoEvento inscricao : evento.get().getInscritos()) {
             if(inscricao.getFkUsuario() == novaInscricao.getFkUsuario()){
                 InscricaoEvento insc=repositoryInscricaoEvento.findByFkUsuarioAndFkEvento(novaInscricao.getFkUsuario(), novaInscricao.getFkEvento());
                 repositoryInscricaoEvento.delete(insc);
+                
                 return ResponseEntity.status(200).body("Inscrição cancelada");
             }
         }
         try {
-            if(evento.getNumeroInscritos() == evento.getMaximoParticipantes())
+            if(evento.get().getNumeroInscritos() == evento.get().getMaximoParticipantes())
                 return ResponseEntity.status(400).body("Número de inscritos já atingido");
 
             novaInscricao.setStatus("pendente");
