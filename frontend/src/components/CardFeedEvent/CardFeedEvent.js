@@ -32,9 +32,10 @@ const CardFeedEvent = (props) => {
           'Authorization': props.token
         },
         data: {
-          fkUsuario: props.idLoggedUser,
+          fkUsuario: {
+            idUsuario: props.idLoggedUser
+          },
           fkEvento: props.idEvent,
-          status_UE: "pendente"
         }
 
       }).then(resposta => {
@@ -61,7 +62,9 @@ const CardFeedEvent = (props) => {
           'Authorization': props.token
         },
         data: {
-          fkUsuario: props.idLoggedUser,
+          fkUsuario: {
+            idUsuario: props.idLoggedUser
+          },
           fkEvento: props.idEvent,
         }
       }).then(resposta => {
