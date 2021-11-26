@@ -91,7 +91,7 @@ const ModalNewPost = (props) => {
 
 
         await api(config).then((resposta) => {
-            console.log(resposta)
+            // console.log(resposta)
         }).catch((e) => {
             console.error(e)
         });
@@ -118,7 +118,6 @@ const ModalNewPost = (props) => {
 
                                 {
                                     eventos.map(evento => {
-                                        console.log(evento)
                                         return (
                                             <option value={evento.evento.id}>{evento.evento.titulo}</option>
                                         )

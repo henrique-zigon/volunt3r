@@ -1,4 +1,5 @@
 div.feed-card {
+	position: relative;
 	width: 100%;
 	height: auto;
 	min-height: 350px;
@@ -9,7 +10,17 @@ div.feed-card {
 	padding: 30px 25px;
 	gap: 25px;
 	margin-top: 25px;
+	flex-direction: column;
 }
+
+div.feed-card div.principal-content-card {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	gap: 25px;
+}
+  
+
 
 div.feed-card:first-child {
 	margin: 0;
@@ -142,14 +153,17 @@ div.post-information div.content-post-event span.hashtags {
 }
 
 
-div.information-card div.footer-information {
-	position: absolute;
+div.footer-information {
+	/* position: absolute; */
 	width: 100%;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	height: 40px;
 	display: flex;
 	align-items: center;
+	margin-top: 25px;
 	bottom: 0;
+	/* background: red; */
+	gap: 1rem;
 }
 
 div.footer-information div.like-post {

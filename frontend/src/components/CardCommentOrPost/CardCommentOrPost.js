@@ -185,23 +185,23 @@ const CardCommentOrPost = (props) => {
               <span className="descrition-event">{props.descriptionPost}</span>
             </div>
           </div>
-          <div className="footer-information">
-            <div className="like-post">
-              <button className="btn-like-post" onClick={likePostFunction}>
-                {
-                  isLikedCardCommentOrPost ? <FaHeart /> : <BiHeart />
-                }
-              </button>
-              <span><b>{countLikesCardCommentOrPost}</b> pessoas curtiram</span>
-              {/* <Teste countLikes={props.countLikes}/> */}
-            </div>
-            <div className="like-post">
-              <button className="btn-comment-post" onClick={showOrHiddenComments}> <BiComment /> </button>
-              <span><b>{countCommentsCardCommentOrPost}</b> comentários</span>
-            </div>
-          </div>
         </div>
       </div>
+        <div className="footer-information">
+          <div className="like-post">
+            <button className="btn-like-post" onClick={likePostFunction}>
+              {
+                isLikedCardCommentOrPost ? <FaHeart /> : <BiHeart />
+              }
+            </button>
+            <span><b>{countLikesCardCommentOrPost}</b> pessoas curtiram</span>
+            {/* <Teste countLikes={props.countLikes}/> */}
+          </div>
+          <div className="like-post">
+            <button className="btn-comment-post" onClick={showOrHiddenComments}> <BiComment /> </button>
+            <span><b>{countCommentsCardCommentOrPost}</b> comentários</span>
+          </div>
+        </div>
       {/* <div className="hidden-line line"></div> */}
       <div className={`${stateCommentContainer} container-comments`}>
         <div className="new-comment">

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BiHeart, BiRepost} from 'react-icons/bi';
+import { BiHeart, BiRepost } from 'react-icons/bi';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
@@ -73,7 +73,7 @@ const CardFeedEvent = (props) => {
           setIsSubscribed(false);
         }
       }).catch(e => {
-        
+
         addToast('Opps ... Ocorreu algum erro 😥', { appearance: 'error', autoDismiss: true })
       })
     }
@@ -147,7 +147,7 @@ const CardFeedEvent = (props) => {
         }
       }
     }).then(resposta => {
-      if(resposta.status === 201) {
+      if (resposta.status === 201) {
         console.log("OK")
       }
     }).catch(err => {
@@ -158,71 +158,74 @@ const CardFeedEvent = (props) => {
 
   return (
     <div className="feed-card" onClick={clickPost}>
-      <img className="image-post"
-        src={`${getURLApi()}/arquivos/imagem/${props.imagePost}`}
-        alt={props.titlePost}
-      />
 
-      <div className="information-card">
-        <header className="header-card">
-          <div className="user-posted">
-            <img
-              src={props.imageUserPosted}
-              alt={props.nameUserPosted}
-            />
 
-            <div className="information-user">
-              <span className="user-posted-name">{props.nameUserPosted}</span>
-              <span className="area-user-posted">{props.areaUserPosted}</span>
+      <div className="principal-content-card">
+
+        <img className="image-post"
+          src={`${getURLApi()}/arquivos/imagem/${props.imagePost}`}
+          alt={props.titlePost}
+        />
+
+        <div className="information-card">
+          <header className="header-card">
+            <div className="user-posted">
+              <img
+                src={props.imageUserPosted}
+                alt={props.nameUserPosted}
+              />
+
+              <div className="information-user">
+                <span className="user-posted-name">{props.nameUserPosted}</span>
+                <span className="area-user-posted">{props.areaUserPosted}</span>
+              </div>
+            </div>
+            {
+
+              isSubscribed === true ? <Botao onClick={inscrever} children="PARTICIPANDO" buttonSize="btn--long" buttonStyle="btn--primary--outline" />
+                : <Botao onClick={inscrever} children="QUERO PARTICIPAR" buttonSize="btn--long" />
+            }
+
+
+          </header>
+
+          <div className="post-information">
+            <div className="date-event-post">
+              <span className="month">{monthEvent}</span>
+              <h2 className="day">{dayEvent}</h2>
+            </div>
+
+            <div className="content-post-event">
+              <h2 className="title">{props.titlePost}</h2>
+              <span className="address-event">{props.addressPost}</span>
+              <span className="descrition-event">{props.descriptionPost}</span>
+              <span className="hashtags">{props.hashtags}</span>
             </div>
           </div>
-          {
-
-            isSubscribed === true ? <Botao onClick={inscrever} children="PARTICIPANDO" buttonSize="btn--long" buttonStyle="btn--primary--outline"/> 
-              : <Botao onClick={inscrever} children="QUERO PARTICIPAR" buttonSize="btn--long"/>
-          }
-
-
-        </header>
-
-        <div className="post-information">
-          <div className="date-event-post">
-            <span className="month">{monthEvent}</span>
-            <h2 className="day">{dayEvent}</h2>
-          </div>
-
-          <div className="content-post-event">
-            <h2 className="title">{props.titlePost}</h2>
-            <span className="address-event">{props.addressPost}</span>
-            <span className="descrition-event">{props.descriptionPost}</span>
-            <span className="hashtags">{props.hashtags}</span>
-          </div>
         </div>
-        <div className="footer-information">
-          <div className="like-post">
-            <button className="btn-like-post" onClick={likePostFunction}>
-              {
-                isLikedCardFeedEvent ? <FaHeart /> : <BiHeart />
-              }
-            </button>
-            <span><b>{countLikesCardFeedEvent}</b> pessoas curtiram</span>
-          </div>
-          <div className="like-post">
-            <button className="btn-comment-post" >
-              {
-                <BiRepost />
-              }
-            </button>
-            <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
-          </div>
-          <PessoasInteressadas inscritos={props.inscritos}/>
+      </div>
+      <div className="footer-information">
+        <div className="like-post">
+          <button className="btn-like-post" onClick={likePostFunction}>
+            {
+              isLikedCardFeedEvent ? <FaHeart /> : <BiHeart />
+            }
+          </button>
+          <span><b>{countLikesCardFeedEvent}</b> pessoas curtiram</span>
         </div>
+        <div className="like-post">
+          <button className="btn-comment-post" >
+            {
+              <BiRepost />
+            }
+          </button>
+          <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
+        </div>
+        <PessoasInteressadas inscritos={props.inscritos} />
       </div>
     </div>
   );
 }
-
-
 
 
 export default CardFeedEvent;
