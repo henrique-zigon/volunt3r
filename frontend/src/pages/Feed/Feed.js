@@ -19,7 +19,7 @@ function Feed(props) {
 	const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
 	const [publicacoes, setPublicacoes] = useState([]);
 

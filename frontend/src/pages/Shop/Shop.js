@@ -16,7 +16,7 @@ import { getURLApi } from '../../configs/getUrlApi';
 function Shop() {
 	const [cookies] = useCookies(['volunt3r']);
 	const [courses, setCourses] = useState([]);
-	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
+	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/${cookies.volunt3r_user.imagemPerfil}`;
 	const [isLoaded, setIsloaded] = useState(false);
 
 	function handleSearch(e) {
