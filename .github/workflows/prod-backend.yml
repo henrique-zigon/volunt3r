@@ -25,24 +25,48 @@ jobs:
         run: mv api-voluntier/target/*.jar api-voluntier/target/api.jar
       - name: Compact jar
         run: gzip api-voluntier/target/api.jar
-      - name: Copy jar
+
+
+    copy-jar:
+      - name: Copy jar Back01
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST_BACKEND }}
+          host: ${{ secrets.HOST_BACKEND_01 }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
           source: api-voluntier/target/api.jar.gz
           target: /tmp
           strip_components: 2
+          
+      - name: Copy jar Back02
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_BACKEND_02 }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: api-voluntier/target/api.jar.gz
+          target: /tmp
+          strip_components: 2
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Update service
+      - name: Update service Back01
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_BACKEND }}
+          host: ${{ secrets.HOST_BACKEND_01 }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown www-data:www-data /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"
+      
+      - name: Update service Back02
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_BACKEND_02 }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
