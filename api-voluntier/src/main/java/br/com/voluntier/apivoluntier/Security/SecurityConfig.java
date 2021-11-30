@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors(withDefaults())
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/api-healthcheck/status").permitAll()
                 .antMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/usuarios/email-existente/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/usuarios/validarToken/**").permitAll()

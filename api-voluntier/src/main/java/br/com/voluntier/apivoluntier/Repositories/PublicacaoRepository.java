@@ -43,6 +43,4 @@ public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer>
     @Query("SELECT new br.com.voluntier.apivoluntier.Models.CachePublicacao(p.id, p.descricao, p.likes.size,p.pathImagem) FROM Publicacao p where p.tipo='evento'")
     List<CachePublicacao> findByPublicaoCache();
 
-
-
 }
