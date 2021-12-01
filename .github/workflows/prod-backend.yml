@@ -26,8 +26,6 @@ jobs:
       - name: Compact jar
         run: gzip api-voluntier/target/api.jar
 
-
-    copy-jar:
       - name: Copy jar Back01
         uses: appleboy/scp-action@master
         with:
