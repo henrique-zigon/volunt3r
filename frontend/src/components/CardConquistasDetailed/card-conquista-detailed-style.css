@@ -1,11 +1,13 @@
 div.user-medals-detailed{
 	width: 50%;
 	padding: 10px;
-	max-height: 300px;
+	max-height: fit-content;
 	overflow: hidden;
+	/* position: relative; */
 }
 
 div.medals-detailed-scroll{
+	position: relative;
 	margin-top: 10px;
 	max-height: 200px;
 	overflow-x: hidden;
@@ -18,12 +20,11 @@ div.medals-detailed-scroll{
 	div.user-medals-detailed{
 		padding-top: 40px;
 		width: 80%;
-		max-height: 350px;
 		margin: auto;
 	}
 
 	div.medals-detailed-scroll{
-		max-height: 350px;
+		max-height: 400px;
 	}
 }
 

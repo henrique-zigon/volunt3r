@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BiEdit } from 'react-icons/bi';
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../api';
@@ -9,6 +10,27 @@ import Conquista from '../../components/Conquista/Conquista';
 
 const CardConquistasIcones = (props) => {
     let location = useLocation().pathname;
+
+    const [cookies] = useCookies(['volunt3r']);
+	const [cookies_user] = useCookies(['volunt3r_user']);
+
+	const [ranques, setRanques] = useState([]);
+
+	useEffect(() => {
+		async function getAllRanques() {
+			api.get(`/ranques/${cookies.volunt3r_user.idUsuario}`, {
+				headers: { 'Authorization': cookies.volunt3r }
+			}).then(resposta => {
+				setRanques(resposta.data.reverse());
+				console.log(resposta.data)
+			}).catch(err => {
+				console.log("Deu erro" + err)
+			});
+		}
+
+		getAllRanques();
+	}, [])
+
     return (
         <div className="user-medals">
             <span>Minhas medalhas</span>
@@ -16,19 +38,15 @@ const CardConquistasIcones = (props) => {
                 <div className={
                     location === "/perfil" ? "user-medals-slots slots-preview" : "user-medals-slots"
                 }>
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
-                    <Conquista show="icone" />
+                    {
+							ranques.map((ranque) => {
+								console.log(ranque);
+									return (
+                                        <Conquista
+                                        show="icone" categoria={ranque.nomeCategoria}/>
+                                        );
+                                })
+                            }
                 </div>
                 <Link to="/perfil-conquistas">
                     <span className={
