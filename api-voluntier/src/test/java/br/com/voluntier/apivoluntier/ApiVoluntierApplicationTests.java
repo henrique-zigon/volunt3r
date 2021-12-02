@@ -9,5 +9,4 @@ class ApiVoluntierApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

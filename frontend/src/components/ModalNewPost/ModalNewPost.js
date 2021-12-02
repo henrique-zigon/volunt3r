@@ -107,7 +107,7 @@ const ModalNewPost = (props) => {
                 <div className="line"></div>
 
                 <form action="" onSubmit={sendNewPost}>
-                    <textarea placeholder={`Olá ${nameUserLogged}, o que você gostaria de compartilhar?`} name="descricao"></textarea>
+                    <textarea placeholder={`Olá, ${nameUserLogged}, o que você gostaria de compartilhar?`} name="descricao"></textarea>
 
                     <div className="input-group">
                         <label htmlFor="senha">

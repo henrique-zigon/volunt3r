@@ -183,6 +183,7 @@ const CardCommentOrPost = (props) => {
           <div className="post-information">
             <div className="content-post-event">
               <span className="descrition-event">{props.descriptionPost}</span>
+              <span className="hashtags">{props.hashtags}</span>
             </div>
           </div>
         </div>

@@ -3,9 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { useCookies } from 'react-cookie';
 
-//Teste QR
-import QRCode from 'qrcode.react';
-import FormularioQR from './components/qrcode/FormularioQR';
+import FormularioQR from './pages/Dashboard/QrCode/FormularioQR';
 
 import CriarUsuarioStep1 from './pages/CriarUsuario/CriarUsuarioStep1';
 import CriarUsuarioStep2 from './pages/CriarUsuario/CriarUsuarioStep2';
@@ -26,14 +24,7 @@ import ListarUsuariosDashboard from './pages/Dashboard/Gerencia_Usuarios/ListarU
 import CriarEventoDashboard from './pages/Dashboard/Eventos/CriarEventoDashboard';
 import ListarEventosDashboard from './pages/Dashboard/Eventos/ListarEventosDashboard';
 import RelatorioGeral from './pages/Dashboard/Relatorios/RelatorioGeral';
-
-
-function CodeQR(props) {
-  const idEvento = props.match.params.idEvento;
-  return (
-      <QRCode value={`http://192.168.15.4:3000/confirmar/${idEvento}`} renderAs="canvas"/>
-  );
-}
+import QrCodePage from './pages/Dashboard/QrCode/QrCodePage';
 
 function Routes() {
     const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
@@ -74,8 +65,9 @@ function Routes() {
                     <LoggedRoute exact path="/dashboard/eventos/criar-evento" component={CriarEventoDashboard}/>
                     <LoggedRoute exact path="/dashboard/eventos" component={ListarEventosDashboard}/>
                     <LoggedRoute exact path="/dashboard/relatorios/geral" component={RelatorioGeral}/>
+
+                    <Route exact path="/dashboard/eventos/QRCode/:idEvento" component={QrCodePage} />
                     <Route exact path="/confirmar/:idEvento" component={FormularioQR} />
-                    <Route exact path="/QRCode/:idEvento" component={CodeQR} />
                     <Route path="*" component={NotFound} />
                     
                 </Switch>

@@ -8,11 +8,14 @@ import api from '../../../api';
 import NavBarDashboard from '../../../components/NavBarDashboard/NavBarDashboard';
 import InputForm from '../../../components/InputForm/InputForm';
 import { getURLApi } from '../../../configs/getUrlApi';
+import { useHistory } from 'react-router';
 
 const ListarEventosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
 	const [isLoaded, setIsloaded] = useState(false);
+
+	const history = useHistory();
 
 	useEffect(() => {
 		api("/eventos", {
@@ -27,8 +30,8 @@ const ListarEventosDashboard = () => {
 	}, [])
 
 
-	function generateQrCode(idEvento) {
-		// Para gerar o QRCODE
+	function generateQrCode(idEvento, nomeEvento) {
+		history.push(`/dashboard/eventos/QRCode/${idEvento}`, nomeEvento)
 	}
 
 	return (
@@ -66,8 +69,8 @@ const ListarEventosDashboard = () => {
 											<td>Qtd Likes</td>
 											<td>Qtd Inscritos</td>
 											<td>Gerar QRCODE</td>
-											<td>Editar</td>
-											<td>Excluir</td>
+											{/* <td>Editar</td>
+											<td>Excluir</td> */}
 										</tr>
 									</thead>
 									<tbody>
@@ -82,20 +85,20 @@ const ListarEventosDashboard = () => {
 														<td>{evento.numeroLikes}</td>
 														<td>{evento.evento.numeroInscritos}</td>
 														<td>
-															<button type="button" className="generate-qrcode" onClick={(e) => generateQrCode(evento.evento.id)}>
+															<button type="button" className="generate-qrcode" onClick={(e) => generateQrCode(evento.evento.id, evento.evento.titulo)}>
 																Gerar QR Code
 															</button>
 														</td>
-														<td>
+														{/* <td>
 															<button type="button">
 																<BiEdit className="icon-table edit" />
 															</button>
-														</td>
-														<td>
+														</td> */}
+														{/* <td>
 															<button type="button">
 																<BiX className="icon-table close " />
 															</button>
-														</td>
+														</td> */}
 													</tr>
 
 												);

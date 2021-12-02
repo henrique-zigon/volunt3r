@@ -6,6 +6,11 @@ const getURLApi = () => {
     return process.env.NODE_ENV === "development" ? url_development : url_production;
 }
 
+const getURLFrontend = () => {
+    return process.env.REACT_APP_URL_FRONTEND;
+}
+
 export {
-    getURLApi
+    getURLApi,
+    getURLFrontend
 }
