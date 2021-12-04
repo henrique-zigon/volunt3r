@@ -39,7 +39,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_FRONTEND }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PUB }}
           port: 22
           source: prod_build.tar.gz
           target: /tmp
@@ -55,6 +55,6 @@ jobs:
         with:
           host: ${{ secrets.HOST_FRONTEND }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PUB }}
           port: 22
           script: "sudo systemctl stop frontend-voluntier && cd /tmp && sudo tar -zxvf prod_build.tar.gz && sudo rm -rf /var/www/frontend-voluntier/build && sudo mv /tmp/frontend/build /var/www/frontend-voluntier && sudo chown www-data:www-data  /var/www/frontend-voluntier/build && sudo systemctl start frontend-voluntier"
