@@ -6,6 +6,7 @@ import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
+import RecommendedEvents from '../../components/RecommendedEvents/recommendedEvents'
 
 import ReactLoading from 'react-loading';
 import { getURLApi } from '../../configs/getUrlApi';
@@ -16,6 +17,7 @@ function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
+	const [eventosRecommended, setEventosRecommended] = useState([]);
 	const { addToast } = useToasts();
 
 
@@ -84,6 +86,9 @@ function EventCatalog() {
 						<span className="title">Eventos</span>
 						<span className="description">Que tal abraçar uma causa? 😉</span>
 					</div>
+				
+					<RecommendedEvents />
+
 
 					<div className="search-itens">
 						<InputForm
