@@ -17,7 +17,7 @@ return (
         <img 
             src={avatarPadrao}
             alt={props.nameUserPosted}
-        /> 
+        />  
         <div className="seeMore">
             <BiPlus size={20}/>
         </div>
