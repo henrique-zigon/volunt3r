@@ -153,11 +153,11 @@ public class Publicacao {
     }
 
     public boolean isPublicacaoEvento() {
-        return this.getTipo().equals("evento");
+        return this.getTipo().equals("EVENTO");
     }
 
     public boolean isComentario() {
-        return this.getTipo().equals("comentario");
+        return this.getTipo().equals("COMENTARIO");
     }
 
     public Integer getNumeroLikes() {
