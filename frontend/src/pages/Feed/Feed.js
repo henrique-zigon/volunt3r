@@ -138,7 +138,7 @@ function Feed(props) {
 									} else {
 										return (
 											<CardCommentOrPost
-											    imagePost={publicacao.pathImagem == null ? fotoPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.pathImagem}
+											    imagePost={publicacao.pathImagem == null ? fotoPadrao :  publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												areaUserPosted={publicacao.usuario.area}
 												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
