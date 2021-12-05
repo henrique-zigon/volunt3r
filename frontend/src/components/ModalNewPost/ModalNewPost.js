@@ -6,7 +6,6 @@ import { useToasts } from 'react-toast-notifications';
 import './ModalNewPost.css';
 
 const ModalNewPost = (props) => {
-
     const [eventos, setEventos] = useState([]);
 
     const {
@@ -54,28 +53,32 @@ const ModalNewPost = (props) => {
         e.preventDefault();
 
         let descricao = e.target.descricao.value;
+        let eventoPub = e.target.eventoPub.value.split("-");
+
+        console.log(eventoPub);
 
         const date = new Date();
 
-        let hourPosted = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-        let today = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + hourPosted;
+        let today = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
         let formData = new FormData();
 
         let data = {
-            novaPublicacao: {
-                descricao,
-                dataPostagem: today,
-                publicacaoPai: null,
-                evento: 40,
-                usuario: {
-                    idUsuario: cookieUser.idUsuario
-                },
-                tipo: "publicacao"
+            descricao,
+            dataPostagem: today,
+            publicacaoPai: {
+                id: eventoPub[1]
             },
+            evento: {
+                id: eventoPub[0]
+            },
+            usuario: {
+                idUsuario: cookieUser.idUsuario
+            }
         }
-
-        formData.append('novaPublicacao', data)
+        console.log(data);
+        console.log(cookieUser);
+        formData.append('novaPublicacao', JSON.stringify(data))
         formData.append('arquivo', e.target.file_new_post.files[0]);
 
         let config = {
@@ -89,11 +92,10 @@ const ModalNewPost = (props) => {
             data: formData
         }
 
-
         await api(config).then((resposta) => {
-            // console.log(resposta)
+            addToast('Publicação registrada com sucesso!', { appearance: 'success', autoDismiss: true })
         }).catch((e) => {
-            console.error(e)
+            addToast('Opps ... Não foi possível completar sua publicação.', { appearance: 'error', autoDismiss: true })
         });
     }
 
@@ -113,13 +115,13 @@ const ModalNewPost = (props) => {
                         <label htmlFor="senha">
                             <span>Selecione o evento</span>
 
-                            <select className="input-field select" name="genero" id="genero">
-                                <option disabled selected>Selecione a Publicação</option>
+                            <select className="input-field select" name="eventoPub" id="eventoPub">
+                                <option disabled selected>Selecione o evento</option>
 
                                 {
                                     eventos.map(evento => {
                                         return (
-                                            <option value={evento.evento.id}>{evento.evento.titulo}</option>
+                                            <option value={`${evento.evento.id}-${evento.id}`}>{evento.evento.titulo}</option>
                                         )
                                     })
                                 }

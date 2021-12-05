@@ -31,7 +31,7 @@ function Login() {
 		console.log(newUserData)
 	}
 
-	async function submitForm(e) {
+	function submitForm(e) {
 		e.preventDefault();
 
 		if(userData.email === '' || userData.senha === '') {
@@ -40,7 +40,7 @@ function Login() {
 		} 
 		
 		else {
-			await api.post("/usuarios/login", {
+			api.post("/usuarios/login", {
 				email: userData.email,
 				senha: userData.senha
 			}).then((resposta) => {
@@ -48,6 +48,7 @@ function Login() {
 				setCookie('volunt3r_user', resposta.data.user, { path: "/" });
 				history.push("/");
 			}).catch((e) => {
+				console.log(e);
 				if(e.response.status === 400) {
 					addToast('Email e/ou senha inválidos...', {appearance: 'error', autoDismiss: true})
 				}
