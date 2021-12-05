@@ -1,0 +1,1179 @@
+nome_usuario;id_usuario;cargo;tipo_usuario;sexo;email;status_usuario;quantidade_milhas;area
+Bricia Miramontes;1;ANL;b3_social;Feminino;bricia.miramontes@b4.com.br;1;0;B3 Social
+Angel Echeverria;2;ANL;comum;Masculino;angel.echeverria@b4.com.br;1;0;Produtos Analytics
+Sergio Frescas;3;ANL;comum;Masculino;sergio.frescas@b4.com.br;1;0;Listados
+Allison Estrada;4;ANL;comum;Feminino;allison.estrada@b4.com.br;1;0;Produtos Analytics
+Grant Trujillo;5;AUDITOR;comum;Masculino;grant.trujillo@b4.com.br;1;0;Listados
+Zenia Compean;6;AST;comum;Feminino;zenia.compean@b4.com.br;1;0;Produtos Analytics
+Savanna Rodriguez;7;OUTROS;comum;Feminino;savanna.rodriguez@b4.com.br;1;0;Listados
+Chanelle Trejo;8;ADVOGADO;comum;Feminino;chanelle.trejo@b4.com.br;1;0;Balcao
+Saul Landeros;9;ANL;comum;Masculino;saul.landeros@b4.com.br;1;0;Produtos Analytics
+Alma Carrasco;10;ANL;comum;Feminino;alma.carrasco@b4.com.br;1;0;Produtos Analytics
+Justin Sandoval;11;ANL;comum;Masculino;justin.sandoval@b4.com.br;1;0;Produtos Analytics
+Marvin Cordova;12;ANL;comum;Masculino;marvin.cordova@b4.com.br;1;0;Balcao
+Jenna Ortega;13;CONS;comum;Feminino;jenna.ortega@b4.com.br;1;0;Listados
+Luis Mier Tapia;14;ANL;comum;Masculino;luis.tapia@b4.com.br;1;0;Listados
+Brandon Garcia;15;ANL;comum;Masculino;brandon.garcia@b4.com.br;1;0;Listados
+Damian Chavez;16;ANL;comum;Masculino;damian.chavez@b4.com.br;1;0;Listados
+Rey Garcia;17;ANL;comum;Masculino;rey.garcia@b4.com.br;1;0;Listados
+Sariah De Dios;18;ANL;comum;Feminino;sariah.dios@b4.com.br;1;0;Produtos Analytics
+Derrick Abeyta;19;ADVOGADO;comum;Masculino;derrick.abeyta@b4.com.br;1;0;Balcao
+Alexandra Rivera;20;ESTAGIARIO;comum;Feminino;alexandra.rivera@b4.com.br;1;0;Listados
+Matthew Cedano;21;ANL;comum;Masculino;matthew.cedano@b4.com.br;1;0;Produtos Analytics
+Clarissa Ortiz Sandoval;22;ANL;comum;Feminino;clarissa.sandoval@b4.com.br;1;0;Produtos Analytics
+Marie Foster;23;ANL;comum;Feminino;marie.foster@b4.com.br;1;0;Listados
+Bianca Retana Castaneda;24;ANL;comum;Feminino;bianca.castaneda@b4.com.br;1;0;Listados
+Ruben Gonzales;25;ANL;comum;Masculino;ruben.gonzales@b4.com.br;1;0;Balcao
+Bodine Shells;26;GTE;comum;Masculino;bodine.shells@b4.com.br;1;0;Listados
+Denise Flores;27;COORD;comum;Feminino;denise.flores@b4.com.br;1;0;Listados
+Lorenzo Enriquez;28;GTE;comum;Masculino;lorenzo.enriquez@b4.com.br;1;0;B3 Social
+Sarah Perez;29;ANL;comum;Feminino;sarah.perez@b4.com.br;1;0;Produtos Analytics
+Anai Enriquez;30;AUDITOR;comum;Feminino;anai.enriquez@b4.com.br;1;0;Produtos Analytics
+Miriam Moreno;31;ANL;comum;Feminino;miriam.moreno@b4.com.br;1;0;Listados
+Alan Franco;32;ESTAGIARIO;comum;Masculino;alan.franco@b4.com.br;1;0;B3 Social
+Nicholas Mendoza;33;ANL;comum;Masculino;nicholas.mendoza@b4.com.br;1;0;Listados
+Daisy Davidson;34;ANL;comum;Feminino;daisy.davidson@b4.com.br;1;0;B3 Social
+Kali Pacheco;35;ANL;comum;Feminino;kali.pacheco@b4.com.br;1;0;Listados
+Eric Nieto;36;ANL;comum;Masculino;eric.nieto@b4.com.br;1;0;Produtos Analytics
+Veronica Amasifuen Espinoza;37;SUPTE;comum;Feminino;veronica.espinoza@b4.com.br;1;0;Balcao
+Mauren Saldivar;38;CONS;comum;Feminino;mauren.saldivar@b4.com.br;1;0;Balcao
+Alexus Tapia;39;ANL;comum;Feminino;alexus.tapia@b4.com.br;1;0;Balcao
+Vanessa Lovato;40;ANL;comum;Feminino;vanessa.lovato@b4.com.br;1;0;Balcao
+Jose Duran;41;ANL;comum;Masculino;jose.duran@b4.com.br;1;0;Listados
+Fernando Bejarano;42;CONS;comum;Masculino;fernando.bejarano@b4.com.br;1;0;Produtos Analytics
+Kevin Palacios Chacon;43;ANL;comum;Masculino;kevin.chacon@b4.com.br;1;0;Balcao
+Derek Martinez;44;GTE;comum;Masculino;derek.martinez@b4.com.br;1;0;Balcao
+Bryan Romero;45;ANL;comum;Masculino;bryan.romero@b4.com.br;1;0;Balcao
+Aaron Rodriguez;46;COORD;comum;Masculino;aaron.rodriguez@b4.com.br;1;0;Balcao
+Selena Ramirez Aguilar;47;OUTROS;comum;Feminino;selena.aguilar@b4.com.br;1;0;Produtos Analytics
+Andrew Ragazzo;48;ANL;comum;Masculino;andrew.ragazzo@b4.com.br;1;0;Produtos Analytics
+Diamantina Huitron Lorenzana;49;CONS;comum;Feminino;diamantina.lorenzana@b4.com.br;1;0;Listados
+Ariel Baca;50;ANL;comum;Masculino;ariel.baca@b4.com.br;1;0;Balcao
+Edgardo Garza;51;Terceiro;comum;Masculino;edgardo.garza@b4.com.br;1;0;Balcao
+Jesus Campos;52;COORD;comum;Masculino;jesus.campos@b4.com.br;1;0;Listados
+Luis Martinez;53;ANL;comum;Masculino;luis.martinez@b4.com.br;1;0;Balcao
+Andrew Orellana;54;COORD;comum;Masculino;andrew.orellana@b4.com.br;1;0;Balcao
+Cristian Vazquez;55;AST;comum;Masculino;cristian.vazquez@b4.com.br;1;0;Produtos Analytics
+Mollie Burgos;56;ANL;comum;Feminino;mollie.burgos@b4.com.br;1;0;Listados
+Sasha Sanchez;57;ANL;comum;Feminino;sasha.sanchez@b4.com.br;1;0;Balcao
+Samantha Ruiz;58;ANL;comum;Feminino;samantha.ruiz@b4.com.br;1;0;Listados
+Carmen Rowland;59;ANL;comum;Feminino;carmen.rowland@b4.com.br;1;0;Listados
+Anecia Waterhouse;60;ANL;comum;Feminino;anecia.waterhouse@b4.com.br;1;0;B3 Social
+Dominic Abeyta;61;ANL;comum;Masculino;dominic.abeyta@b4.com.br;1;0;Produtos Analytics
+Darlene Arzapalo;62;SUPTE;comum;Feminino;darlene.arzapalo@b4.com.br;1;0;Produtos Analytics
+Jalen Generi;63;ANL;comum;Masculino;jalen.generi@b4.com.br;1;0;Listados
+Javier Gutierrez;64;COORD;comum;Masculino;javier.gutierrez@b4.com.br;1;0;Produtos Analytics
+Alberto Cordova;65;ANL;comum;Masculino;alberto.cordova@b4.com.br;1;0;Balcao
+Cristian Mendez;66;COORD;comum;Masculino;cristian.mendez@b4.com.br;1;0;Produtos Analytics
+Maritza Ceja;67;AST;comum;Feminino;maritza.ceja@b4.com.br;1;0;Produtos Analytics
+David Medina;68;ANL;comum;Masculino;david.medina@b4.com.br;1;0;Produtos Analytics
+Johvana Garcia;69;ANL;comum;Feminino;johvana.garcia@b4.com.br;1;0;Produtos Analytics
+Jasmine Santos;70;AST;comum;Feminino;jasmine.santos@b4.com.br;1;0;Produtos Analytics
+Nayari Vasquez;71;AST;comum;Feminino;nayari.vasquez@b4.com.br;1;0;Listados
+Isabella Dickson;72;ANL;comum;Feminino;isabella.dickson@b4.com.br;1;0;Listados
+Dante Yonkers;73;ANL;comum;Masculino;dante.yonkers@b4.com.br;1;0;Listados
+Jesus Paiz;74;ANL;comum;Masculino;jesus.paiz@b4.com.br;1;0;Balcao
+Cindy Salgado;75;ANL;comum;Feminino;cindy.salgado@b4.com.br;1;0;B3 Social
+Ana Castillo;76;ADVOGADO;comum;Feminino;ana.castillo@b4.com.br;1;0;Listados
+Stephanie Vences;77;ANL;comum;Feminino;stephanie.vences@b4.com.br;1;0;Produtos Analytics
+Jesus Silletto;78;ANL;comum;Masculino;jesus.silletto@b4.com.br;1;0;Balcao
+Carlos Abeyta;79;SUPTE;comum;Masculino;carlos.abeyta@b4.com.br;1;0;Listados
+Fernando Montoya;80;AST;comum;Masculino;fernando.montoya@b4.com.br;1;0;Listados
+Celina Ramirez;81;ANL;comum;Feminino;celina.ramirez@b4.com.br;1;0;Balcao
+Dario Aragon;82;ANL;comum;Masculino;dario.aragon@b4.com.br;1;0;B3 Social
+Joseph Marquez-Rodriguez;83;ANL;comum;Masculino;joseph.marquez-rodriguez@b4.com.br;1;0;Listados
+Jose Salcido;84;ADVOGADO;comum;Masculino;jose.salcido@b4.com.br;1;0;Produtos Analytics
+Camilo Walo;85;ANL;comum;Masculino;camilo.walo@b4.com.br;1;0;Balcao
+Yessica Muneton-Davila;86;ANL;comum;Feminino;yessica.muneton-davila@b4.com.br;1;0;Listados
+Austin Manriquez;87;ANL;comum;Masculino;austin.manriquez@b4.com.br;1;0;Listados
+Matthew Gonzales;88;ANL;comum;Masculino;matthew.gonzales@b4.com.br;1;0;Balcao
+Tiffani Daugherty;89;ESTAGIARIO;comum;Feminino;tiffani.daugherty@b4.com.br;1;0;Balcao
+Isamar Blanco Escobedo;90;ESTAGIARIO;comum;Feminino;isamar.escobedo@b4.com.br;1;0;Produtos Analytics
+Milou Borrego;91;ANL;comum;Feminino;milou.borrego@b4.com.br;1;0;Produtos Analytics
+Jacklyn Rayas;92;ANL;comum;Feminino;jacklyn.rayas@b4.com.br;1;0;Produtos Analytics
+Hector Gomez;93;ANL;comum;Masculino;hector.gomez@b4.com.br;1;0;Produtos Analytics
+Jasmine Deleon;94;ANL;comum;Feminino;jasmine.deleon@b4.com.br;1;0;Balcao
+Eduardo Garcia;95;AST;comum;Masculino;eduardo.garcia@b4.com.br;1;0;Balcao
+Marlon Romero;96;COORD;comum;Masculino;marlon.romero@b4.com.br;1;0;Balcao
+Adrieanna Magdaleno;97;AST;comum;Feminino;adrieanna.magdaleno@b4.com.br;1;0;Listados
+Tasha Vizcaya;98;ADVOGADO;comum;Feminino;tasha.vizcaya@b4.com.br;1;0;Produtos Analytics
+Raul Flores-Escobedo;99;ANL;comum;Masculino;raul.flores-escobedo@b4.com.br;1;0;Produtos Analytics
+Rocio Gonzales;100;GTE;comum;Feminino;rocio.gonzales@b4.com.br;1;0;Produtos Analytics
+Austin Raya;101;GTE;comum;Masculino;austin.raya@b4.com.br;1;0;Listados
+Tristen Brown;102;OUTROS;comum;Masculino;tristen.brown@b4.com.br;1;0;Listados
+Anjelica Garcia;103;AST;comum;Feminino;anjelica.garcia@b4.com.br;1;0;Balcao
+Joseph Gonzales;104;ANL;comum;Masculino;joseph.gonzales@b4.com.br;1;0;B3 Social
+Emili Macias;105;OUTROS;comum;Feminino;emili.macias@b4.com.br;1;0;Balcao
+Andrew Hayson;106;GTE;comum;Masculino;andrew.hayson@b4.com.br;1;0;Produtos Analytics
+Juan Baca;107;GTE;comum;Masculino;juan.baca@b4.com.br;1;0;Listados
+Kira Griego;108;ANL;comum;Feminino;kira.griego@b4.com.br;1;0;Balcao
+Igor Rivera Mosqueda;109;OUTROS;comum;Masculino;igor.mosqueda@b4.com.br;1;0;B3 Social
+Gabriela Plazola;110;ANL;comum;Feminino;gabriela.plazola@b4.com.br;1;0;B3 Social
+Zaira Carrasco;111;ANL;comum;Feminino;zaira.carrasco@b4.com.br;1;0;Balcao
+Zuri Ferguson;112;AST;comum;Feminino;zuri.ferguson@b4.com.br;1;0;B3 Social
+Samuel Anaya;113;ANL;comum;Masculino;samuel.anaya@b4.com.br;1;0;Balcao
+Lauren Benavidez;114;AST;comum;Feminino;lauren.benavidez@b4.com.br;1;0;Produtos Analytics
+Isabella Gallegos;115;OUTROS;comum;Feminino;isabella.gallegos@b4.com.br;1;0;Balcao
+Viridiana Avelar;116;CONS;comum;Feminino;viridiana.avelar@b4.com.br;1;0;Produtos Analytics
+Andres Facio-Candela;117;ANL;comum;Masculino;andres.facio-candela@b4.com.br;1;0;Listados
+Eric Guevara;118;ANL;comum;Masculino;eric.guevara@b4.com.br;1;0;Listados
+Isabel Flores-Herrera;119;ANL;comum;Feminino;isabel.flores-herrera@b4.com.br;1;0;Produtos Analytics
+Mario Pacheco;120;OUTROS;comum;Masculino;mario.pacheco@b4.com.br;1;0;Produtos Analytics
+Brenda Valdez;121;ESTAGIARIO;comum;Feminino;brenda.valdez@b4.com.br;1;0;Listados
+Dennise Villalobos;122;AST;comum;Feminino;dennise.villalobos@b4.com.br;1;0;Listados
+Enrique Saenz;123;ANL;comum;Masculino;enrique.saenz@b4.com.br;1;0;Balcao
+Regino Vigil Ballew;124;ANL;comum;Masculino;regino.ballew@b4.com.br;1;0;Listados
+Alison Rodriguez;125;ANL;comum;Feminino;alison.rodriguez@b4.com.br;1;0;Balcao
+Cynthia Alonzo;126;GTE;comum;Feminino;cynthia.alonzo@b4.com.br;1;0;Listados
+Michael Hodosi;127;SUPTE;comum;Masculino;michael.hodosi@b4.com.br;1;0;B3 Social
+Keith Casillas;128;OUTROS;comum;Masculino;keith.casillas@b4.com.br;1;0;Listados
+Benito Rodriguez;129;SUPTE;comum;Masculino;benito.rodriguez@b4.com.br;1;0;Balcao
+Frank Trujillo;130;ANL;comum;Masculino;frank.trujillo@b4.com.br;1;0;Balcao
+Cecilia Silva;131;ANL;comum;Feminino;cecilia.silva@b4.com.br;1;0;Produtos Analytics
+Vivian Morales;132;DIR;comum;Feminino;vivian.morales@b4.com.br;1;0;Balcao
+Lisa Montoya;133;ANL;comum;Feminino;lisa.montoya@b4.com.br;1;0;Produtos Analytics
+Sabrina Cruz;134;ANL;comum;Feminino;sabrina.cruz@b4.com.br;1;0;Balcao
+Yesenia Jaramillo;135;AST;comum;Feminino;yesenia.jaramillo@b4.com.br;1;0;Produtos Analytics
+Mia Alardin;136;SUPTE;comum;Feminino;mia.alardin@b4.com.br;1;0;Balcao
+Maria Johns;137;GTE;comum;Feminino;maria.johns@b4.com.br;1;0;Produtos Analytics
+Shania Rodriguez;138;AST;comum;Feminino;shania.rodriguez@b4.com.br;1;0;B3 Social
+Aaron Martinez;139;AST;comum;Masculino;aaron.martinez@b4.com.br;1;0;Balcao
+Daniel Enriquez;140;OUTROS;comum;Masculino;daniel.enriquez@b4.com.br;1;0;Produtos Analytics
+Bryan Garcia;141;ANL;comum;Masculino;bryan.garcia@b4.com.br;1;0;Produtos Analytics
+Ashley Logan;142;ANL;comum;Feminino;ashley.logan@b4.com.br;1;0;Balcao
+Anjelica Enriquez;143;GTE;comum;Feminino;anjelica.enriquez@b4.com.br;1;0;Balcao
+Maxine Rivera;144;AST;comum;Feminino;maxine.rivera@b4.com.br;1;0;Produtos Analytics
+Kevin Aguilar;145;ANL;comum;Masculino;kevin.aguilar@b4.com.br;1;0;Produtos Analytics
+Jocelyn Martinez;146;ANL;comum;Feminino;jocelyn.martinez@b4.com.br;1;0;Balcao
+Julia Rios;147;ANL;comum;Feminino;julia.rios@b4.com.br;1;0;Balcao
+Mayra Berumen;148;ADVOGADO;comum;Feminino;mayra.berumen@b4.com.br;1;0;Balcao
+Valencia Gaalaas;149;GTE;comum;Feminino;valencia.gaalaas@b4.com.br;1;0;Balcao
+Alejandro Munoz;150;GTE;comum;Masculino;alejandro.munoz@b4.com.br;1;0;Produtos Analytics
+Cesar Garza;151;ANL;comum;Masculino;cesar.garza@b4.com.br;1;0;Listados
+Jordan Hernandez Del Hoyo;152;COORD;comum;Masculino;jordan.hoyo@b4.com.br;1;0;Listados
+Alicia Velasquez;153;DIR;comum;Feminino;alicia.velasquez@b4.com.br;1;0;B3 Social
+Daniel Guadarrama Rodriguez;154;ANL;comum;Masculino;daniel.rodriguez@b4.com.br;1;0;Produtos Analytics
+Ashley Villalobos;155;ADVOGADO;comum;Feminino;ashley.villalobos@b4.com.br;1;0;Balcao
+Sherelle Mendoza;156;OUTROS;comum;Feminino;sherelle.mendoza@b4.com.br;1;0;Listados
+Raelyn Rivera;157;ANL;comum;Feminino;raelyn.rivera@b4.com.br;1;0;Produtos Analytics
+Vanessa Fuentes;158;AST;comum;Feminino;vanessa.fuentes@b4.com.br;1;0;Balcao
+Mayra Ledoux;159;AST;comum;Feminino;mayra.ledoux@b4.com.br;1;0;Produtos Analytics
+Marisol Quintana;160;ANL;comum;Feminino;marisol.quintana@b4.com.br;1;0;B3 Social
+Ieshia Hernandez-Lomeli;161;CONS;comum;Feminino;ieshia.hernandez-lomeli@b4.com.br;1;0;Balcao
+Ricky Miravete-Zuniga;162;SUPTE;comum;Masculino;ricky.miravete-zuniga@b4.com.br;1;0;Produtos Analytics
+Gerald Castillo;163;ANL;comum;Masculino;gerald.castillo@b4.com.br;1;0;Balcao
+Telma Salazar;164;AST;comum;Feminino;telma.salazar@b4.com.br;1;0;Produtos Analytics
+Noah Arteaga;165;AST;comum;Masculino;noah.arteaga@b4.com.br;1;0;Listados
+Martin Lovato;166;SUPTE;comum;Masculino;martin.lovato@b4.com.br;1;0;Balcao
+Matthew Bustamante;167;DIR;comum;Masculino;matthew.bustamante@b4.com.br;1;0;Balcao
+Alyssa Camacho;168;VICE;comum;Feminino;alyssa.camacho@b4.com.br;1;0;Listados
+Juan Miranda;169;COORD;comum;Masculino;juan.miranda@b4.com.br;1;0;B3 Social
+Paul Perez;170;SUPTE;comum;Masculino;paul.perez@b4.com.br;1;0;Listados
+Jacob Aragon;171;DIR;comum;Masculino;jacob.aragon@b4.com.br;1;0;Listados
+Erica Blea;172;ANL;comum;Feminino;erica.blea@b4.com.br;1;0;Listados
+Jorge Miller;173;ANL;comum;Masculino;jorge.miller@b4.com.br;1;0;Balcao
+David Barela;174;SUPTE;comum;Masculino;david.barela@b4.com.br;1;0;Balcao
+Micael Cardenas;175;OUTROS;comum;Masculino;micael.cardenas@b4.com.br;1;0;Listados
+Bryan Rios;176;ANL;comum;Masculino;bryan.rios@b4.com.br;1;0;Balcao
+Stephanie Chavez;177;SUPTE;comum;Feminino;stephanie.chavez@b4.com.br;1;0;Balcao
+Johnney Magana;178;ANL;comum;Masculino;johnney.magana@b4.com.br;1;0;Listados
+Isaiah Luna;179;ESP;comum;Masculino;isaiah.luna@b4.com.br;1;0;Produtos Analytics
+Manuel Ruiz;180;GTE;comum;Masculino;manuel.ruiz@b4.com.br;1;0;Listados
+Robert Chavez;181;ANL;comum;Masculino;robert.chavez@b4.com.br;1;0;Balcao
+Aaron Pena Villagomez;182;DIR;comum;Masculino;aaron.villagomez@b4.com.br;1;0;Listados
+George Menning;183;ANL;comum;Masculino;george.menning@b4.com.br;1;0;Listados
+Pedro Armendariz;184;SUPTE;comum;Masculino;pedro.armendariz@b4.com.br;1;0;B3 Social
+Veronica Urioste-Barela;185;COORD;comum;Feminino;veronica.urioste-barela@b4.com.br;1;0;Produtos Analytics
+Monica Herrera;186;ANL;comum;Feminino;monica.herrera@b4.com.br;1;0;Produtos Analytics
+Irving Torres;187;DIR;comum;Masculino;irving.torres@b4.com.br;1;0;Balcao
+Nathasha Chavez;188;SUPTE;comum;Feminino;nathasha.chavez@b4.com.br;1;0;Listados
+Justina Becerra;189;SUPTE;comum;Feminino;justina.becerra@b4.com.br;1;0;Produtos Analytics
+Julio Flores;190;ANL;comum;Masculino;julio.flores@b4.com.br;1;0;Produtos Analytics
+Albert Trevino;191;SUPTE;comum;Masculino;albert.trevino@b4.com.br;1;0;Balcao
+Marcus Mcquilliams;192;ANL;comum;Masculino;marcus.mcquilliams@b4.com.br;1;0;Produtos Analytics
+Michael Sisneros;193;DIR;comum;Masculino;michael.sisneros@b4.com.br;1;0;Listados
+Cesar Martinez;194;SUPTE;comum;Masculino;cesar.martinez@b4.com.br;1;0;Balcao
+Gabriel Moreno-Fonseca;195;ANL;comum;Masculino;gabriel.moreno-fonseca@b4.com.br;1;0;Balcao
+Brandon Martinez;196;GTE;comum;Masculino;brandon.martinez@b4.com.br;1;0;Balcao
+Josiah Duran;197;SUPTE;comum;Masculino;josiah.duran@b4.com.br;1;0;Produtos Analytics
+Alondra Lucio;198;ANL;comum;Feminino;alondra.lucio@b4.com.br;1;0;Balcao
+Itzel Herrera;199;ANL;comum;Feminino;itzel.herrera@b4.com.br;1;0;Balcao
+Roy Gentry;200;ANL;comum;Masculino;roy.gentry@b4.com.br;1;0;Balcao
+Andrea Hernandez;201;ANL;comum;Feminino;andrea.hernandez@b4.com.br;1;0;Listados
+Maleah Martinez;202;ANL;comum;Feminino;maleah.martinez@b4.com.br;1;0;Listados
+Mercadez Mc Carty;203;ANL;comum;Feminino;mercadez.carty@b4.com.br;1;0;Produtos Analytics
+Griselda Araujo;204;ANL;comum;Feminino;griselda.araujo@b4.com.br;1;0;Balcao
+Adam Perez;205;ANL;comum;Masculino;adam.perez@b4.com.br;1;0;Listados
+Lucia Leos;206;ANL;comum;Feminino;lucia.leos@b4.com.br;1;0;Balcao
+Avigail Ahumada;207;SUPTE;comum;Feminino;avigail.ahumada@b4.com.br;1;0;Produtos Analytics
+Michael Catbagan;208;GTE;comum;Masculino;michael.catbagan@b4.com.br;1;0;Listados
+Adriana Ramirez;209;AST;comum;Feminino;adriana.ramirez@b4.com.br;1;0;Listados
+Javier Velazquez;210;GER;comum;Masculino;javier.velazquez@b4.com.br;1;0;Balcao
+Raymundo Lepure;211;GTE;comum;Masculino;raymundo.lepure@b4.com.br;1;0;Balcao
+Benjamin Edelman;212;ESP;comum;Masculino;benjamin.edelman@b4.com.br;1;0;Produtos Analytics
+Daniel Tyler;213;ANL;comum;Masculino;daniel.tyler@b4.com.br;1;0;Produtos Analytics
+Alexander Navarro;214;PRESIDENTE;comum;Masculino;alexander.navarro@b4.com.br;1;0;Produtos Analytics
+Nathan Golba;215;ANL;comum;Masculino;nathan.golba@b4.com.br;1;0;Listados
+Brandon Saucedo;216;ANL;comum;Masculino;brandon.saucedo@b4.com.br;1;0;Produtos Analytics
+Miguel Cosme;217;ANL;comum;Masculino;miguel.cosme@b4.com.br;1;0;Listados
+Juanmanuel Maestas;218;ANL;comum;Masculino;juanmanuel.maestas@b4.com.br;1;0;Produtos Analytics
+Chyann Albo;219;SUPTE;comum;Feminino;chyann.albo@b4.com.br;1;0;Listados
+Keagan Duran;220;OUTROS;comum;Masculino;keagan.duran@b4.com.br;1;0;Balcao
+Angel Adame Morales;221;ANL;comum;Feminino;angel.morales@b4.com.br;1;0;Balcao
+Daniel Archuleta;222;OUTROS;comum;Masculino;daniel.archuleta@b4.com.br;1;0;Listados
+Omar Hinojos Ordonez;223;ANL;comum;Masculino;omar.ordonez@b4.com.br;1;0;B3 Social
+Paola Quintana;224;OUTROS;comum;Feminino;paola.quintana@b4.com.br;1;0;Listados
+Jade Ramos;225;ANL;comum;Feminino;jade.ramos@b4.com.br;1;0;Balcao
+Michelle Lane;226;GTE;comum;Feminino;michelle.lane@b4.com.br;1;0;Balcao
+Vanessa Lopez Plaza;227;AST;comum;Feminino;vanessa.plaza@b4.com.br;1;0;Balcao
+Diana Beltran;228;ANL;comum;Feminino;diana.beltran@b4.com.br;1;0;Produtos Analytics
+Adrian Ramirez;229;ESTAGIARIO;comum;Masculino;adrian.ramirez@b4.com.br;1;0;Listados
+Brittany Besch;230;CONS;comum;Feminino;brittany.besch@b4.com.br;1;0;Listados
+Eduardo Vigil;231;AST;comum;Masculino;eduardo.vigil@b4.com.br;1;0;Balcao
+Raymond Gurule;232;GTE;comum;Masculino;raymond.gurule@b4.com.br;1;0;B3 Social
+Mario Lozoya;233;CONS;comum;Masculino;mario.lozoya@b4.com.br;1;0;Listados
+Cynthia Vigil;234;CONS;comum;Feminino;cynthia.vigil@b4.com.br;1;0;Produtos Analytics
+Adriel Espinoza;235;SUPTE;comum;Feminino;adriel.espinoza@b4.com.br;1;0;Listados
+Eloy Cortez;236;GTE;comum;Masculino;eloy.cortez@b4.com.br;1;0;Balcao
+Serenity Martinez;237;OUTROS;comum;Feminino;serenity.martinez@b4.com.br;1;0;Balcao
+Alexis Quezada;238;ANL;comum;Feminino;alexis.quezada@b4.com.br;1;0;Produtos Analytics
+Terese Tafoya;239;SUPTE;comum;Feminino;terese.tafoya@b4.com.br;1;0;Listados
+Jeromie Velasquez;240;SUPTE;comum;Masculino;jeromie.velasquez@b4.com.br;1;0;Produtos Analytics
+Alejandra Martinez;241;AST;comum;Feminino;alejandra.martinez@b4.com.br;1;0;Listados
+Marcos Caldera;242;SUPTE;comum;Masculino;marcos.caldera@b4.com.br;1;0;Listados
+Luis Rios;243;GTE;comum;Masculino;luis.rios@b4.com.br;1;0;Balcao
+Jessica Garrett Corell;244;COORD;comum;Feminino;jessica.corell@b4.com.br;1;0;Balcao
+Christina Martinez;245;AST;comum;Feminino;christina.martinez@b4.com.br;1;0;Produtos Analytics
+Adrian Gonzalez;246;ANL;comum;Masculino;adrian.gonzalez@b4.com.br;1;0;Produtos Analytics
+Adolfo Villegas;247;AST;comum;Masculino;adolfo.villegas@b4.com.br;1;0;Listados
+Jose Vazquez Jimenez;248;ANL;comum;Masculino;jose.jimenez@b4.com.br;1;0;Balcao
+Alex Gaucin;249;COORD;comum;Masculino;alex.gaucin@b4.com.br;1;0;B3 Social
+Adrianna Cerceda;250;ANL;comum;Feminino;adrianna.cerceda@b4.com.br;1;0;Listados
+Vanessa Perches;251;CONS;comum;Feminino;vanessa.perches@b4.com.br;1;0;Listados
+Iveth Rodriguez;252;ANL;comum;Feminino;iveth.rodriguez@b4.com.br;1;0;Listados
+Reyna Mayta;253;SUPTE;comum;Feminino;reyna.mayta@b4.com.br;1;0;Listados
+Adrian Murray;254;ADVOGADO;comum;Masculino;adrian.murray@b4.com.br;1;0;Balcao
+Rolando Almanza;255;ANL;comum;Masculino;rolando.almanza@b4.com.br;1;0;Produtos Analytics
+Andrea Espinoza;256;SUPTE;comum;Feminino;andrea.espinoza@b4.com.br;1;0;Produtos Analytics
+Elvis Manjarrez;257;ANL;comum;Masculino;elvis.manjarrez@b4.com.br;1;0;Balcao
+Enrique Nunez-Medina;258;GTE;comum;Masculino;enrique.nunez-medina@b4.com.br;1;0;Listados
+Fernando Gutierrez;259;ANL;comum;Masculino;fernando.gutierrez@b4.com.br;1;0;Balcao
+Alexis Archuleta;260;GTE;comum;Masculino;alexis.archuleta@b4.com.br;1;0;Balcao
+Harol Torres-Acosta;261;ANL;comum;Masculino;harol.torres-acosta@b4.com.br;1;0;Balcao
+Deion Allman;262;AUDITOR;comum;Masculino;deion.allman@b4.com.br;1;0;Produtos Analytics
+Brian Polanco;263;GTE;comum;Masculino;brian.polanco@b4.com.br;1;0;Listados
+Alma Palmerin;264;ANL;comum;Feminino;alma.palmerin@b4.com.br;1;0;Balcao
+Alexander Montez;265;SUPTE;comum;Masculino;alexander.montez@b4.com.br;1;0;Produtos Analytics
+David Flores;266;COORD;comum;Masculino;david.flores@b4.com.br;1;0;Produtos Analytics
+Esperanza Villegas;267;DIR;comum;Feminino;esperanza.villegas@b4.com.br;1;0;B3 Social
+Stephany Brawner III;268;COORD;comum;Feminino;stephany.iii@b4.com.br;1;0;Balcao
+Jessikia Aguirre Jimenez;269;ANL;comum;Feminino;jessikia.jimenez@b4.com.br;1;0;Listados
+Graciela Torres;270;GTE;comum;Feminino;graciela.torres@b4.com.br;1;0;Balcao
+Luis Gracia;271;ANL;comum;Masculino;luis.gracia@b4.com.br;1;0;Produtos Analytics
+Kevin Medina;272;ESP;comum;Masculino;kevin.medina@b4.com.br;1;0;Balcao
+Luis Martinez;273;SUPTE;comum;Masculino;luis.martinez@b4.com.br;1;0;Listados
+Sonia Garcia;274;CONS;comum;Feminino;sonia.garcia@b4.com.br;1;0;B3 Social
+Ruth Hartwell;275;SUPTE;comum;Feminino;ruth.hartwell@b4.com.br;1;0;B3 Social
+Sophia Martinez;276;ANL;comum;Feminino;sophia.martinez@b4.com.br;1;0;Balcao
+Roman Garcia;277;GTE;comum;Masculino;roman.garcia@b4.com.br;1;0;Produtos Analytics
+Tyler Ortiz;278;ANL;comum;Feminino;tyler.ortiz@b4.com.br;1;0;Produtos Analytics
+Nathaniel Martinez;279;CONS;comum;Masculino;nathaniel.martinez@b4.com.br;1;0;Listados
+Maleeah Quintanilla;280;GTE;comum;Feminino;maleeah.quintanilla@b4.com.br;1;0;Produtos Analytics
+Lorenzo Bastidas;281;ADVOGADO;comum;Masculino;lorenzo.bastidas@b4.com.br;1;0;Listados
+Mariana Rojas;282;ANL;comum;Feminino;mariana.rojas@b4.com.br;1;0;Listados
+Leticia Sanchez Quirino;283;SUPTE;comum;Feminino;leticia.quirino@b4.com.br;1;0;Produtos Analytics
+Samantha Miller;284;ANL;comum;Feminino;samantha.miller@b4.com.br;1;0;Balcao
+Christian Valdez;285;CONS;comum;Masculino;christian.valdez@b4.com.br;1;0;Listados
+Brandon Saenz;286;ANL;comum;Masculino;brandon.saenz@b4.com.br;1;0;Produtos Analytics
+Audrianna Silva;287;ANL;comum;Feminino;audrianna.silva@b4.com.br;1;0;Balcao
+Erin Moreno;288;ESP;comum;Feminino;erin.moreno@b4.com.br;1;0;Listados
+Angelina Puga;289;ANL;comum;Feminino;angelina.puga@b4.com.br;1;0;Balcao
+Cindy Hernandez;290;GTE;comum;Feminino;cindy.hernandez@b4.com.br;1;0;Balcao
+Jazlyn Copeland;291;GTE;comum;Feminino;jazlyn.copeland@b4.com.br;1;0;Balcao
+Jessica Flores;292;ANL;comum;Feminino;jessica.flores@b4.com.br;1;0;Balcao
+Karla Gutierrez;293;ANL;comum;Feminino;karla.gutierrez@b4.com.br;1;0;Listados
+Belinda Hernandez;294;COORD;comum;Feminino;belinda.hernandez@b4.com.br;1;0;B3 Social
+Michael Segura;295;ANL;comum;Masculino;michael.segura@b4.com.br;1;0;Produtos Analytics
+Shaelynn Garcia;296;CONS;comum;Feminino;shaelynn.garcia@b4.com.br;1;0;Listados
+Edgardo Hollingsworth;297;SUPTE;comum;Masculino;edgardo.hollingsworth@b4.com.br;1;0;Produtos Analytics
+Zachary Casillas;298;GTE;comum;Masculino;zachary.casillas@b4.com.br;1;0;B3 Social
+Cherae Alamea-Morales;299;SUPTE;comum;Feminino;cherae.alamea-morales@b4.com.br;1;0;Balcao
+Oswaldo Miera;300;ANL;comum;Masculino;oswaldo.miera@b4.com.br;1;0;B3 Social
+Shantel Garcia;301;ANL;comum;Feminino;shantel.garcia@b4.com.br;1;0;Listados
+Gabriel Deibert;302;ANL;comum;Masculino;gabriel.deibert@b4.com.br;1;0;Listados
+Victor Cortez;303;AUDITOR;comum;Masculino;victor.cortez@b4.com.br;1;0;Listados
+Lane Lynn;304;AUDITOR;comum;Masculino;lane.lynn@b4.com.br;1;0;Balcao
+Jose Garcia;305;ANL;comum;Masculino;jose.garcia@b4.com.br;1;0;Listados
+Isaac Jurado-Chavez;306;ANL;comum;Masculino;isaac.jurado-chavez@b4.com.br;1;0;Listados
+Darrell Ortiz;307;ANL;comum;Masculino;darrell.ortiz@b4.com.br;1;0;Balcao
+Jessica Maximo;308;ANL;comum;Feminino;jessica.maximo@b4.com.br;1;0;B3 Social
+Samantha White;309;DIR;comum;Feminino;samantha.white@b4.com.br;1;0;Produtos Analytics
+Marlena Marcos;310;ADVOGADO;comum;Feminino;marlena.marcos@b4.com.br;1;0;Listados
+Keshia Martinez;311;COORD;comum;Feminino;keshia.martinez@b4.com.br;1;0;Balcao
+Jairo Lucero;312;ANL;comum;Masculino;jairo.lucero@b4.com.br;1;0;Produtos Analytics
+Laura Luna;313;ANL;comum;Feminino;laura.luna@b4.com.br;1;0;Produtos Analytics
+Alondra Gonzalez;314;SUPTE;comum;Feminino;alondra.gonzalez@b4.com.br;1;0;Balcao
+Juan Jara;315;ANL;comum;Masculino;juan.jara@b4.com.br;1;0;Balcao
+Marisa Barraza;316;ANL;comum;Feminino;marisa.barraza@b4.com.br;1;0;Produtos Analytics
+Arianne Vasquez;317;ANL;comum;Feminino;arianne.vasquez@b4.com.br;1;0;Listados
+Sarah Franco;318;AST;comum;Feminino;sarah.franco@b4.com.br;1;0;Listados
+Rodrigo Ramirez;319;AST;comum;Masculino;rodrigo.ramirez@b4.com.br;1;0;Produtos Analytics
+Randy Aguilar;320;ESTAGIARIO;comum;Masculino;randy.aguilar@b4.com.br;1;0;B3 Social
+Jaime Ortiz Ruiz;321;ANL;comum;Masculino;jaime.ruiz@b4.com.br;1;0;B3 Social
+Estiben Avalos;322;ESTAGIARIO;comum;Masculino;estiben.avalos@b4.com.br;1;0;Produtos Analytics
+Daniel Valle;323;ANL;comum;Masculino;daniel.valle@b4.com.br;1;0;Balcao
+Joey Hernandez;324;ANL;comum;Feminino;joey.hernandez@b4.com.br;1;0;Produtos Analytics
+Andrea Delatorre;325;ESTAGIARIO;comum;Feminino;andrea.delatorre@b4.com.br;1;0;Produtos Analytics
+Cassandra Valles;326;ANL;comum;Feminino;cassandra.valles@b4.com.br;1;0;Produtos Analytics
+Linda Trujillo;327;ANL;comum;Feminino;linda.trujillo@b4.com.br;1;0;Listados
+Cynthia Leyva;328;ANL;comum;Feminino;cynthia.leyva@b4.com.br;1;0;Produtos Analytics
+Noelly Ramos;329;OUTROS;comum;Feminino;noelly.ramos@b4.com.br;1;0;B3 Social
+Brooklynne Castaneda-Ramirez;330;ANL;comum;Feminino;brooklynne.castaneda-ramirez@b4.com.br;1;0;Balcao
+Luis Javalera;331;ANL;comum;Masculino;luis.javalera@b4.com.br;1;0;Listados
+Jenna Gutierrez;332;ANL;comum;Feminino;jenna.gutierrez@b4.com.br;1;0;Listados
+Leydi Sanchez-Solano;333;ANL;comum;Feminino;leydi.sanchez-solano@b4.com.br;1;0;Listados
+Tabitha Palacio Mendez;334;GTE;comum;Feminino;tabitha.mendez@b4.com.br;1;0;Balcao
+Amanda Garcia;335;ANL;comum;Feminino;amanda.garcia@b4.com.br;1;0;Listados
+Lawrence Hernandez;336;ESTAGIARIO;comum;Masculino;lawrence.hernandez@b4.com.br;1;0;Listados
+Sebastian Herrera;337;CONS;comum;Masculino;sebastian.herrera@b4.com.br;1;0;Listados
+Ashton Mestas;338;ANL;comum;Masculino;ashton.mestas@b4.com.br;1;0;Balcao
+Shawn Abeyta;339;OUTROS;comum;Masculino;shawn.abeyta@b4.com.br;1;0;B3 Social
+Josue Bencomo Rico;340;OUTROS;comum;Masculino;josue.rico@b4.com.br;1;0;B3 Social
+Lori Zapata-Alcantara;341;CONS;comum;Feminino;lori.zapata-alcantara@b4.com.br;1;0;B3 Social
+Martha Gutierrez;342;GTE;comum;Feminino;martha.gutierrez@b4.com.br;1;0;Listados
+Bradley Martinez;343;ANL;comum;Masculino;bradley.martinez@b4.com.br;1;0;Balcao
+Jose Carrera;344;ANL;comum;Masculino;jose.carrera@b4.com.br;1;0;Produtos Analytics
+Shantell Smith;345;AST;comum;Feminino;shantell.smith@b4.com.br;1;0;Listados
+Andreana Quintanilla;346;AST;comum;Feminino;andreana.quintanilla@b4.com.br;1;0;Listados
+Eduardo Oakes;347;COORD;comum;Masculino;eduardo.oakes@b4.com.br;1;0;Balcao
+Ana Maria Diaz De Leon;348;GTE;comum;Feminino;ana.leon@b4.com.br;1;0;Listados
+Jennifer Ortiz;349;OUTROS;comum;Feminino;jennifer.ortiz@b4.com.br;1;0;Produtos Analytics
+Derik Barrera;350;ANL;comum;Masculino;derik.barrera@b4.com.br;1;0;Balcao
+Jaxon Cathcart;351;COORD;comum;Masculino;jaxon.cathcart@b4.com.br;1;0;B3 Social
+Henry Pena;352;ANL;comum;Masculino;henry.pena@b4.com.br;1;0;Balcao
+Ana Ramirez;353;SUPTE;comum;Feminino;ana.ramirez@b4.com.br;1;0;Produtos Analytics
+David Tapp;354;OUTROS;comum;Masculino;david.tapp@b4.com.br;1;0;Listados
+Amanda Jimenez Mendoza;355;OUTROS;comum;Feminino;amanda.mendoza@b4.com.br;1;0;Listados
+Anthony Medina;356;ANL;comum;Masculino;anthony.medina@b4.com.br;1;0;Listados
+Oscar Martinez;357;SUPTE;comum;Masculino;oscar.martinez@b4.com.br;1;0;Produtos Analytics
+Brenda Rios;358;GER;comum;Feminino;brenda.rios@b4.com.br;1;0;B3 Social
+Bryan Mondragon;359;GTE;comum;Masculino;bryan.mondragon@b4.com.br;1;0;Listados
+Gabriela Sisneros;360;ESP;comum;Feminino;gabriela.sisneros@b4.com.br;1;0;Balcao
+Cinthia Pasillas;361;OUTROS;comum;Feminino;cinthia.pasillas@b4.com.br;1;0;Produtos Analytics
+Lyly Reyna;362;ANL;comum;Feminino;lyly.reyna@b4.com.br;1;0;B3 Social
+Nicole Alonso;363;GTE;comum;Feminino;nicole.alonso@b4.com.br;1;0;Produtos Analytics
+Christian Escobedo;364;COORD;comum;Masculino;christian.escobedo@b4.com.br;1;0;Balcao
+Bryan Alles;365;SUPTE;comum;Masculino;bryan.alles@b4.com.br;1;0;Produtos Analytics
+Ever Mendoza;366;ANL;comum;Masculino;ever.mendoza@b4.com.br;1;0;Balcao
+Alysa Melero Arroyo;367;GTE;comum;Feminino;alysa.arroyo@b4.com.br;1;0;Listados
+Karen Espino;368;OUTROS;comum;Feminino;karen.espino@b4.com.br;1;0;Listados
+Paris Bocanegra;369;GTE;comum;Feminino;paris.bocanegra@b4.com.br;1;0;Balcao
+Marlon Tacuba;370;DIR;comum;Masculino;marlon.tacuba@b4.com.br;1;0;B3 Social
+Lorenzo Berg;371;ANL;comum;Masculino;lorenzo.berg@b4.com.br;1;0;Produtos Analytics
+Jacob Lovato;372;ANL;comum;Masculino;jacob.lovato@b4.com.br;1;0;Balcao
+Sarai Perea;373;ANL;comum;Feminino;sarai.perea@b4.com.br;1;0;B3 Social
+Gabriel Torres;374;CHEFE;comum;Masculino;gabriel.torres@b4.com.br;1;0;Balcao
+Ivonne Ocon;375;ANL;comum;Feminino;ivonne.ocon@b4.com.br;1;0;Produtos Analytics
+Christopher Murphy;376;ANL;comum;Masculino;christopher.murphy@b4.com.br;1;0;Balcao
+Alejandro Medina;377;ANL;comum;Masculino;alejandro.medina@b4.com.br;1;0;Balcao
+Jonathon Garcia Navarro;378;GTE;comum;Masculino;jonathon.navarro@b4.com.br;1;0;Balcao
+Mirella Sanchez Lucio;379;AST;comum;Feminino;mirella.lucio@b4.com.br;1;0;Listados
+Zachary Garcia;380;ANL;comum;Masculino;zachary.garcia@b4.com.br;1;0;B3 Social
+Anissa Bonilla;381;ADVOGADO;comum;Feminino;anissa.bonilla@b4.com.br;1;0;Listados
+Andalecia Gaitan;382;GER;comum;Feminino;andalecia.gaitan@b4.com.br;1;0;Balcao
+Angelina Figueroa;383;ANL;comum;Feminino;angelina.figueroa@b4.com.br;1;0;Listados
+Jose Padia;384;ANL;comum;Masculino;jose.padia@b4.com.br;1;0;Produtos Analytics
+Karolina Martinez;385;CONS;comum;Feminino;karolina.martinez@b4.com.br;1;0;Balcao
+Casey David;386;CONS;comum;Feminino;casey.david@b4.com.br;1;0;Produtos Analytics
+Brenda Gomez;387;SUPTE;comum;Feminino;brenda.gomez@b4.com.br;1;0;Produtos Analytics
+Sandra Juarez;388;ANL;comum;Feminino;sandra.juarez@b4.com.br;1;0;Balcao
+Monita Gioia;389;ANL;comum;Feminino;monita.gioia@b4.com.br;1;0;Balcao
+Maria Silva;390;SUPTE;comum;Feminino;maria.silva@b4.com.br;1;0;Produtos Analytics
+Maren Torres Castanon;391;ANL;comum;Feminino;maren.castanon@b4.com.br;1;0;Balcao
+Miquela Diaz;392;DIR;comum;Feminino;miquela.diaz@b4.com.br;1;0;Listados
+Drew Olivas;393;GTE;comum;Feminino;drew.olivas@b4.com.br;1;0;B3 Social
+Danisha Villalba;394;ANL;comum;Feminino;danisha.villalba@b4.com.br;1;0;Produtos Analytics
+Karen Banuelos;395;GTE;comum;Feminino;karen.banuelos@b4.com.br;1;0;Produtos Analytics
+Jocelyn Brawner III;396;SUPTE;comum;Feminino;jocelyn.iii@b4.com.br;1;0;Produtos Analytics
+Guadalupe Otero;397;ANL;comum;Feminino;guadalupe.otero@b4.com.br;1;0;Balcao
+Darien Balderas Aguilar;398;COORD;comum;Feminino;darien.aguilar@b4.com.br;1;0;Balcao
+Lorenna Andrade;399;COORD;comum;Feminino;lorenna.andrade@b4.com.br;1;0;Produtos Analytics
+Douglas Cervantez;400;ANL;comum;Masculino;douglas.cervantez@b4.com.br;1;0;Produtos Analytics
+Samarah Saenz Williams;401;ANL;comum;Feminino;samarah.williams@b4.com.br;1;0;B3 Social
+Rita Hernandez;402;GTE;comum;Feminino;rita.hernandez@b4.com.br;1;0;Listados
+Deion Avitia;403;GTE;comum;Masculino;deion.avitia@b4.com.br;1;0;Listados
+Sergio Pena;404;GTE;comum;Masculino;sergio.pena@b4.com.br;1;0;Balcao
+Nathan Rocha;405;DIR;comum;Masculino;nathan.rocha@b4.com.br;1;0;Balcao
+Anthony Tolmich;406;GTE;comum;Masculino;anthony.tolmich@b4.com.br;1;0;Balcao
+Keoni Desantiago;407;SUPTE;comum;Masculino;keoni.desantiago@b4.com.br;1;0;Balcao
+Jesse Martinez;408;GTE;comum;Masculino;jesse.martinez@b4.com.br;1;0;Listados
+Joel Soto;409;ANL;comum;Masculino;joel.soto@b4.com.br;1;0;Listados
+Trey Velasquez Garcia;410;GTE;comum;Masculino;trey.garcia@b4.com.br;1;0;Balcao
+Melissa Provencio;411;SUPTE;comum;Feminino;melissa.provencio@b4.com.br;1;0;Produtos Analytics
+Jesus Cardoso;412;ANL;comum;Masculino;jesus.cardoso@b4.com.br;1;0;Listados
+Araceli Aguilar;413;ANL;comum;Feminino;araceli.aguilar@b4.com.br;1;0;Listados
+Juana Rodriguez;414;COORD;comum;Feminino;juana.rodriguez@b4.com.br;1;0;Produtos Analytics
+Jose Chavez Torres;415;GER;comum;Masculino;jose.torres@b4.com.br;1;0;Listados
+Dalianna Garcia;416;ANL;comum;Feminino;dalianna.garcia@b4.com.br;1;0;Listados
+Juan Kassell;417;GTE;comum;Masculino;juan.kassell@b4.com.br;1;0;Listados
+Cinthya Gallegos;418;GTE;comum;Feminino;cinthya.gallegos@b4.com.br;1;0;B3 Social
+Jonathan Orr;419;SUPTE;comum;Masculino;jonathan.orr@b4.com.br;1;0;Balcao
+Steven Terrones Deleon;420;COORD;comum;Masculino;steven.deleon@b4.com.br;1;0;Balcao
+Jacob Contreras;421;ANL;comum;Masculino;jacob.contreras@b4.com.br;1;0;Balcao
+Nicholas Perez;422;SUPTE;comum;Masculino;nicholas.perez@b4.com.br;1;0;Listados
+Ivonne Robles Jr;423;ANL;comum;Feminino;ivonne.jr@b4.com.br;1;0;B3 Social
+Luis Sanchez;424;ANL;comum;Masculino;luis.sanchez@b4.com.br;1;0;Balcao
+Isabella Maldonado;425;DIR;comum;Feminino;isabella.maldonado@b4.com.br;1;0;Listados
+Edson Santana;426;ANL;comum;Masculino;edson.santana@b4.com.br;1;0;Balcao
+Jonathan Mendez;427;GTE;comum;Masculino;jonathan.mendez@b4.com.br;1;0;Listados
+Evelin Guevara;428;ANL;comum;Feminino;evelin.guevara@b4.com.br;1;0;Listados
+Jonathan Rojas;429;ANL;comum;Masculino;jonathan.rojas@b4.com.br;1;0;Balcao
+Isaiah Humildad;430;SUPTE;comum;Masculino;isaiah.humildad@b4.com.br;1;0;Listados
+Arely Hernandez;431;COORD;comum;Feminino;arely.hernandez@b4.com.br;1;0;Produtos Analytics
+Alfredo Medina;432;ANL;comum;Masculino;alfredo.medina@b4.com.br;1;0;Listados
+Shaina Parra Becerra;433;GTE;comum;Feminino;shaina.becerra@b4.com.br;1;0;Produtos Analytics
+Alexandria Olivarez;434;ANL;comum;Feminino;alexandria.olivarez@b4.com.br;1;0;Produtos Analytics
+Rosemarie Mestas;435;ANL;comum;Feminino;rosemarie.mestas@b4.com.br;1;0;Balcao
+Karisia Rodriguez;436;ANL;comum;Feminino;karisia.rodriguez@b4.com.br;1;0;Listados
+Selina Compos;437;ANL;comum;Feminino;selina.compos@b4.com.br;1;0;Produtos Analytics
+Manny Salcido;438;ANL;comum;Masculino;manny.salcido@b4.com.br;1;0;Listados
+Ignacio Naranjo;439;COORD;comum;Masculino;ignacio.naranjo@b4.com.br;1;0;Balcao
+Cristina Vigil;440;ANL;comum;Feminino;cristina.vigil@b4.com.br;1;0;Produtos Analytics
+Cameron Sandoval;441;ANL;comum;Masculino;cameron.sandoval@b4.com.br;1;0;Produtos Analytics
+Maria Maestas;442;CONS;comum;Feminino;maria.maestas@b4.com.br;1;0;Listados
+Hannah Wilson;443;ANL;comum;Feminino;hannah.wilson@b4.com.br;1;0;Produtos Analytics
+Edith Chibli-Arellano;444;ANL;comum;Feminino;edith.chibli-arellano@b4.com.br;1;0;Produtos Analytics
+Karla Rodriguez;445;ANL;comum;Feminino;karla.rodriguez@b4.com.br;1;0;Listados
+Leslie Saenz;446;ANL;comum;Feminino;leslie.saenz@b4.com.br;1;0;Listados
+Eddna Perez;447;GTE;comum;Feminino;eddna.perez@b4.com.br;1;0;Balcao
+Noel Romero;448;SUPTE;comum;Masculino;noel.romero@b4.com.br;1;0;Listados
+Raymond Vazquez;449;SUPTE;comum;Masculino;raymond.vazquez@b4.com.br;1;0;Listados
+Javier Geist;450;ANL;comum;Masculino;javier.geist@b4.com.br;1;0;Listados
+Cesar Martel;451;GTE;comum;Masculino;cesar.martel@b4.com.br;1;0;Produtos Analytics
+Noel Montemayor;452;AST;comum;Masculino;noel.montemayor@b4.com.br;1;0;B3 Social
+Angelo Godoy;453;GTE;comum;Masculino;angelo.godoy@b4.com.br;1;0;Balcao
+Rebekah Vidrio Virula;454;AST;comum;Feminino;rebekah.virula@b4.com.br;1;0;Produtos Analytics
+Denisse Cordova-Parga;455;ANL;comum;Feminino;denisse.cordova-parga@b4.com.br;1;0;B3 Social
+Breanna Ortega;456;SUPTE;comum;Feminino;breanna.ortega@b4.com.br;1;0;Listados
+Veronica Pacheco;457;GTE;comum;Feminino;veronica.pacheco@b4.com.br;1;0;Balcao
+Jose Sanchez;458;ANL;comum;Masculino;jose.sanchez@b4.com.br;1;0;Balcao
+Jonathan Parra;459;ANL;comum;Masculino;jonathan.parra@b4.com.br;1;0;Listados
+Dakota Casias;460;SUPTE;comum;Masculino;dakota.casias@b4.com.br;1;0;Produtos Analytics
+Kathia Davila;461;GTE;comum;Feminino;kathia.davila@b4.com.br;1;0;Produtos Analytics
+Christopher Ortega-Reyes;462;ANL;comum;Masculino;christopher.ortega-reyes@b4.com.br;1;0;Produtos Analytics
+Gage Torres;463;SUPTE;comum;Masculino;gage.torres@b4.com.br;1;0;B3 Social
+Kimberly Espinoza Mendoza;464;GTE;comum;Feminino;kimberly.mendoza@b4.com.br;1;0;Balcao
+Anaedith Dominguez;465;ANL;comum;Feminino;anaedith.dominguez@b4.com.br;1;0;Listados
+Reina Balcazar;466;GTE;comum;Feminino;reina.balcazar@b4.com.br;1;0;Balcao
+Diana Garcia;467;AST;comum;Feminino;diana.garcia@b4.com.br;1;0;Balcao
+Faustino Sanchez;468;ANL;comum;Masculino;faustino.sanchez@b4.com.br;1;0;Balcao
+Daniel Flores;469;ANL;comum;Masculino;daniel.flores@b4.com.br;1;0;Listados
+Alexis Daniels;470;AST;comum;Feminino;alexis.daniels@b4.com.br;1;0;B3 Social
+Jamie Martinez-Saucedo;471;ANL;comum;Feminino;jamie.martinez-saucedo@b4.com.br;1;0;Produtos Analytics
+Patrick Ochoa;472;OUTROS;comum;Masculino;patrick.ochoa@b4.com.br;1;0;Produtos Analytics
+Devon Tarin;473;OUTROS;comum;Masculino;devon.tarin@b4.com.br;1;0;Balcao
+Nichole Villegas-Monroy;474;OUTROS;comum;Feminino;nichole.villegas-monroy@b4.com.br;1;0;Listados
+Troy Olivas-Saenz;475;OUTROS;comum;Masculino;troy.olivas-saenz@b4.com.br;1;0;Balcao
+Wesley Torres;476;OUTROS;comum;Masculino;wesley.torres@b4.com.br;1;0;Balcao
+Alejandro Medina;477;ANL;comum;Masculino;alejandro.medina@b4.com.br;1;0;Listados
+Christopher Perez;478;ESTAGIARIO;comum;Masculino;christopher.perez@b4.com.br;1;0;Produtos Analytics
+Desirae Garcia;479;ESP;comum;Feminino;desirae.garcia@b4.com.br;1;0;Produtos Analytics
+Alex Gomez;480;SUPTE;comum;Masculino;alex.gomez@b4.com.br;1;0;Listados
+Kimberly Anaya;481;ANL;comum;Feminino;kimberly.anaya@b4.com.br;1;0;Balcao
+Lexis Maestas;482;ANL;comum;Feminino;lexis.maestas@b4.com.br;1;0;Listados
+Lauren Cortez;483;ANL;comum;Feminino;lauren.cortez@b4.com.br;1;0;B3 Social
+Bianca Deanda;484;ESTAGIARIO;comum;Feminino;bianca.deanda@b4.com.br;1;0;Listados
+Ashley Montoya Sotelo;485;ANL;comum;Feminino;ashley.sotelo@b4.com.br;1;0;Produtos Analytics
+Anthonie Ruiz;486;ANL;comum;Masculino;anthonie.ruiz@b4.com.br;1;0;Balcao
+Adrian Ortiz;487;ESTAGIARIO;comum;Masculino;adrian.ortiz@b4.com.br;1;0;Balcao
+Sienna Rodriguez;488;ANL;comum;Feminino;sienna.rodriguez@b4.com.br;1;0;Listados
+Carla Ramirez Rico;489;ANL;comum;Feminino;carla.rico@b4.com.br;1;0;Produtos Analytics
+Lionel Ruvalcaba;490;ANL;comum;Masculino;lionel.ruvalcaba@b4.com.br;1;0;B3 Social
+Ulyses Rodriguez;491;ANL;comum;Masculino;ulyses.rodriguez@b4.com.br;1;0;Listados
+Michael Maez;492;ANL;comum;Masculino;michael.maez@b4.com.br;1;0;B3 Social
+Sharon Guillen;493;ANL;comum;Feminino;sharon.guillen@b4.com.br;1;0;Balcao
+Gracia Palomares;494;ESTAGIARIO;comum;Feminino;gracia.palomares@b4.com.br;1;0;Produtos Analytics
+Damien Marquez;495;CONS;comum;Masculino;damien.marquez@b4.com.br;1;0;Balcao
+David Baros;496;ANL;comum;Masculino;david.baros@b4.com.br;1;0;Listados
+Karla Campos-Acosta;497;COORD;comum;Feminino;karla.campos-acosta@b4.com.br;1;0;B3 Social
+Daisy Gentry;498;OUTROS;comum;Feminino;daisy.gentry@b4.com.br;1;0;Listados
+Ivory Pasillas Arana;499;ANL;comum;Feminino;ivory.arana@b4.com.br;1;0;Listados
+Misael Ortega;500;ESTAGIARIO;comum;Masculino;misael.ortega@b4.com.br;1;0;Listados
+Arnold Rivale;501;ANL;comum;Masculino;arnold.rivale@b4.com.br;1;0;Produtos Analytics
+Alexis Fuentes Ibanez;502;ANL;comum;Masculino;alexis.ibanez@b4.com.br;1;0;Listados
+Deanna Lucero;503;ESTAGIARIO;comum;Feminino;deanna.lucero@b4.com.br;1;0;Listados
+Mariah Villagrana;504;ANL;comum;Feminino;mariah.villagrana@b4.com.br;1;0;Produtos Analytics
+Delano Salazar-Orta;505;CONS;comum;Masculino;delano.salazar-orta@b4.com.br;1;0;Produtos Analytics
+Jesus Chavez-Castaneda;506;AUDITOR;comum;Masculino;jesus.chavez-castaneda@b4.com.br;1;0;Listados
+Jesus Aflague;507;SUPTE;comum;Masculino;jesus.aflague@b4.com.br;1;0;B3 Social
+Cesar Avila Sanchez;508;OUTROS;comum;Masculino;cesar.sanchez@b4.com.br;1;0;Balcao
+Hector Dominguez;509;SUPTE;comum;Masculino;hector.dominguez@b4.com.br;1;0;Balcao
+Ivonne Rodriguez;510;ANL;comum;Feminino;ivonne.rodriguez@b4.com.br;1;0;Balcao
+Christopher Sandoval;511;ANL;comum;Masculino;christopher.sandoval@b4.com.br;1;0;Listados
+Caleb Alvarez;512;ANL;comum;Masculino;caleb.alvarez@b4.com.br;1;0;Produtos Analytics
+Miguel Rogers;513;COORD;comum;Masculino;miguel.rogers@b4.com.br;1;0;Produtos Analytics
+Kendra Magana;514;ANL;comum;Feminino;kendra.magana@b4.com.br;1;0;B3 Social
+Jessica Medina;515;AST;comum;Feminino;jessica.medina@b4.com.br;1;0;Listados
+Nicole Lopez;516;ANL;comum;Feminino;nicole.lopez@b4.com.br;1;0;B3 Social
+Jason Castorena;517;GTE;comum;Masculino;jason.castorena@b4.com.br;1;0;Listados
+Gina Herrera-Diaz;518;OUTROS;comum;Feminino;gina.herrera-diaz@b4.com.br;1;0;Listados
+Oswaldo Gomez;519;ANL;comum;Masculino;oswaldo.gomez@b4.com.br;1;0;Listados
+Katherine Martinez;520;SUPTE;comum;Feminino;katherine.martinez@b4.com.br;1;0;B3 Social
+Viviana Villagran;521;SUPTE;comum;Feminino;viviana.villagran@b4.com.br;1;0;B3 Social
+Viviana Lucero;522;CONS;comum;Feminino;viviana.lucero@b4.com.br;1;0;Balcao
+Emma Duran;523;ANL;comum;Feminino;emma.duran@b4.com.br;1;0;Listados
+Tony Gutierrez;524;ANL;comum;Masculino;tony.gutierrez@b4.com.br;1;0;B3 Social
+Daylen Castor;525;COORD;comum;Masculino;daylen.castor@b4.com.br;1;0;Listados
+Yadira Martinez-Ornelas;526;COORD;comum;Feminino;yadira.martinez-ornelas@b4.com.br;1;0;Listados
+Evelyn Mares Solano;527;GTE;comum;Feminino;evelyn.solano@b4.com.br;1;0;Produtos Analytics
+Suzette Gray;528;ANL;comum;Feminino;suzette.gray@b4.com.br;1;0;Balcao
+David Cave Pasquali;529;ANL;comum;Masculino;david.pasquali@b4.com.br;1;0;Listados
+Selena Roybal;530;TECN;comum;Feminino;selena.roybal@b4.com.br;1;0;Balcao
+Adrian Martinez;531;SUPTE;comum;Masculino;adrian.martinez@b4.com.br;1;0;Balcao
+Sarah Medina;532;CONS;comum;Feminino;sarah.medina@b4.com.br;1;0;Produtos Analytics
+Courtney Villarreal;533;GTE;comum;Feminino;courtney.villarreal@b4.com.br;1;0;Balcao
+Juan Cano;534;ANL;comum;Masculino;juan.cano@b4.com.br;1;0;Balcao
+Geneva Romero;535;ANL;comum;Feminino;geneva.romero@b4.com.br;1;0;Listados
+Ozni Olivas Zubia;536;CONS;comum;Masculino;ozni.zubia@b4.com.br;1;0;Balcao
+Alondra Arzapalo;537;ANL;comum;Feminino;alondra.arzapalo@b4.com.br;1;0;Balcao
+Danella Martinez;538;ANL;comum;Feminino;danella.martinez@b4.com.br;1;0;Produtos Analytics
+Victoria Ortiz-Moreno;539;ANL;comum;Feminino;victoria.ortiz-moreno@b4.com.br;1;0;Produtos Analytics
+Enrique Madrid;540;ANL;comum;Masculino;enrique.madrid@b4.com.br;1;0;Listados
+Saray Lujan;541;ANL;comum;Feminino;saray.lujan@b4.com.br;1;0;B3 Social
+Jonathan Perez;542;ANL;comum;Masculino;jonathan.perez@b4.com.br;1;0;Listados
+Luis Martinez;543;ANL;comum;Masculino;luis.martinez@b4.com.br;1;0;Listados
+Berenice Calvillo;544;ANL;comum;Feminino;berenice.calvillo@b4.com.br;1;0;Listados
+Leanna Ruiz;545;ANL;comum;Feminino;leanna.ruiz@b4.com.br;1;0;Balcao
+Sara Sanchez;546;ANL;comum;Feminino;sara.sanchez@b4.com.br;1;0;Produtos Analytics
+Luis Valenzuela;547;ANL;comum;Masculino;luis.valenzuela@b4.com.br;1;0;Balcao
+Henry Lopez Luna;548;ANL;comum;Masculino;henry.luna@b4.com.br;1;0;Produtos Analytics
+Dylan Salcido;549;SUPTE;comum;Masculino;dylan.salcido@b4.com.br;1;0;Produtos Analytics
+Reina Ramirez Del Villar;550;SUPTE;comum;Feminino;reina.villar@b4.com.br;1;0;Produtos Analytics
+Rachael Sanchez;551;OUTROS;comum;Feminino;rachael.sanchez@b4.com.br;1;0;Listados
+Shey Cortez;552;ANL;comum;Masculino;shey.cortez@b4.com.br;1;0;Listados
+Yesenia Zarate;553;GTE;comum;Feminino;yesenia.zarate@b4.com.br;1;0;B3 Social
+Danika Bond;554;OUTROS;comum;Feminino;danika.bond@b4.com.br;1;0;B3 Social
+Kayleen Hoffman;555;ANL;comum;Feminino;kayleen.hoffman@b4.com.br;1;0;Produtos Analytics
+Isabel Anderson;556;TECN;comum;Feminino;isabel.anderson@b4.com.br;1;0;Balcao
+Brianna Salazar;557;OUTROS;comum;Feminino;brianna.salazar@b4.com.br;1;0;Balcao
+Edgar Martinez;558;ANL;comum;Masculino;edgar.martinez@b4.com.br;1;0;Listados
+Demetrio Trujillo;559;CONS;comum;Masculino;demetrio.trujillo@b4.com.br;1;0;Balcao
+Victoria Portillo;560;OUTROS;comum;Feminino;victoria.portillo@b4.com.br;1;0;Balcao
+Alina Baca;561;DIR;comum;Feminino;alina.baca@b4.com.br;1;0;Produtos Analytics
+Felicia Gonzalez;562;OUTROS;comum;Feminino;felicia.gonzalez@b4.com.br;1;0;Listados
+Perla Martinez;563;OUTROS;comum;Feminino;perla.martinez@b4.com.br;1;0;Balcao
+Juan Gonzalez;564;ANL;comum;Masculino;juan.gonzalez@b4.com.br;1;0;Listados
+Judith Ortega;565;GTE;comum;Feminino;judith.ortega@b4.com.br;1;0;Balcao
+Luis Estrada;566;OUTROS;comum;Masculino;luis.estrada@b4.com.br;1;0;Balcao
+Sammy Hernandez;567;ESP;comum;Masculino;sammy.hernandez@b4.com.br;1;0;B3 Social
+Sarah Regalado;568;ANL;comum;Feminino;sarah.regalado@b4.com.br;1;0;Balcao
+Joshue Ponderrelli Barron;569;AST;comum;Masculino;joshue.barron@b4.com.br;1;0;Listados
+Danielle Trujillo;570;CONS;comum;Feminino;danielle.trujillo@b4.com.br;1;0;Balcao
+Jorge Torres Rosas;571;ANL;comum;Masculino;jorge.rosas@b4.com.br;1;0;Listados
+Martina Nava;572;ANL;comum;Feminino;martina.nava@b4.com.br;1;0;Listados
+Juan Luna;573;OUTROS;comum;Masculino;juan.luna@b4.com.br;1;0;Balcao
+Adrian Flores;574;ANL;comum;Masculino;adrian.flores@b4.com.br;1;0;Listados
+Salvador Acosta;575;ANL;comum;Masculino;salvador.acosta@b4.com.br;1;0;Listados
+Isaac Trujillo;576;AST;comum;Masculino;isaac.trujillo@b4.com.br;1;0;Produtos Analytics
+Jaime Cordova;577;ANL;comum;Masculino;jaime.cordova@b4.com.br;1;0;Balcao
+Ashley Chase;578;SUPTE;comum;Feminino;ashley.chase@b4.com.br;1;0;Produtos Analytics
+Jorge Becerra;579;ANL;comum;Masculino;jorge.becerra@b4.com.br;1;0;Produtos Analytics
+Pamela Martinez;580;ANL;comum;Feminino;pamela.martinez@b4.com.br;1;0;Balcao
+Julian Munoz;581;SUPTE;comum;Masculino;julian.munoz@b4.com.br;1;0;Produtos Analytics
+Brigite Donohoe;582;ANL;comum;Feminino;brigite.donohoe@b4.com.br;1;0;Balcao
+Louis Muneton-Davila;583;ANL;comum;Masculino;louis.muneton-davila@b4.com.br;1;0;Listados
+Anthony Cadwell;584;ANL;comum;Masculino;anthony.cadwell@b4.com.br;1;0;Balcao
+Osbaldo Ramirez;585;ANL;comum;Masculino;osbaldo.ramirez@b4.com.br;1;0;Balcao
+Cynthia Chavira;586;ANL;comum;Feminino;cynthia.chavira@b4.com.br;1;0;Produtos Analytics
+Omar Daugherty;587;AUDITOR;comum;Masculino;omar.daugherty@b4.com.br;1;0;Listados
+Alondra Lopez;588;ANL;comum;Feminino;alondra.lopez@b4.com.br;1;0;Produtos Analytics
+Antonio Chavez;589;ANL;comum;Masculino;antonio.chavez@b4.com.br;1;0;Listados
+Ariel Bustos Aleman;590;COORD;comum;Feminino;ariel.aleman@b4.com.br;1;0;Balcao
+Alfredo Montoya;591;CONS;comum;Masculino;alfredo.montoya@b4.com.br;1;0;Listados
+Timothy Gonzales;592;ANL;comum;Masculino;timothy.gonzales@b4.com.br;1;0;Listados
+Selestina Encina;593;CONS;comum;Feminino;selestina.encina@b4.com.br;1;0;Balcao
+Alondra Garcia;594;ANL;comum;Feminino;alondra.garcia@b4.com.br;1;0;Listados
+James Caro;595;ANL;comum;Masculino;james.caro@b4.com.br;1;0;Listados
+Erick Anthony;596;GTE;comum;Masculino;erick.anthony@b4.com.br;1;0;Produtos Analytics
+Valery Anders;597;COORD;comum;Feminino;valery.anders@b4.com.br;1;0;Balcao
+Fermin Garcia;598;ANL;comum;Masculino;fermin.garcia@b4.com.br;1;0;Balcao
+Jesus Medina;599;SUPTE;comum;Masculino;jesus.medina@b4.com.br;1;0;Produtos Analytics
+Ricki Munoz;600;ANL;comum;Masculino;ricki.munoz@b4.com.br;1;0;Balcao
+Christopher Partida;601;ANL;comum;Masculino;christopher.partida@b4.com.br;1;0;B3 Social
+Derick Mestas;602;CONS;comum;Masculino;derick.mestas@b4.com.br;1;0;Balcao
+Adora Hernandez;603;ANL;comum;Feminino;adora.hernandez@b4.com.br;1;0;Produtos Analytics
+Salvador Garcia;604;CONS;comum;Masculino;salvador.garcia@b4.com.br;1;0;Balcao
+Carolina Garcia;605;GTE;comum;Feminino;carolina.garcia@b4.com.br;1;0;Produtos Analytics
+Guadalupe Espinosa;606;ANL;comum;Feminino;guadalupe.espinosa@b4.com.br;1;0;Listados
+Austin Uribe Jr;607;ESP;comum;Masculino;austin.jr@b4.com.br;1;0;Balcao
+Jenae Gallegos;608;OUTROS;comum;Feminino;jenae.gallegos@b4.com.br;1;0;Produtos Analytics
+Jayme Young;609;GTE;comum;Feminino;jayme.young@b4.com.br;1;0;Listados
+Nohemy Montes-Alvarez;610;ANL;comum;Feminino;nohemy.montes-alvarez@b4.com.br;1;0;Listados
+Teresa Coombe-Soto;611;SUPTE;comum;Feminino;teresa.coombe-soto@b4.com.br;1;0;B3 Social
+Daniel Turney;612;GTE;comum;Masculino;daniel.turney@b4.com.br;1;0;Listados
+Joshua Delong;613;OUTROS;comum;Masculino;joshua.delong@b4.com.br;1;0;Listados
+Ruben Alire;614;OUTROS;comum;Masculino;ruben.alire@b4.com.br;1;0;Balcao
+Jorge Valles;615;CONS;comum;Masculino;jorge.valles@b4.com.br;1;0;B3 Social
+Christian Gomez;616;SUPTE;comum;Masculino;christian.gomez@b4.com.br;1;0;Balcao
+Diana Trujillo;617;ANL;comum;Feminino;diana.trujillo@b4.com.br;1;0;B3 Social
+Cindy Armendariz;618;OUTROS;comum;Feminino;cindy.armendariz@b4.com.br;1;0;B3 Social
+Jeanette Ruiz;619;AST;comum;Feminino;jeanette.ruiz@b4.com.br;1;0;Produtos Analytics
+Jonathan Garcia;620;GTE;comum;Masculino;jonathan.garcia@b4.com.br;1;0;Listados
+Kassandra Cordova;621;OUTROS;comum;Feminino;kassandra.cordova@b4.com.br;1;0;Balcao
+Adrina Gallegos;622;ANL;comum;Feminino;adrina.gallegos@b4.com.br;1;0;Produtos Analytics
+James Recendes;623;ANL;comum;Masculino;james.recendes@b4.com.br;1;0;Balcao
+Lisa Gonzales;624;ANL;comum;Feminino;lisa.gonzales@b4.com.br;1;0;Balcao
+Ailed Arellano;625;ANL;comum;Feminino;ailed.arellano@b4.com.br;1;0;Produtos Analytics
+Aleece Burgos;626;OUTROS;comum;Feminino;aleece.burgos@b4.com.br;1;0;Balcao
+Odalys Cardenas;627;ANL;comum;Feminino;odalys.cardenas@b4.com.br;1;0;Listados
+Neyrylynn Deibert;628;ANL;comum;Feminino;neyrylynn.deibert@b4.com.br;1;0;Produtos Analytics
+Michael Bueno;629;AUDITOR;comum;Masculino;michael.bueno@b4.com.br;1;0;Balcao
+Randy Holguin;630;ANL;comum;Masculino;randy.holguin@b4.com.br;1;0;Listados
+Brandon Riley;631;ANL;comum;Masculino;brandon.riley@b4.com.br;1;0;Listados
+Erica Trujillo;632;ANL;comum;Feminino;erica.trujillo@b4.com.br;1;0;Produtos Analytics
+Erik Isco;633;ANL;comum;Masculino;erik.isco@b4.com.br;1;0;B3 Social
+Amber Jaramillo;634;ANL;comum;Feminino;amber.jaramillo@b4.com.br;1;0;Listados
+Reyna Debenedittis;635;ANL;comum;Feminino;reyna.debenedittis@b4.com.br;1;0;Balcao
+Juan Payan;636;GTE;comum;Masculino;juan.payan@b4.com.br;1;0;Balcao
+Angelica Martha-Blanco;637;ANL;comum;Feminino;angelica.martha-blanco@b4.com.br;1;0;Produtos Analytics
+Felicia Pinon;638;ANL;comum;Feminino;felicia.pinon@b4.com.br;1;0;Balcao
+Glendy Villa;639;ANL;comum;Feminino;glendy.villa@b4.com.br;1;0;Produtos Analytics
+Mario Rascon Zamudio;640;ANL;comum;Masculino;mario.zamudio@b4.com.br;1;0;Listados
+Nadja Chavez;641;ANL;comum;Feminino;nadja.chavez@b4.com.br;1;0;Listados
+Israel Arledge;642;ESP;comum;Masculino;israel.arledge@b4.com.br;1;0;Listados
+Aubrey Escalante;643;ANL;comum;Feminino;aubrey.escalante@b4.com.br;1;0;Produtos Analytics
+Israel Ruybal;644;OUTROS;comum;Masculino;israel.ruybal@b4.com.br;1;0;Produtos Analytics
+Ammi Martinez;645;SUPTE;comum;Masculino;ammi.martinez@b4.com.br;1;0;Produtos Analytics
+Jesenia Moreno;646;ANL;comum;Feminino;jesenia.moreno@b4.com.br;1;0;Listados
+Maria Bonilla;647;ANL;comum;Feminino;maria.bonilla@b4.com.br;1;0;B3 Social
+Ameila Lopez;648;CONS;comum;Feminino;ameila.lopez@b4.com.br;1;0;Listados
+Luis Robles;649;GTE;comum;Masculino;luis.robles@b4.com.br;1;0;B3 Social
+Shelby Santos-Silva;650;OUTROS;comum;Feminino;shelby.santos-silva@b4.com.br;1;0;Listados
+Maria Paz Alvarado;651;COORD;comum;Feminino;maria.alvarado@b4.com.br;1;0;Listados
+Alazon Del Hierro;652;ANL;comum;Masculino;alazon.hierro@b4.com.br;1;0;Listados
+Stevan Esparza;653;GTE;comum;Masculino;stevan.esparza@b4.com.br;1;0;Listados
+Luis Maxwell;654;ANL;comum;Masculino;luis.maxwell@b4.com.br;1;0;Produtos Analytics
+Brianna Valenzuela;655;COORD;comum;Feminino;brianna.valenzuela@b4.com.br;1;0;Listados
+Alfredo Diaz;656;OUTROS;comum;Masculino;alfredo.diaz@b4.com.br;1;0;Balcao
+Johnelle Gomez;657;COORD;comum;Feminino;johnelle.gomez@b4.com.br;1;0;Produtos Analytics
+Jesus Ochoa;658;ESP;comum;Masculino;jesus.ochoa@b4.com.br;1;0;Produtos Analytics
+Mckayla Coca-Pacheco;659;ANL;comum;Feminino;mckayla.coca-pacheco@b4.com.br;1;0;Listados
+Jason Sanchez;660;ANL;comum;Masculino;jason.sanchez@b4.com.br;1;0;Produtos Analytics
+Nancy Casarez;661;COORD;comum;Feminino;nancy.casarez@b4.com.br;1;0;Balcao
+Jennifer Yescas;662;OUTROS;comum;Feminino;jennifer.yescas@b4.com.br;1;0;Produtos Analytics
+Alyssa Handman;663;ANL;comum;Feminino;alyssa.handman@b4.com.br;1;0;Produtos Analytics
+Brenda Rivera;664;SUPTE;comum;Feminino;brenda.rivera@b4.com.br;1;0;Listados
+Eliezer Ritterholz;665;GTE;comum;Masculino;eliezer.ritterholz@b4.com.br;1;0;Produtos Analytics
+Adrian Dominguez;666;ANL;comum;Masculino;adrian.dominguez@b4.com.br;1;0;Produtos Analytics
+Perla Mendoza;667;COORD;comum;Feminino;perla.mendoza@b4.com.br;1;0;B3 Social
+Briana Lucero;668;GTE;comum;Feminino;briana.lucero@b4.com.br;1;0;Listados
+Allen Carrillo;669;COORD;comum;Masculino;allen.carrillo@b4.com.br;1;0;Listados
+Steven Martinez;670;ANL;comum;Masculino;steven.martinez@b4.com.br;1;0;Listados
+Armando Gardea;671;ANL;comum;Masculino;armando.gardea@b4.com.br;1;0;B3 Social
+Anjelica Pascual Marin;672;SUPTE;comum;Feminino;anjelica.marin@b4.com.br;1;0;Listados
+Fabian Gonzales;673;GTE;comum;Masculino;fabian.gonzales@b4.com.br;1;0;Listados
+Jonathan Valenzuela;674;ANL;comum;Masculino;jonathan.valenzuela@b4.com.br;1;0;Produtos Analytics
+Santino Marquez;675;ANL;comum;Masculino;santino.marquez@b4.com.br;1;0;Listados
+Richard Baca;676;ANL;comum;Masculino;richard.baca@b4.com.br;1;0;Balcao
+Ana Olague;677;GTE;comum;Feminino;ana.olague@b4.com.br;1;0;Balcao
+Daniel Carreras;678;ANL;comum;Masculino;daniel.carreras@b4.com.br;1;0;Produtos Analytics
+Vanessa Sanchez;679;ESP;comum;Feminino;vanessa.sanchez@b4.com.br;1;0;B3 Social
+Lynda Sanchez;680;ANL;comum;Feminino;lynda.sanchez@b4.com.br;1;0;Listados
+Gloria Burciaga;681;CONS;comum;Feminino;gloria.burciaga@b4.com.br;1;0;Balcao
+Anthony Garcia;682;ANL;comum;Masculino;anthony.garcia@b4.com.br;1;0;Listados
+Jesenia Franco Aguilar;683;ANL;comum;Feminino;jesenia.aguilar@b4.com.br;1;0;Balcao
+Shawn Camacho;684;GTE;comum;Masculino;shawn.camacho@b4.com.br;1;0;Listados
+Yesenia Rodarte-Ochoa;685;ANL;comum;Feminino;yesenia.rodarte-ochoa@b4.com.br;1;0;Listados
+Michelle Romero;686;ESTAGIARIO;comum;Feminino;michelle.romero@b4.com.br;1;0;Produtos Analytics
+Armando Zapata Alvarado;687;ANL;comum;Masculino;armando.alvarado@b4.com.br;1;0;B3 Social
+Matthew Munoz;688;ANL;comum;Masculino;matthew.munoz@b4.com.br;1;0;Balcao
+Jose Perez;689;ANL;comum;Masculino;jose.perez@b4.com.br;1;0;Produtos Analytics
+Isabella Hernandez;690;ANL;comum;Feminino;isabella.hernandez@b4.com.br;1;0;Balcao
+Gabriela Sandoval;691;OUTROS;comum;Feminino;gabriela.sandoval@b4.com.br;1;0;Produtos Analytics
+Karen Sandoval;692;ANL;comum;Feminino;karen.sandoval@b4.com.br;1;0;Balcao
+Veronica Martinez;693;ANL;comum;Feminino;veronica.martinez@b4.com.br;1;0;Balcao
+Dante Mora;694;ANL;comum;Masculino;dante.mora@b4.com.br;1;0;Listados
+Erik Hudson;695;SUPTE;comum;Masculino;erik.hudson@b4.com.br;1;0;Listados
+Onesimo Montoya Solis;696;GTE;comum;Masculino;onesimo.solis@b4.com.br;1;0;Balcao
+Mayra Mora;697;ANL;comum;Feminino;mayra.mora@b4.com.br;1;0;Listados
+Jose Medina;698;OUTROS;comum;Masculino;jose.medina@b4.com.br;1;0;Listados
+Isaac Lucero;699;CONS;comum;Masculino;isaac.lucero@b4.com.br;1;0;Listados
+Cynthia Marroquin Duran;700;COORD;comum;Feminino;cynthia.duran@b4.com.br;1;0;Produtos Analytics
+Hailey Barela;701;DIR;comum;Feminino;hailey.barela@b4.com.br;1;0;B3 Social
+Jared Rocha;702;GTE;comum;Masculino;jared.rocha@b4.com.br;1;0;B3 Social
+Jesse Martinez;703;ESP;comum;Masculino;jesse.martinez@b4.com.br;1;0;B3 Social
+Jesse Flores;704;COORD;comum;Masculino;jesse.flores@b4.com.br;1;0;Balcao
+Amora Sailas;705;ANL;comum;Feminino;amora.sailas@b4.com.br;1;0;Listados
+Garrett Martinez;706;DIR;comum;Masculino;garrett.martinez@b4.com.br;1;0;Listados
+Marvin Garcia;707;ANL;comum;Masculino;marvin.garcia@b4.com.br;1;0;Balcao
+Jonathan Espinoza;708;ANL;comum;Masculino;jonathan.espinoza@b4.com.br;1;0;Produtos Analytics
+Angelo Archuleta;709;ANL;comum;Masculino;angelo.archuleta@b4.com.br;1;0;B3 Social
+Melissa Toledo;710;ANL;comum;Feminino;melissa.toledo@b4.com.br;1;0;Listados
+Jonah Scheel;711;AST;comum;Masculino;jonah.scheel@b4.com.br;1;0;Balcao
+Eluteria Archuleta;712;COORD;comum;Feminino;eluteria.archuleta@b4.com.br;1;0;Listados
+Selastina Rios;713;ANL;comum;Feminino;selastina.rios@b4.com.br;1;0;Listados
+James Santoyo;714;ANL;comum;Masculino;james.santoyo@b4.com.br;1;0;Listados
+James Cedano;715;ANL;comum;Masculino;james.cedano@b4.com.br;1;0;Listados
+Francisco Guevara;716;ANL;comum;Masculino;francisco.guevara@b4.com.br;1;0;Balcao
+Dionne Apodaca;717;ANL;comum;Feminino;dionne.apodaca@b4.com.br;1;0;Produtos Analytics
+Luis Arellano;718;ANL;comum;Masculino;luis.arellano@b4.com.br;1;0;B3 Social
+Danny Gonzalez;719;AUDITOR;comum;Masculino;danny.gonzalez@b4.com.br;1;0;Produtos Analytics
+Danielle Rodriguez;720;ANL;comum;Feminino;danielle.rodriguez@b4.com.br;1;0;Balcao
+Deisy Molina;721;GTE;comum;Feminino;deisy.molina@b4.com.br;1;0;Balcao
+Marco Aldaz Holguin;722;ADVOGADO;comum;Masculino;marco.holguin@b4.com.br;1;0;B3 Social
+Oscar Gallegos;723;ANL;comum;Masculino;oscar.gallegos@b4.com.br;1;0;Listados
+Jezzelin Vasquez;724;ANL;comum;Feminino;jezzelin.vasquez@b4.com.br;1;0;B3 Social
+Sarai Garza;725;ANL;comum;Feminino;sarai.garza@b4.com.br;1;0;Listados
+Joel Castaneda Garcia;726;AUDITOR;comum;Masculino;joel.garcia@b4.com.br;1;0;Balcao
+Aubrey Izaguirre;727;CHEFE;comum;Feminino;aubrey.izaguirre@b4.com.br;1;0;Produtos Analytics
+Julio Hernandez De La Torre;728;ESP;comum;Masculino;julio.torre@b4.com.br;1;0;Listados
+Victor Sisneros;729;ANL;comum;Masculino;victor.sisneros@b4.com.br;1;0;B3 Social
+Deon Martinez;730;ANL;comum;Masculino;deon.martinez@b4.com.br;1;0;Produtos Analytics
+Krystal Bernhardt;731;GTE;comum;Feminino;krystal.bernhardt@b4.com.br;1;0;B3 Social
+Rodolfo Zavala Andrade;732;ANL;comum;Masculino;rodolfo.andrade@b4.com.br;1;0;Listados
+Christian Rivera;733;COORD;comum;Masculino;christian.rivera@b4.com.br;1;0;Listados
+Kari Vazquez;734;ANL;comum;Feminino;kari.vazquez@b4.com.br;1;0;Produtos Analytics
+Prisilla Edwards;735;ADVOGADO;comum;Feminino;prisilla.edwards@b4.com.br;1;0;Balcao
+Jesse Montejo Fuentes;736;ANL;comum;Masculino;jesse.fuentes@b4.com.br;1;0;Produtos Analytics
+Aimee Espinoza;737;AUDITOR;comum;Feminino;aimee.espinoza@b4.com.br;1;0;Listados
+Erny Rael;738;GTE;comum;Masculino;erny.rael@b4.com.br;1;0;Balcao
+Natasha Ward;739;OUTROS;comum;Feminino;natasha.ward@b4.com.br;1;0;Balcao
+Jesus Lopez;740;ANL;comum;Masculino;jesus.lopez@b4.com.br;1;0;Balcao
+Daniel Polgar;741;ANL;comum;Masculino;daniel.polgar@b4.com.br;1;0;Produtos Analytics
+Alexander Whitney;742;GTE;comum;Masculino;alexander.whitney@b4.com.br;1;0;Produtos Analytics
+Jasmeen Dena;743;ANL;comum;Feminino;jasmeen.dena@b4.com.br;1;0;Balcao
+Lisbeth Terrazas;744;ANL;comum;Feminino;lisbeth.terrazas@b4.com.br;1;0;Listados
+Andrea Maldonado;745;OUTROS;comum;Feminino;andrea.maldonado@b4.com.br;1;0;B3 Social
+Andrew Cabral-Munoz;746;ANL;comum;Masculino;andrew.cabral-munoz@b4.com.br;1;0;Balcao
+Alexis Gilliland;747;GTE;comum;Feminino;alexis.gilliland@b4.com.br;1;0;Produtos Analytics
+Gloria Uriarte;748;AUDITOR;comum;Feminino;gloria.uriarte@b4.com.br;1;0;Produtos Analytics
+Daniel Jensen;749;GTE;comum;Masculino;daniel.jensen@b4.com.br;1;0;Produtos Analytics
+Joseph Sanchez;750;GTE;comum;Masculino;joseph.sanchez@b4.com.br;1;0;Produtos Analytics
+Erik Cordova;751;ANL;comum;Masculino;erik.cordova@b4.com.br;1;0;Listados
+Daniel Rios-Pacheco;752;ANL;comum;Masculino;daniel.rios-pacheco@b4.com.br;1;0;B3 Social
+Kaleb Quezada;753;ANL;comum;Masculino;kaleb.quezada@b4.com.br;1;0;Listados
+Abigail Santillan;754;AST;comum;Feminino;abigail.santillan@b4.com.br;1;0;Produtos Analytics
+Brielle Trujillo;755;SUPTE;comum;Feminino;brielle.trujillo@b4.com.br;1;0;B3 Social
+Carlos Martinez;756;GTE;comum;Masculino;carlos.martinez@b4.com.br;1;0;Balcao
+Monica Quezada;757;ANL;comum;Feminino;monica.quezada@b4.com.br;1;0;Balcao
+Ricky Munoz;758;SUPTE;comum;Masculino;ricky.munoz@b4.com.br;1;0;Balcao
+Jenna Benavidez;759;SUPTE;comum;Feminino;jenna.benavidez@b4.com.br;1;0;Listados
+Marco Sanchez;760;ANL;comum;Masculino;marco.sanchez@b4.com.br;1;0;Balcao
+Destiny Archuleta;761;ANL;comum;Feminino;destiny.archuleta@b4.com.br;1;0;Produtos Analytics
+Jonathan Nevarez;762;ANL;comum;Masculino;jonathan.nevarez@b4.com.br;1;0;Listados
+Nora Williams;763;GTE;comum;Feminino;nora.williams@b4.com.br;1;0;Balcao
+Karla Hinojosa;764;ANL;comum;Feminino;karla.hinojosa@b4.com.br;1;0;Produtos Analytics
+Sara Lovato;765;GTE;comum;Feminino;sara.lovato@b4.com.br;1;0;Listados
+Kenedi Villescas Nunez;766;ANL;comum;Feminino;kenedi.nunez@b4.com.br;1;0;Balcao
+Efren Holguin Garcia;767;ANL;comum;Masculino;efren.garcia@b4.com.br;1;0;Balcao
+Jordan Mora;768;OUTROS;comum;Masculino;jordan.mora@b4.com.br;1;0;Listados
+Jonathan Piedra;769;GTE;comum;Masculino;jonathan.piedra@b4.com.br;1;0;Produtos Analytics
+Tyler Trujillo;770;ANL;comum;Masculino;tyler.trujillo@b4.com.br;1;0;Produtos Analytics
+Steven Silva Alcaraz;771;GTE;comum;Masculino;steven.alcaraz@b4.com.br;1;0;Produtos Analytics
+Mateo Rodriguez;772;ANL;comum;Masculino;mateo.rodriguez@b4.com.br;1;0;Listados
+Salvador Romero;773;ANL;comum;Masculino;salvador.romero@b4.com.br;1;0;Listados
+Joel Marquez-Meraz;774;GTE;comum;Masculino;joel.marquez-meraz@b4.com.br;1;0;Produtos Analytics
+Antonio Salazar;775;GTE;comum;Masculino;antonio.salazar@b4.com.br;1;0;Balcao
+Ricardo Alvarado;776;ANL;comum;Masculino;ricardo.alvarado@b4.com.br;1;0;Produtos Analytics
+Cody Hurtado;777;ANL;comum;Masculino;cody.hurtado@b4.com.br;1;0;Produtos Analytics
+Jasmine Lopez;778;CONS;comum;Feminino;jasmine.lopez@b4.com.br;1;0;Balcao
+Marissa Barron;779;OUTROS;comum;Feminino;marissa.barron@b4.com.br;1;0;Produtos Analytics
+Kimberly Vazquez-Rangel;780;GTE;comum;Feminino;kimberly.vazquez-rangel@b4.com.br;1;0;Balcao
+Christian Deuel;781;ANL;comum;Masculino;christian.deuel@b4.com.br;1;0;Balcao
+Chad Sanchez Morales;782;ANL;comum;Masculino;chad.morales@b4.com.br;1;0;Listados
+Elizabeth Sanchez;783;SUPTE;comum;Feminino;elizabeth.sanchez@b4.com.br;1;0;Listados
+Javier Chavez;784;AST;comum;Masculino;javier.chavez@b4.com.br;1;0;B3 Social
+Erika Vigil;785;ANL;comum;Feminino;erika.vigil@b4.com.br;1;0;Balcao
+Dante Barrera;786;ANL;comum;Masculino;dante.barrera@b4.com.br;1;0;Listados
+Gabriel Garcia;787;ANL;comum;Masculino;gabriel.garcia@b4.com.br;1;0;B3 Social
+Marivel Martinez;788;ANL;comum;Feminino;marivel.martinez@b4.com.br;1;0;Balcao
+Jackson Diaz Galindo;789;ANL;comum;Masculino;jackson.galindo@b4.com.br;1;0;Produtos Analytics
+Taylor Yanez;790;TECN;comum;Feminino;taylor.yanez@b4.com.br;1;0;Balcao
+Matthew Castillo;791;ANL;comum;Masculino;matthew.castillo@b4.com.br;1;0;Listados
+Angelo Chaparro;792;ANL;comum;Masculino;angelo.chaparro@b4.com.br;1;0;Produtos Analytics
+Felicia Martinez;793;ANL;comum;Feminino;felicia.martinez@b4.com.br;1;0;Listados
+Nina Vigil;794;ANL;comum;Feminino;nina.vigil@b4.com.br;1;0;Balcao
+Melissa Valenzuela;795;ANL;comum;Feminino;melissa.valenzuela@b4.com.br;1;0;Produtos Analytics
+Arisai Cordova;796;ANL;comum;Feminino;arisai.cordova@b4.com.br;1;0;Produtos Analytics
+Daryl Duran;797;ANL;comum;Feminino;daryl.duran@b4.com.br;1;0;Listados
+Jose Sandoval;798;ANL;comum;Masculino;jose.sandoval@b4.com.br;1;0;Listados
+Roberto Padilla;799;ANL;comum;Masculino;roberto.padilla@b4.com.br;1;0;Balcao
+Alejandra Lopez;800;ANL;comum;Feminino;alejandra.lopez@b4.com.br;1;0;Balcao
+Shawnathon Jacquez;801;ANL;comum;Masculino;shawnathon.jacquez@b4.com.br;1;0;Listados
+Cinthia Archuleta;802;CONS;comum;Feminino;cinthia.archuleta@b4.com.br;1;0;Listados
+Paul Martinez;803;ESP;comum;Masculino;paul.martinez@b4.com.br;1;0;Listados
+Elliott Galindo-Gutierrez;804;ADVOGADO;comum;Masculino;elliott.galindo-gutierrez@b4.com.br;1;0;Balcao
+Nathan Rosales-Marroquin;805;SUPTE;comum;Masculino;nathan.rosales-marroquin@b4.com.br;1;0;Listados
+Kierra Troxel;806;SUPTE;comum;Feminino;kierra.troxel@b4.com.br;1;0;Produtos Analytics
+Victor Rivas Gutierrez;807;DIR;comum;Masculino;victor.gutierrez@b4.com.br;1;0;Balcao
+Adrienne Coronado;808;OUTROS;comum;Feminino;adrienne.coronado@b4.com.br;1;0;Listados
+Ailen Blancas;809;ANL;comum;Feminino;ailen.blancas@b4.com.br;1;0;Balcao
+Nico Corral-Acosta;810;ANL;comum;Masculino;nico.corral-acosta@b4.com.br;1;0;Listados
+Vincent Lopez Tellez;811;ANL;comum;Masculino;vincent.tellez@b4.com.br;1;0;Produtos Analytics
+Isabel Otero;812;SUPTE;comum;Feminino;isabel.otero@b4.com.br;1;0;Listados
+James Espinoza;813;GTE;comum;Masculino;james.espinoza@b4.com.br;1;0;Listados
+Alma Castillo;814;OUTROS;comum;Feminino;alma.castillo@b4.com.br;1;0;Listados
+Mary Lu Hernandez;815;ANL;comum;Feminino;mary.hernandez@b4.com.br;1;0;Produtos Analytics
+Jesse Bird;816;OUTROS;comum;Masculino;jesse.bird@b4.com.br;1;0;Balcao
+Victor Trevizo;817;ESP;comum;Masculino;victor.trevizo@b4.com.br;1;0;Produtos Analytics
+Elisa Bustamante;818;SUPTE;comum;Feminino;elisa.bustamante@b4.com.br;1;0;Listados
+Lauren Morgan;819;ANL;comum;Feminino;lauren.morgan@b4.com.br;1;0;Produtos Analytics
+Kenneth Cisneros;820;VICE;comum;Masculino;kenneth.cisneros@b4.com.br;1;0;Produtos Analytics
+Monica Hernandez;821;CONS;comum;Feminino;monica.hernandez@b4.com.br;1;0;Produtos Analytics
+Cheyenne Martinez;822;GTE;comum;Feminino;cheyenne.martinez@b4.com.br;1;0;Listados
+Monique Benavente;823;ANL;comum;Feminino;monique.benavente@b4.com.br;1;0;Produtos Analytics
+Rachel Villanueva;824;OUTROS;comum;Feminino;rachel.villanueva@b4.com.br;1;0;Listados
+Peter Martinez;825;ESTAGIARIO;comum;Masculino;peter.martinez@b4.com.br;1;0;Listados
+Kanani Garcia;826;ESTAGIARIO;comum;Feminino;kanani.garcia@b4.com.br;1;0;Listados
+Fabian Sanchez;827;ANL;comum;Masculino;fabian.sanchez@b4.com.br;1;0;Listados
+Karla De La Rosa;828;OUTROS;comum;Feminino;karla.rosa@b4.com.br;1;0;Produtos Analytics
+Elvia Caranza;829;GTE;comum;Feminino;elvia.caranza@b4.com.br;1;0;Listados
+Steven Soto;830;ANL;comum;Masculino;steven.soto@b4.com.br;1;0;Balcao
+Dominic Saucedo-Castorena;831;SUPTE;comum;Masculino;dominic.saucedo-castorena@b4.com.br;1;0;Produtos Analytics
+Marina Araujo Castaneda;832;ANL;comum;Feminino;marina.castaneda@b4.com.br;1;0;Listados
+Alec Arellano;833;SUPTE;comum;Masculino;alec.arellano@b4.com.br;1;0;Produtos Analytics
+Tessa Hernandez;834;AUDITOR;comum;Feminino;tessa.hernandez@b4.com.br;1;0;Balcao
+Joseph Fellman;835;AUDITOR;comum;Masculino;joseph.fellman@b4.com.br;1;0;Balcao
+Felicia Cisneros;836;ANL;comum;Feminino;felicia.cisneros@b4.com.br;1;0;B3 Social
+Lenny Meighan;837;ANL;comum;Masculino;lenny.meighan@b4.com.br;1;0;Listados
+Matthew Rocha-Guzman;838;COORD;comum;Masculino;matthew.rocha-guzman@b4.com.br;1;0;Listados
+Analinda Maestas;839;ANL;comum;Feminino;analinda.maestas@b4.com.br;1;0;Listados
+Alejandro Kaufman;840;OUTROS;comum;Masculino;alejandro.kaufman@b4.com.br;1;0;Balcao
+Desmond Hernandez;841;ANL;comum;Masculino;desmond.hernandez@b4.com.br;1;0;Listados
+Andres Frazier;842;ANL;comum;Masculino;andres.frazier@b4.com.br;1;0;Listados
+Kimberly Villanueva-Olvera;843;ANL;comum;Feminino;kimberly.villanueva-olvera@b4.com.br;1;0;Balcao
+Tianna Ortiz;844;SUPTE;comum;Feminino;tianna.ortiz@b4.com.br;1;0;Balcao
+Elijah Balderrama;845;GTE;comum;Masculino;elijah.balderrama@b4.com.br;1;0;Balcao
+Ezequiel Vigil;846;CONS;comum;Masculino;ezequiel.vigil@b4.com.br;1;0;Produtos Analytics
+Itzel Hernandez;847;GTE;comum;Feminino;itzel.hernandez@b4.com.br;1;0;Listados
+Arianne Garnier;848;ANL;comum;Feminino;arianne.garnier@b4.com.br;1;0;Listados
+Jorge Miles;849;SUPTE;comum;Masculino;jorge.miles@b4.com.br;1;0;Listados
+Brianna Mclellan;850;ANL;comum;Feminino;brianna.mclellan@b4.com.br;1;0;Produtos Analytics
+Luis Estrada;851;ANL;comum;Masculino;luis.estrada@b4.com.br;1;0;B3 Social
+Elizabeth Mena;852;ANL;comum;Feminino;elizabeth.mena@b4.com.br;1;0;Balcao
+Teresa Valdez;853;OUTROS;comum;Feminino;teresa.valdez@b4.com.br;1;0;Produtos Analytics
+Ceasar Sanchez Vergara;854;OUTROS;comum;Masculino;ceasar.vergara@b4.com.br;1;0;Balcao
+Viviana Gonzalez Castaneda;855;ANL;comum;Feminino;viviana.castaneda@b4.com.br;1;0;Produtos Analytics
+Beatriz Vega-Cervantes;856;COORD;comum;Feminino;beatriz.vega-cervantes@b4.com.br;1;0;Balcao
+Emilio Guzman;857;CONS;comum;Masculino;emilio.guzman@b4.com.br;1;0;Listados
+Rene Dominguez;858;ANL;comum;Masculino;rene.dominguez@b4.com.br;1;0;Produtos Analytics
+Cassie Solis;859;SUPTE;comum;Feminino;cassie.solis@b4.com.br;1;0;Listados
+Anthony Armendariz;860;GTE;comum;Masculino;anthony.armendariz@b4.com.br;1;0;Balcao
+Penelope Iboa;861;ANL;comum;Feminino;penelope.iboa@b4.com.br;1;0;Listados
+Angelica Gonzales;862;ESTAGIARIO;comum;Feminino;angelica.gonzales@b4.com.br;1;0;Produtos Analytics
+Steven Rishel;863;ANL;comum;Masculino;steven.rishel@b4.com.br;1;0;Balcao
+Anthony Beltramo;864;ANL;comum;Masculino;anthony.beltramo@b4.com.br;1;0;Produtos Analytics
+Josue Alvarado Jr;865;ANL;comum;Masculino;josue.jr@b4.com.br;1;0;Listados
+Briana Barrientos;866;ANL;comum;Feminino;briana.barrientos@b4.com.br;1;0;Produtos Analytics
+Jordan Torres;867;ANL;comum;Feminino;jordan.torres@b4.com.br;1;0;Listados
+Alma Ugalde-Arteaga;868;ANL;comum;Feminino;alma.ugalde-arteaga@b4.com.br;1;0;Balcao
+Andres Bueno;869;ANL;comum;Masculino;andres.bueno@b4.com.br;1;0;Balcao
+Issac Ulfig;870;AUDITOR;comum;Masculino;issac.ulfig@b4.com.br;1;0;B3 Social
+Lylybell Marquez;871;OUTROS;comum;Feminino;lylybell.marquez@b4.com.br;1;0;Listados
+Andrea Diaz;872;ANL;comum;Feminino;andrea.diaz@b4.com.br;1;0;Produtos Analytics
+Kendra Barron;873;AST;comum;Feminino;kendra.barron@b4.com.br;1;0;Listados
+Jaime Franco Ramirez;874;ANL;comum;Masculino;jaime.ramirez@b4.com.br;1;0;Produtos Analytics
+Marty Archibeque;875;ANL;comum;Masculino;marty.archibeque@b4.com.br;1;0;Listados
+Joel Avina;876;GTE;comum;Masculino;joel.avina@b4.com.br;1;0;Listados
+Carolina Vasquez;877;GTE;comum;Feminino;carolina.vasquez@b4.com.br;1;0;Balcao
+Claudia Muniz;878;CONS;comum;Feminino;claudia.muniz@b4.com.br;1;0;Balcao
+Tony Munoz;879;COORD;comum;Masculino;tony.munoz@b4.com.br;1;0;Produtos Analytics
+Selena Lucero;880;ADVOGADO;comum;Feminino;selena.lucero@b4.com.br;1;0;Balcao
+Elizabeth Quezada;881;ANL;comum;Feminino;elizabeth.quezada@b4.com.br;1;0;Balcao
+Michael Gonzales;882;OUTROS;comum;Masculino;michael.gonzales@b4.com.br;1;0;Balcao
+Raul Martinez;883;COORD;comum;Masculino;raul.martinez@b4.com.br;1;0;Listados
+Desideria Marez;884;GTE;comum;Feminino;desideria.marez@b4.com.br;1;0;Produtos Analytics
+Alexandra Espinoza Vazquez;885;ANL;comum;Feminino;alexandra.vazquez@b4.com.br;1;0;Balcao
+Leon Jimenez;886;DIR;comum;Masculino;leon.jimenez@b4.com.br;1;0;Balcao
+Charles Retana;887;ANL;comum;Masculino;charles.retana@b4.com.br;1;0;Listados
+Maria Tellez;888;ANL;comum;Feminino;maria.tellez@b4.com.br;1;0;Listados
+Armando Saenz;889;ANL;comum;Masculino;armando.saenz@b4.com.br;1;0;B3 Social
+Santos Meza;890;ANL;comum;Masculino;santos.meza@b4.com.br;1;0;Listados
+Michael Salais;891;ANL;comum;Masculino;michael.salais@b4.com.br;1;0;Balcao
+Nathan Celestino;892;ANL;comum;Masculino;nathan.celestino@b4.com.br;1;0;Balcao
+Rene Arroyo;893;ANL;comum;Masculino;rene.arroyo@b4.com.br;1;0;Listados
+Jordan Murrieta;894;ANL;comum;Feminino;jordan.murrieta@b4.com.br;1;0;Produtos Analytics
+Gelasia Gomez;895;GTE;comum;Feminino;gelasia.gomez@b4.com.br;1;0;Produtos Analytics
+Javier Olivas;896;COORD;comum;Masculino;javier.olivas@b4.com.br;1;0;Balcao
+Thomas Sands Valle;897;ANL;comum;Masculino;thomas.valle@b4.com.br;1;0;Balcao
+Gregory Zepeda Lujan;898;OUTROS;comum;Masculino;gregory.lujan@b4.com.br;1;0;Produtos Analytics
+Brianda Fresquez;899;CONS;comum;Feminino;brianda.fresquez@b4.com.br;1;0;Listados
+Jayce Romero;900;ESP;comum;Masculino;jayce.romero@b4.com.br;1;0;Produtos Analytics
+Eric Laydon;901;ANL;comum;Masculino;eric.laydon@b4.com.br;1;0;Produtos Analytics
+Aaron Garcia;902;GTE;comum;Masculino;aaron.garcia@b4.com.br;1;0;Listados
+Nicholas Valdez;903;AST;comum;Masculino;nicholas.valdez@b4.com.br;1;0;Listados
+John Marry;904;CONS;comum;Masculino;john.marry@b4.com.br;1;0;Produtos Analytics
+Alexander Guzman;905;GTE;comum;Masculino;alexander.guzman@b4.com.br;1;0;Produtos Analytics
+Ashlie Broze;906;ANL;comum;Feminino;ashlie.broze@b4.com.br;1;0;B3 Social
+Hortencia Horner;907;CONS;comum;Feminino;hortencia.horner@b4.com.br;1;0;Produtos Analytics
+Kyla Martinez;908;ANL;comum;Feminino;kyla.martinez@b4.com.br;1;0;Listados
+Dominique Chacon;909;OUTROS;comum;Feminino;dominique.chacon@b4.com.br;1;0;Listados
+Angelo Lozano;910;ANL;comum;Masculino;angelo.lozano@b4.com.br;1;0;Listados
+Tehanna Baca;911;GTE;comum;Feminino;tehanna.baca@b4.com.br;1;0;Balcao
+Gabriel Camacho Llanez;912;ANL;comum;Masculino;gabriel.llanez@b4.com.br;1;0;Produtos Analytics
+Alexandra Montez;913;ANL;comum;Feminino;alexandra.montez@b4.com.br;1;0;Balcao
+Jaime Bode;914;ANL;comum;Masculino;jaime.bode@b4.com.br;1;0;Balcao
+Derek Padilla;915;DIR;comum;Masculino;derek.padilla@b4.com.br;1;0;Produtos Analytics
+Alex Lopez;916;ANL;comum;Masculino;alex.lopez@b4.com.br;1;0;Produtos Analytics
+Steve Ruiz;917;OUTROS;comum;Masculino;steve.ruiz@b4.com.br;1;0;B3 Social
+Brissa Mata;918;ANL;comum;Feminino;brissa.mata@b4.com.br;1;0;Balcao
+Rachelle Jansen;919;CONS;comum;Feminino;rachelle.jansen@b4.com.br;1;0;Balcao
+Andrew Medina;920;SUPTE;comum;Masculino;andrew.medina@b4.com.br;1;0;B3 Social
+Leon Chavez;921;ANL;comum;Masculino;leon.chavez@b4.com.br;1;0;Listados
+Karen Vargas;922;ANL;comum;Feminino;karen.vargas@b4.com.br;1;0;Listados
+Alexis Castello;923;GTE;comum;Masculino;alexis.castello@b4.com.br;1;0;Balcao
+Roxanne Marzullo;924;ANL;comum;Feminino;roxanne.marzullo@b4.com.br;1;0;Listados
+Anai Sandoval;925;ANL;comum;Feminino;anai.sandoval@b4.com.br;1;0;Produtos Analytics
+Samantha Robinson;926;GTE;comum;Feminino;samantha.robinson@b4.com.br;1;0;B3 Social
+Ayleen Shaffer;927;ANL;comum;Feminino;ayleen.shaffer@b4.com.br;1;0;Balcao
+Donovan Guadiana;928;CONS;comum;Masculino;donovan.guadiana@b4.com.br;1;0;Balcao
+Alexis Whitley;929;SUPTE;comum;Feminino;alexis.whitley@b4.com.br;1;0;Produtos Analytics
+Yagaira Barrios;930;OUTROS;comum;Feminino;yagaira.barrios@b4.com.br;1;0;Produtos Analytics
+Taylor Dechant;931;ANL;comum;Feminino;taylor.dechant@b4.com.br;1;0;Balcao
+Jonathan Gaspar;932;ANL;comum;Masculino;jonathan.gaspar@b4.com.br;1;0;Produtos Analytics
+Gabriel Vigil;933;ANL;comum;Masculino;gabriel.vigil@b4.com.br;1;0;Produtos Analytics
+Anthony Stewart;934;GTE;comum;Masculino;anthony.stewart@b4.com.br;1;0;Produtos Analytics
+Evencio Chavez;935;GTE;comum;Masculino;evencio.chavez@b4.com.br;1;0;Balcao
+Kimberly Juarez Flores;936;ANL;comum;Feminino;kimberly.flores@b4.com.br;1;0;Produtos Analytics
+Tanaya Rivera;937;AST;comum;Feminino;tanaya.rivera@b4.com.br;1;0;Produtos Analytics
+Alejandro Trevino;938;ANL;comum;Masculino;alejandro.trevino@b4.com.br;1;0;Listados
+Angela Figueroa;939;ANL;comum;Feminino;angela.figueroa@b4.com.br;1;0;Balcao
+Shampagne Trejo;940;ANL;comum;Feminino;shampagne.trejo@b4.com.br;1;0;Produtos Analytics
+Bailey Lopez;941;ANL;comum;Feminino;bailey.lopez@b4.com.br;1;0;Balcao
+Maria Florez;942;ANL;comum;Feminino;maria.florez@b4.com.br;1;0;Listados
+Martha Valenzuela;943;OUTROS;comum;Feminino;martha.valenzuela@b4.com.br;1;0;Produtos Analytics
+Rashell Marquez;944;ANL;comum;Feminino;rashell.marquez@b4.com.br;1;0;Listados
+Antoinette Madera;945;OUTROS;comum;Feminino;antoinette.madera@b4.com.br;1;0;Produtos Analytics
+Christopher Cruz;946;OUTROS;comum;Masculino;christopher.cruz@b4.com.br;1;0;Produtos Analytics
+Erika Ramirez;947;ANL;comum;Feminino;erika.ramirez@b4.com.br;1;0;Listados
+Geryd Retana;948;CONS;comum;Masculino;geryd.retana@b4.com.br;1;0;Listados
+Jocelyn Medina;949;GTE;comum;Feminino;jocelyn.medina@b4.com.br;1;0;Balcao
+Jazper Garcia;950;ANL;comum;Masculino;jazper.garcia@b4.com.br;1;0;Listados
+Angelique Gutierrez;951;ANL;comum;Feminino;angelique.gutierrez@b4.com.br;1;0;Balcao
+Damaris Williams;952;ANL;comum;Feminino;damaris.williams@b4.com.br;1;0;Balcao
+Yulissa Covarrubias;953;ANL;comum;Feminino;yulissa.covarrubias@b4.com.br;1;0;Balcao
+David Martinez;954;ANL;comum;Masculino;david.martinez@b4.com.br;1;0;Balcao
+Vanessa Ruiz;955;ANL;comum;Feminino;vanessa.ruiz@b4.com.br;1;0;Listados
+Ashley Aleman;956;COORD;comum;Feminino;ashley.aleman@b4.com.br;1;0;Produtos Analytics
+Janeth Reyes-Valles;957;ANL;comum;Feminino;janeth.reyes-valles@b4.com.br;1;0;B3 Social
+Bryan Reyes;958;ESP;comum;Masculino;bryan.reyes@b4.com.br;1;0;Listados
+Carlos Hernandez;959;ANL;comum;Masculino;carlos.hernandez@b4.com.br;1;0;Produtos Analytics
+Brooke Rogel;960;OUTROS;comum;Feminino;brooke.rogel@b4.com.br;1;0;Balcao
+Angelica Martinez;961;ANL;comum;Feminino;angelica.martinez@b4.com.br;1;0;Produtos Analytics
+Jesse Brown;962;ANL;comum;Masculino;jesse.brown@b4.com.br;1;0;Listados
+Stephanie Palma;963;GTE;comum;Feminino;stephanie.palma@b4.com.br;1;0;Balcao
+Nathan Mercado;964;SUPTE;comum;Masculino;nathan.mercado@b4.com.br;1;0;Balcao
+Raymond Hoffschneider;965;ADVOGADO;comum;Masculino;raymond.hoffschneider@b4.com.br;1;0;Balcao
+Esai Martinez- Miller;966;ANL;comum;Masculino;esai.miller@b4.com.br;1;0;Listados
+Michael Gutierrez;967;GTE;comum;Masculino;michael.gutierrez@b4.com.br;1;0;Produtos Analytics
+Yareli Branchcomb;968;ANL;comum;Feminino;yareli.branchcomb@b4.com.br;1;0;Produtos Analytics
+Erika Flores-Herrera;969;GTE;comum;Feminino;erika.flores-herrera@b4.com.br;1;0;B3 Social
+Diego Valdespino;970;GTE;comum;Masculino;diego.valdespino@b4.com.br;1;0;Listados
+Esther Magallanes;971;ADVOGADO;comum;Feminino;esther.magallanes@b4.com.br;1;0;Balcao
+Ashley Romero Diaz;972;GTE;comum;Feminino;ashley.diaz@b4.com.br;1;0;Listados
+Jenna Zachareas;973;CONS;comum;Feminino;jenna.zachareas@b4.com.br;1;0;B3 Social
+Elizabeth Qunones;974;COORD;comum;Feminino;elizabeth.qunones@b4.com.br;1;0;Listados
+Jose Romero;975;OUTROS;comum;Masculino;jose.romero@b4.com.br;1;0;B3 Social
+Francisco Cordova;976;AST;comum;Masculino;francisco.cordova@b4.com.br;1;0;Listados
+Chance Lujan;977;ANL;comum;Masculino;chance.lujan@b4.com.br;1;0;B3 Social
+Guadalupe Montes;978;ANL;comum;Feminino;guadalupe.montes@b4.com.br;1;0;Listados
+Sofia Rodriguez;979;GER;comum;Feminino;sofia.rodriguez@b4.com.br;1;0;Balcao
+Kayla Gonzalez Maldonado;980;ANL;comum;Feminino;kayla.maldonado@b4.com.br;1;0;Produtos Analytics
+Branco Diaz-Salinas;981;GTE;comum;Masculino;branco.diaz-salinas@b4.com.br;1;0;Produtos Analytics
+Francisco Rosales;982;ANL;comum;Masculino;francisco.rosales@b4.com.br;1;0;Listados
+Karla Ramirez;983;ANL;comum;Feminino;karla.ramirez@b4.com.br;1;0;Produtos Analytics
+Alexis Esquilin;984;GTE;comum;Feminino;alexis.esquilin@b4.com.br;1;0;Listados
+Marcus Rangel Medrano;985;GTE;comum;Masculino;marcus.medrano@b4.com.br;1;0;B3 Social
+Eve Mae Martinez;986;ANL;comum;Feminino;eve.martinez@b4.com.br;1;0;Produtos Analytics
+Luis Padilla;987;ANL;comum;Masculino;luis.padilla@b4.com.br;1;0;Balcao
+Saul Surniak;988;ANL;comum;Masculino;saul.surniak@b4.com.br;1;0;B3 Social
+Oscar Hernandez;989;ADVOGADO;comum;Masculino;oscar.hernandez@b4.com.br;1;0;Produtos Analytics
+Ruben Aguirre;990;GTE;comum;Masculino;ruben.aguirre@b4.com.br;1;0;Listados
+Natalie Arteaga;991;GTE;comum;Feminino;natalie.arteaga@b4.com.br;1;0;Balcao
+Hernan Alarid-Romero;992;ESP;comum;Masculino;hernan.alarid-romero@b4.com.br;1;0;Listados
+Pablo Mendoza;993;OUTROS;comum;Masculino;pablo.mendoza@b4.com.br;1;0;B3 Social
+Saul Jaramillo;994;ANL;comum;Masculino;saul.jaramillo@b4.com.br;1;0;Produtos Analytics
+Cristyl Gonzalez;995;ANL;comum;Feminino;cristyl.gonzalez@b4.com.br;1;0;Produtos Analytics
+Kevin Espinoza;996;DIR;comum;Masculino;kevin.espinoza@b4.com.br;1;0;Balcao
+Marissa Scoleri;997;ANL;comum;Feminino;marissa.scoleri@b4.com.br;1;0;Balcao
+Belinda Trujillo;998;ANL;comum;Feminino;belinda.trujillo@b4.com.br;1;0;Balcao
+Luis Carreon;999;ANL;comum;Masculino;luis.carreon@b4.com.br;1;0;Produtos Analytics
+Adriana Hernandez;1000;OUTROS;comum;Feminino;adriana.hernandez@b4.com.br;1;0;B3 Social
+Chad Flores Ruiz;1001;GTE;comum;Masculino;chad.ruiz@b4.com.br;1;0;Balcao
+Emely Martinez;1002;OUTROS;comum;Feminino;emely.martinez@b4.com.br;1;0;Produtos Analytics
+Victor Chacon;1003;SUPTE;comum;Masculino;victor.chacon@b4.com.br;1;0;Balcao
+Emily Ortega Trujillo;1004;AUDITOR;comum;Feminino;emily.trujillo@b4.com.br;1;0;Listados
+Zachary Robles;1005;OUTROS;comum;Masculino;zachary.robles@b4.com.br;1;0;Produtos Analytics
+Christian Rodriguez;1006;ANL;comum;Masculino;christian.rodriguez@b4.com.br;1;0;Balcao
+Isaac Gutierrez-Ochoa;1007;GTE;comum;Masculino;isaac.gutierrez-ochoa@b4.com.br;1;0;Balcao
+Latichea Orozco;1008;ANL;comum;Feminino;latichea.orozco@b4.com.br;1;0;Balcao
+Jerrica Groves;1009;COORD;comum;Feminino;jerrica.groves@b4.com.br;1;0;Balcao
+Ana Velasquez;1010;ANL;comum;Feminino;ana.velasquez@b4.com.br;1;0;Balcao
+Victor Santistevan;1011;GTE;comum;Masculino;victor.santistevan@b4.com.br;1;0;Balcao
+Cesar Trujillo Jr;1012;ANL;comum;Masculino;cesar.jr@b4.com.br;1;0;Produtos Analytics
+Liliana Cuevas;1013;GTE;comum;Feminino;liliana.cuevas@b4.com.br;1;0;Produtos Analytics
+Melissa Perez;1014;ANL;comum;Feminino;melissa.perez@b4.com.br;1;0;Listados
+Branden Borja;1015;ANL;comum;Masculino;branden.borja@b4.com.br;1;0;B3 Social
+Robert Villanueva;1016;ANL;comum;Masculino;robert.villanueva@b4.com.br;1;0;Produtos Analytics
+Ramona Mares;1017;ANL;comum;Feminino;ramona.mares@b4.com.br;1;0;Balcao
+Desiree Alcala;1018;GTE;comum;Feminino;desiree.alcala@b4.com.br;1;0;Produtos Analytics
+Wesley Toscano;1019;AUDITOR;comum;Masculino;wesley.toscano@b4.com.br;1;0;Produtos Analytics
+Joseline Robles;1020;SUPTE;comum;Feminino;joseline.robles@b4.com.br;1;0;Balcao
+Raevyn Salazar;1021;AUDITOR;comum;Feminino;raevyn.salazar@b4.com.br;1;0;Listados
+Cameron Sieger;1022;ANL;comum;Masculino;cameron.sieger@b4.com.br;1;0;Produtos Analytics
+Vincent Enriquez;1023;CONS;comum;Masculino;vincent.enriquez@b4.com.br;1;0;Produtos Analytics
+Samantha Aguero;1024;ANL;comum;Feminino;samantha.aguero@b4.com.br;1;0;Listados
+Juan Burton;1025;CONS;comum;Masculino;juan.burton@b4.com.br;1;0;Listados
+Jessica Gonzalez;1026;AUDITOR;comum;Feminino;jessica.gonzalez@b4.com.br;1;0;Listados
+Shalynn Sanchez;1027;COORD;comum;Feminino;shalynn.sanchez@b4.com.br;1;0;Listados
+Alysa Bautista;1028;ANL;comum;Feminino;alysa.bautista@b4.com.br;1;0;B3 Social
+Alyssa Martinez;1029;CONS;comum;Feminino;alyssa.martinez@b4.com.br;1;0;Listados
+Luis Delrio;1030;SUPTE;comum;Masculino;luis.delrio@b4.com.br;1;0;Listados
+Megan Santos;1031;ANL;comum;Feminino;megan.santos@b4.com.br;1;0;B3 Social
+Mary Aleman;1032;ANL;comum;Feminino;mary.aleman@b4.com.br;1;0;Produtos Analytics
+Ruben Sanchez;1033;ANL;comum;Masculino;ruben.sanchez@b4.com.br;1;0;B3 Social
+Mayra Valdez;1034;GTE;comum;Feminino;mayra.valdez@b4.com.br;1;0;Produtos Analytics
+Crystal Woolfolk;1035;ANL;comum;Feminino;crystal.woolfolk@b4.com.br;1;0;Balcao
+Diego Ramirez;1036;SUPTE;comum;Masculino;diego.ramirez@b4.com.br;1;0;B3 Social
+Cynthia Vanloo;1037;ADVOGADO;comum;Feminino;cynthia.vanloo@b4.com.br;1;0;Produtos Analytics
+Denesha Perez;1038;ANL;comum;Feminino;denesha.perez@b4.com.br;1;0;Listados
+Teresa Olivas;1039;OUTROS;comum;Feminino;teresa.olivas@b4.com.br;1;0;B3 Social
+Daniel Castro Molina;1040;ANL;comum;Masculino;daniel.molina@b4.com.br;1;0;Balcao
+Erik Grotts;1041;CONS;comum;Masculino;erik.grotts@b4.com.br;1;0;Listados
+Gregory Castillo;1042;DIR;comum;Masculino;gregory.castillo@b4.com.br;1;0;Produtos Analytics
+Evan Trujillo;1043;ANL;comum;Masculino;evan.trujillo@b4.com.br;1;0;Balcao
+Karla Chavez;1044;ANL;comum;Feminino;karla.chavez@b4.com.br;1;0;Listados
+Joseph Bonney;1045;GTE;comum;Masculino;joseph.bonney@b4.com.br;1;0;Listados
+Orlando Gutierrez Nunez;1046;ANL;comum;Masculino;orlando.nunez@b4.com.br;1;0;Balcao
+Andrea Herrera;1047;GTE;comum;Feminino;andrea.herrera@b4.com.br;1;0;Balcao
+Larry Rife;1048;ANL;comum;Masculino;larry.rife@b4.com.br;1;0;Listados
+Desiree Guardado;1049;CONS;comum;Feminino;desiree.guardado@b4.com.br;1;0;Produtos Analytics
+Luis Pompa;1050;SUPTE;comum;Masculino;luis.pompa@b4.com.br;1;0;Balcao
+Marcus Romero;1051;AUDITOR;comum;Masculino;marcus.romero@b4.com.br;1;0;Balcao
+Billy Bernal;1052;ANL;comum;Masculino;billy.bernal@b4.com.br;1;0;Produtos Analytics
+Shauncey Jaramillo;1053;OUTROS;comum;Feminino;shauncey.jaramillo@b4.com.br;1;0;Balcao
+Janelle Mora;1054;GTE;comum;Feminino;janelle.mora@b4.com.br;1;0;Balcao
+Angelica Ortiz;1055;ANL;comum;Feminino;angelica.ortiz@b4.com.br;1;0;Listados
+Elizabeth Magana;1056;ANL;comum;Feminino;elizabeth.magana@b4.com.br;1;0;Listados
+Deyanira Perez;1057;CONS;comum;Feminino;deyanira.perez@b4.com.br;1;0;Balcao
+Cesar Valladares;1058;ANL;comum;Masculino;cesar.valladares@b4.com.br;1;0;Produtos Analytics
+Tayzsha De Dios;1059;OUTROS;comum;Feminino;tayzsha.dios@b4.com.br;1;0;Balcao
+Sarah Montoya;1060;CONS;comum;Feminino;sarah.montoya@b4.com.br;1;0;Produtos Analytics
+Elizabeth Reyes;1061;GTE;comum;Feminino;elizabeth.reyes@b4.com.br;1;0;Balcao
+Elias Montez-Zubia;1062;AST;comum;Masculino;elias.montez-zubia@b4.com.br;1;0;Listados
+Rosemary Pacheco;1063;COORD;comum;Feminino;rosemary.pacheco@b4.com.br;1;0;Listados
+Khyle Avita;1064;ANL;comum;Masculino;khyle.avita@b4.com.br;1;0;B3 Social
+Marco Romero;1065;ANL;comum;Masculino;marco.romero@b4.com.br;1;0;B3 Social
+Karla Montoya;1066;ANL;comum;Feminino;karla.montoya@b4.com.br;1;0;Balcao
+Elizabeth Segarra;1067;GTE;comum;Feminino;elizabeth.segarra@b4.com.br;1;0;Balcao
+Mariaana Martinez;1068;ANL;comum;Feminino;mariaana.martinez@b4.com.br;1;0;Produtos Analytics
+Lucilla Jaramillo;1069;AST;comum;Feminino;lucilla.jaramillo@b4.com.br;1;0;Listados
+Selena Rodriguez;1070;AST;comum;Feminino;selena.rodriguez@b4.com.br;1;0;B3 Social
+Michael Gonzalez;1071;ANL;comum;Masculino;michael.gonzalez@b4.com.br;1;0;Balcao
+Jaime Shepherd;1072;COORD;comum;Masculino;jaime.shepherd@b4.com.br;1;0;Listados
+Leslye Martinez;1073;GTE;comum;Feminino;leslye.martinez@b4.com.br;1;0;Balcao
+Flora Plowman;1074;SUPTE;comum;Feminino;flora.plowman@b4.com.br;1;0;Balcao
+Jesi Meda Zamora;1075;ANL;comum;Feminino;jesi.zamora@b4.com.br;1;0;Produtos Analytics
+Lanay Cornejo;1076;ANL;comum;Feminino;lanay.cornejo@b4.com.br;1;0;Listados
+Brieann Martinez;1077;ANL;comum;Feminino;brieann.martinez@b4.com.br;1;0;Produtos Analytics
+Jaden Yanez Luna;1078;AST;comum;Feminino;jaden.luna@b4.com.br;1;0;Listados
+Edwin Sotelo;1079;ANL;comum;Masculino;edwin.sotelo@b4.com.br;1;0;B3 Social
+Abigail Lucero;1080;ANL;comum;Feminino;abigail.lucero@b4.com.br;1;0;Balcao
+Abriana Luna;1081;COORD;comum;Feminino;abriana.luna@b4.com.br;1;0;Listados
+Katie Teofilo;1082;SUPTE;comum;Feminino;katie.teofilo@b4.com.br;1;0;Listados
+Maria Salas;1083;ANL;comum;Feminino;maria.salas@b4.com.br;1;0;Produtos Analytics
+Jade Olivas-Valdez;1084;ANL;comum;Feminino;jade.olivas-valdez@b4.com.br;1;0;Balcao
+Andrea Velez;1085;OUTROS;comum;Feminino;andrea.velez@b4.com.br;1;0;Balcao
+Kayla Murguia;1086;ANL;comum;Feminino;kayla.murguia@b4.com.br;1;0;Produtos Analytics
+Javier Medina;1087;OUTROS;comum;Masculino;javier.medina@b4.com.br;1;0;Listados
+Roseanna Lopez;1088;AST;comum;Feminino;roseanna.lopez@b4.com.br;1;0;Listados
+Sergio Bautista;1089;ANL;comum;Masculino;sergio.bautista@b4.com.br;1;0;Balcao
+Juliana Aleman;1090;OUTROS;comum;Feminino;juliana.aleman@b4.com.br;1;0;Listados
+Angelica Castillo;1091;ANL;comum;Feminino;angelica.castillo@b4.com.br;1;0;Balcao
+Jesus Cano;1092;ANL;comum;Masculino;jesus.cano@b4.com.br;1;0;Produtos Analytics
+Juan Leyva;1093;ANL;comum;Masculino;juan.leyva@b4.com.br;1;0;Balcao
+Elijah Quintana;1094;ANL;comum;Masculino;elijah.quintana@b4.com.br;1;0;Listados
+Cassandra Venzor;1095;ANL;comum;Feminino;cassandra.venzor@b4.com.br;1;0;Listados
+Mikiella Rocha;1096;ANL;comum;Feminino;mikiella.rocha@b4.com.br;1;0;Balcao
+Poleth Coreas;1097;COORD;comum;Feminino;poleth.coreas@b4.com.br;1;0;Balcao
+Nayeli Barraza;1098;AUDITOR;comum;Feminino;nayeli.barraza@b4.com.br;1;0;Balcao
+Job Vigil;1099;SUPTE;comum;Masculino;job.vigil@b4.com.br;1;0;Produtos Analytics
+Richard Rivas;1100;COORD;comum;Masculino;richard.rivas@b4.com.br;1;0;Balcao
+Andrew Avila Mendoza;1101;ANL;comum;Masculino;andrew.mendoza@b4.com.br;1;0;B3 Social
+Carol Serna-Jasso;1102;ANL;comum;Feminino;carol.serna-jasso@b4.com.br;1;0;Produtos Analytics
+Edgar Anderson;1103;ANL;comum;Masculino;edgar.anderson@b4.com.br;1;0;Produtos Analytics
+Kathrina Fitzgerald;1104;ANL;comum;Feminino;kathrina.fitzgerald@b4.com.br;1;0;Balcao
+Rebecca Ortiz-Perez;1105;CONS;comum;Feminino;rebecca.ortiz-perez@b4.com.br;1;0;Listados
+Jazmin Flores;1106;ANL;comum;Feminino;jazmin.flores@b4.com.br;1;0;Produtos Analytics
+Yesica Perez Corral;1107;CHEFE;comum;Feminino;yesica.corral@b4.com.br;1;0;Produtos Analytics
+Aaron Arambula;1108;OUTROS;comum;Masculino;aaron.arambula@b4.com.br;1;0;B3 Social
+Isaac Wilson;1109;ANL;comum;Masculino;isaac.wilson@b4.com.br;1;0;Balcao
+Rodrigo Montano;1110;AST;comum;Masculino;rodrigo.montano@b4.com.br;1;0;Listados
+Ataly Castaneda;1111;ANL;comum;Feminino;ataly.castaneda@b4.com.br;1;0;Produtos Analytics
+Breanna Gonzales;1112;ANL;comum;Feminino;breanna.gonzales@b4.com.br;1;0;Listados
+Christina Galvan Vidales;1113;OUTROS;comum;Feminino;christina.vidales@b4.com.br;1;0;Balcao
+Morgan Salazar;1114;ANL;comum;Feminino;morgan.salazar@b4.com.br;1;0;Balcao
+Alicia Chavez;1115;ANL;comum;Feminino;alicia.chavez@b4.com.br;1;0;Listados
+Joseph Sandoval;1116;ANL;comum;Masculino;joseph.sandoval@b4.com.br;1;0;Balcao
+Luis Alaniz;1117;ANL;comum;Masculino;luis.alaniz@b4.com.br;1;0;Produtos Analytics
+Elijah Laboy;1118;GTE;comum;Masculino;elijah.laboy@b4.com.br;1;0;Listados
+Ernesto Nava;1119;ANL;comum;Masculino;ernesto.nava@b4.com.br;1;0;Balcao
+Jimmie Vergara;1120;SUPTE;comum;Masculino;jimmie.vergara@b4.com.br;1;0;Listados
+Javier Martinez;1121;GTE;comum;Masculino;javier.martinez@b4.com.br;1;0;Balcao
+Sarai Frias;1122;SUPTE;comum;Feminino;sarai.frias@b4.com.br;1;0;Balcao
+Angelica Salinas;1123;AUDITOR;comum;Feminino;angelica.salinas@b4.com.br;1;0;Listados
+Gino Tarry;1124;ANL;comum;Masculino;gino.tarry@b4.com.br;1;0;Listados
+Miranda Martinez;1125;ANL;comum;Feminino;miranda.martinez@b4.com.br;1;0;Listados
+David Benavidez;1126;ANL;comum;Masculino;david.benavidez@b4.com.br;1;0;Balcao
+Alexander Gutierrez;1127;ESP;comum;Masculino;alexander.gutierrez@b4.com.br;1;0;B3 Social
+Nelson Silerio;1128;CONS;comum;Masculino;nelson.silerio@b4.com.br;1;0;Balcao
+Maria Gonzalez;1129;CONS;comum;Feminino;maria.gonzalez@b4.com.br;1;0;Balcao
+Meryl Chacon;1130;ANL;comum;Feminino;meryl.chacon@b4.com.br;1;0;Listados
+Kimberlyn Martindale;1131;ANL;comum;Feminino;kimberlyn.martindale@b4.com.br;1;0;Produtos Analytics
+Esteban Padilla;1132;ANL;comum;Masculino;esteban.padilla@b4.com.br;1;0;Produtos Analytics
+Yazmin Kechter;1133;ANL;comum;Feminino;yazmin.kechter@b4.com.br;1;0;Balcao
+Estrella Bennett;1134;AST;comum;Feminino;estrella.bennett@b4.com.br;1;0;Balcao
+Devon Martinez;1135;ANL;comum;Masculino;devon.martinez@b4.com.br;1;0;Balcao
+Luis Ortega;1136;ESP;comum;Masculino;luis.ortega@b4.com.br;1;0;Produtos Analytics
+Jorge Lopez;1137;ANL;comum;Masculino;jorge.lopez@b4.com.br;1;0;Balcao
+Arianna Gonzales;1138;SUPTE;comum;Feminino;arianna.gonzales@b4.com.br;1;0;B3 Social
+Nubia Sund;1139;ANL;comum;Feminino;nubia.sund@b4.com.br;1;0;Produtos Analytics
+Anthony Chavez;1140;ANL;comum;Masculino;anthony.chavez@b4.com.br;1;0;Balcao
+Rita Luna Abrego;1141;OUTROS;comum;Feminino;rita.abrego@b4.com.br;1;0;B3 Social
+Juan Maldonado Martinez;1142;AUDITOR;comum;Masculino;juan.martinez@b4.com.br;1;0;Balcao
+Joanna Lopez Marcos;1143;GTE;comum;Feminino;joanna.marcos@b4.com.br;1;0;Listados
+Mellaconey Rynearson;1144;ANL;comum;Feminino;mellaconey.rynearson@b4.com.br;1;0;Balcao
+Anton Chavez;1145;ANL;comum;Masculino;anton.chavez@b4.com.br;1;0;Listados
+Gladys Dodd;1146;ANL;comum;Feminino;gladys.dodd@b4.com.br;1;0;Balcao
+Olivia Anaya;1147;ANL;comum;Feminino;olivia.anaya@b4.com.br;1;0;Balcao
+Cheyenne Bonilla;1148;ANL;comum;Feminino;cheyenne.bonilla@b4.com.br;1;0;Listados
+Deisy Varela;1149;GTE;comum;Feminino;deisy.varela@b4.com.br;1;0;Listados
+Rafael Gallegos;1150;CONS;comum;Masculino;rafael.gallegos@b4.com.br;1;0;B3 Social
+Joseph Moriel;1151;ANL;comum;Masculino;joseph.moriel@b4.com.br;1;0;Balcao
+Lianne Fernandez Jr;1152;ANL;comum;Feminino;lianne.jr@b4.com.br;1;0;Produtos Analytics
+Rafael Diaz;1153;CONS;comum;Masculino;rafael.diaz@b4.com.br;1;0;Balcao
+Sarah Manzanares;1154;TECN;comum;Feminino;sarah.manzanares@b4.com.br;1;0;Balcao
+Brithany Lira;1155;ESTAGIARIO;comum;Feminino;brithany.lira@b4.com.br;1;0;Balcao
+Gabriel Gallegos;1156;GTE;comum;Masculino;gabriel.gallegos@b4.com.br;1;0;Balcao
+Julio Cera Espinoza;1157;ESTAGIARIO;comum;Masculino;julio.espinoza@b4.com.br;1;0;Balcao
+Jorge Perez Silva;1158;ANL;comum;Masculino;jorge.silva@b4.com.br;1;0;Balcao
+Jesse Vela;1159;ESTAGIARIO;comum;Masculino;jesse.vela@b4.com.br;1;0;B3 Social
+Martin Cruz;1160;ESTAGIARIO;comum;Masculino;martin.cruz@b4.com.br;1;0;Balcao
+Frederick Trejo-Ortiz;1161;AST;comum;Masculino;frederick.trejo-ortiz@b4.com.br;1;0;Listados
+Maria Martinez;1162;ANL;comum;Feminino;maria.martinez@b4.com.br;1;0;B3 Social
+Laura Perez-Cruz;1163;ESTAGIARIO;comum;Feminino;laura.perez-cruz@b4.com.br;1;0;Produtos Analytics
+Alex Salazar;1164;CONS;comum;Masculino;alex.salazar@b4.com.br;1;0;Balcao
+Angelina Flores-Herrera;1165;ADVOGADO;comum;Feminino;angelina.flores-herrera@b4.com.br;1;0;Balcao
+Chelsi Salazar;1166;AUDITOR;comum;Feminino;chelsi.salazar@b4.com.br;1;0;Balcao
+Heydi Cordova;1167;ESTAGIARIO;comum;Feminino;heydi.cordova@b4.com.br;1;0;Balcao
+Gisel Barron;1168;ESTAGIARIO;comum;Feminino;gisel.barron@b4.com.br;1;0;Produtos Analytics
+Gerardo Rodriguez Diaz;1169;ANL;comum;Masculino;gerardo.diaz@b4.com.br;1;0;Produtos Analytics
+Aide Leyba;1170;ADVOGADO;comum;Feminino;aide.leyba@b4.com.br;1;0;B3 Social
+Brianna Aguirre;1171;ADVOGADO;comum;Feminino;brianna.aguirre@b4.com.br;1;0;Listados
+Gilberto Perea;1172;ANL;comum;Masculino;gilberto.perea@b4.com.br;1;0;B3 Social
+Yalita Koons;1173;ESTAGIARIO;comum;Feminino;yalita.koons@b4.com.br;1;0;Produtos Analytics
+Israel Carrasco;1174;ANL;comum;Masculino;israel.carrasco@b4.com.br;1;0;Balcao
+Kirstie Medrano Betancourt;1175;ANL;comum;Feminino;kirstie.betancourt@b4.com.br;1;0;Balcao
+Alejandra Delgado;1176;CONS;comum;Feminino;alejandra.delgado@b4.com.br;1;0;Balcao
+Joey Gutierrez Proano;1177;ANL;comum;Masculino;joey.proano@b4.com.br;1;0;Listados
+Lorenzo Ortiz;1178;ANL;comum;Masculino;lorenzo.ortiz@b4.com.br;1;0;Listados

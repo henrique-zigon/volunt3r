@@ -13,6 +13,7 @@ import br.com.voluntier.apivoluntier.Services.HashComponent;
 import br.com.voluntier.apivoluntier.Services.HashService;
 import br.com.voluntier.apivoluntier.Services.S3Services;
 import br.com.voluntier.apivoluntier.Utils.HashTable;
+import br.com.voluntier.apivoluntier.Utils.JSONStringConverterToPublicacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -60,6 +61,9 @@ public class PublicacaoController {
     HashService hashService;
     HashTable hashTable=null;
 
+    @Autowired
+    JSONStringConverterToPublicacao jsonStringConverterToPublicacao;
+
     @GetMapping()
     public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
                                   @RequestParam(defaultValue = "10") Integer tamanho,
@@ -98,16 +102,23 @@ public class PublicacaoController {
         return ResponseEntity.status(200).body(listaPubl);
     }
 
+
     @PostMapping(path="/novo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity postPublicacao(@RequestPart MultipartFile arquivo,
-                                         @RequestPart Publicacao novaPublicacao)  throws IOException {
-        String filename = arquivo.getOriginalFilename();
-        String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
-        s3Services.uploadFile(name,arquivo);
-        novaPublicacao.setPathImagem(name);
-        retornoHasmap.clear();
+    public ResponseEntity postPublicacao(@RequestParam(required = false) Optional<MultipartFile> arquivo,
+                                         @RequestPart String novaPublicacao)  throws IOException {
+        Publicacao publicacao = jsonStringConverterToPublicacao.convert(novaPublicacao);
+        publicacao.setPathImagem(null);
+        publicacao.setTipo("PUBLICACAO");
+        if(arquivo.isPresent()) {
+            MultipartFile imagemPublicacaoUpload = arquivo.get();
+            String filename = imagemPublicacaoUpload.getOriginalFilename();
+            String name = new Date().getTime()+"."+filename.substring(filename.lastIndexOf(".")+1);
+            s3Services.uploadFile(name,imagemPublicacaoUpload);
+            publicacao.setPathImagem(name);
+        }
+
         try {
-            repository.save(novaPublicacao);
+            repository.save(publicacao);
             retornoHasmap.put("message", "Publicação criada com sucesso!");
             return ResponseEntity.status(201).body(retornoHasmap);
         } catch (Exception e) {
@@ -158,7 +169,7 @@ public class PublicacaoController {
         Publicacao p = new Publicacao();
         p.setId(id);
 
-        Page<ComentarioResponse> comentarios = repository.findByPublicacaoPaiEqualsAndTipoEquals(p,"comentario",
+        Page<ComentarioResponse> comentarios = repository.findByPublicacaoPaiEqualsAndTipoEquals(p,"COMENTARIO",
                 PageRequest.of(pagina,tamanho));
 
         if(!comentarios.isEmpty()) {
@@ -198,7 +209,7 @@ public class PublicacaoController {
 
             novaPublicacao.setPublicacaoPai(publiPai.get());
 
-            novaPublicacao.setTipo("comentario");
+            novaPublicacao.setTipo("COMENTARIO");
 
             repository.save(novaPublicacao);
             return ResponseEntity.status(201).build();
@@ -250,7 +261,6 @@ public class PublicacaoController {
         Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
 
         HashTable hash = hashService.getHashTable();
-
 
         Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
         //Adicionar nivel

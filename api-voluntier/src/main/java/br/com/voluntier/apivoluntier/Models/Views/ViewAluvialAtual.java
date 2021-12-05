@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "view_aluvial_atual")
 public class ViewAluvialAtual {
     @Id
+    private Integer idFake;
     @Column(name="ano2020")
     private String from;
     @Column(name="ano2021")
@@ -20,6 +21,13 @@ public class ViewAluvialAtual {
     @Column(name = "contador")
     private Integer weight;
 
+    public Integer getIdFake() {
+        return idFake;
+    }
+
+    public void setIdFake(Integer idFake) {
+        this.idFake = idFake;
+    }
 
     public String getFrom() {
         return from;

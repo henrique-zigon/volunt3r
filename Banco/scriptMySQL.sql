@@ -10,10 +10,11 @@ create table categoria(
     limite_bronze int,
     limite_prata int,
     limite_ouro int,
-    milhas_promocao int    
+    milhas_promocao int,
+    imagem_bronze varchar(255),
+    imagem_prata varchar(255),
+    imagem_ouro varchar(255)
 );
-insert into categoria (nome_categoria,nivel,limite_bronze,limite_prata,limite_ouro) values ('cat1',1,2,5,10),('cat2',2,3,5,10),('cat3',2,20,50,10);
-
 create table curso(
     id_curso int auto_increment primary key,
     titulo varchar(50),
@@ -23,8 +24,6 @@ create table curso(
     categoria varchar(50),
     path_imagem varchar(255)
 );
-
-
 create table usuario(
 	id_usuario int auto_increment primary key,
     nome_usuario varchar(200),
@@ -42,8 +41,6 @@ create table usuario(
     status_usuario int,
     check(status_usuario = 0 or status_usuario = 1)
 );
-insert into usuario  values (1,'nome1','homi','bio1',1,'comum','email@email.com','senha123','cargo1','area1','img1','img1',1),(2,'nome2','muie','bio2',2,'comum','email2@email.com','senha1223','cargo2','area1','img2','img2',1);
-
 create table transacao_compra(
     id_transacao_compra int auto_increment primary key,
     fk_usuario int,
@@ -51,7 +48,6 @@ create table transacao_compra(
     fk_curso int,
     foreign key(fk_curso) references curso(id_curso)
 );
-
 create table ranque(
 	id_ranque int auto_increment primary key,
     nome_ranque varchar(10),
@@ -60,7 +56,6 @@ create table ranque(
     fk_categoria int,
     foreign key(fk_categoria) references categoria(id_categoria)
 );
-
 create table evento(
 	id_evento int auto_increment primary key,
     data_evento varchar(15),
@@ -69,12 +64,11 @@ create table evento(
     maximo_participantes int,
     horas float,
     milhas_participacao int,
-    titulo varchar(45),
+    titulo varchar(100),
     fk_categoria int,
     foreign key (fk_categoria) references categoria(id_categoria)
 );
- insert into evento (data_evento,data_fechamento_evento,endereco,maximo_participantes,horas,milhas_participacao,titulo,fk_categoria) values ('01/01/2000','01/01/2001','minha c123123asa',10,15,10,'titulo',3),('01/01/2010','01/01/2011','min23123ha vila',10,15,10,'titulo2',3),('01/01/2100','01/01/2101','minh111111a 1111casa',10,15,10,'titulo3',3);
- 
+
 create table publicacao(
 	id_publicacao int auto_increment primary key,
     tipo varchar(10),
@@ -89,7 +83,6 @@ create table publicacao(
     publicacao_pai int,
     foreign key (publicacao_pai) references publicacao(id_publicacao)
 );
-
 create table inscricao_evento(
     id_inscricao_evento int auto_increment primary key,
 	fk_evento int,
@@ -99,8 +92,6 @@ create table inscricao_evento(
     status_UE varchar(10),
     check(status_UE = 'pendente'or status_UE = 'confirmado')
 );
-insert into inscricao_evento values (1,1,1,'confirmado'),(2,2,1,'pendente'),(3,1,2,'confirmado');
-
 create table inscricao_categoria(
     id_inscricao_categoria int primary key auto_increment,
     fk_categoria int,
@@ -129,29 +120,173 @@ create table clique(
 #alter table publicacao add check(tipo in ('comentario','publicacao','evento'));
 
 
-insert into Evento value (3,"15/10/10","11/11/11","minha vila",10,14.30,2);
-insert into categoria value(1,"doacao sangue", 2);
-insert into categoria value(2,"doacao cesta", 1);
-insert into inscricao_evento value(3,3,2,"confirmado");
-
-select*from Usuario;
-select*from inscricao_evento;
-select*from Evento;
-select*from Usuario;
-
-select * from Usuario,Inscricao_Evento,Evento,Categoria;
-select nome_usuario,id_evento,nome_categoria from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 ;
-select nome_categoria,count(nome_categoria) as qnt from Usuario,Inscricao_Evento,Evento,Categoria where id_usuario=fk_usuario and id_evento=fk_evento and id_categoria=fk_categoria and fk_usuario=2 group by nome_categoria;
-select fk_categoria from Evento where id_evento=1;
+-- select nome_categoria,count(nome_categoria) as quantidade, (case when count(nome_categoria)>=limite_ouro then 'ouro' 
+--												when count(nome_categoria)>=limite_prata then 'prata' 
+--                                                when count(nome_categoria)>=limite_bronze then 'bronze'
+--                                               when count(nome_categoria)<limite_bronze then 'nada'END 
+--											) as elo from Usuario as usu,Inscricao_Evento as ins,Evento as eve,Categoria as cat where id_usuario=ins.fk_usuario and id_evento=ins.fk_evento and id_categoria=eve.fk_categoria and id_usuario=1  group by nome_categoria;
 
 
-select nome_categoria,count(nome_categoria) as quantidade, (case when count(nome_categoria)>=limite_ouro then 'ouro' 
-												when count(nome_categoria)>=limite_prata then 'prata' 
-                                                when count(nome_categoria)>=limite_bronze then 'bronze'
-                                                when count(nome_categoria)<limite_bronze then 'nada'END 
-											) as elo from Usuario as usu,Inscricao_Evento as ins,Evento as eve,Categoria as cat where id_usuario=ins.fk_usuario and id_evento=ins.fk_evento and id_categoria=eve.fk_categoria and id_usuario=1  group by nome_categoria;
+-- create view view_quantidade_voluntario_categoria as select ano2021 as categoria,
+-- count(nomeUsuario) as quantidade_voluntarios 
+-- from Voluntario group by ano2021;
 
+CREATE OR REPLACE VIEW view_voluntariados AS
+SELECT 
+	data_definitiva,
+    fk_usuario,
+    nome_usuario,
+    genero,
+    tipo_usuario,
+    cargo,
+    area,
+    status_usuario,
+    max(nivel) as nivel,
+    sum(CASE WHEN nivel = 1 then horas else 0 end) as total_horas_N1,
+    sum(CASE WHEN nivel = 2 then horas else 0 end) as total_horas_N2,
+    sum(CASE WHEN nivel = 3 then horas else 0 end) as total_horas_N3,
+    sum(CASE WHEN nivel = 4 then horas else 0 end) as total_horas_N4,
+    sum(horas) as total_Horas,
+    sum(CASE WHEN nivel = 1 then 1 else 0 end) as total_participacoes_n1,
+    sum(CASE WHEN nivel = 2 then 1 else 0 end) as total_participacoes_n2,
+    sum(CASE WHEN nivel = 3 then 1 else 0 end) as total_participacoes_n3,
+    sum(CASE WHEN nivel = 4 then 1 else 0 end) as total_participacoes_n4,
+    count(*) as total_participacoes,
+    sum(horas) * count(*) as score,
+    count(*) * 100 / 53 as aderencia
+FROM (
+	SELECT 
+		*
+	FROM (
+		SELECT 
+			RIGHT(eventos.data_evento, 4) as data_definitiva,
+			inscricao.*,
+			eventos.*
+		FROM  
+			volunt3r.inscricao_evento inscricao
+		LEFT JOIN
+			volunt3r.evento eventos
+		ON inscricao.fk_evento = eventos.id_evento
+        WHERE inscricao.status_UE = 'CONFIRMADO'
+	) sub1
+	LEFT JOIN
+		volunt3r.usuario usuarios
+	ON sub1.fk_usuario = usuarios.id_usuario
+) sub2
+LEFT JOIN
+	volunt3r.categoria categorias
+ON sub2.fk_categoria = categorias.id_categoria
+-- WHERE 
+--	fk_usuario = 2
+--	data_definitiva = "2021"
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8;
 
-create view view_quantidade_voluntario_categoria as select ano2021 as categoria,
-count(nomeUsuario) as quantidade_voluntarios 
-from Voluntario group by ano2021;
+CREATE OR REPLACE VIEW view_historico_voluntario AS
+SELECT
+	*,
+    CONCAT(perfil_comparativo,'-',perfil_ano) AS perfil_completo
+FROM (
+	SELECT 
+		*,
+		CASE
+			WHEN `2021` = `2020` THEN 'ESTAGNADO'
+			WHEN `2021` > `2020` THEN 'CRESCENTE'
+			ELSE 'DECRESCENTE'
+		END AS perfil_comparativo,
+		CASE
+			WHEN score2021 = 0 THEN 'FANTASMA'
+			WHEN score2021 <= 0.25 THEN 'TIMIDO'
+			WHEN score2021 <= 1.5 THEN 'AMADOR'
+			WHEN score2021 <= 10.0 THEN 'CASUAL'
+			WHEN score2021 <= 25 THEN 'ATIVO'
+			ELSE 'ENGAJADO'
+		END AS perfil_ano
+	FROM (
+		SELECT 
+		fk_usuario,
+		MAX(IF(data_definitiva = '2019', nivel, 0)) AS '2019', 
+		MAX(IF(data_definitiva = '2020', nivel, 0)) AS '2020',
+		MAX(IF(data_definitiva = '2021', nivel, 0)) AS '2021',
+		MAX(IF(data_definitiva = '2019', score, 0)) AS score2019, 
+		MAX(IF(data_definitiva = '2020', score, 0)) AS score2020,
+		MAX(IF(data_definitiva = '2021', score, 0)) AS score2021
+		FROM (
+		SELECT 
+			data_definitiva, fk_usuario, nivel, score
+		FROM 
+			volunt3r.view_voluntariados
+		) sub
+		GROUP BY fk_usuario
+		ORDER BY fk_usuario
+	) sub2
+) sub3;
+
+CREATE OR REPLACE VIEW view_aluvial_passado AS
+SELECT 
+	ROW_NUMBER() OVER(ORDER BY `2019`) AS id_fake,
+    `2019` as ano2019, 
+    `2020` as ano2020,
+    COUNT(*) as contador
+FROM 
+	volunt3r.view_historico_voluntario
+GROUP BY 
+	ano2019, 
+    ano2020
+;
+
+CREATE OR REPLACE VIEW view_aluvial_atual AS
+SELECT 
+	ROW_NUMBER() OVER(ORDER BY `2020`) AS id_fake,
+    `2020` as ano2020, 
+    `2021` as ano2021,
+    COUNT(*) as contador
+FROM 
+	volunt3r.view_historico_voluntario
+GROUP BY 
+	ano2020, 
+    ano2021
+;
+
+CREATE OR REPLACE VIEW view_aluvial_atual AS
+SELECT 
+	id_publicacao,
+    titulo,
+    tipo,
+    imagem,
+    categoria.nivel
+FROM 
+	publicacao,
+    evento,
+    categoria
+WHERE 
+	id_evento = publicacao.fk_evento
+AND 
+	id_categoria = evento.fk_categoria
+;
+
+CREATE OR REPLACE VIEW view_quantidade_voluntario_categoria AS
+	SELECT
+		`2021` AS categoria,
+        COUNT(*) AS quantidade_voluntarios
+	FROM 
+		volunt3r.view_historico_voluntario
+	GROUP BY
+		categoria
+;
+
+CREATE OR REPLACE VIEW view_cache_publicacao AS
+select id_publicacao, titulo, tipo, imagem, categoria.nivel, evento.data_fechamento_evento
+from publicacao,
+     evento,
+     categoria
+where id_evento = publicacao.fk_evento
+  and id_categoria = evento.fk_categoria and tipo="EVENTO";
+
+ select * from volunt3r.evento where fk_categoria = 12;
+select * from volunt3r.inscricao_evento;
+insert into volunt3r.inscricao_evento(fk_usuario, fk_evento, status_UE) values (1, 41, 'CONFIRMADO');
+
+select * from volunt3r.view_quantidade_voluntario_categoria;
+SELECT * FROM volunt3r.categoria;
+select * from view_cache_publicacao;
+-- select * from categoria;

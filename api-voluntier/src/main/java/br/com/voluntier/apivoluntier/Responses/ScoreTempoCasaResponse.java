@@ -1,27 +1,24 @@
 package br.com.voluntier.apivoluntier.Responses;
 
-import br.com.voluntier.apivoluntier.Models.Voluntario;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
+import br.com.voluntier.apivoluntier.Models.Views.Voluntario;
 
 public class ScoreTempoCasaResponse {
 
-    private Integer score;
+    private Double score;
 
     private Double tempoCasa;
 
     public ScoreTempoCasaResponse(Voluntario vol) {
         this.score = vol.getScore();
-        this.tempoCasa = vol.getTempoCasa();
+        //this.tempoCasa = vol.getTempoCasa();
     }
 
 
-    public Integer getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 

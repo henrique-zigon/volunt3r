@@ -6,6 +6,7 @@ import br.com.voluntier.apivoluntier.Models.Views.ViewAluvialPassado;
 import br.com.voluntier.apivoluntier.Repositories.AluvialAtualRepository;
 import br.com.voluntier.apivoluntier.Repositories.AluvialPassadoRepository;
 import br.com.voluntier.apivoluntier.Repositories.DashboardRepository;
+import br.com.voluntier.apivoluntier.Repositories.Views.ViewHistoricoVoluntarioRepository;
 import br.com.voluntier.apivoluntier.Repositories.VoluntarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,9 @@ public class DashboardController {
 
     @Autowired
     AluvialPassadoRepository aluvialPassadoRepository;
+
+    @Autowired
+    ViewHistoricoVoluntarioRepository historicoVoluntarioRepository;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -74,69 +78,69 @@ public class DashboardController {
 
 
         for (ViewAluvialPassado dePara : nodesPassado){
-            if (dePara.getFrom().equals("N0")){
+            if (dePara.getFrom().equals("0")){
                 dePara.setFrom(nodes.get(0).getId());
             }
-            else if (dePara.getFrom().equals("N1")){
+            else if (dePara.getFrom().equals("1")){
                 dePara.setFrom(nodes.get(1).getId());
             }
-            else if (dePara.getFrom().equals("N2")){
+            else if (dePara.getFrom().equals("2")){
                 dePara.setFrom(nodes.get(2).getId());
             }
-            else if (dePara.getFrom().equals("N3")){
+            else if (dePara.getFrom().equals("3")){
                 dePara.setFrom(nodes.get(3).getId());
             }
-            else if (dePara.getFrom().equals("N4")){
+            else if (dePara.getFrom().equals("4")){
                 dePara.setFrom(nodes.get(4).getId());
             }
                 //------
-            if (dePara.getTo().equals("N0")){
+            if (dePara.getTo().equals("0")){
                 dePara.setTo(nodes.get(5).getId());
             }
-            else if (dePara.getTo().equals("N1")){
+            else if (dePara.getTo().equals("1")){
                 dePara.setTo(nodes.get(6).getId());
             }
-            else if (dePara.getTo().equals("N2")){
+            else if (dePara.getTo().equals("2")){
                 dePara.setTo(nodes.get(7).getId());
             }
-            else if (dePara.getTo().equals("N3")){
+            else if (dePara.getTo().equals("3")){
                 dePara.setTo(nodes.get(8).getId());
             }
-            else if (dePara.getTo().equals("N4")){
+            else if (dePara.getTo().equals("4")){
                 dePara.setTo(nodes.get(9).getId());
             }
         }
 
         for (ViewAluvialAtual dePara : nodesAtuais){
-            if (dePara.getFrom().equals("N0")){
+            if (dePara.getFrom().equals("0")){
             dePara.setFrom(nodes.get(5).getId());
             }
-            else if (dePara.getFrom().equals("N1")){
+            else if (dePara.getFrom().equals("1")){
                 dePara.setFrom(nodes.get(6).getId());
             }
-            else if (dePara.getFrom().equals("N2")){
+            else if (dePara.getFrom().equals("2")){
                 dePara.setFrom(nodes.get(7).getId());
             }
-            else if (dePara.getFrom().equals("N3")){
+            else if (dePara.getFrom().equals("3")){
                 dePara.setFrom(nodes.get(8).getId());
             }
-            else if (dePara.getFrom().equals("N4")){
+            else if (dePara.getFrom().equals("4")){
                 dePara.setFrom(nodes.get(9).getId());
             }
             //-----
-            if (dePara.getTo().equals("N0")){
+            if (dePara.getTo().equals("0")){
                 dePara.setTo(nodes.get(10).getId());
             }
-            else if (dePara.getTo().equals("N1")){
+            else if (dePara.getTo().equals("1")){
                 dePara.setTo(nodes.get(11).getId());
             }
-            else if (dePara.getTo().equals("N2")){
+            else if (dePara.getTo().equals("2")){
                 dePara.setTo(nodes.get(12).getId());
             }
-            else if (dePara.getTo().equals("N3")){
+            else if (dePara.getTo().equals("3")){
                 dePara.setTo(nodes.get(13).getId());
             }
-            else if (dePara.getTo().equals("N4")){
+            else if (dePara.getTo().equals("4")){
                 dePara.setTo(nodes.get(14).getId());
             }
         }
@@ -154,4 +158,19 @@ public class DashboardController {
 //    public ResponseEntity getAluvialPassado(){
 //        return ResponseEntity.status(200).body(aluvialPassadoRepository.findAll());
 //    }
+
+    @GetMapping("/perfil-comparativo")
+    public ResponseEntity getDistribuicaoPerfilComparativo() {
+        return ResponseEntity.status(200).body(historicoVoluntarioRepository.countTotalPerfilComparativo());
+    }
+
+    @GetMapping("/perfil-ano")
+    public ResponseEntity getDistribuicaoPerfilAno() {
+        return ResponseEntity.status(200).body(historicoVoluntarioRepository.countTotalPerfilAno());
+    }
+
+    @GetMapping("/perfil-completo")
+    public ResponseEntity getDistribuicaoPerfilCompleto() {
+        return ResponseEntity.status(200).body(historicoVoluntarioRepository.countTotalPerfilCompleto());
+    }
 }

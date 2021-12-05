@@ -31,7 +31,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_BACKEND_01 }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PRIV_01 }}
           port: 22
           source: api-voluntier/target/api.jar.gz
           target: /tmp
@@ -42,7 +42,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_BACKEND_02 }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PRIV_01 }}
           port: 22
           source: api-voluntier/target/api.jar.gz
           target: /tmp
@@ -57,7 +57,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_BACKEND_01 }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PRIV_01 }}
           port: 22
           script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown www-data:www-data /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"
       
@@ -66,6 +66,6 @@ jobs:
         with:
           host: ${{ secrets.HOST_BACKEND_02 }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY_SUBNET_PRIV_01 }}
           port: 22
           script: "sudo systemctl stop api-voluntier && gzip -d /tmp/api.jar.gz && sudo mv /tmp/api.jar /var/www/api-voluntier && sudo chown www-data:www-data /var/www/api-voluntier/api.jar && sudo systemctl start api-voluntier"

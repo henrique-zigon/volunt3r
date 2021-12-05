@@ -1,11 +1,10 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const LineAcompanhamentoEventoTempo = () => {
+const LineAcompanhamentoEventoTempo = (props) => {
 
   const state = {
-    labels: ['FANTASMA', 'TIMIDO', 'AMADOR',
-      'CASUAL', 'ATIVO', 'ENGAJADO'],
+    labels: props.labels,
     datasets: [
       {
         fill: true,
@@ -13,7 +12,7 @@ const LineAcompanhamentoEventoTempo = () => {
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
-        data: [102, 89, 157, 248, 184, 397]
+        data: props.data
       }
     ]
   }

@@ -32,7 +32,8 @@ function EventCatalog() {
 				params: { pagina: 0, tamanho: 10 },
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			setEventos(resposta.data.content.reverse());
+			console.log(resposta);
+			setEventos(resposta.data.content);
 			setIsloaded(true);
 		}
 		getAllCards();
@@ -113,7 +114,6 @@ function EventCatalog() {
 							{
 								eventos.map((evento) => {
 
-									if (evento.publicacaoEvento) {
 										return (
 											<CardFeedEvent
 												imagePost={evento.pathImagem}
@@ -133,10 +133,6 @@ function EventCatalog() {
 												idEvent={evento.evento.id}
 											/>
 										);
-
-									} else {
-										return;
-									}
 								})
 							}
 						</div>

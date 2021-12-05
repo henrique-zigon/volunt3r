@@ -20,6 +20,10 @@ public class Categoria {
     private int limiteOuro;
     private int milhasPromocao;
 
+    private String imagemBronze;
+    private String imagemPrata;
+    private String imagemOuro;
+
     public int getLimiteBronze() {
         return limiteBronze;
     }
@@ -76,4 +80,27 @@ public class Categoria {
         this.nivel = nivel;
     }
 
+    public String getImagemBronze() {
+        return imagemBronze;
+    }
+
+    public void setImagemBronze(String imagemBronze) {
+        this.imagemBronze = imagemBronze;
+    }
+
+    public String getImagemPrata() {
+        return imagemPrata;
+    }
+
+    public void setImagemPrata(String imagemPrata) {
+        this.imagemPrata = imagemPrata;
+    }
+
+    public String getImagemOuro() {
+        return imagemOuro;
+    }
+
+    public void setImagemOuro(String imagemOuro) {
+        this.imagemOuro = imagemOuro;
+    }
 }

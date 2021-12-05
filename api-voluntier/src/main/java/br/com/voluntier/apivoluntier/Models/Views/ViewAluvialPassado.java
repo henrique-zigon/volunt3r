@@ -13,6 +13,7 @@ public class ViewAluvialPassado {
 
 
     @Id
+    private Integer idFake;
     @Column(name="ano2019")
     private String from;
     @Column(name="ano2020")
@@ -20,6 +21,13 @@ public class ViewAluvialPassado {
     @Column(name = "contador")
     private Integer weight;
 
+    public Integer getIdFake() {
+        return idFake;
+    }
+
+    public void setIdFake(Integer idFake) {
+        this.idFake = idFake;
+    }
 
     public String getFrom() {
         return from;

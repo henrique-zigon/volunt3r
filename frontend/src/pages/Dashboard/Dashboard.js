@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useCookies } from 'react-cookie';
 import {
     BiUserPlus,
@@ -6,13 +6,15 @@ import {
     BiUserMinus
 
 } from 'react-icons/bi';
-
+import api from '../../api';
 import { getURLApi } from '../../configs/getUrlApi';
 
+import ReactLoading from 'react-loading';
 import HeaderWelcomePageDashboard from '../../components/HeaderWelcomePageDashboard/HeaderWelcomePageDashboard';
 import NavBarDashboard from '../../components/NavBarDashboard/NavBarDashboard';
-import DoughnutDivisaoEngajamento from '../../components/ChartsComponents/DoughnutDivisaoEngajamento';
+import DoughnutChart from '../../components/ChartsComponents/DoughnutChart';
 import LineAcompanhamentoEventoTempo from '../../components/ChartsComponents/LineAcompanhamentoEventoTempo';
+import LineFilledChart from '../../components/ChartsComponents/LineFilledChart';
 import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/ScatterVoluntariosTempoDeCasa';
 import BarTurnover from '../../components/ChartsComponents/BarTurnover';
 import './styles/dashboard.css';
@@ -21,6 +23,37 @@ import AlluvialVoluntarios from '../../components/ChartsComponents/AlluvialVolun
 const Dashboard = () => {
 
     const [cookies, setCookie, removeCookie] = useCookies(['volunt3r', 'volunt3r_user']);
+    const [periodoAluvial, setPeriodoAluvial] = useState(0);
+    const [perfilConsulta, setPerfilConsulta] = useState("perfil-comparativo");
+    const [dataPerfil, setDataPerfil] = useState([]);
+    const [dataUsuariosNivel, setDataUsuariosNivel] = useState([]);
+
+    useEffect(() => {
+
+        api('/dash', {
+            method: "GET",
+            headers: {
+                'Authorization': cookies.volunt3r
+            }
+        }).then(resposta => {
+            setDataUsuariosNivel(resposta.data);
+			// setDataChart(resposta.data.map(a => (a.quantidadeVoluntarios)));
+			// setLabel(resposta.data.map(a => (a.categoria)));
+        })
+    }, [])
+
+    useEffect(() => {
+
+        api(`/dash/${perfilConsulta}`, {
+            method: "GET",
+            headers: {
+                'Authorization': cookies.volunt3r
+            }
+        }).then(resposta => {
+            console.log(resposta.data.map(d => d.label));
+			setDataPerfil(resposta.data);
+        })
+    }, [perfilConsulta])
 
     return (
         <div className="container-dashboard">
@@ -65,18 +98,43 @@ const Dashboard = () => {
 
                         <div className="chart">
                             <div className="box-chart-left box">
-                                <span className="title">Acompanhamento de um evento durante o tempo</span>
+                                <span className="title">Distribuição de perfil em 2021</span>
+                                <select 
+                                    className="input-field select" 
+                                    name="distribuicao_perfil" 
+                                    id="distribuicao_perfil" 
+                                    onChange={(e) => setPerfilConsulta(e.target.value)}
+                                >
+                                    <option disabled selected>Selecione o período</option>
+                                    <option selected value="perfil-comparativo">Perfil Comparativo</option>
+                                    <option value="perfil-ano">Perfil Anual</option>
+                                    <option value="perfil-completo">Perfil Completo</option>
+                                </select>
                                 <div className="chart-canvas one">
-                                    <LineAcompanhamentoEventoTempo />
-                             
+                                    {!dataPerfil.length ?
+                                        <ReactLoading type="spin" color="#06377B" className="loading-spin" />
+                                            :
+                                        <LineFilledChart 
+                                            labels = {dataPerfil.map(data => data.label)}
+                                            data = {dataPerfil.map(data => data.total)}
+                                        />
+                                    }
                                 </div>
                             </div>
 
                             <div className="box-chart-right box">
                                 <span className="title">Divisão de engajamento</span>
+                                
                                 <div className="container-canvas">
                                     <div className="chart-canvas two">
-                                        <DoughnutDivisaoEngajamento />
+                                        {!dataUsuariosNivel.length ?
+                                            <ReactLoading type="spin" color="#06377B" className="loading-spin" />
+                                            :
+                                            <DoughnutChart 
+                                                labels = {dataUsuariosNivel.map(data => data.categoria)}
+                                                data = {dataUsuariosNivel.map(data => data.quantidadeVoluntarios)}
+                                            />
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -85,15 +143,25 @@ const Dashboard = () => {
                 
                         <div className="chart one">
                             <div className="box-chart-left box">
-                            <span className="title">Perfil Voluntários</span>
+                                <span className="title">Fluxo dos níveis dos usuários</span>
+                                <select 
+                                    className="input-field select" 
+                                    name="ano_aluvial" 
+                                    id="ano_aluvial" 
+                                    onChange={(e) => setPeriodoAluvial(e.target.value)}
+                                >
+                                    <option disabled selected>Selecione o período</option>
+                                    <option selected value="0">Todos</option>
+                                    <option value="1">2019-2020</option>
+                                    <option value="2">2020-2021</option>
+                                </select>
                             <div className="container-canvas">
                                 <div className="chart-canvas one">
-                                     <AlluvialVoluntarios />
+                                     <AlluvialVoluntarios periodo={periodoAluvial}/>
                                 </div>
                                 </div>
                             </div>
                         </div>
-
                         <div className="chart one">
                             <div className="box-chart-left box">
                                 <span className="title">Voluntários por tempo de casa</span>

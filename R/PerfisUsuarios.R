@@ -9,7 +9,8 @@ base_teste %>%
   group_by(data_definitiva) %>%
   summarise(n = n())
 
--> base_teste
+base_teste %>%
+  mutate(data_definitiva = format(data_evento, format="%Y")) -> base_teste
 
 
 base_teste %>%
@@ -40,9 +41,31 @@ base_show %>%
 
 hist(base_show_v2$score)
 
+View(
+  left_join(
+    x = base_pessoas,
+    y = base_show %>%
+          select(data_definitiva, fk_usuario, nivel) %>%
+          pivot_wider(names_from = data_definitiva, values_from = nivel) %>%
+          replace(is.na(.), 0) %>%
+          mutate(perfil = ifelse(`2021` == `2020`, "ESTAGNADO", 
+                                 ifelse(`2020` < `2021`, "CRESCENTE", "DESCRESENTE"))),
+    by = c("id_usuario" = "fk_usuario")
+  )
+  
+)
+
+base_show %>%
+  pivot_wider(names_from = data_definitiva, values_from = nivel) %>%
+  replace(is.na(.), 0) %>%
+  mutate(perfil = ifelse(`2021` == `2020`, "ESTAGNADO", 
+                         ifelse(`2020` < `2021`, "CRESCENTE", "DESCRESENTE"))) -> serase
+
+names(serase)[4] <- "score_serase"
+
 left_join(base_pessoas, base_show_v2, by = c("id_usuario" = "fk_usuario")) %>%
   replace(is.na(.), 0) %>%
-  group_by(id_usuario) %>%
+  group_by(id_usuario, data_definitiva) %>%
   summarise(perfil2 = ifelse(score == 0, "FANTASMA", 
                              ifelse(score <= 0.25, "TIMIDO", 
                                     ifelse(score <= 1.5, "AMADOR", 
@@ -65,10 +88,6 @@ base_show %>%
 library(tidyverse)
 library(dplyr)
 
-base_show %>%
-  pivot_wider(names_from = data_definitiva, values_from = nivel) %>%
-  replace(is.na(.), 0) %>%
-  mutate(perfil = ifelse(`2021` == `2020`, "ESTAGNADO", 
-                         ifelse(`2020` < `2021`, "CRESCENTE", "DESCRESENTE"))) -> serase
+
 
          

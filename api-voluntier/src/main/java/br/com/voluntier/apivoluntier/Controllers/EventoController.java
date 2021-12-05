@@ -67,7 +67,7 @@ public class EventoController {
                                      @RequestHeader String Authorization) {
         String tokenLimpo=Authorization.substring(7,Authorization.length());
         Integer idUsu=tokenService.getIdUsuario(tokenLimpo);
-        Page<Publicacao> allPub = repositoryPublicacao.findByTipoIs("evento", PageRequest.of(pagina, tamanho));
+        Page<Publicacao> allPub = repositoryPublicacao.findByTipoIs("EVENTO", PageRequest.of(pagina, tamanho));
         if(allPub.isEmpty()) {
             return ResponseEntity.status(204).build();
         } else {
@@ -96,7 +96,7 @@ public class EventoController {
                                                @RequestPart String novaPublicacaoEvento)  throws IOException {
         Publicacao publicacao = jsonStringConverterToPublicacao.convert(novaPublicacaoEvento);
         publicacao.setPathImagem(null);
-        publicacao.setTipo("evento");
+        publicacao.setTipo("EVENTO");
         if(arquivo.isPresent()) {
             MultipartFile imagemEventoUpload = arquivo.get();
             String filename = imagemEventoUpload.getOriginalFilename();

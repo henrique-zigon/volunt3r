@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { BiSend, BiExit } from 'react-icons/bi';
 import { useCookies } from 'react-cookie';
 import { Link, useHistory } from 'react-router-dom';
@@ -18,6 +18,31 @@ function Feed(props) {
 
 	const [cookies, setCookie, removeCookie]= useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
+	//Paginação
+	const loadMoreRef = useRef(null);
+	const [currentPage, setCurrentPage] = useState(-1);
+
+	useEffect(() => {
+		const options = {
+			root: null,
+			rootMargin: "20px",
+			threshold: 1.0
+		};
+
+		const observer = new IntersectionObserver((entities) => {
+			const target = entities[0];
+			console.log(target)
+
+			if(target.isIntersecting) {
+				setCurrentPage(old => old + 1);
+			}
+		}, options);
+
+		if (loadMoreRef.current) {
+			observer.observe(loadMoreRef.current);
+		}
+	}, [])
+
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + cookies.volunt3r_user.imagemPerfil;
 
@@ -36,12 +61,13 @@ function Feed(props) {
 	};
 
 	useEffect(() => {
+		console.log(currentPage)
 		async function getAllPublicacoes() {
 			api.get(`/publicacoes`, {
-				params: {pagina : 0, tamanho: 10},
+				params: {pagina : currentPage, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
-			}).then(resposta => {
-				setPublicacoes(resposta.data.content.reverse());
+			}).then(resposta => {	
+				setPublicacoes([...publicacoes, ...resposta.data.content]);
 				setIsloaded(true);
 			}).catch(err => {
 				console.log("Deu erro"+err)
@@ -49,7 +75,7 @@ function Feed(props) {
 		}
 
 		getAllPublicacoes();
-	}, [])
+	}, [currentPage])
 
 	// Foto de Perfil
 	let nomeCompleto = cookies.volunt3r_user.nomeUsuario;
@@ -59,7 +85,7 @@ function Feed(props) {
 
 	return (
 		<>
-			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} cookieUser={cookies_user} token={cookies.volunt3r} />
+			<ModalNewPost className={stateModalNewPost} nameUserLogged={NomeSobrenome[0]} closeModalFunction={closeDropdown} cookieUser={cookies.volunt3r_user} token={cookies.volunt3r} />
 			<div className="feed-container">
 
 				{/* <UserImage imagem={imageUser} nome={NomeSobrenome[1]} /> */}
@@ -78,12 +104,10 @@ function Feed(props) {
 
 					</div>
 					{
-						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
-
+						<>
 						<div className="feed-cards">
 							{
 								publicacoes.map((publicacao) => {
-					
 									if (publicacao.publicacaoEvento) {
 										return (
 											<CardFeedEvent
@@ -129,10 +153,15 @@ function Feed(props) {
 									}
 								})
 							}
+							
 						</div>
+						<ReactLoading type="spin" color="#06377B" className="loading-spin" />
+						</>
 					}
 				</div>
-
+				<div >
+					<p ref={loadMoreRef}>Carregando mais publicações...</p>
+				</div>
 			</div>
 		</>
 	);
