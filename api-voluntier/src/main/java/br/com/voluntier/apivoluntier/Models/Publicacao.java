@@ -187,12 +187,12 @@ public class Publicacao {
 
     public List<String> getHashtags(){
 
-        Pattern pattern = Pattern.compile("(\\#\\W+)");
+        Pattern pattern = Pattern.compile("(\\#.*?\\s|\\#.*?$|\\#.*?\\,|\\#.*?.)");
         List<String> listaHashtag = new ArrayList<String>();
         Matcher m = pattern.matcher(descricao);
         while (m.find()) {
             if(!listaHashtag.contains(m.group())) {
-                listaHashtag.add(m.group() + " ");
+                listaHashtag.add(m.group());
             }
         }
         return listaHashtag;
