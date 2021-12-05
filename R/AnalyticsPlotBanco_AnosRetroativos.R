@@ -55,6 +55,7 @@ base_pessoas$email <- tolower(paste(
 
 #Isso significa que todos eles são ativos
 base_pessoas$status_usuario <- 1
+base_pessoas$quantidade_milhas <- 0
 
 #E aleatorizando as áreas que os voluntários fazem parte
 base_pessoas$area <- sample(rep(
@@ -71,13 +72,15 @@ base_pessoas$area <- sample(rep(
 base_pessoas$gender <- NULL
 base_pessoas$ethnicity <- NULL
 
+base_pessoas[1, "tipo_usuario"] <- "b3_social"
+
 rm(base_pessoas_imp)
 
 #Criando as categorias para criar os eventos após isso
 categorias_n1 <- data.frame(
   nome_categoria = c(
-    "Doação de Cestas Básicas",
-    "Doação de Cobertores e Agasalhos",
+    "Doacao de Cestas Basicas",
+    "Doacao de Cobertores e Agasalhos",
     "Sacolinha de fim de ano"
   ),
   nivel = 1,
@@ -89,11 +92,11 @@ categorias_n1 <- data.frame(
 
 categorias_n2 <- data.frame(
   nome_categoria = c(
-    "Doação de Sangue",
-    "Indicação de Projetos",
+    "Doacao de Sangue",
+    "Indicacao de Projetos",
     "Workshops/Lives/Palestras",
-    "Simulação de Entrevista",
-    "Multirões Mão na Massa"
+    "Simulacao de Entrevista",
+    "Multiroes Mao na Massa"
   ),
   nivel = 2,
   limite_bronze = 5,
@@ -105,7 +108,7 @@ categorias_n2 <- data.frame(
 categorias_n3 <- data.frame(
   nome_categoria = c(
     "Mentoria",
-    "Aulas de Inglês"
+    "Aulas de Ingles"
   ),
   nivel = 3,
   limite_bronze = 2,
@@ -117,8 +120,8 @@ categorias_n3 <- data.frame(
 
 categorias_n4 <- data.frame(
   nome_categoria = c(
-    "Comitês Estratégicos",
-    "Consultoria/Serviços a ONGs Parceiras"
+    "Comites Estrategicos",
+    "Consultoria/Servicos a ONGs Parceiras"
   ),
   nivel = 4,
   limite_bronze = 1,
@@ -150,13 +153,12 @@ endereco <- paste("Rua ", id_evento, " de 2021")
 set.seed(69)
 fk_categoria <- round(runif(numero_eventos_ano, 1, 12))
 set.seed(333)
-titulo <- paste("Evento ", id_evento, " de 2021")
-
 # Para definir os seguintes valores utilizarei uma tabela auxiliar de categoria
 #        (Ou seja, nesse caso, simularemos baseando-se na categoria)
 #    maximo_participantes
 #    horas
 #    milhas_participacao
+#    titulo
 
 categorias_aux <- data.frame(
   id = base_categorias$id_categoria,
@@ -216,6 +218,7 @@ eventos_aux <- data.frame(
 eventos_aux$maximo_participantes <- categorias_aux$maximo_participantes[eventos_aux$fk_categoria]
 eventos_aux$horas                <- categorias_aux$horas[eventos_aux$fk_categoria]
 eventos_aux$milhas_participacao  <- categorias_aux$milhas_participacao[eventos_aux$fk_categoria]
+eventos_aux$titulo               <- paste("Evento de", categorias_aux$nome[eventos_aux$fk_categoria])
 
 base_eventos <- data.frame(
   id_evento,
@@ -225,7 +228,7 @@ base_eventos <- data.frame(
   maximo_participantes = eventos_aux$maximo_participantes,
   horas                = eventos_aux$horas,
   fk_categoria         = eventos_aux$fk_categoria,
-  titulo,
+  titulo               = eventos_aux$titulo,
   milhas_participacao  = eventos_aux$milhas_participacao
 )
 
@@ -236,7 +239,7 @@ base_publicacao <- data.frame(
   descricao = paste("Descrição adequada do", base_eventos$titulo),
   data_postagem = base_eventos$data_evento,
   imagem = paste("evento_",base_eventos$id_evento,".jpg", sep=""),
-  fk_usuario = rep(0, nrow(base_eventos)),
+  fk_usuario = rep(1, nrow(base_eventos)),
   fk_evento = base_eventos$id_evento,
   publicacao_pai = rep(0, nrow(base_eventos)),
   tipo = rep("EVENTO", nrow(base_eventos))
@@ -490,6 +493,57 @@ base_cliques <- data.frame(
 
 rm(clicados, clicados_now, porcentagem_por_evento, pub, pubs_aux)
 
+base_eventos$data_evento <- strftime(base_eventos$data_evento,"%d/%m/%Y")
+base_eventos$data_fechamento_evento <- strftime(base_eventos$data_fechamento_evento,"%d/%m/%Y")
+base_publicacao$data_postagem <- strftime(base_publicacao$data_postagem,"%d/%m/%Y")
+
+
+#A gente decidiu colocar imagem das categorias
+base_categorias$imagem_bronze <- c(
+  "cestas_bronze.PNG",
+  "roupa_bronze.PNG",
+  "sacolinha_bronze.PNG",
+  "sangue_bronze.PNG",
+  "projetos_bronze.PNG",
+  "workshop_bronze.PNG",
+  "entrevista_bronze.PNG",
+  "multirao_bronze.PNG",
+  "mentoria_bronze.PNG",
+  "ingles_bronze.PNG",
+  "estrategico_bronze.PNG",
+  "ong_bronze.PNG"
+)
+
+base_categorias$imagem_prata <- c(
+  "cestas_prata.PNG",
+  "roupa_prata.PNG",
+  "sacolinha_prata.PNG",
+  "sangue_prata.PNG",
+  "projetos_prata.PNG",
+  "workshop_prata.PNG",
+  "entrevista_prata.PNG",
+  "multirao_prata.PNG",
+  "mentoria_prata.PNG",
+  "ingles_prata.PNG",
+  "estrategico_prata.PNG",
+  "ong_prata.PNG"
+)
+
+base_categorias$imagem_ouro <- c(
+  "cestas_ouro.PNG",
+  "roupa_ouro.PNG",
+  "sacolinha_ouro.PNG",
+  "sangue_ouro.PNG",
+  "projetos_ouro.PNG",
+  "workshop_ouro.PNG",
+  "entrevista_ouro.PNG",
+  "multirao_ouro.PNG",
+  "mentoria_ouro.PNG",
+  "ingles_ouro.PNG",
+  "estrategico_ouro.PNG",
+  "ong_ouro.PNG"
+)
+
 #Exportando os dados
 export_data <- c(
   paste("00UPLOAD07-10-202123:42:0001"),
@@ -516,14 +570,20 @@ export_data <- c(
   paste("01",gsub(" ", "0", format(nrow(base_categorias) + nrow(base_pessoas), width=5, justify="right")), sep="")
 )
 
-write.table(export_data, "C:/Users/Ygor/Pictures/upload_arquivo", quote = FALSE, append = FALSE, row.names = FALSE, col.names = FALSE, fileEncoding="UTF-8")
+#write.table(export_data, "C:/Users/Ygor/Pictures/upload_arquivo", quote = FALSE, append = FALSE, row.names = FALSE, col.names = FALSE, fileEncoding="UTF-8")
 
-write.table(base_categorias, "C:/Users/Ygor/Pictures/CATEGORIAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_cliques, "C:/Users/Ygor/Pictures/CLIQUES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_eventos, "C:/Users/Ygor/Pictures/EVENTOS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_gostei, "C:/Users/Ygor/Pictures/GOSTEI.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_inscricoes, "C:/Users/Ygor/Pictures/INSCRICOES.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_pessoas, "C:/Users/Ygor/Pictures/PESSOAS.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
-write.table(base_publicacao, "C:/Users/Ygor/Pictures/PUBLICACAO.csv", sep = ";", row.names = FALSE, quote=FALSE, fileEncoding="UTF-8")
+funcao <- function(base, nome) {
+  con <- file(nome, open="w", encoding="UTF-8")
+  write.table(base, nome, sep = ";", row.names = FALSE, quote=FALSE)
+  close(con)
+}
+
+funcao(base_categorias, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/CATEGORIAS.csv")
+funcao(base_cliques, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/CLIQUES.csv")
+funcao(base_eventos, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/EVENTOS.csv")
+funcao(base_gostei, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/GOSTEI.csv")
+funcao(base_inscricoes, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/INSCRICOES.csv")
+funcao(base_pessoas, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/PESSOAS.csv")
+funcao(base_publicacao, "C:/Users/Ygor/Documents/volunt3r/R/CSV_Files/PUBLICACAO.csv")
 
 rm(export_data)

@@ -1,0 +1,160 @@
+id_evento;data_evento;data_fechamento_evento;endereco;maximo_participantes;horas;fk_categoria;titulo;milhas_participacao
+1;21/10/2021;20/11/2021;Rua  1  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+2;01/02/2021;03/03/2021;Rua  2  de 2021;5;20;9;Evento de Mentoria;30
+3;05/05/2021;04/06/2021;Rua  3  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+4;10/06/2021;10/07/2021;Rua  4  de 2021;4;5;11;Evento de Comites Estrategicos;25
+5;30/07/2021;29/08/2021;Rua  5  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+6;21/04/2021;21/05/2021;Rua  6  de 2021;4;5;11;Evento de Comites Estrategicos;25
+7;12/04/2021;12/05/2021;Rua  7  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+8;12/11/2021;12/12/2021;Rua  8  de 2021;8;10;10;Evento de Aulas de Ingles;25
+9;05/01/2021;04/02/2021;Rua  9  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+10;27/04/2021;27/05/2021;Rua  10  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+11;31/05/2021;30/06/2021;Rua  11  de 2021;4;5;11;Evento de Comites Estrategicos;25
+12;03/04/2021;03/05/2021;Rua  12  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+13;23/09/2021;23/10/2021;Rua  13  de 2021;4;5;11;Evento de Comites Estrategicos;25
+14;12/03/2021;11/04/2021;Rua  14  de 2021;0;8;4;Evento de Doacao de Sangue;15
+15;20/09/2021;20/10/2021;Rua  15  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+16;30/04/2021;30/05/2021;Rua  16  de 2021;0;8;4;Evento de Doacao de Sangue;15
+17;14/02/2021;16/03/2021;Rua  17  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+18;26/04/2021;26/05/2021;Rua  18  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+19;02/01/2021;01/02/2021;Rua  19  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+20;11/01/2021;10/02/2021;Rua  20  de 2021;8;10;10;Evento de Aulas de Ingles;25
+21;05/11/2021;05/12/2021;Rua  21  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+22;17/05/2021;16/06/2021;Rua  22  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+23;07/09/2021;07/10/2021;Rua  23  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+24;04/08/2021;03/09/2021;Rua  24  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+25;02/04/2021;02/05/2021;Rua  25  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+26;08/09/2021;08/10/2021;Rua  26  de 2021;0;8;4;Evento de Doacao de Sangue;15
+27;20/01/2021;19/02/2021;Rua  27  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+28;17/02/2021;19/03/2021;Rua  28  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+29;19/10/2021;18/11/2021;Rua  29  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+30;19/07/2021;18/08/2021;Rua  30  de 2021;0;8;4;Evento de Doacao de Sangue;15
+31;19/05/2021;18/06/2021;Rua  31  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+32;07/02/2021;09/03/2021;Rua  32  de 2021;4;5;11;Evento de Comites Estrategicos;25
+33;26/09/2021;26/10/2021;Rua  33  de 2021;0;8;4;Evento de Doacao de Sangue;15
+34;11/07/2021;10/08/2021;Rua  34  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+35;01/03/2021;31/03/2021;Rua  35  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+36;02/07/2021;01/08/2021;Rua  36  de 2021;5;20;9;Evento de Mentoria;30
+37;14/06/2021;14/07/2021;Rua  37  de 2021;5;20;9;Evento de Mentoria;30
+38;16/04/2021;16/05/2021;Rua  38  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+39;08/06/2021;08/07/2021;Rua  39  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+40;13/07/2021;12/08/2021;Rua  40  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+41;20/02/2021;22/03/2021;Rua  41  de 2021;4;20;12;Evento de Consultoria/Servicos a ONGs Parceiras;30
+42;20/08/2021;19/09/2021;Rua  42  de 2021;0;8;4;Evento de Doacao de Sangue;15
+43;17/11/2021;17/12/2021;Rua  43  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+44;24/08/2021;23/09/2021;Rua  44  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+45;28/05/2021;27/06/2021;Rua  45  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+46;02/11/2021;02/12/2021;Rua  46  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+47;04/04/2021;04/05/2021;Rua  47  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+48;10/07/2021;09/08/2021;Rua  48  de 2021;0;8;4;Evento de Doacao de Sangue;15
+49;13/09/2021;13/10/2021;Rua  49  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+50;08/05/2021;07/06/2021;Rua  50  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+51;29/08/2021;28/09/2021;Rua  51  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+52;24/11/2021;24/12/2021;Rua  52  de 2021;8;10;10;Evento de Aulas de Ingles;25
+53;03/11/2021;03/12/2021;Rua  53  de 2021;5;20;9;Evento de Mentoria;30
+54;10/04/2020;10/05/2020;Rua  54  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+55;19/04/2020;19/05/2020;Rua  55  de 2021;4;5;11;Evento de Comites Estrategicos;25
+56;10/06/2020;10/07/2020;Rua  56  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+57;06/09/2020;06/10/2020;Rua  57  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+58;13/01/2020;12/02/2020;Rua  58  de 2021;0;8;4;Evento de Doacao de Sangue;15
+59;29/11/2020;29/12/2020;Rua  59  de 2021;5;20;9;Evento de Mentoria;30
+60;25/07/2020;24/08/2020;Rua  60  de 2021;5;20;9;Evento de Mentoria;30
+61;05/03/2020;04/04/2020;Rua  61  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+62;06/11/2020;06/12/2020;Rua  62  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+63;10/02/2020;11/03/2020;Rua  63  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+64;22/01/2020;21/02/2020;Rua  64  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+65;17/04/2020;17/05/2020;Rua  65  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+66;14/10/2020;13/11/2020;Rua  66  de 2021;4;5;11;Evento de Comites Estrategicos;25
+67;10/09/2020;10/10/2020;Rua  67  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+68;15/06/2020;15/07/2020;Rua  68  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+69;19/10/2020;18/11/2020;Rua  69  de 2021;4;5;11;Evento de Comites Estrategicos;25
+70;24/08/2020;23/09/2020;Rua  70  de 2021;5;20;9;Evento de Mentoria;30
+71;25/06/2020;25/07/2020;Rua  71  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+72;05/11/2020;05/12/2020;Rua  72  de 2021;5;20;9;Evento de Mentoria;30
+73;11/09/2020;11/10/2020;Rua  73  de 2021;4;5;11;Evento de Comites Estrategicos;25
+74;16/09/2020;16/10/2020;Rua  74  de 2021;8;10;10;Evento de Aulas de Ingles;25
+75;19/05/2020;18/06/2020;Rua  75  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+76;27/11/2020;27/12/2020;Rua  76  de 2021;4;20;12;Evento de Consultoria/Servicos a ONGs Parceiras;30
+77;26/08/2020;25/09/2020;Rua  77  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+78;16/07/2020;15/08/2020;Rua  78  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+79;14/03/2020;13/04/2020;Rua  79  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+80;06/07/2020;05/08/2020;Rua  80  de 2021;5;20;9;Evento de Mentoria;30
+81;15/05/2020;14/06/2020;Rua  81  de 2021;5;20;9;Evento de Mentoria;30
+82;16/05/2020;15/06/2020;Rua  82  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+83;29/07/2020;28/08/2020;Rua  83  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+84;11/01/2020;10/02/2020;Rua  84  de 2021;5;20;9;Evento de Mentoria;30
+85;07/04/2020;07/05/2020;Rua  85  de 2021;4;20;12;Evento de Consultoria/Servicos a ONGs Parceiras;30
+86;30/09/2020;30/10/2020;Rua  86  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+87;13/02/2020;14/03/2020;Rua  87  de 2021;5;20;9;Evento de Mentoria;30
+88;01/08/2020;31/08/2020;Rua  88  de 2021;8;10;10;Evento de Aulas de Ingles;25
+89;28/06/2020;28/07/2020;Rua  89  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+90;04/07/2020;03/08/2020;Rua  90  de 2021;5;20;9;Evento de Mentoria;30
+91;12/01/2020;11/02/2020;Rua  91  de 2021;5;20;9;Evento de Mentoria;30
+92;02/03/2020;01/04/2020;Rua  92  de 2021;5;20;9;Evento de Mentoria;30
+93;07/03/2020;06/04/2020;Rua  93  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+94;16/06/2020;16/07/2020;Rua  94  de 2021;0;8;4;Evento de Doacao de Sangue;15
+95;09/03/2020;08/04/2020;Rua  95  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+96;04/04/2020;04/05/2020;Rua  96  de 2021;0;8;4;Evento de Doacao de Sangue;15
+97;10/05/2020;09/06/2020;Rua  97  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+98;04/08/2020;03/09/2020;Rua  98  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+99;31/05/2020;30/06/2020;Rua  99  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+100;09/01/2020;08/02/2020;Rua  100  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+101;18/02/2020;19/03/2020;Rua  101  de 2021;8;10;10;Evento de Aulas de Ingles;25
+102;03/06/2020;03/07/2020;Rua  102  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+103;21/07/2020;20/08/2020;Rua  103  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+104;28/08/2020;27/09/2020;Rua  104  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+105;26/09/2020;26/10/2020;Rua  105  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+106;08/02/2020;09/03/2020;Rua  106  de 2021;5;20;9;Evento de Mentoria;30
+107;17/01/2019;16/02/2019;Rua  107  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+108;29/08/2019;28/09/2019;Rua  108  de 2021;4;5;11;Evento de Comites Estrategicos;25
+109;02/01/2019;01/02/2019;Rua  109  de 2021;0;0.25;1;Evento de Doacao de Cestas Basicas;5
+110;30/01/2019;01/03/2019;Rua  110  de 2021;8;10;10;Evento de Aulas de Ingles;25
+111;29/03/2019;28/04/2019;Rua  111  de 2021;0;8;4;Evento de Doacao de Sangue;15
+112;17/02/2019;19/03/2019;Rua  112  de 2021;0;8;4;Evento de Doacao de Sangue;15
+113;03/04/2019;03/05/2019;Rua  113  de 2021;0;8;4;Evento de Doacao de Sangue;15
+114;04/01/2019;03/02/2019;Rua  114  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+115;21/04/2019;21/05/2019;Rua  115  de 2021;8;10;10;Evento de Aulas de Ingles;25
+116;27/04/2019;27/05/2019;Rua  116  de 2021;4;5;11;Evento de Comites Estrategicos;25
+117;05/02/2019;07/03/2019;Rua  117  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+118;03/11/2019;03/12/2019;Rua  118  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+119;29/05/2019;28/06/2019;Rua  119  de 2021;5;20;9;Evento de Mentoria;30
+120;08/07/2019;07/08/2019;Rua  120  de 2021;4;5;11;Evento de Comites Estrategicos;25
+121;14/06/2019;14/07/2019;Rua  121  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+122;22/09/2019;22/10/2019;Rua  122  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+123;25/02/2019;27/03/2019;Rua  123  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+124;11/01/2019;10/02/2019;Rua  124  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+125;13/01/2019;12/02/2019;Rua  125  de 2021;4;5;11;Evento de Comites Estrategicos;25
+126;27/07/2019;26/08/2019;Rua  126  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+127;18/06/2019;18/07/2019;Rua  127  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+128;13/07/2019;12/08/2019;Rua  128  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+129;11/03/2019;10/04/2019;Rua  129  de 2021;5;20;9;Evento de Mentoria;30
+130;12/11/2019;12/12/2019;Rua  130  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+131;16/03/2019;15/04/2019;Rua  131  de 2021;8;10;10;Evento de Aulas de Ingles;25
+132;22/03/2019;21/04/2019;Rua  132  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+133;17/07/2019;16/08/2019;Rua  133  de 2021;20;8;8;Evento de Multiroes Mao na Massa;20
+134;16/02/2019;18/03/2019;Rua  134  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+135;11/09/2019;11/10/2019;Rua  135  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+136;16/06/2019;16/07/2019;Rua  136  de 2021;0;1;2;Evento de Doacao de Cobertores e Agasalhos;10
+137;05/09/2019;05/10/2019;Rua  137  de 2021;4;5;11;Evento de Comites Estrategicos;25
+138;06/10/2019;05/11/2019;Rua  138  de 2021;8;10;10;Evento de Aulas de Ingles;25
+139;07/05/2019;06/06/2019;Rua  139  de 2021;5;20;9;Evento de Mentoria;30
+140;04/02/2019;06/03/2019;Rua  140  de 2021;5;20;9;Evento de Mentoria;30
+141;10/02/2019;12/03/2019;Rua  141  de 2021;0;8;4;Evento de Doacao de Sangue;15
+142;21/08/2019;20/09/2019;Rua  142  de 2021;5;20;9;Evento de Mentoria;30
+143;26/07/2019;25/08/2019;Rua  143  de 2021;0;8;4;Evento de Doacao de Sangue;15
+144;24/02/2019;26/03/2019;Rua  144  de 2021;5;20;9;Evento de Mentoria;30
+145;23/09/2019;23/10/2019;Rua  145  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+146;19/08/2019;18/09/2019;Rua  146  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+147;25/01/2019;24/02/2019;Rua  147  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+148;28/07/2019;27/08/2019;Rua  148  de 2021;4;20;12;Evento de Consultoria/Servicos a ONGs Parceiras;30
+149;06/04/2019;06/05/2019;Rua  149  de 2021;0;8;4;Evento de Doacao de Sangue;15
+150;28/01/2019;27/02/2019;Rua  150  de 2021;4;5;11;Evento de Comites Estrategicos;25
+151;24/06/2019;24/07/2019;Rua  151  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+152;07/04/2019;07/05/2019;Rua  152  de 2021;7;5;7;Evento de Simulacao de Entrevista;20
+153;29/01/2019;28/02/2019;Rua  153  de 2021;10;2;6;Evento de Workshops/Lives/Palestras;15
+154;18/09/2019;18/10/2019;Rua  154  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+155;20/02/2019;22/03/2019;Rua  155  de 2021;0;0.25;3;Evento de Sacolinha de fim de ano;5
+156;02/09/2019;02/10/2019;Rua  156  de 2021;5;20;9;Evento de Mentoria;30
+157;15/03/2019;14/04/2019;Rua  157  de 2021;0;0.5;5;Evento de Indicacao de Projetos;10
+158;15/11/2019;15/12/2019;Rua  158  de 2021;0;8;4;Evento de Doacao de Sangue;15
+159;27/03/2019;26/04/2019;Rua  159  de 2021;5;20;9;Evento de Mentoria;30

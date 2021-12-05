@@ -1,0 +1,13 @@
+nome_categoria;nivel;limite_bronze;limite_prata;limite_ouro;milhas_promocao;id_categoria;imagem_bronze;imagem_prata;imagem_ouro
+Doacao de Cestas Basicas;1;7;10;15;5;1;cestas_bronze.PNG;cestas_prata.PNG;cestas_ouro.PNG
+Doacao de Cobertores e Agasalhos;1;7;10;15;5;2;roupa_bronze.PNG;roupa_prata.PNG;roupa_ouro.PNG
+Sacolinha de fim de ano;1;7;10;15;5;3;sacolinha_bronze.PNG;sacolinha_prata.PNG;sacolinha_ouro.PNG
+Doacao de Sangue;2;5;10;15;5;4;sangue_bronze.PNG;sangue_prata.PNG;sangue_ouro.PNG
+Indicacao de Projetos;2;5;10;15;5;5;projetos_bronze.PNG;projetos_prata.PNG;projetos_ouro.PNG
+Workshops/Lives/Palestras;2;5;10;15;5;6;workshop_bronze.PNG;workshop_prata.PNG;workshop_ouro.PNG
+Simulacao de Entrevista;2;5;10;15;5;7;entrevista_bronze.PNG;entrevista_prata.PNG;entrevista_ouro.PNG
+Multiroes Mao na Massa;2;5;10;15;5;8;multirao_bronze.PNG;multirao_prata.PNG;multirao_ouro.PNG
+Mentoria;3;2;3;4;5;9;mentoria_bronze.PNG;mentoria_prata.PNG;mentoria_ouro.PNG
+Aulas de Ingles;3;2;3;4;5;10;ingles_bronze.PNG;ingles_prata.PNG;ingles_ouro.PNG
+Comites Estrategicos;4;1;2;3;5;11;estrategico_bronze.PNG;estrategico_prata.PNG;estrategico_ouro.PNG
+Consultoria/Servicos a ONGs Parceiras;4;1;2;3;5;12;ong_bronze.PNG;ong_prata.PNG;ong_ouro.PNG
