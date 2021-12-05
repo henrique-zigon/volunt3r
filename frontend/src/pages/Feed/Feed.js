@@ -69,7 +69,6 @@ function Feed(props) {
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {	
 				setPublicacoes([...publicacoes, ...resposta.data.content]);
-				setIsloaded(true);
 			}).catch(err => {
 				console.log("Deu erro"+err)
 			});
@@ -116,7 +115,7 @@ function Feed(props) {
 											<CardFeedEvent
 												imagePost={publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
-												imageUserPosted={`${getURLApi()}/arquivos/imagem/${publicacao.usuario.usuarioImagemPerfil}`}
+												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 												areaUserPosted={publicacao.usuario.area}
 												titlePost={publicacao.evento.titulo}
 												addressPost={publicacao.evento.endereco}
@@ -141,7 +140,7 @@ function Feed(props) {
 												imagePost={publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												areaUserPosted={publicacao.usuario.area}
-												imageUserPosted={`${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
+												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 												descriptionPost={publicacao.descricao}
 												hashtags={publicacao.hashtags}
 												postedIn={publicacao.evento === null ? "" : publicacao.evento.titulo}
