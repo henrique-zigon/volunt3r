@@ -4,6 +4,7 @@ import { useToasts } from 'react-toast-notifications';
 import api from "../../api.js";
 import CardFeedEventRecommended from '../../components/CardFeedEventRecommended/CardFeedEventRecommended'
 import './recommended-event-style.css';
+import fotoPadrao from '../../images/foto_padrao.png';
 
 import { getURLApi } from '../../configs/getUrlApi';
 
@@ -50,16 +51,9 @@ function RecommendedEvents() {
                                 // if (eventoRecommended.publicacaoEvento) {
 									return (
                                         <CardFeedEventRecommended
-                                            
-												imagePost={eventoRecommended.pathImagem}
-												titlePost={eventoRecommended.titulo.split("Evento de")[1].substr(0, 15) + "..."}
-												
+												imagePost={eventoRecommended.pathImagem == null ? fotoPadrao : `${getURLApi()}/arquivos/imagem/` + eventoRecommended.pathImagem}
+												titlePost={eventoRecommended.titulo.split("Evento de")[1].substr(0, 20) + "..."}
 												dataEvent={'20/05/2021'}
-												// idLoggedUser={cookies_user.volunt3r_user.idUsuario}
-												// token={cookies.volunt3r}
-												// isLikedPost={eventoRecommended.curtido}
-												// isSubscribe={eventoRecommended.evento.inscrito}
-												// idEvent={eventoRecommended.evento.id}
 											/>);
                             // }
                         })
