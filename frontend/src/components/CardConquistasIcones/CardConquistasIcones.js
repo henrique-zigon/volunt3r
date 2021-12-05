@@ -42,11 +42,14 @@ const CardConquistasIcones = (props) => {
                 }>
                     {
 							ranques.map((ranque) => {
+                                if(ranque.contagem > 0){
+
 								console.log(ranque);
 									return (
                                         <Conquista
                                         show="icone" categoria={ranque.nomeCategoria} icone= {ranque.imagem == null ? medalhaPadrao :`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
                                         );
+                                    }
                                 })
                             }
                 </div>

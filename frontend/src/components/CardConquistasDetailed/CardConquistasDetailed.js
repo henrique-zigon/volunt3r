@@ -36,12 +36,16 @@ const CardConquistasDetailed = (props) => {
                 <div className="medals-detailed-scroll">
                 {
 							ranques.map((ranque) => {
+								if(ranque.contagem > 0){
+
+								
 								console.log(ranque);
 									return (
                                         <Conquista
                                         show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} categoria={ranque.nomeCategoria} icone= {ranque.imagem == null ? medalhaPadrao :`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
                                         );
-                                })
+                            }
+							})
                             }
                   </div>
             </div>
