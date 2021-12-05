@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { BiEdit, BiX } from 'react-icons/bi';
 import ReactLoading from 'react-loading';
@@ -14,8 +14,31 @@ const ListarEventosDashboard = () => {
 	const [cookies] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
 	const [isLoaded, setIsloaded] = useState(false);
-
 	const history = useHistory();
+	//Paginação
+	const loadMoreRef = useRef(null);
+	const [currentPage, setCurrentPage] = useState(-1);
+
+	useEffect(() => {
+		const options = {
+			root: null,
+			rootMargin: "20px",
+			threshold: 1.0
+		};
+
+		const observer = new IntersectionObserver((entities) => {
+			const target = entities[0];
+			console.log(target)
+
+			if(target.isIntersecting) {
+				setCurrentPage(old => old + 1);
+			}
+		}, options);
+
+		if (loadMoreRef.current) {
+			observer.observe(loadMoreRef.current);
+		}
+	}, [])
 
 	useEffect(() => {
 		api("/eventos", {
@@ -24,10 +47,10 @@ const ListarEventosDashboard = () => {
 				'Authorization': cookies.volunt3r
 			}
 		}).then(resposta => {
-			setEventos(resposta.data.content)
+			setEventos([...eventos, ...resposta.data.content]);
 			setIsloaded(true);
 		});
-	}, [])
+	}, [currentPage])
 
 
 	function generateQrCode(idEvento, nomeEvento) {
@@ -107,9 +130,12 @@ const ListarEventosDashboard = () => {
 										}
 									</tbody>
 								</table>
+								<ReactLoading type="spin" color="#06377B" className="loading-spin" />
 							</div>
 					}
-
+<div >
+					<p ref={loadMoreRef}>Carregando mais publicações...</p>
+				</div>
 				</div>
 			</main>
 		</div>

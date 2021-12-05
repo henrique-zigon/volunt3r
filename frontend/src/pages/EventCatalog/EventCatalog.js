@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 import { useToasts } from 'react-toast-notifications';
 import InputForm from '../../components/InputForm/InputForm';
@@ -23,19 +23,43 @@ function EventCatalog() {
 
 	const [isLoaded, setIsloaded] = useState(false);
 
+	//Paginação
+	const loadMoreRef = useRef(null);
+	const [currentPage, setCurrentPage] = useState(-1);
+
+	useEffect(() => {
+		const options = {
+			root: null,
+			rootMargin: "20px",
+			threshold: 1.0
+		};
+
+		const observer = new IntersectionObserver((entities) => {
+			const target = entities[0];
+			console.log(target)
+
+			if(target.isIntersecting) {
+				setCurrentPage(old => old + 1);
+			}
+		}, options);
+
+		if (loadMoreRef.current) {
+			observer.observe(loadMoreRef.current);
+		}
+	}, [])
+
 	useEffect(() => {
 
 		async function getAllCards() {
 			const resposta = await api.get("/eventos", {
-				params: { pagina: 0, tamanho: 10 },
+				params: { pagina: currentPage, tamanho: 10 },
 				headers: { 'Authorization': cookies.volunt3r }
 			});
-			console.log(resposta);
-			setEventos(resposta.data.content);
+			setEventos([...eventos, ...resposta.data.content]);
 			setIsloaded(true);
 		}
 		getAllCards();
-	}, [])
+	}, [currentPage])
 
 
 	function filtrarEventos(e) {
@@ -53,8 +77,7 @@ function EventCatalog() {
 			}).then(resposta => {
 
 				if (resposta.status == 200) {
-					setEventos(resposta.data.content.reverse());
-					console.log(resposta)
+					setEventos(resposta.data.content);
 				}
 				// else if (resposta == 204){
 				// setEventos= "Não encontramos eventos com esse filtro 😥"
@@ -98,7 +121,7 @@ function EventCatalog() {
 					</div>
 
 					{
-						!isLoaded ? <ReactLoading type="spin" color="#06377B" className="loading-spin" /> :
+						<>
 					
 						<div className="feed-cards">
 
@@ -113,7 +136,7 @@ function EventCatalog() {
 											<CardFeedEvent
 												imagePost={evento.pathImagem}
 												nameUserPosted={evento.usuario.nomeUsuario}
-												imageUserPosted={`${getURLApi()}/arquivos/imagem/` + evento.usuario.usuarioImagemPerfil}
+												imageUserPosted={evento.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + evento.usuario.usuarioImagemPerfil}
 												areaUserPosted={evento.usuario.area}
 												titlePost={evento.evento.titulo}
 												addressPost={evento.evento.endereco}
@@ -131,8 +154,12 @@ function EventCatalog() {
 								})
 							}
 						</div>
+						<ReactLoading type="spin" color="#06377B" className="loading-spin" />
+						</>
 					}	
-
+					<div >
+					<p ref={loadMoreRef}>Carregando mais publicações...</p>
+				</div>
 				</div>
 			</div>
 		</>
