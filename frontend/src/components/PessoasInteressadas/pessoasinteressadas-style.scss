@@ -12,10 +12,15 @@ div.user-interested .seeMore {
 }
 
 div.user-interested{
-    width: 140px;
+    max-width: 140px;
     display: flex;
 	  justify-content: left;
     cursor: pointer;
+}
+
+div.user-interested-container{
+  max-width: 140px;
+  overflow: hidden;
 }
 
 .hide{

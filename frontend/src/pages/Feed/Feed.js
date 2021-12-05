@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
+import RecommendedEvents from '../../components/RecommendedEvents/recommendedEvents'
 
 import ReactLoading from 'react-loading';
 
@@ -103,6 +104,8 @@ function Feed(props) {
 						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
 
 					</div>
+					<RecommendedEvents />
+
 					{
 						<>
 						<div className="feed-cards">

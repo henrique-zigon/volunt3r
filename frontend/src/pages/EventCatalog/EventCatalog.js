@@ -6,7 +6,6 @@ import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import CardFeedEvent from '../../components/CardFeedEvent/CardFeedEvent';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
-import RecommendedEvents from '../../components/RecommendedEvents/recommendedEvents'
 
 import ReactLoading from 'react-loading';
 import { getURLApi } from '../../configs/getUrlApi';
@@ -88,7 +87,7 @@ function EventCatalog() {
 						<span className="description">Que tal abraçar uma causa? 😉</span>
 					</div>
 				
-					<RecommendedEvents />
+					
 
 
 					<div className="search-itens">

@@ -1,5 +1,5 @@
 div.feed-card-recommended {
-	width: 250px;
+	width: 1000px;
 	height: 100px;
 	background: #06377B;
     color: #fff;
@@ -7,16 +7,18 @@ div.feed-card-recommended {
 	display: flex;
 	padding: 8px;
 	/* gap: 25px; */
-	margin-top: 20px;
+
+	margin-left: 20px;
 }
 
 div.feed-card:first-child {
 	margin: 0;
+	margin-left: 0px;
 }
 
 
 div.feed-card-recommended img.image-post-recommended {
-	width: 93px;
+	width: 200px;
 	height: 88px;
 	object-fit: cover;
 	border-radius: 10px;

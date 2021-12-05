@@ -10,7 +10,7 @@ const Conquista = (props) => {
         <div className="medal-info-container">
             <span className="tooltip-categoria">{props.categoria}</span>
             <div className={ props.show === "icone"? "medal-only-icon":"medal-icon"}>
-                <img src={medalhaPadrao}></img>
+                <img src={props.icone == null ? medalhaPadrao : props.icone}></img>
             </div>
             {
                 (() => {
