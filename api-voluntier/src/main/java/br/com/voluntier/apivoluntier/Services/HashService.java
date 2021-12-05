@@ -27,12 +27,12 @@ public class HashService {
     @PostConstruct
     public void ConstrutorHashService(){
         hashTable = new HashTable(4);
-
         List<ViewCachePublicacao> listaPub=cacheRepository.findAll();
-
-        for (ViewCachePublicacao pub : listaPub){
-            hashTable.insere(pub);
-        }
+        listaPub.stream().forEach((pub)-> hashTable.insere(pub));
+//
+//        for (ViewCachePublicacao pub : listaPub){
+//            hashTable.insere(pub);
+//        }
     }
 
     public HashTable getHashTable(){
