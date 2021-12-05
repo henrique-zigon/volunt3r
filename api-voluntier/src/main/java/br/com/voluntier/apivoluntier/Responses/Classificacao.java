@@ -21,6 +21,9 @@ public class Classificacao {
     private int milhasPromocao;
     private int contagem;
     private String ranque;
+    private String imagemBronze;
+    private String imagemPrata;
+    private String imagemOuro;
 
     public Integer getIdCategoria() {
         return idCategoria;
@@ -94,6 +97,18 @@ public class Classificacao {
         this.ranque = ranque;
     }
 
+    public void setImagemBronze(String imagemBronze) {
+        this.imagemBronze = imagemBronze;
+    }
+
+    public void setImagemPrata(String imagemPrata) {
+        this.imagemPrata = imagemPrata;
+    }
+
+    public void setImagemOuro(String imagemOuro) {
+        this.imagemOuro = imagemOuro;
+    }
+
     public String getProximoNivel(){
         if (contagem<limiteBronze){
             return "BRONZE";
@@ -116,6 +131,17 @@ public class Classificacao {
         }
         else if (contagem<limiteOuro){
             return limiteOuro;
+        }
+        return null;
+    }
+
+    public String getImagem() {
+        if(getRanque().equals("BRONZE")) {
+            return imagemBronze;
+        }else if(getRanque().equals("PRATA")) {
+            return imagemPrata;
+        }else if(getRanque().equals("OURO")) {
+            return imagemOuro;
         }
         return null;
     }
