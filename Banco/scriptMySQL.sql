@@ -274,18 +274,19 @@ CREATE OR REPLACE VIEW view_quantidade_voluntario_categoria AS
 		categoria
 ;
 
-create view view_cache_publicacao as
-select id_publicacao, titulo, tipo, imagem, categoria.nivel
+CREATE OR REPLACE VIEW view_cache_publicacao AS
+select id_publicacao, titulo, tipo, imagem, categoria.nivel, evento.data_fechamento_evento
 from publicacao,
      evento,
      categoria
 where id_evento = publicacao.fk_evento
-  and id_categoria = evento.fk_categoria;
+  and id_categoria = evento.fk_categoria and tipo="EVENTO";
 
  select * from volunt3r.evento where fk_categoria = 12;
 select * from volunt3r.inscricao_evento;
-#insert into volunt3r.inscricao_evento(fk_usuario, fk_evento, status_UE) values (3, 41, 'CONFIRMADO');
+insert into volunt3r.inscricao_evento(fk_usuario, fk_evento, status_UE) values (1, 41, 'CONFIRMADO');
 
 select * from volunt3r.view_quantidade_voluntario_categoria;
 SELECT * FROM volunt3r.categoria;
+select * from view_cache_publicacao;
 -- select * from categoria;

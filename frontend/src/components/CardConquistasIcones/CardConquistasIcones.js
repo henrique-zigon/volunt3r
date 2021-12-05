@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
 import api from '../../api';
 import './card-conquista-icones-style.css';
 import Conquista from '../../components/Conquista/Conquista';
+import { getURLApi } from '../../configs/getUrlApi';
 
 const CardConquistasIcones = (props) => {
     let location = useLocation().pathname;
@@ -43,7 +44,7 @@ const CardConquistasIcones = (props) => {
 								console.log(ranque);
 									return (
                                         <Conquista
-                                        show="icone" categoria={ranque.nomeCategoria}/>
+                                        show="icone" categoria={ranque.nomeCategoria} icone= {`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
                                         );
                                 })
                             }

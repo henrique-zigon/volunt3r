@@ -15,7 +15,7 @@ div.user-medals-info{
 div.user-medals-slots{
 	display: flex;
   	flex-flow: row wrap;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	align-items: center;
 	width: 100%;
 	position: relative;
@@ -24,7 +24,6 @@ div.user-medals-slots{
 div.slots-preview{
 	max-height: 150px;
 	overflow: hidden;
-	z-index: 0;
 }
 
 div.user-medals span.linkagem{

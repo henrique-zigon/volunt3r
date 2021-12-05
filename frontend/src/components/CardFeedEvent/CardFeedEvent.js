@@ -221,7 +221,7 @@ const CardFeedEvent = (props) => {
           </button>
           <span><b>{countCommentsCardFeedEvent}</b> postagens relacionadas</span>
         </div>
-        <PessoasInteressadas inscritos={props.inscritos} />
+        <PessoasInteressadas idEvento={props.idPost} />
       </div>
     </div>
   );

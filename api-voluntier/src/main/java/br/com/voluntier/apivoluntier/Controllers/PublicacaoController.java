@@ -4,9 +4,11 @@ import br.com.voluntier.apivoluntier.Models.Evento;
 import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
+import br.com.voluntier.apivoluntier.Models.Views.ViewHistoricoVoluntario;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
+import br.com.voluntier.apivoluntier.Repositories.Views.ViewHistoricoVoluntarioRepository;
 import br.com.voluntier.apivoluntier.Responses.ComentarioResponse;
 import br.com.voluntier.apivoluntier.Security.TokenService;
 import br.com.voluntier.apivoluntier.Services.HashComponent;
@@ -63,6 +65,9 @@ public class PublicacaoController {
 
     @Autowired
     JSONStringConverterToPublicacao jsonStringConverterToPublicacao;
+
+    @Autowired
+    ViewHistoricoVoluntarioRepository viewHistoricoVoluntarioRepository;
 
     @GetMapping()
     public ResponseEntity getFeed(@RequestParam(defaultValue = "0") Integer pagina,
@@ -262,10 +267,15 @@ public class PublicacaoController {
 
         HashTable hash = hashService.getHashTable();
 
-        Optional<Usuario> usuario= usuarioRepository.findById(idUsu);
-        //Adicionar nivel
-        List<ViewCachePublicacao> lista=hash.getLista(1);
-        return ResponseEntity.status(200).body(lista);
+        Optional<ViewHistoricoVoluntario> usuarioHistorico= viewHistoricoVoluntarioRepository.findById(idUsu);
+        try {
+            Integer nivel= usuarioHistorico.get().getAno2021();
+            List<ViewCachePublicacao> lista=hash.getLista(nivel);
+            return ResponseEntity.status(200).body(lista);
+        }catch (Exception e){
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+
     }
     
 
