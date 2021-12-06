@@ -114,7 +114,7 @@ function Feed(props) {
 									if (publicacao.publicacaoEvento) {
 										return (
 											<CardFeedEvent
-												imagePost={publicacao.pathImagem == null ? fotoPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.pathImagem}
+												imagePost={publicacao.pathImagem == null ? fotoPadrao : publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 												areaUserPosted={publicacao.usuario.area}
