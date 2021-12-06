@@ -53,14 +53,14 @@ const NewNavBar = (props) => {
                     </Link>
                 </li>
 
-                <li>
+                {/* <li>
                     <Link to="/shop" className={
                         location === "/shop" ? "current": "" 
                     }>
                         <BiShoppingBag size={20} />
                         <span>Loja</span>
                     </Link>
-                </li>
+                </li> */}
                 {
                  tipoUsuario === "b3_social" ?
 
