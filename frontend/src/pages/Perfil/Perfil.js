@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import ReactLoading from 'react-loading';
 
@@ -23,14 +23,38 @@ function Perfil(props) {
 
 	const imageUser = cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil;
 	const [isLoaded, setIsloaded] = useState(false);
+	//Paginação
+	const loadMoreRef = useRef(null);
+	const [currentPage, setCurrentPage] = useState(-1);
+
+	useEffect(() => {
+		const options = {
+			root: null,
+			rootMargin: "20px",
+			threshold: 1.0
+		};
+
+		const observer = new IntersectionObserver((entities) => {
+			const target = entities[0];
+			console.log(target)
+
+			if(target.isIntersecting) {
+				setCurrentPage(old => old + 1);
+			}
+		}, options);
+
+		if (loadMoreRef.current) {
+			observer.observe(loadMoreRef.current);
+		}
+	}, [])
 
 	useEffect(() => {
 		async function getAllPublicacoes() {
 			api.get(`/publicacoes/usuario/${cookies.volunt3r_user.idUsuario}`, {
-				params: { pagina: 0, tamanho: 10 },
+				params: { pagina: currentPage, tamanho: 10 },
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {
-				setPublicacoes(resposta.data.content.reverse());
+				setPublicacoes([...publicacoes, ...resposta.data.content]);
 				setIsloaded(true);
 			}).catch(err => {
 				console.log("Deu erro" + err)
@@ -38,13 +62,16 @@ function Perfil(props) {
 		}
 
 		getAllPublicacoes();
-	}, [])
+	}, [currentPage])
 
 
 	// Foto de Perfil
 	var nomeCompleto = cookies.volunt3r_user.nomeUsuario;
-	var regexNomeSobrenome = /(\w+\s\w+)/
-	var NomeSobrenome = nomeCompleto.match(regexNomeSobrenome);
+	var regexPrimeiroNome = /(^\w+)/
+	var primeiroNome = nomeCompleto.match(regexPrimeiroNome);
+	var regexUltimoNome = /(\w+$)/
+	var ultimoNome = nomeCompleto.match(regexUltimoNome);
+	var nomeSobrenome = primeiroNome[1] +" "+ ultimoNome[1];
 
 
 	return (
@@ -58,7 +85,7 @@ function Perfil(props) {
 
 				<div className="feed-content">
 					<div>
-						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
+						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={nomeSobrenome} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
 					</div>
 
 
@@ -115,7 +142,12 @@ function Perfil(props) {
 										}
 									})
 								}
+								<ReactLoading type="spin" color="#06377B" className="loading-spin" />
+								<div >
+									<p ref={loadMoreRef}>Carregando mais publicações...</p>
+								</div>
 							</div>
+							
 					}
 				</div>
 

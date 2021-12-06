@@ -1,13 +1,13 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
-const LineAcompanhamentoEventoTempo = (props) => {
+const BarChart = (props) => {
 
   const state = {
     labels: props.labels,
     datasets: [
       {
-        fill: true,
+        fill: props.fill,
         lineTension: 0.5,
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
@@ -27,7 +27,7 @@ const LineAcompanhamentoEventoTempo = (props) => {
 
   return (
 
-    <Line
+    <Bar
       data={state}
       options={options}
     />
@@ -36,4 +36,4 @@ const LineAcompanhamentoEventoTempo = (props) => {
 
 }
 
-export default LineAcompanhamentoEventoTempo;
+export default BarChart;

@@ -25,7 +25,7 @@ const AlluvialVoluntarios = (props) => {
                 'Authorization': cookies.volunt3r
             }
         }).then(resposta => {
-            console.log(resposta)
+            console.log("aaa"+resposta)
             setDataChart(resposta.data.data.map(dat => [dat.from, dat.to, dat.weight]));
             setDataChartAntigo(resposta.data.dataAntigo.map(dat => [dat.from, dat.to, dat.weight]));
             setIsloaded(true);

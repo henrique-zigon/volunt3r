@@ -189,17 +189,17 @@ FROM (
 	SELECT 
 		*,
 		CASE
-			WHEN `2021` = `2020` THEN 'ESTAGNADO'
-			WHEN `2021` > `2020` THEN 'CRESCENTE'
-			ELSE 'DECRESCENTE'
+			WHEN `2021` = `2020` THEN '2_ESTAGNADO'
+			WHEN `2021` > `2020` THEN '3_CRESCENTE'
+			ELSE '1_DECRESCENTE'
 		END AS perfil_comparativo,
 		CASE
-			WHEN score2021 = 0 THEN 'FANTASMA'
-			WHEN score2021 <= 0.25 THEN 'TIMIDO'
-			WHEN score2021 <= 1.5 THEN 'AMADOR'
-			WHEN score2021 <= 10.0 THEN 'CASUAL'
-			WHEN score2021 <= 25 THEN 'ATIVO'
-			ELSE 'ENGAJADO'
+			WHEN score2021 = 0 THEN '1_FANTASMA'
+			WHEN score2021 <= 0.25 THEN '2_TIMIDO'
+			WHEN score2021 <= 1.5 THEN '3_AMADOR'
+			WHEN score2021 <= 10.0 THEN '4_CASUAL'
+			WHEN score2021 <= 25 THEN '5_ATIVO'
+			ELSE '6_ENGAJADO'
 		END AS perfil_ano
 	FROM (
 		SELECT 
@@ -289,4 +289,71 @@ insert into volunt3r.inscricao_evento(fk_usuario, fk_evento, status_UE) values (
 select * from volunt3r.view_quantidade_voluntario_categoria;
 SELECT * FROM volunt3r.categoria;
 select * from view_cache_publicacao;
+
+select * from view_aluvial_atual;
+select * from view_aluvial_passado;
 -- select * from categoria;
+
+CREATE OR REPLACE VIEW view_aderencia_eventosview_aderencia_eventos AS
+SELECT 
+	fk_evento,
+    titulo,
+    data_fechamento_evento,
+    count(*) as participacoes,
+    count(*)*100/(select count(*) from volunt3r.usuario) as aderencia
+FROM (
+	SELECT 
+		*
+	FROM (
+		SELECT 
+			DATE_FORMAT(eventos.data_evento, "%Y") as data_definitiva,
+			inscricao.*,
+			eventos.*
+		FROM  
+			volunt3r.inscricao_evento inscricao
+		LEFT JOIN
+			volunt3r.evento eventos
+		ON inscricao.fk_evento = eventos.id_evento
+	) sub1
+	LEFT JOIN
+		volunt3r.usuario usuarios
+	ON sub1.fk_usuario = usuarios.id_usuario
+) sub2
+LEFT JOIN
+	volunt3r.categoria categorias
+ON sub2.fk_categoria = categorias.id_categoria
+GROUP BY
+    fk_evento,
+    titulo
+ORDER BY
+	data_fechamento_evento 
+DESC
+;
+
+CREATE OR REPLACE VIEW view_full_joins AS
+SELECT 
+	*
+FROM (
+	SELECT 
+		*
+	FROM (
+		SELECT 
+			RIGHT(eventos.data_evento, 4) as data_definitiva,
+			inscricao.*,
+			eventos.*
+		FROM  
+			volunt3r.inscricao_evento inscricao
+		LEFT JOIN
+			volunt3r.evento eventos
+		ON inscricao.fk_evento = eventos.id_evento
+	) sub1
+	LEFT JOIN
+		volunt3r.usuario usuarios
+	ON sub1.fk_usuario = usuarios.id_usuario
+) sub2
+LEFT JOIN
+	volunt3r.categoria categorias
+ON sub2.fk_categoria = categorias.id_categoria
+;
+
+select * from view_aderencia_eventos;

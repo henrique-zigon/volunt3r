@@ -21,8 +21,17 @@ const DoughnutDivisaoEngajamento = (props) => {
 
 	const options = {
 		plugins: {
+			datalabels: {
+				display: true,
+				align: 'bottom',
+				backgroundColor: '#ccc',
+				borderRadius: 3,
+				font: {
+				  size: 18,
+				}
+			},
 			legend: {
-				display: false,
+				display: true,
 			},
 		}
 	}
