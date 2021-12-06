@@ -80,7 +80,7 @@ const ListarUsuariosDashboard = () => {
 											<td>Nome</td>
 											<td>E-mail</td>
 											<td>Status</td>
-											<td>Editar</td>
+											{/* <td>Editar</td> */}
 											<td>Desativar</td>
 										</tr>
 									</thead>
@@ -95,11 +95,11 @@ const ListarUsuariosDashboard = () => {
 														<td className={user.statusUsuario == 1 ? "activateduser" : "desactiveUser"}>
 															{user.statusUsuario == 1 ? "Ativado" : "Desativado"}
 														</td>
-														<td>
+														{/* <td>
 															<button type="button">
 																<BiEdit className="icon-table edit" />
 															</button>
-														</td>
+														</td> */}
 														<td>
 															<button type="button" onClick={(e) => desativarUsuario(user.nomeUsuario, user.idUsuario)}>
 																<BiX className="icon-table close " />

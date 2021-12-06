@@ -47,7 +47,7 @@ const ListarEventosDashboard = () => {
 				'Authorization': cookies.volunt3r
 			}
 		}).then(resposta => {
-			setEventos([...eventos, ...resposta.data.content]);
+			setEventos([...eventos.reverse(), ...resposta.data.content.reverse()]);
 			setIsloaded(true);
 		});
 	}, [currentPage])
