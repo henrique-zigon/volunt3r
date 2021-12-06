@@ -170,7 +170,7 @@ public class UsuarioController {
         if(retornoRepository.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
-        String linkFrontEnd = "http//volunt3r.ddns.net/recuperar-senha-redefinir/";
+        String linkFrontEnd = "http://volunt3r.ddns.net/recuperar-senha-redefinir/";
         String token = createJWT(email);
         String linkCompleto = linkFrontEnd+token;
 
