@@ -66,7 +66,7 @@ function Feed(props) {
 		console.log(currentPage)
 		async function getAllPublicacoes() {
 			api.get(`/publicacoes`, {
-				params: {pagina : currentPage, tamanho: 10},
+				params: {pagina : currentPage == -1 ? 0 : currentPage, tamanho: 10},
 				headers: { 'Authorization': cookies.volunt3r }
 			}).then(resposta => {	
 				setPublicacoes([...publicacoes, ...resposta.data.content]);
