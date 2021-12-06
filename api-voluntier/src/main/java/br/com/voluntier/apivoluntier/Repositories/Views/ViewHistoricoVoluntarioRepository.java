@@ -24,6 +24,6 @@ public interface ViewHistoricoVoluntarioRepository extends JpaRepository<ViewHis
     @Query(value="SELECT nome_categoria as label, count(*) as total from view_full_joins where data_definitiva = '2021' group by 1", nativeQuery = true)
     List<ITotalByLabel> countCategoria();
 
-    @Query(value="SELECT area as label, count(*) as total from view_full_joins where data_definitiva = '2021' group by 1;", nativeQuery = true)
+    @Query(value="SELECT area as label, count(*) as total from view_full_joins where data_definitiva = '2021' AND (status_UE = 'CONFIRMADO' OR status_UE = 'confirmado') group by 1;", nativeQuery = true)
     List<ITotalByLabel> countArea();
 }
