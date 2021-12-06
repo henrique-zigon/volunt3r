@@ -295,8 +295,8 @@ public class PublicacaoController {
                     listaHashtag.add(m.group());
                 }
                 listaWordCloud.stream()
-                                .filter((word)->word.getHashtag().equals(m.group().trim()))
-                                .forEach((a)->a.aumentarContador());
+                                .filter((word)->word.getName().equals(m.group().trim()))
+                                .forEach((a)->a.aumentarWeight());
             }
         }
 

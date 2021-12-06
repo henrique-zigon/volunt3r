@@ -2,31 +2,31 @@ package br.com.voluntier.apivoluntier.Models;
 
 public class WordCloud {
 
-    private String hashtag;
-    private Integer contador;
+    private String name;
+    private Integer weight;
 
-    public WordCloud(String hashtag) {
-        this.hashtag = hashtag;
-        this.contador=0;
+    public WordCloud(String name) {
+        this.name = name;
+        this.weight=0;
     }
 
-    public String getHashtag() {
-        return hashtag;
+    public String getName() {
+        return name;
     }
 
-    public void setHashtag(String hashtag) {
-        this.hashtag = hashtag;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getContador() {
-        return contador;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setContador(Integer contador) {
-        this.contador = contador;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
-    public void aumentarContador(){
-        this.contador++;
+    public void aumentarWeight(){
+        this.weight++;
     }
 }
