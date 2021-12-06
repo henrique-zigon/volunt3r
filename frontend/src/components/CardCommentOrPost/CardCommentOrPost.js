@@ -223,7 +223,7 @@ const CardCommentOrPost = (props) => {
               return (
                 <div className="user-comment">
                   <div className="icon-user">
-                    <img src={`${getURLApi()}/arquivos/imagem/` + comentario.usuario.usuarioImagemPerfil} />
+                    <img src={props.imageUserPosted} />
                   </div>
                   <div className="box-user-comment">
                     <span className="name-user-comment">{comentario.usuario.nome}</span>

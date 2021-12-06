@@ -121,7 +121,7 @@ div.principal-charts {
 
 div.principal-charts div.chart {
     width: 100%;
-    height: 500px;
+    height: 630px;
     display: flex;
     gap: 1rem;
 }
