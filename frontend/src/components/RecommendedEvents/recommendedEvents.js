@@ -46,13 +46,11 @@ function RecommendedEvents() {
                     {
 							eventosRecommended.map((eventoRecommended) => {
 								console.log(eventoRecommended);
-                                
-                                console.log(eventoRecommended.dataEvent);
                                 // if (eventoRecommended.publicacaoEvento) {
 									return (
                                         <CardFeedEventRecommended
 												imagePost={eventoRecommended.pathImagem == null ? fotoPadrao : `${getURLApi()}/arquivos/imagem/` + eventoRecommended.pathImagem}
-												titlePost={eventoRecommended.titulo.split("Evento de")[1].substr(0, 20) + "..."}
+												titlePost={eventoRecommended.titulo != null ? eventoRecommended.titulo.split("Evento de")[1].substr(0, 20) + "..." : "Evento" }
 												dataEvent={'20/05/2021'}
 											/>);
                             // }
