@@ -85,7 +85,7 @@ function Perfil(props) {
 
 				<div className="feed-content">
 					{/* <div> */}
-						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={NomeSobrenome[1]} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
+						<CardPerfil icone={cookies.volunt3r_user.imagemPerfil == null ? avatarPadrao : getURLApi() + "/arquivos/imagem/" + cookies.volunt3r_user.imagemPerfil} nome={nomeSobrenome} cargo={cookies.volunt3r_user.cargo} cover={cookies.volunt3r_user.imagemCapa == null ? capaPadrao : getURLApi + "/arquivos/imagem/" + cookies.volunt3r_user.imagemCapa} bio={cookies.volunt3r_user.bio} milhas={cookies.volunt3r_user.quantidadeMilhas} />
 					{/* </div> */}
 
 

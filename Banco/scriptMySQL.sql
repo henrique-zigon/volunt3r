@@ -246,23 +246,23 @@ GROUP BY
 	ano2020, 
     ano2021
 ;
-
-CREATE OR REPLACE VIEW view_aluvial_atual AS
-SELECT 
-	id_publicacao,
-    titulo,
-    tipo,
-    imagem,
-    categoria.nivel
-FROM 
-	publicacao,
-    evento,
-    categoria
-WHERE 
-	id_evento = publicacao.fk_evento
-AND 
-	id_categoria = evento.fk_categoria
-;
+#Não sei o que rolou aqui
+-- CREATE OR REPLACE VIEW view_aluvial_atual AS
+-- SELECT 
+--	id_publicacao,
+--    titulo,
+--    tipo,
+--    imagem,
+--    categoria.nivel
+-- FROM 
+--	publicacao,
+--    evento,
+--    categoria
+-- WHERE 
+--	id_evento = publicacao.fk_evento
+-- AND 
+--	id_categoria = evento.fk_categoria
+-- ;
 
 CREATE OR REPLACE VIEW view_quantidade_voluntario_categoria AS
 	SELECT
@@ -294,7 +294,7 @@ select * from view_aluvial_atual;
 select * from view_aluvial_passado;
 -- select * from categoria;
 
-CREATE OR REPLACE VIEW view_aderencia_eventosview_aderencia_eventos AS
+CREATE OR REPLACE VIEW view_aderencia_eventos AS
 SELECT 
 	fk_evento,
     titulo,
@@ -356,4 +356,4 @@ LEFT JOIN
 ON sub2.fk_categoria = categorias.id_categoria
 ;
 
-select * from view_aderencia_eventos;
+select * from view_full_joins;
