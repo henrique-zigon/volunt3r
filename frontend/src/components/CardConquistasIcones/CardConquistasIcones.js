@@ -8,6 +8,7 @@ import api from '../../api';
 import './card-conquista-icones-style.css';
 import Conquista from '../../components/Conquista/Conquista';
 import { getURLApi } from '../../configs/getUrlApi';
+import medalhaPadrao from '../../images/disabled_medal.PNG';
 
 const CardConquistasIcones = (props) => {
     let location = useLocation().pathname;
@@ -41,11 +42,14 @@ const CardConquistasIcones = (props) => {
                 }>
                     {
 							ranques.map((ranque) => {
+                                if(ranque.contagem > 0){
+
 								console.log(ranque);
 									return (
                                         <Conquista
-                                        show="icone" categoria={ranque.nomeCategoria} icone= {`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
+                                        show="icone" categoria={ranque.nomeCategoria} icone= {ranque.imagem == null ? medalhaPadrao :`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
                                         );
+                                    }
                                 })
                             }
                 </div>

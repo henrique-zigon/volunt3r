@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './conquista-style.css';
-import medalhaPadrao from '../../images/disabled_medal.PNG';
+
 
 const URL = "http://voluntier.eastus.cloudapp.azure.com:81";
 
@@ -10,7 +10,7 @@ const Conquista = (props) => {
         <div className="medal-info-container">
             <span className="tooltip-categoria">{props.categoria}</span>
             <div className={ props.show === "icone"? "medal-only-icon":"medal-icon"}>
-                <img src={props.icone == null ? medalhaPadrao : props.icone}></img>
+                <img src={props.icone}></img>
             </div>
             {
                 (() => {

@@ -20,6 +20,7 @@ import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/Sca
 import BarTurnover from '../../components/ChartsComponents/BarTurnover';
 import './styles/dashboard.css';
 import AlluvialVoluntarios from '../../components/ChartsComponents/AlluvialVoluntarios';
+import WordCloud from '../../components/ChartsComponents/WordCloud';
 
 const Dashboard = () => {
 
@@ -306,6 +307,24 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
+
+                        
+                        <div className="chart one">
+                            <div className="box-chart-left box">
+                                <span className="title">Hashtags mais usadas</span>
+                                <div className="container-canvas">
+                                    <div className="chart-canvas one">
+                                        <figure class="highcharts-figure">
+                                        <div id="container"></div>
+                                        <WordCloud grafico={'container'}/>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+
                     </div>
                 </div>
             </main>

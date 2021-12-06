@@ -16,6 +16,7 @@ function EventCatalog() {
 	const [cookies] = useCookies(['volunt3r', 'volunt3r_user']);
 	const [cookies_user] = useCookies(['volunt3r_user']);
 	const [eventos, setEventos] = useState([]);
+	const [eventosRecommended, setEventosRecommended] = useState([]);
 	const { addToast } = useToasts();
 
 
@@ -108,6 +109,9 @@ function EventCatalog() {
 						<span className="title">Eventos</span>
 						<span className="description">Que tal abraçar uma causa? 😉</span>
 					</div>
+				
+					
+
 
 					<div className="search-itens">
 						<InputForm

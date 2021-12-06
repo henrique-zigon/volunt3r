@@ -5,6 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import NewNavBar from '../../components/NewNavBar/NewNavBar';
 import api from "../../api.js";
 import avatarPadrao from '../../images/avatar_padrao.png';
+import fotoPadrao from '../../images/foto_padrao.png';
+import RecommendedEvents from '../../components/RecommendedEvents/recommendedEvents'
 
 import ReactLoading from 'react-loading';
 
@@ -102,6 +104,8 @@ function Feed(props) {
 						<button type="button" onClick={showModalNewPost} >  Que tal compartilhar a sua experiência?</button>
 
 					</div>
+					<RecommendedEvents />
+
 					{
 						<>
 						<div className="feed-cards">
@@ -110,7 +114,7 @@ function Feed(props) {
 									if (publicacao.publicacaoEvento) {
 										return (
 											<CardFeedEvent
-												imagePost={publicacao.pathImagem}
+												imagePost={publicacao.pathImagem == null ? fotoPadrao : publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}
 												areaUserPosted={publicacao.usuario.area}
@@ -134,7 +138,7 @@ function Feed(props) {
 									} else {
 										return (
 											<CardCommentOrPost
-												imagePost={publicacao.pathImagem}
+											    imagePost={publicacao.pathImagem == null ? fotoPadrao :  publicacao.pathImagem}
 												nameUserPosted={publicacao.usuario.nomeUsuario}
 												areaUserPosted={publicacao.usuario.area}
 												imageUserPosted={publicacao.usuario.usuarioImagemPerfil == null ? avatarPadrao : `${getURLApi()}/arquivos/imagem/` + publicacao.usuario.usuarioImagemPerfil}

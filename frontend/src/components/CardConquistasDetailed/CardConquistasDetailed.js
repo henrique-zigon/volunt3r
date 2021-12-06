@@ -5,6 +5,7 @@ import api from '../../api';
 import './card-conquista-detailed-style.css';
 import Conquista from '../../components/Conquista/Conquista';
 import { getURLApi } from '../../configs/getUrlApi';
+import medalhaPadrao from '../../images/disabled_medal.PNG';
 
 
 const CardConquistasDetailed = (props) => {
@@ -35,12 +36,16 @@ const CardConquistasDetailed = (props) => {
                 <div className="medals-detailed-scroll">
                 {
 							ranques.map((ranque) => {
+								if(ranque.contagem > 0){
+
+								
 								console.log(ranque);
 									return (
                                         <Conquista
-                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} categoria={ranque.nomeCategoria} icone= {`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
+                                        show="all" progressoAtingido={ranque.contagem} progressoMaximo={ranque.qtdDoProximoNivel} categoria={ranque.nomeCategoria} icone= {ranque.imagem == null ? medalhaPadrao :`${getURLApi()}/arquivos/imagem/${ranque.imagem}`}/>
                                         );
-                                })
+                            }
+							})
                             }
                   </div>
             </div>
