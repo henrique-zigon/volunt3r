@@ -19,6 +19,7 @@ import ScatterVoluntariosTempoDeCasa from '../../components/ChartsComponents/Sca
 import BarTurnover from '../../components/ChartsComponents/BarTurnover';
 import './styles/dashboard.css';
 import AlluvialVoluntarios from '../../components/ChartsComponents/AlluvialVoluntarios';
+import WordCloud from '../../components/ChartsComponents/WordCloud';
 
 const Dashboard = () => {
 
@@ -124,8 +125,8 @@ const Dashboard = () => {
 
                             <div className="box-chart-right box">
                                 <span className="title">Divisão de engajamento</span>
-                                
-                                <div className="container-canvas">
+                                {/*Está faltando valores no banco da AWS para plotar esse jovem aqui */}
+                                {/* <div className="container-canvas">
                                     <div className="chart-canvas two">
                                         {!dataUsuariosNivel.length ?
                                             <ReactLoading type="spin" color="#06377B" className="loading-spin" />
@@ -136,7 +137,7 @@ const Dashboard = () => {
                                             />
                                         }
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -173,6 +174,22 @@ const Dashboard = () => {
                             </div>
                         </div>
 
+                        
+                        <div className="chart one">
+                            <div className="box-chart-left box">
+                                <span className="title">Hashtags mais usadas</span>
+                                <div className="container-canvas">
+                                    <div className="chart-canvas one">
+                                        <figure class="highcharts-figure">
+                                        <div id="container"></div>
+                                        <WordCloud grafico={'container'}/>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
 
                     </div>
                 </div>
