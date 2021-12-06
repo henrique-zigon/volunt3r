@@ -50,7 +50,7 @@ function RecommendedEvents() {
 									return (
                                         <CardFeedEventRecommended
 												imagePost={eventoRecommended.pathImagem == null ? fotoPadrao : `${getURLApi()}/arquivos/imagem/` + eventoRecommended.pathImagem}
-												titlePost={eventoRecommended.titulo != null ? eventoRecommended.titulo.split("Evento de")[1].substr(0, 20) + "..." : "Evento" }
+												titlePost={eventoRecommended.titulo}
 												dataEvent={'20/05/2021'}
 											/>);
                             // }
