@@ -163,17 +163,27 @@ const Dashboard = () => {
                         <div className="chart">
                             <div className="box-chart-left box">
                                 <span className="title">Distribuição de perfil em 2021</span>
-                                <select 
-                                    className="input-field select" 
-                                    name="distribuicao_perfil" 
-                                    id="distribuicao_perfil" 
-                                    onChange={(e) => setPerfilConsulta(e.target.value)}
-                                >
-                                    <option disabled>Selecione o período</option>
-                                    <option selected value="perfil-comparativo">Perfil Comparativo</option>
-                                    <option value="perfil-ano">Perfil Anual</option>
-                                    <option value="perfil-completo">Perfil Completo</option>
-                                </select>
+                           
+                                <div className="group-form">
+                                    
+                                    <div className="input-group">
+                                        <label htmlFor="senha">
+                                            <select className="input-field select" 
+                                                name="distribuicao_perfil" 
+                                                id="distribuicao_perfil" 
+                                                onChange={(e) => setPerfilConsulta(e.target.value)}
+                                            >
+                                                <option disabled>Selecione o período</option>
+                                                <option selected value="perfil-comparativo">Perfil Comparativo</option>
+                                                <option value="perfil-ano">Perfil Anual</option>
+                                                <option value="perfil-completo">Perfil Completo</option>
+                                            </select>
+                                            <div className="underline"></div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
                                 <div className="chart-canvas one">
                                     {!dataPerfil.length ?
                                         <ReactLoading type="spin" color="#06377B" className="loading-spin" />
@@ -234,24 +244,30 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            
                         </div>
 
                         <div className="chart one">
                             <div className="box-chart-left box">
                                 <span className="title">Fluxo dos níveis dos usuários</span>
-                                <select 
-                                    className="input-field select" 
-                                    name="ano_aluvial" 
-                                    id="ano_aluvial" 
-                                    onChange={(e) => setPeriodoAluvial(e.target.value)}
-                                >
-                                    <option disabled>Selecione o período</option>
-                                    <option selected value="0">Todos</option>
-                                    <option value="1">2019-2020</option>
-                                    <option value="2">2020-2021</option>
-                                </select>
+                                <div className="group-form">
+                                    
+                                    <div className="input-group">
+                                        <label htmlFor="senha">
+                                            <select 
+                                                className="input-field select" 
+                                                name="ano_aluvial" 
+                                                id="ano_aluvial" 
+                                                onChange={(e) => setPeriodoAluvial(e.target.value)}
+                                            >
+                                                <option disabled>Selecione o período</option>
+                                                <option selected value="0">Todos</option>
+                                                <option value="1">2019-2020</option>
+                                                <option value="2">2020-2021</option>
+                                            </select>
+                                            <div className="underline"></div>
+                                        </label>
+                                    </div>
+                                </div>
                             <div className="container-canvas">
                                 <div className="chart-canvas one">
                                      <AlluvialVoluntarios periodo={periodoAluvial}/>
@@ -262,7 +278,7 @@ const Dashboard = () => {
                         <div className="chart one">
                             <div className="box-chart-left box">
                                 <span className="title">Aderencia de eventos x Tempo</span>
-                                <select 
+                                {/* <select 
                                     className="input-field select" 
                                     name="evento_overtime" 
                                     id="evento_overtime" 
@@ -275,7 +291,37 @@ const Dashboard = () => {
                                                 return <option value={item}>{item}</option>
                                             })
                                     }
-                                </select>
+                                </select> */}
+
+                                <div className="group-form">
+                                    
+                                    <div className="input-group">
+                                        <label htmlFor="senha">
+                                            <select 
+                                                className="input-field select" 
+                                                name="evento_overtime" 
+                                                id="evento_overtime" 
+                                                onChange={(e) => setEventoFiltrar(e.target.value)}
+                                            >
+                                                <option disabled>Selecione o evento</option>
+                                                {
+                                                    [...new Set(dataAderenciaOvertime.map(item => item.titulo))]
+                                                        .map(item => {
+                                                            return <option value={item}>{item}</option>
+                                                        })
+                                                }
+                                            </select>
+                                            <div className="underline"></div>
+                                        </label>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
                                 <div className="container-canvas">
                                     <div className="chart-canvas one">
                                         <LineFilledChart 
