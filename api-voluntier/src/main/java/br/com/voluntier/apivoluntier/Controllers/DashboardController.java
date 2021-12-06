@@ -6,6 +6,7 @@ import br.com.voluntier.apivoluntier.Models.Views.ViewAluvialPassado;
 import br.com.voluntier.apivoluntier.Repositories.AluvialAtualRepository;
 import br.com.voluntier.apivoluntier.Repositories.AluvialPassadoRepository;
 import br.com.voluntier.apivoluntier.Repositories.DashboardRepository;
+import br.com.voluntier.apivoluntier.Repositories.Views.ViewAderenciaEventosRepository;
 import br.com.voluntier.apivoluntier.Repositories.Views.ViewHistoricoVoluntarioRepository;
 import br.com.voluntier.apivoluntier.Repositories.VoluntarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,9 @@ public class DashboardController {
 
     @Autowired
     ViewHistoricoVoluntarioRepository historicoVoluntarioRepository;
+
+    @Autowired
+    ViewAderenciaEventosRepository aderenciaEventosRepository;
 
     private HashMap<String, Object> retornoHasmap = new HashMap<>();
 
@@ -172,5 +176,20 @@ public class DashboardController {
     @GetMapping("/perfil-completo")
     public ResponseEntity getDistribuicaoPerfilCompleto() {
         return ResponseEntity.status(200).body(historicoVoluntarioRepository.countTotalPerfilCompleto());
+    }
+
+    @GetMapping("/aderencia-overtime")
+    public ResponseEntity getAderenciaOvertime() {
+        return ResponseEntity.status(200).body(aderenciaEventosRepository.findAll());
+    }
+
+    @GetMapping("/distribuicao-categoria")
+    public ResponseEntity getDistribuicaoCategoria() {
+        return ResponseEntity.status(200).body(historicoVoluntarioRepository.countCategoria());
+    }
+
+    @GetMapping("/distribuicao-area")
+    public ResponseEntity getDistribuicaoArea() {
+        return ResponseEntity.status(200).body(historicoVoluntarioRepository.countArea());
     }
 }
