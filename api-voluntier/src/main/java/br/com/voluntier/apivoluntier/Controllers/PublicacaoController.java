@@ -5,6 +5,7 @@ import br.com.voluntier.apivoluntier.Models.Publicacao;
 import br.com.voluntier.apivoluntier.Models.Usuario;
 import br.com.voluntier.apivoluntier.Models.Views.ViewCachePublicacao;
 import br.com.voluntier.apivoluntier.Models.Views.ViewHistoricoVoluntario;
+import br.com.voluntier.apivoluntier.Models.WordCloud;
 import br.com.voluntier.apivoluntier.Repositories.GosteiRepository;
 import br.com.voluntier.apivoluntier.Repositories.PublicacaoRepository;
 import br.com.voluntier.apivoluntier.Repositories.UsuarioRepository;
@@ -27,10 +28,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
 TODO Acho importante freezar que devem estar todas as funcionalidades de um feed
@@ -277,6 +277,30 @@ public class PublicacaoController {
         }
 
     }
-    
+
+    @GetMapping("/hashtagsWordCloud")
+    public ResponseEntity getHashtags(){
+        List<String> tabelHash=repository.findByDescricaoContainingHash();
+
+        Pattern pattern = Pattern.compile("(\\#.*?\\s|\\#.*?$|\\#.*?\\,|\\#.*?.)");
+        List<String> listaHashtag = new ArrayList<String>();
+
+        List<WordCloud> listaWordCloud = new ArrayList<>();
+
+        for (String desc : tabelHash){
+            Matcher m = pattern.matcher(desc);
+            while (m.find()) {
+                if(!listaHashtag.contains(m.group())) {
+                    listaWordCloud.add(new WordCloud(m.group().trim()));
+                    listaHashtag.add(m.group());
+                }
+                listaWordCloud.stream()
+                                .filter((word)->word.getHashtag().equals(m.group().trim()))
+                                .forEach((a)->a.aumentarContador());
+            }
+        }
+
+        return ResponseEntity.status(200).body(listaWordCloud);
+    }
 
 }
